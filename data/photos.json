@@ -1,0 +1,3 @@
+{
+  "_mode_emploi": "Ajouter pour chaque fiche (clé = slug de l'URL) une liste de photos sous licence libre ou achetées, avec crédit et licence obligatoires. Exemple : \"bernard-arnault\": [{\"src\": \"https://upload.wikimedia.org/...jpg\", \"credit\": \"Nom du photographe\", \"licence\": \"CC BY-SA 4.0\", \"source\": \"https://commons.wikimedia.org/wiki/File:...\", \"legende\": \"Paris, 2023\"}]"
+}

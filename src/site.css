@@ -179,3 +179,12 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .podium .billet .guil{width:110px}
 .podium .billet .bv{font-size:clamp(30px,3.4vw,44px)}
 .podium .billet .bn{font-size:24px}
+
+.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr))}
+.gal figure{margin:0;background:var(--paper);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.gal img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.gal figcaption{font-size:13px;padding:8px 10px;color:var(--mute)}
+.gal figcaption span{display:block;font-size:12px}
+.legal{max-width:780px}
+.legal h2{font-size:26px;margin-top:30px}
+.legal p,.legal li{font-size:16.5px}

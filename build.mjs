@@ -47,6 +47,7 @@ const slugify = s => s.replace(/ & family$/, '').normalize('NFD').replace(/[\u03
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fr = (n, d) => Number(n).toLocaleString('fr-FR', { minimumFractionDigits: d ?? (n % 1 ? 1 : 0), maximumFractionDigits: d ?? 1 });
 
+const PHOTOS = JSON.parse(fs.readFileSync('data/photos.json', 'utf8'));
 const curated = JSON.parse(fs.readFileSync('data/curated.json', 'utf8'));
 const DET = Object.fromEntries(fs.readFileSync('data/details-fr.psv', 'utf8').trim().split('\n').map(l => l.split('|')).map(([n, co, role, fact, o]) => [n, { co, role, fact, orig: { s: 'self', h: 'herit', m: 'mix' }[o] }]));
 const rows = fs.readFileSync('data/forbes2026-top200.psv', 'utf8').trim().split('\n').map(l => l.split('|'));
@@ -90,7 +91,7 @@ const meta = p => [p.co || SEC[p.sec], p.country, p.age ? p.age + ' ans' : (p.bo
 const card = (from, p) => `<a class="card pcard" href="${link(from, 'milliardaires/' + p.id)}">${p.rank ? `<span class="rk">N° ${p.rank}</span>` : ''}${medal(p)}<div><div class="nm">${esc(fullName(p))}</div><div class="meta">${esc(meta(p))}</div><div class="nw" style="margin-top:6px">${nwTxt(p)}</div>${p.single ? '<span class="chip s" style="margin-top:8px">Séparation annoncée</span>' : ''}</div></a>`;
 
 const header = from => `<header class="top"><div class="in"><a class="logo" href="${home(from)}">Actualites<span>.fr</span></a><nav class="nav" aria-label="Rubriques"><a href="${home(from)}">Accueil</a><a href="${link(from, 'milliardaires')}">Milliardaires</a><a href="${link(from, 'milliardaires/femmes')}">Femmes</a><a href="${link(from, 'milliardaires/france')}">France</a><a href="${link(from, 'milliardaires/moins-de-40-ans')}">Jeunes</a><a href="${home(from, 'singles')}">Billion Singles</a><a href="${home(from, 'dream')}">Billionaire Dream</a><a class="hot" href="${home(from, 'quiz')}">Le test</a></nav></div></header>`;
-const footer = from => `<footer class="band"><div class="in cols"><div><div class="logo" style="color:#f5ede3">Actualites<span>.fr</span></div><p style="margin-top:8px">Le monde des milliards, chiffres sourcés.</p></div><div><b style="color:#f5ede3">Classements</b><p><a href="${link(from, 'milliardaires')}">Les 200 plus grandes fortunes</a><br><a href="${link(from, 'milliardaires/femmes')}">Les femmes milliardaires</a><br><a href="${link(from, 'milliardaires/france')}">Les milliardaires français</a><br><a href="${link(from, 'milliardaires/moins-de-40-ans')}">Les milliardaires de moins de 40 ans</a></p></div><div><b style="color:#f5ede3">Méthode</b><p>Fortunes : ${esc(SRC_FORBES)} ; Challenges 2026 pour la France. Situation sentimentale publiée seulement si annoncée publiquement.</p></div><div><b style="color:#f5ede3">Contact</b><p>Corrections et droit de réponse : contact@actualites.fr</p></div></div></footer>`;
+const footer = from => `<footer class="band"><div class="in cols"><div><div class="logo" style="color:#f5ede3">Actualites<span>.fr</span></div><p style="margin-top:8px">Le monde des milliards, chiffres sourcés.</p></div><div><b style="color:#f5ede3">Classements</b><p><a href="${link(from, 'milliardaires')}">Les 200 plus grandes fortunes</a><br><a href="${link(from, 'milliardaires/femmes')}">Les femmes milliardaires</a><br><a href="${link(from, 'milliardaires/france')}">Les milliardaires français</a><br><a href="${link(from, 'milliardaires/moins-de-40-ans')}">Les milliardaires de moins de 40 ans</a></p></div><div><b style="color:#f5ede3">Méthode</b><p>Fortunes : ${esc(SRC_FORBES)} ; Challenges 2026 pour la France. Situation sentimentale publiée seulement si annoncée publiquement.</p></div><div><b style="color:#f5ede3">Éditeur</b><p>Édité par DeepSci Labs<br><a href="${link(from, 'mentions-legales')}">Mentions légales</a><br><a href="${link(from, 'cgu')}">Conditions d'utilisation</a><br><a href="${link(from, 'confidentialite')}">Confidentialité</a><br>Corrections : contact@actualites.fr</p></div></div></footer>`;
 const page = ({ from, title, desc, canonical, body, jsonld = [] }) => `<!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
@@ -134,7 +135,7 @@ for (const p of P) {
 <div class="hero" style="margin-top:6px"><div class="in" style="padding:10px 0 20px"><div><p class="tagline">${esc(rankTxt || 'Billion Index')}</p><h1 style="font-size:clamp(38px,5.6vw,64px)">${esc(fullName(p))}</h1>${p.role || p.co ? `<p class="lede" style="margin-top:14px">${esc([p.role, p.co].filter(Boolean).join(' · '))}</p>` : ''}<div class="row">${p.single ? '<span class="chip s">Séparation annoncée</span>' : ''}${p.orig ? `<span class="chip">${{ self: 'Fortune bâtie', herit: 'Fortune héritée', mix: 'Fortune mixte' }[p.orig]}</span>` : ''}<span class="chip">${esc(SEC[p.sec])}</span></div></div>${billet(p, true)}</div></div></div></section>
 <div class="band"><div class="in prof">
 <div class="story"><h2>Son histoire</h2>${story.map((t, j) => `<p${j ? '' : ' class="first"'}>${esc(t)}</p>`).join('')}
-${kpis.length ? `<h2 style="margin-top:30px">En perspective</h2><div class="kpis">${kpis.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div><p class="small"><a href="${home(from, 'dream')}">Et vous, que feriez-vous d'un milliard ?</a> · <a href="${home(from, 'quiz')}">De quel milliardaire êtes-vous le plus proche ?</a></p>` : ''}</div>
+${kpis.length ? `<h2 style="margin-top:30px">En perspective</h2><div class="kpis">${kpis.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div><p class="small"><a href="${home(from, 'dream')}">Et vous, que feriez-vous d'un milliard ?</a> · <a href="${home(from, 'quiz')}">De quel milliardaire êtes-vous le plus proche ?</a></p>` : ''}${(PHOTOS[p.id] || []).length ? `<h2 style="margin-top:30px">En images</h2><div class="gal">${PHOTOS[p.id].map(ph => `<figure><img src="${esc(ph.src)}" alt="${esc(p.name + (ph.legende ? ', ' + ph.legende : ''))}" loading="lazy"><figcaption>${esc(ph.legende || '')} <span>© ${esc(ph.credit)}, ${esc(ph.licence)}${ph.source ? ` · <a href="${esc(ph.source)}" rel="noopener">source</a>` : ''}</span></figcaption></figure>`).join('')}</div>` : ''}</div>
 <aside><h2>L'essentiel</h2><dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${k === 'Vie privée' ? v : esc(v)}</dd>`).join('')}</dl>
 <div class="rule-box" style="margin-top:16px"><p class="small" style="margin:0"><b>Sources.</b> ${p.rank ? 'Fortune, âge, rang, entreprises et faits : <a href="https://www.forbes.com.au/news/billionaires/the-forbes-billionaires-list-top-200/" rel="noopener">Forbes, World\'s Billionaires 2026</a> (données au 1er mars 2026), textes réécrits par la rédaction.' : esc(p.srcNote) + '.'} Une erreur ? contact@actualites.fr</p></div></aside>
 </div></div>
@@ -187,12 +188,20 @@ ${frBlock}
   }));
 }
 
+
+// ---------- pages légales ----------
+const LEGAL = JSON.parse(fs.readFileSync('data/legal.json', 'utf8'));
+for (const [dir, L] of Object.entries(LEGAL)) {
+  const body = `<section class="inkband"><div class="in band"><p class="tagline">Actualites.fr</p><h1 style="font-size:clamp(34px,5vw,54px)">${esc(L.title)}</h1><p class="lede" style="margin-top:12px">Dernière mise à jour : ${esc(L.date)}</p></div></section><div class="band"><div class="in legal">${L.html}</div></div>`;
+  write(dir, page({ from: dir, title: L.title + ' · Actualites.fr', desc: L.desc, canonical: dir + '/', body }));
+}
+
 // ---------- accueil (SPA) ----------
 const DATA = P.map(p => ({ id: p.id, name: fullName(p), g: p.g, age: p.age, born: p.born, country: p.country, co: p.co || SEC[p.sec], sec: p.sec, nw: p.nw, orig: p.orig || 'na', bio: p.bio || (p.rank ? `${p.rank}e fortune mondiale au classement Forbes 2026.` : ''), single: p.single, rank: p.rank }));
 let homeHtml = fs.readFileSync('src/home.html', 'utf8')
   .replace('/*__DATA__*/', `window.__P=${JSON.stringify(DATA).replace(/</g, '\\u003c')};window.__SEC=${JSON.stringify(SEC)};window.__INK=${JSON.stringify(INK)};window.rosette=${rosette.toString()};window.__COL=${JSON.stringify(COL)};window.__PROFILE=${JSON.stringify(PREVIEW ? 'milliardaires/{id}/index.html' : '/milliardaires/{id}/')};window.__LINK=${JSON.stringify({ all: link('', 'milliardaires'), femmes: link('', 'milliardaires/femmes'), france: link('', 'milliardaires/france'), jeunes: link('', 'milliardaires/moins-de-40-ans') })};`)
   .replaceAll('__CSS__', asset('', 'assets/site.css'));
-for (const [k, v] of Object.entries({ __L_ALL__: link('', 'milliardaires'), __L_FEMMES__: link('', 'milliardaires/femmes'), __L_FRANCE__: link('', 'milliardaires/france'), __L_JEUNES__: link('', 'milliardaires/moins-de-40-ans') })) homeHtml = homeHtml.replaceAll(k, v);
+for (const [k, v] of Object.entries({ __L_ALL__: link('', 'milliardaires'), __L_FEMMES__: link('', 'milliardaires/femmes'), __L_FRANCE__: link('', 'milliardaires/france'), __L_JEUNES__: link('', 'milliardaires/moins-de-40-ans'), __L_ML__: link('', 'mentions-legales'), __L_CGU__: link('', 'cgu'), __L_CONF__: link('', 'confidentialite') })) homeHtml = homeHtml.replaceAll(k, v);
 fs.writeFileSync(path.join(OUT, 'index.html'), homeHtml);
 fs.mkdirSync(path.join(OUT, 'pendant-que-vous-lisez'), { recursive: true });
 fs.copyFileSync('src/calculateur.html', path.join(OUT, 'pendant-que-vous-lisez/index.html'));
@@ -201,7 +210,7 @@ if (fs.existsSync('src/_headers') && !PREVIEW) fs.copyFileSync('src/_headers', p
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-24';
-  const urls = ['', 'pendant-que-vous-lisez/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', 'pendant-que-vous-lisez/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
