@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actualites.fr Milliardaires</title>
+<meta name="description" content="Actualites.fr, le monde des milliards : fortunes, héritiers, dynasties, séparations annoncées, yachts et palaces. Chiffres sourcés.">
+<meta property="og:title" content="Actualites.fr, le monde des milliards">
+<meta property="og:description" content="Le Billionaire Finder, Billion Singles, Billionaire Dream : explorez les plus grandes fortunes du monde.">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="__CSS__">
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="#accueil">Actualites<span>.fr</span></a>
+<nav class="nav" aria-label="Rubriques">
+<a href="#accueil">Accueil</a><a href="__L_ALL__">Milliardaires</a><a class="hot" href="#quiz">Le test</a><a href="#singles">Billion Singles</a><a href="#dream">Billionaire Dream</a><a href="__L_FRANCE__">France</a><a href="#rubriques">Rubriques</a>
+</nav>
+</div></header>
+
+<main>
+<!-- ACCUEIL -->
+<section id="v-accueil" data-view="accueil">
+<section class="inkband hero"><svg class="pattern" id="heroPat" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+<div class="in band" style="padding-top:clamp(36px,5vw,80px);padding-bottom:clamp(36px,5vw,80px)">
+<div>
+<p class="tagline">Le monde des milliards</p>
+<h1>Ceux qui possèdent le monde, racontés de près</h1>
+<p class="lede" style="margin-top:16px">Les 200 plus grandes fortunes, leurs entreprises, leurs héritiers, leurs séparations annoncées et leurs folies. Chaque chiffre est daté et sourcé.</p>
+<div class="row"><a class="btn gold" href="#quiz">Quel milliardaire êtes-vous ?</a><a class="btn ghost" href="__L_ALL__">Les 200 fortunes</a><a class="btn ghost" href="#dream">Dépensez un milliard</a></div>
+</div>
+<div><p class="small" id="dayk" style="margin:0 0 14px;color:#e2c27a"></p><a id="day" href="#" style="text-decoration:none;display:block"></a><p class="small" id="dayf" style="margin:14px 0 0"></p></div>
+</div></section>
+<div class="band" style="padding-bottom:0"><div class="in">
+<div class="stats">
+<div><b>3 400+</b><span>milliardaires au classement Forbes 2026, pour plus de 20 000 milliards de dollars</span></div>
+<div><b>839 Md$</b><span>la fortune d'Elon Musk, première du monde (Forbes, 1er mars 2026)</span></div>
+<div><b>35</b><span>milliardaires de moins de 30 ans, dont 12 ont bâti leur fortune</span></div>
+<div><b>153</b><span>familles milliardaires en France (Challenges, juillet 2026)</span></div>
+</div>
+</div></div>
+
+<div class="band dark"><div class="in split" style="align-items:center">
+<div><p class="tagline">Le test</p><h2>De quel milliardaire êtes-vous le plus proche ?</h2><p class="lede">Huit questions sur votre style, votre ambition et vos goûts. À la fin, une vraie fortune du classement vous ressemble, et vous pouvez partager votre billet.</p><a class="btn gold" href="#quiz">Faire le test</a></div>
+<div id="quizTeaser"></div>
+</div></div>
+<div class="band"><div class="in split">
+<div>
+<h2>Les dix plus grandes fortunes du monde</h2>
+<p class="small">Forbes, World's Billionaires 2026, fortunes au 1er mars 2026, en milliards de dollars.</p>
+<div class="bars" id="top10"></div>
+<div class="row" style="margin-top:16px"><a class="btn pri" href="__L_ALL__">Les 200 plus grandes fortunes</a><a class="btn" href="__L_FEMMES__">Les femmes</a><a class="btn" href="__L_FRANCE__">La France</a><a class="btn" href="__L_JEUNES__">Moins de 40 ans</a><a class="btn" href="#finder">Billionaire Finder</a></div>
+</div>
+<div>
+<h2>Les femmes les plus riches</h2>
+<p class="small">Forbes 2026. Seulement 14 % des plus grandes fortunes sont des femmes.</p>
+<div class="grid" id="women" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr))"></div>
+</div>
+</div></div>
+
+<div class="band dark"><div class="in">
+<div class="split" style="align-items:center">
+<div>
+<p class="tagline">Billion Singles</p>
+<h2>Ils et elles viennent d'annoncer leur séparation</h2>
+<p class="lede">Les grandes fortunes qui ont rendu publique une rupture en 2026 : qui sont-elles, d'où vient leur argent, comment le couple s'était formé.</p>
+<a class="btn pri" href="#singles">Voir Billion Singles</a>
+</div>
+<div class="grid" id="singlesTeaser"></div>
+</div>
+</div></div>
+
+<div class="band"><div class="in">
+<p class="tagline" style="color:var(--gold)">Billionaire Dream</p>
+<div class="split" style="align-items:center">
+<div>
+<h2>Vous avez un milliard d'euros. Que faites-vous ?</h2>
+<p class="lede">Superyacht, jet, villa au cap Ferrat, île privée, hypercars, Picasso. Composez votre vie de milliardaire, puis partagez le résultat.</p>
+<a class="btn pri" href="#dream">Commencer à dépenser</a>
+</div>
+<div class="items" id="dreamTeaser"></div>
+</div>
+</div></div>
+
+<div class="band" style="background:color-mix(in srgb,var(--champ) 14%,var(--bg))"><div class="in">
+<h2>À la une</h2>
+<p class="small" style="margin-bottom:18px">Gold Digger, Dynasties et Billionaire World. Chaque article renvoie à sa source.</p>
+<div class="ed" id="edHome"></div>
+</div></div>
+
+<div class="band dark"><div class="in split" style="align-items:center">
+<div>
+<p class="tagline">The Gold Digger Confidential</p>
+<h2>L'argent, l'amour et l'ambition, chaque dimanche</h2>
+<p class="lede">Les mariages, divorces, successions et ventes record de la semaine, vérifiés.</p>
+</div>
+<form id="news" class="news" novalidate>
+<div><label for="em" style="color:#f5ede3">Votre email</label><input id="em" type="email" autocomplete="email" placeholder="prenom@exemple.fr"></div>
+<button class="btn pri" type="submit">S'inscrire</button>
+<p id="msg" role="status" style="grid-column:1/-1;color:#cbb9cd"></p>
+</form>
+</div></div>
+</section>
+
+<!-- QUIZ -->
+<section id="v-quiz" data-view="quiz" hidden class="inkband" style="min-height:80svh"><svg class="pattern" id="quizPat" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+<div class="in band"><div class="quiz" id="quiz"></div></div></section>
+
+<!-- FINDER -->
+<section id="v-finder" data-view="finder" hidden><div class="band"><div class="in">
+<p class="tagline" style="color:var(--gold)">Billionaire Finder</p>
+<h2>Trouvez une fortune</h2>
+<p class="lede">Filtrez par fortune, âge, origine de l'argent ou secteur. Ajoutez vos favoris pour les retrouver.</p>
+<div class="filters">
+<div><label for="q">Nom ou entreprise</label><input id="q" type="search" placeholder="Arnault, Google, Zara…"></div>
+<div><label for="fg">Personnalité</label><select id="fg"><option value="">Tous</option><option value="f">Femmes</option><option value="h">Hommes</option></select></div>
+<div><label for="fo">Origine de la fortune</label><select id="fo"><option value="">Toutes</option><option value="self">Bâtie par lui ou elle</option><option value="herit">Héritée</option><option value="mix">Mixte</option></select></div>
+<div><label for="fs">Secteur</label><select id="fs"><option value="">Tous</option></select></div>
+<div><label for="fa">Âge maximum : <span id="fav">tous</span></label><input id="fa" type="range" min="20" max="100" step="5" value="100"></div>
+<div><label for="so">Trier par</label><select id="so"><option value="nw">Fortune décroissante</option><option value="age">Plus jeunes d'abord</option><option value="name">Nom</option></select></div>
+<div><label for="ff">Afficher</label><select id="ff"><option value="">Tout le monde</option><option value="fav">Mes favoris</option></select></div>
+</div>
+<p class="count" id="count"></p>
+<div class="grid" id="results"></div>
+<p class="small" style="margin-top:20px">Fortunes et âges : Forbes, World's Billionaires 2026, au 1er mars 2026 (Joe Tsai : Forbes temps réel, août 2026). L'origine de la fortune n'est renseignée que pour les fiches vérifiées. La situation sentimentale n'est indiquée que lorsqu'elle a été annoncée publiquement.</p>
+</div></div></section>
+
+<!-- PROFIL -->
+<section id="v-profil" data-view="profil" hidden><div class="band"><div class="in" id="profil"></div></div></section>
+
+<!-- SINGLES -->
+<section id="v-singles" data-view="singles" hidden>
+<div class="band dark"><div class="in">
+<p class="tagline">Billion Singles</p>
+<h1 style="font-size:clamp(36px,6vw,64px);max-width:16ch">Les grandes fortunes qui viennent de se séparer</h1>
+<p class="lede" style="margin-top:14px">Hommes et femmes, ils ont annoncé publiquement la fin de leur couple en 2026. Leur parcours, leur fortune, leur histoire.</p>
+<div class="grid" id="singlesList" style="margin-top:24px"></div>
+</div></div>
+<div class="band"><div class="in split">
+<div>
+<h2>Nos règles</h2>
+<div class="rule-box">
+<p><b>Uniquement ce qui a été annoncé.</b> Une personne figure ici seulement si elle ou son entourage a rendu publique une séparation ou un divorce, avec la source et la date.</p>
+<p><b>Séparé ne veut pas dire célibataire.</b> Nous n'affirmons jamais qu'une personne est libre ou cherche une relation.</p>
+<p style="margin:0"><b>Jamais de pistage.</b> Aucune adresse, aucun lieu fréquenté, aucun moyen de contact. Une correction ? contact@actualites.fr</p>
+</div>
+</div>
+<div>
+<h2>Amour et grandes fortunes</h2>
+<div class="ed" id="edSingles" style="grid-template-columns:minmax(0,1fr)"></div>
+</div>
+</div></div>
+</section>
+
+<!-- DREAM -->
+<section id="v-dream" data-view="dream" hidden><div class="band"><div class="in">
+<p class="tagline" style="color:var(--gold)">Billionaire Dream</p>
+<h2>Dépensez un milliard d'euros</h2>
+<p class="lede">Choisissez un style de vie, achetez, revendez. Prix simulés : ce sont des ordres de grandeur, pas des cotations.</p>
+<div class="row" id="scen" role="group" aria-label="Style de vie" style="margin-bottom:18px"></div>
+<div class="dream">
+<div class="items" id="shop"></div>
+<aside class="wallet" aria-live="polite">
+<div class="small" style="color:#cbb9cd">Il vous reste</div>
+<div class="left" id="left">1 000 000 000 €</div>
+<div class="meterbar"><i id="mbar" style="width:0%"></i></div>
+<p class="verdict" id="verdict">Votre vie de milliardaire commence ici.</p>
+<div class="cart" id="cart"></div>
+<div class="row"><button class="btn pri" id="dshare" type="button">Partager ma vie</button><button class="btn ghost" id="undo" type="button">Annuler</button><button class="btn ghost" id="restart" type="button">Recommencer</button></div>
+<canvas class="share" id="dcv" width="1080" height="1920" aria-label="Carte de partage"></canvas>
+<p class="small" id="dmsg" role="status" style="color:#cbb9cd"></p>
+</aside>
+</div>
+</div></div></section>
+
+<!-- FRANCE -->
+<section id="v-france" data-view="france" hidden><div class="band"><div class="in">
+<p class="tagline" style="color:var(--gold)">Billion Index</p>
+<h2>Les plus grandes fortunes de France</h2>
+<p class="lede">Classement Challenges 2026 des fortunes professionnelles, publié le 8 juillet 2026, en milliards d'euros.</p>
+<div class="bars" id="frBars"></div>
+<div class="scroll" style="margin-top:28px"><table>
+<thead><tr><th>Fortune</th><th>Groupe</th><th class="n">2025</th><th class="n">2026</th><th class="n">Écart</th></tr></thead>
+<tbody id="frTbl"></tbody></table></div>
+<div class="rule-box" style="margin-top:22px"><p style="margin:0"><b>Méthode.</b> Challenges valorise les actions et parts d'entreprises détenues par chaque famille (fortune professionnelle), pas les maisons, œuvres ou liquidités. Forbes compte autrement, en dollars et souvent par personne : les deux classements ne donnent pas les mêmes chiffres. Bernard Arnault est devenu l'unique propriétaire de Challenges fin 2025.</p></div>
+</div></div></section>
+
+<!-- RUBRIQUES -->
+<section id="v-rubriques" data-view="rubriques" hidden><div class="band"><div class="in">
+<p class="tagline" style="color:var(--gold)">Gold Digger · Dynasties · Billionaire World</p>
+<h2>Les histoires derrière les fortunes</h2>
+<p class="lede">Mariages, divorces, successions, ventes record. Chaque résumé renvoie à sa source.</p>
+<div class="ed" id="edAll"></div>
+</div></div></section>
+</main>
+
+<footer class="band"><div class="in cols">
+<div><div class="logo" style="color:#f5ede3">Actualites<span>.fr</span></div><p style="margin-top:8px">Le monde des milliards, chiffres sourcés.</p></div>
+<div><b style="color:#f5ede3">Explorer</b><p><a href="#finder">Billionaire Finder</a><br><a href="#singles">Billion Singles</a><br><a href="#dream">Billionaire Dream</a><br><a href="__L_FRANCE__">France</a></p></div>
+<div><b style="color:#f5ede3">Méthode</b><p>Fortunes : Forbes 2026, Challenges 2026. Situation sentimentale publiée seulement si annoncée publiquement. Aperçu V1, illustrations sans photos réelles.</p></div>
+<div><b style="color:#f5ede3">Contact</b><p>Corrections et droit de réponse : contact@actualites.fr</p></div>
+</div></footer>
+
+<script>/*__DATA__*/</script>
+<script>
+{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fr=(n,d=0)=>n.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const $=id=>document.getElementById(id);
+const NOW=2026;
+const SEC=window.__SEC,COL=window.__COL;
+const prof=id=>window.__PROFILE.replace('{id}',id);
+const P=window.__P;
+const byId=Object.fromEntries(P.map(p=>[p.id,p]));
+const ORIG={self:'Bâtie',herit:'Héritée',mix:'Mixte',na:''};
+const initials=n=>n.replace(/ et sa famille/,'').split(/\s+/).filter(w=>/^[A-ZÉ]/.test(w)).slice(0,2).map(w=>w[0]).join('');
+const INK=window.__INK;
+const medal=(p,size=64)=>`<div class="g" style="width:${size}px;height:${size}px">${rosette(p.id,'r'+p.id.replace(/-/g,'')+size,INK[p.sec]||'#5a1230','#b8892d',size>100?200:80)}</div>`;
+const serial=p=>p.rank?'N° '+String(p.rank).padStart(3,'0'):'HORS CLASSEMENT';
+const billet=(p,uid='bb')=>`<div class="billet"><div class="guil">${rosette(p.id,uid+p.id.replace(/-/g,''),INK[p.sec]||'#5a1230','#b8892d',220)}</div><div><div class="bt"><span>${serial(p)}</span><span>${p.rank?'FORBES 2026':'ACTUALITES.FR'}</span></div><div class="bn">${esc(p.name)}</div><div class="bm">${esc(p.co)} · ${esc(p.country)}</div><div class="bv">${nwTxt(p)}</div></div><div class="micro">ACTUALITES.FR · LE MONDE DES MILLIARDS · ${esc(p.name.toUpperCase())} · ${serial(p)} · ACTUALITES.FR</div></div>`;
+const nwTxt=p=>p.nw==null?'Fortune liée':fr(p.nw,p.nw<10&&p.nw%1?1:0)+' Md$';
+let favs=[];try{favs=JSON.parse(localStorage.getItem('af_favs')||'[]')}catch(e){}
+const saveFav=()=>{try{localStorage.setItem('af_favs',JSON.stringify(favs))}catch(e){}};
+const pcard=p=>`<a class="card pcard" href="${prof(p.id)}">${p.rank?`<span class="rk">N° ${p.rank}</span>`:''}${medal(p)}<div><div class="nm">${esc(p.name)}</div><div class="meta">${esc(p.co)} · ${esc(p.country)}${p.age?' · '+p.age+' ans':''}</div><div class="nw" style="margin-top:6px">${nwTxt(p)}</div>${p.single?'<span class="chip s" style="margin-top:8px">Séparation annoncée</span>':''}</div></a>`;
+document.addEventListener('click',e=>{const f=e.target.closest('[data-fav]');if(f){e.preventDefault();e.stopPropagation();const id=f.dataset.fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];saveFav();for(const b of document.querySelectorAll(`[data-fav="${id}"]`)){b.setAttribute('aria-pressed',favs.includes(id));b.textContent=favs.includes(id)?'♥':'♡'}if($('ff').value==='fav')renderFinder();return}const g=e.target.closest('[data-go]');if(g)location.hash=g.dataset.go});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'){const g=e.target.closest&&e.target.closest('[data-go]');if(g&&!e.target.closest('[data-fav]'))location.hash=g.dataset.go}});
+/* day */
+{const pool=P.filter(p=>p.nw&&p.orig!=='na'&&p.rank&&p.rank<=60);const d=new Date();const idx=(d.getFullYear()*372+d.getMonth()*31+d.getDate())%pool.length;const p=pool[idx];
+$('dayk').textContent='Milliardaire du jour · '+d.toLocaleDateString('fr-FR',{day:'numeric',month:'long'});$('day').href=prof(p.id);$('day').innerHTML=billet(p,'day');$('dayf').textContent=p.bio;
+$('heroPat').innerHTML='<g transform="translate(1180 350) scale(8)">'+rosette('actualites','hp','#e2c27a','#e2c27a',260).replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g>'}
+/* top10 */
+{const t=P.filter(p=>p.nw).sort((a,b)=>b.nw-a.nw).slice(0,10),m=t[0].nw;$('top10').innerHTML=t.map((p,i)=>`<a class="bar${i?'':' top1'}" href="${prof(p.id)}"><span>${i+1}. ${esc(p.name.replace(' et sa famille',''))}</span><div class="t"><div class="f" style="width:${(p.nw/m*100).toFixed(1)}%"></div></div><span class="v">${fr(p.nw)} Md$</span></a>`).join('')}
+$('women').innerHTML=P.filter(p=>p.g==='f'&&p.nw>=40).sort((a,b)=>b.nw-a.nw).map(pcard).join('');
+const singles=P.filter(p=>p.single);
+$('singlesTeaser').innerHTML=singles.map(pcard).join('');
+$('singlesList').innerHTML=singles.map(p=>`<article class="card"><div style="display:flex;gap:14px;align-items:center">${medal(p,72)}<div><h3 style="margin:0">${esc(p.name)}</h3><div class="small">${esc(p.co)}${p.age?' · '+p.age+' ans':''}</div></div></div><div class="serif" style="font-size:34px;font-weight:700;margin:14px 0 4px">${nwTxt(p)}</div><p class="small" style="margin-bottom:10px">${esc(p.bio)}</p><p style="font-size:15px"><span class="chip s">${esc(p.single.d)}</span><br>${esc(p.single.t)}</p><p class="small" style="margin:0">Source : <a href="${esc(p.single.u)}" rel="noopener">${esc(p.single.src)}</a></p><div class="row" style="margin-top:14px"><a class="btn" href="${prof(p.id)}">Fiche complète</a></div></article>`).join('');
+/* editorial */
+const ART={
+yacht:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#2b0f31"/><rect y="88" width="300" height="42" fill="#1c0a20"/><path d="M60 80 L240 80 L228 96 L74 96Z" fill="#fbf7f1"/><path d="M84 80 L96 66 L206 66 L218 80Z" fill="#e2d6e1"/><path d="M120 66 L128 56 L180 56 L186 66Z" fill="#d6c8d5"/><circle cx="250" cy="30" r="14" fill="#fbf0d6"/></svg>',
+rings:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#6a2052"/><circle cx="130" cy="68" r="30" fill="none" stroke="#e6cf9f" stroke-width="8"/><circle cx="170" cy="68" r="30" fill="none" stroke="#fbf7f1" stroke-width="8" opacity=".9"/><path d="M160 30 l10 -10 l10 10 l-10 8z" fill="#fbf7f1"/></svg>',
+split:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#3b1240"/><circle cx="118" cy="66" r="30" fill="none" stroke="#e6cf9f" stroke-width="8"/><circle cx="186" cy="66" r="30" fill="none" stroke="#ff4d5e" stroke-width="8"/></svg>',
+tree:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#e6cf9f"/><g stroke="#2b0f31" stroke-width="3" fill="none"><path d="M150 24 v26 M90 50 h120 M90 50 v22 M150 50 v22 M210 50 v22"/></g><g fill="#2b0f31"><circle cx="150" cy="22" r="11"/><circle cx="90" cy="80" r="10"/><circle cx="150" cy="80" r="10"/><circle cx="210" cy="80" r="10"/></g><g fill="#ff4d5e"><circle cx="150" cy="80" r="5"/></g></svg>',
+crown:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#1c0a20"/><path d="M100 92 L108 46 L132 70 L150 36 L168 70 L192 46 L200 92Z" fill="#e6cf9f"/><rect x="100" y="92" width="100" height="10" fill="#c9ad74"/><circle cx="150" cy="60" r="5" fill="#ff4d5e"/></svg>',
+young:'<svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid slice" width="100%" height="100%"><rect width="300" height="130" fill="#fbf7f1"/><g fill="#2b0f31"><rect x="70" y="80" width="22" height="30"/><rect x="104" y="64" width="22" height="46"/><rect x="138" y="46" width="22" height="64"/><rect x="172" y="30" width="22" height="80" fill="#ff4d5e"/><rect x="206" y="18" width="22" height="92"/></g></svg>'};
+const ED=[
+['Gold Digger','Paulson : le divorce à 4,7 milliards s\'est réglé en mai 2026','Après cinq ans de procédure, John Paulson et Jenny Paulson ont signé un accord confidentiel. Elle recevrait un hôtel particulier de 30 millions de dollars dans l\'Upper East Side.','rings','https://divorce.law/guides/news/paulson-4-7-billion-divorce-settlement-new-york-2026/','divorce.law, d\'après Bloomberg'],
+['Gold Digger','Gates : les 8 milliards du divorce enfin révélés','Cinq ans après l\'annonce de leur séparation, le détail du partage entre Bill Gates et Melinda French Gates est devenu public en 2026.','split','https://www.thewealthadvisor.com/article/microsoft-founder-bill-gates-billion-dollar-divorce-payout-ex-wife-melinda-finally-revealed','The Wealth Advisor'],
+['Billion Singles','Joe et Clara Tsai : trente ans, deux équipes, une séparation à l\'amiable','Le président d\'Alibaba et la vice-présidente des Brooklyn Nets se séparent mais gardent leurs fonctions dans le sport.','split','https://www.si.com/onsi/athlete-lifestyle/what-joe-and-clara-tsai-s-billion-dollar-divorce-means-for-the-nets-and-liberty','Sports Illustrated'],
+['Dynasties','Arnault repasse devant Hermès','Avec 121,2 milliards d\'euros, la famille Arnault reprend la tête du classement Challenges 2026. Les héritiers Hermès reculent à 114 milliards après la chute du titre.','crown','https://fashionunited.fr/actualite/people/bernard-arnault-redevient-la-1ere-fortune-professionnelle-de-france-selon-challenges/2026070842308','FashionUnited, AFP'],
+['Dynasties','Bettencourt Meyers passe la main à Jean-Victor','L\'héritière de L\'Oréal a quitté le conseil d\'administration en 2025 après 28 ans. Son fils prend la vice-présidence.','tree','https://hollywoodlife.com/feature/who-are-the-richest-women-in-the-world-female-billionaires-5584926/','HollywoodLife'],
+['Billionaire World','35 milliardaires de moins de 30 ans','Record au classement Forbes 2026 : les plus jeunes ont 20 ans. Seuls 12 ont bâti leur fortune eux-mêmes, souvent dans l\'intelligence artificielle.','young','https://www.voronoiapp.com/wealth/Youngest-Billionaires-8236','Voronoi, d\'après Forbes'],
+['Billionaire World','Chip Wilson divorce sans contrat de mariage','Le fondateur de Lululemon et son épouse se séparent après plus de vingt ans : une fortune de plusieurs milliards à partager.','yacht','https://dailyhive.com/canada/chip-wilson-divorce-prenup-billions','Daily Hive, d\'après Bloomberg']];
+const edCard=a=>`<article><div class="art">${ART[a[3]]}</div><span class="rub">${esc(a[0])}</span><h3>${esc(a[1])}</h3><p style="font-size:15.5px">${esc(a[2])}</p><p class="small" style="margin:0">Source : <a href="${esc(a[4])}" rel="noopener">${esc(a[5])}</a></p></article>`;
+$('edHome').innerHTML=ED.slice(0,3).map(edCard).join('');
+$('edAll').innerHTML=ED.map(edCard).join('');
+$('edSingles').innerHTML=ED.filter(a=>a[0]!=='Dynasties').slice(0,3).map(edCard).join('');
+/* finder */
+for(const k in SEC)if(P.some(p=>p.sec===k))$('fs').insertAdjacentHTML('beforeend',`<option value="${k}">${SEC[k]}</option>`);
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const renderFinder=()=>{const q=norm($('q').value.trim()),g=$('fg').value,o=$('fo').value,s=$('fs').value,a=+$('fa').value,so=$('so').value,ff=$('ff').value;$('fav').textContent=a>=100?'tous':a+' ans';
+let r=P.filter(p=>(!q||norm(p.name+' '+p.co+' '+p.country).includes(q))&&(!g||p.g===g)&&(!o||p.orig===o)&&(!s||p.sec===s)&&(a>=100||p.age<=a)&&(!ff||favs.includes(p.id)));
+r.sort(so==='age'?(x,y)=>x.age-y.age:so==='name'?(x,y)=>x.name.localeCompare(y.name,'fr'):(x,y)=>(y.nw||0)-(x.nw||0));
+$('count').textContent=r.length+(r.length>1?' fortunes':' fortune');
+$('results').innerHTML=r.length?r.map(pcard).join(''):`<div class="empty" style="grid-column:1/-1"><p><b>Aucune fortune ne correspond.</b></p><p class="small">${ff?'Vous n\'avez pas encore de favori : touchez le cœur d\'une fiche.':'Élargissez l\'âge ou retirez un filtre.'}</p></div>`};
+for(const id of ['q','fg','fo','fs','fa','so','ff'])$(id).addEventListener('input',renderFinder);
+renderFinder();
+/* profil */
+const renderProfil=id=>{const p=byId[id];if(!p){location.hash='finder';return}
+const rel=P.filter(x=>x.id!==p.id&&(x.sec===p.sec||x.orig===p.orig)).slice(0,4);
+$('profil').innerHTML=`<p class="small"><a href="#finder">Billionaire Finder</a> · ${esc(SEC[p.sec])}</p><div class="prof"><div><div style="max-width:300px">${medal(p,280)}</div></div><div><h1 style="font-size:clamp(36px,5.5vw,60px)">${esc(p.name)}</h1><div class="big" style="margin:14px 0 4px">${nwTxt(p)}</div><p class="small">${p.nw==null?'Comptée par Bloomberg dans la fortune de Joe Tsai.':p.id==='tsai'?'Forbes, estimation en temps réel, août 2026.':'Forbes, World\'s Billionaires 2026, au 1er mars 2026.'}${p.id==='arnault'?' En France, Challenges 2026 : 121,2 Md€ (fortune professionnelle familiale).':''}</p>
+<div><span class="chip">${ORIG[p.orig]}</span><span class="chip">${esc(SEC[p.sec])}</span>${p.single?'<span class="chip s">Séparation annoncée</span>':''}</div>
+<p style="font-size:18px;margin-top:14px">${esc(p.bio)}</p>
+<dl class="facts"><dt>Entreprise</dt><dd>${esc(p.co)}</dd><dt>Pays</dt><dd>${esc(p.country)}</dd><dt>Âge</dt><dd>${p.age?p.age+' ans':''}${p.born?(p.age?' (':'')+'né'+(p.g==='f'?'e':'')+' en '+p.born+(p.age?')':''):''}</dd><dt>Origine</dt><dd>${p.orig==='self'?'Fortune bâtie':p.orig==='herit'?'Fortune héritée':'Fortune mixte'}</dd><dt>Vie privée</dt><dd>${p.single?esc(p.single.d)+' : '+esc(p.single.t)+' <span class="small">(source : <a href="'+esc(p.single.u)+'" rel="noopener">'+esc(p.single.src)+'</a>)</span>':'Non renseignée sur Actualites.fr.'}</dd></dl>
+<div class="row"><button class="btn pri" type="button" id="pshare">Partager la fiche</button><button class="btn" type="button" data-fav="${p.id}" aria-pressed="${favs.includes(p.id)}">${favs.includes(p.id)?'♥':'♡'}</button><a class="btn" href="#finder">Retour</a></div><p class="small" id="pmsg" role="status"></p>
+<p class="small" style="margin-top:14px">Une erreur sur cette fiche ? Écrivez à contact@actualites.fr avec votre source.</p></div></div>
+<h2 style="margin-top:44px">À découvrir aussi</h2><div class="grid">${rel.map(pcard).join('')}</div>`;
+$('pshare').addEventListener('click',async()=>{const t=`${p.name} : ${nwTxt(p)}. La fiche sur Actualites.fr`;const u=location.href;try{if(navigator.share){await navigator.share({text:t,url:u});return}await navigator.clipboard.writeText(t+' '+u);$('pmsg').textContent='Lien copié.'}catch(e){$('pmsg').textContent=u}})};
+/* France */
+const FR=[['Famille Arnault','LVMH',116.7,121.2,'bernard-arnault'],['Héritiers Hermès','Hermès',163.4,114],['Alain et Gérard Wertheimer','Chanel',95,95],['Françoise Bettencourt Meyers','L\'Oréal',73.8,69.7,'francoise-bettencourt-meyers'],['Rodolphe Saadé','CMA CGM',35,31.5],['Emmanuel Besnier','Lactalis',null,14.2]];
+$('frBars').innerHTML=FR.map((r,i)=>`<${r[4]?'a href="'+prof(r[4])+'"':'div'} class="bar${i?'':' top1'}"><span>${i+1}. ${esc(r[0])}</span><div class="t"><div class="f" style="width:${(r[3]/121.2*100).toFixed(1)}%"></div></div><span class="v">${fr(r[3],1)} Md€</span></${r[4]?'a':'div'}>`).join('');
+$('frTbl').innerHTML=FR.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td class="n">${r[2]==null?'n.d.':fr(r[2],1)}</td><td class="n">${fr(r[3],1)}</td><td class="n">${r[2]==null?'n.d.':(r[3]>=r[2]?'+':'−')+fr(Math.abs(r[3]-r[2]),1)}</td></tr>`).join('');
+/* dream */
+const PIC={
+yacht:'<path d="M20 80 L180 80 L168 98 L34 98Z" fill="#fbf7f1"/><path d="M42 80 L54 64 L150 64 L162 80Z" fill="#e2d6e1"/><path d="M74 64 L82 52 L128 52 L134 64Z" fill="#d6c8d5"/><g fill="#ffd98a"><rect x="60" y="70" width="10" height="4"/><rect x="90" y="70" width="10" height="4"/><rect x="130" y="70" width="10" height="4"/></g>',
+jet:'<path d="M30 70 Q100 58 170 64 Q182 66 172 72 Q100 80 30 76Z" fill="#fbf7f1"/><path d="M90 66 L60 40 L74 40 L118 66Z" fill="#d6c8d5"/><path d="M40 70 L28 52 L38 52 L52 70Z" fill="#d6c8d5"/><g fill="#2b0f31"><circle cx="120" cy="68" r="2"/><circle cx="130" cy="68" r="2"/><circle cx="140" cy="68" r="2"/><circle cx="150" cy="68" r="2"/></g>',
+villa:'<rect x="40" y="56" width="120" height="42" fill="#fbf7f1"/><rect x="60" y="40" width="80" height="18" fill="#e2d6e1"/><g fill="#ffd98a"><rect x="52" y="66" width="16" height="12"/><rect x="80" y="66" width="16" height="12"/><rect x="108" y="66" width="16" height="12"/><rect x="136" y="66" width="16" height="12"/></g><rect x="40" y="98" width="120" height="8" fill="#5bc0eb"/>',
+island:'<ellipse cx="100" cy="96" rx="70" ry="12" fill="#e6cf9f"/><path d="M98 96 Q96 70 104 52" stroke="#8a6420" stroke-width="5" fill="none"/><path d="M104 52 q-26 -6 -36 8 M104 52 q24 -8 36 6 M104 52 q-8 -20 -26 -20 M104 52 q14 -18 30 -14" stroke="#3ccf7a" stroke-width="6" fill="none" stroke-linecap="round"/>',
+car:'<path d="M26 88 Q40 66 90 62 L130 62 Q160 64 176 80 L178 92 L24 92Z" fill="#ff4d5e"/><path d="M80 64 L96 52 L126 52 L140 64Z" fill="#2b0f31"/><circle cx="56" cy="92" r="11" fill="#1c0a20"/><circle cx="148" cy="92" r="11" fill="#1c0a20"/><circle cx="56" cy="92" r="4" fill="#e6cf9f"/><circle cx="148" cy="92" r="4" fill="#e6cf9f"/>',
+watch:'<rect x="88" y="20" width="24" height="90" rx="6" fill="#8a6420"/><circle cx="100" cy="64" r="28" fill="#e6cf9f"/><circle cx="100" cy="64" r="22" fill="#fbf7f1"/><path d="M100 64 L100 48 M100 64 L112 70" stroke="#1c0a20" stroke-width="3" stroke-linecap="round"/>',
+art:'<rect x="50" y="26" width="100" height="76" fill="#c9ad74"/><rect x="58" y="34" width="84" height="60" fill="#3b5bdb"/><circle cx="86" cy="58" r="12" fill="#ff4d5e"/><path d="M58 94 L96 66 L142 94Z" fill="#e6cf9f"/>',
+hotel:'<rect x="56" y="30" width="88" height="76" fill="#fbf7f1"/><path d="M50 30 L100 14 L150 30Z" fill="#e2d6e1"/><g fill="#ffd98a">'+[40,56,72,88].map(y=>[64,82,100,118].map(x=>`<rect x="${x}" y="${y}" width="10" height="8"/>`).join('')).join('')+'</g>',
+jewel:'<path d="M70 50 L130 50 L148 66 L100 108 L52 66Z" fill="#e6f3ff"/><path d="M70 50 L84 66 L116 66 L130 50 M52 66 L148 66 M84 66 L100 108 L116 66" stroke="#8ab4f8" stroke-width="2" fill="none"/>',
+chalet:'<path d="M40 70 L100 30 L160 70Z" fill="#fbf7f1"/><rect x="52" y="70" width="96" height="34" fill="#8a6420"/><g fill="#ffd98a"><rect x="66" y="78" width="16" height="12"/><rect x="118" y="78" width="16" height="12"/></g><path d="M0 104 L200 104" stroke="#fbf7f1" stroke-width="6"/>',
+club:'<ellipse cx="100" cy="70" rx="80" ry="32" fill="#3ccf7a"/><ellipse cx="100" cy="70" rx="80" ry="32" fill="none" stroke="#fbf7f1" stroke-width="2"/><path d="M100 38 V102" stroke="#fbf7f1" stroke-width="2"/><circle cx="100" cy="70" r="10" fill="none" stroke="#fbf7f1" stroke-width="2"/>',
+gift:'<rect x="62" y="56" width="76" height="50" fill="#ff4d5e"/><rect x="56" y="44" width="88" height="14" fill="#ff7584"/><rect x="96" y="44" width="8" height="62" fill="#e6cf9f"/><path d="M100 44 q-24 -22 -30 -4 q6 8 30 4 q24 4 30 -4 q-6 -18 -30 4" fill="#e6cf9f"/>'};
+const IT=[['yacht','Superyacht de 90 mètres',300e6,'yacht'],['jet','Jet long-courrier privé',70e6,'jet'],['villa','Villa au cap Ferrat',120e6,'villa'],['island','Île privée aux Caraïbes',25e6,'island'],['car','Hypercar en série limitée',3e6,'car'],['watch','Montre de grande complication',5e6,'watch'],['art','Toile d\'un maître moderne',100e6,'art'],['hotel','Palace à Paris',400e6,'hotel'],['jewel','Diamant de collection',20e6,'jewel'],['chalet','Chalet à Courchevel',40e6,'chalet'],['club','Club de football de Ligue 1',250e6,'club'],['gift','Don à une fondation',50e6,'gift']];
+const SCN={riviera:['Riviera',['yacht','villa','car']],jetset:['Jet-set',['jet','island','watch']],collection:['Collectionneur',['art','jewel','watch']],mecene:['Mécène',['gift','art','club']]};
+let cart={},hist=[];const BUD=1e9;
+const spent=()=>IT.reduce((s,i)=>s+(cart[i[0]]||0)*i[2],0);
+const eur=n=>fr(Math.round(n))+' €';
+const shortE=n=>n>=1e9?fr(n/1e9,n%1e9?1:0)+' Md€':fr(n/1e6)+' M€';
+const verdict=()=>{const s=spent(),k=Object.keys(cart).filter(k=>cart[k]);if(!k.length)return 'Votre vie de milliardaire commence ici.';if(cart.gift>=4)return 'Profil mécène : vous donnez plus que vous ne flambez.';if(cart.yacht&&cart.villa)return 'Profil Riviera : l\'été ne finit jamais.';if(cart.art||cart.jewel)return 'Profil collectionneur : vous achetez pour l\'éternité.';if(cart.jet&&cart.island)return 'Profil jet-set : chez vous, c\'est partout.';if(cart.club||cart.hotel)return 'Profil bâtisseur : vous achetez des empires.';if(s>.9*BUD)return 'Il vous reste de quoi vivre… très bien.';return 'Une vie de rêve en construction.'};
+const renderShop=()=>{const left=BUD-spent();$('shop').innerHTML=IT.map(i=>`<div class="item"><svg class="pic" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="120" fill="#2b0f31"/>${PIC[i[3]]}</svg><div class="b"><b>${esc(i[1])}</b><span class="pr">${shortE(i[2])}</span><div class="qty"><button type="button" data-m="${i[0]}" aria-label="Revendre" ${cart[i[0]]?'':'disabled'}>−</button><output>${cart[i[0]]||0}</output><button type="button" data-p="${i[0]}" aria-label="Acheter" ${i[2]>left?'disabled':''}>+</button></div></div></div>`).join('');
+$('left').textContent=eur(left);$('mbar').style.width=(spent()/BUD*100).toFixed(1)+'%';$('verdict').textContent=verdict();
+$('cart').innerHTML=IT.filter(i=>cart[i[0]]).map(i=>`<div><span>${cart[i[0]]} × ${esc(i[1])}</span><b>${shortE(cart[i[0]]*i[2])}</b></div>`).join('');dcard()};
+$('shop').addEventListener('click',e=>{const p=e.target.closest('[data-p]'),m=e.target.closest('[data-m]');if(p){hist.push({...cart});cart[p.dataset.p]=(cart[p.dataset.p]||0)+1;renderShop()}if(m){hist.push({...cart});cart[m.dataset.m]--;renderShop()}});
+$('undo').addEventListener('click',()=>{if(hist.length){cart=hist.pop();renderShop()}});
+$('restart').addEventListener('click',()=>{hist.push({...cart});cart={};renderShop()});
+$('scen').innerHTML=Object.entries(SCN).map(([k,v])=>`<button class="btn" type="button" data-s="${k}">${v[0]}</button>`).join('');
+$('scen').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;hist.push({...cart});cart={};for(const id of SCN[b.dataset.s][1])cart[id]=1;renderShop()});
+const cv=$('dcv'),cx=cv.getContext('2d');
+const dcard=()=>{const g=cx.createLinearGradient(0,0,0,1920);g.addColorStop(0,'#12051a');g.addColorStop(1,'#3b1240');cx.fillStyle=g;cx.fillRect(0,0,1080,1920);cx.fillStyle='#ff4d5e';cx.fillRect(0,0,1080,16);
+cx.fillStyle='#fbf7f1';cx.font='700 60px "Bodoni Moda", Georgia, serif';cx.fillText('Actualites',80,150);const w=cx.measureText('Actualites').width;cx.fillStyle='#ff4d5e';cx.fillText('.fr',80+w,150);
+cx.fillStyle='#e6cf9f';cx.font='italic 500 56px "Bodoni Moda", Georgia, serif';cx.fillText('Ma vie de milliardaire',80,300);
+let y=420;cx.font='500 46px Inter, system-ui, sans-serif';for(const i of IT.filter(i=>cart[i[0]]).slice(0,10)){cx.fillStyle='#fbf7f1';cx.fillText(`${cart[i[0]]} × ${i[1]}`,80,y);cx.fillStyle='#e6cf9f';const t=shortE(cart[i[0]]*i[2]);cx.fillText(t,1000-cx.measureText(t).width,y);y+=78}
+if(y===420){cx.fillStyle='#cbb9cd';cx.fillText('Encore rien acheté…',80,y)}
+cx.fillStyle='#cbb9cd';cx.font='500 42px Inter, system-ui, sans-serif';cx.fillText('Il me reste',80,1420);cx.fillStyle='#fbf7f1';cx.font='700 110px "Bodoni Moda", Georgia, serif';cx.fillText(eur(BUD-spent()),80,1540);
+cx.fillStyle='#e6cf9f';cx.font='italic 500 44px "Bodoni Moda", Georgia, serif';const v=verdict();let line='',yy=1650;for(const wd of v.split(' ')){const t=line?line+' '+wd:wd;if(cx.measureText(t).width>920&&line){cx.fillText(line,80,yy);line=wd;yy+=58}else line=t}cx.fillText(line,80,yy);
+cx.fillStyle='#9a8a9e';cx.font='400 30px Inter, system-ui, sans-serif';cx.fillText('Prix simulés. Et vous, que feriez-vous d\'un milliard ?',80,1860)};
+$('dshare').addEventListener('click',async()=>{dcard();const t=`Ma vie de milliardaire : ${verdict()} Il me reste ${eur(BUD-spent())}.`;const u=location.href.split('#')[0]+'#dream';try{const b=await new Promise(r=>cv.toBlob(r,'image/png'));const f=b&&new File([b],'ma-vie-de-milliardaire.png',{type:'image/png'});if(f&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:t,url:u});return}if(navigator.share){await navigator.share({text:t,url:u});return}await navigator.clipboard.writeText(t+' '+u);$('dmsg').textContent='Texte et lien copiés.'}catch(e){$('dmsg').textContent=t}});
+renderShop();
+$('dreamTeaser').innerHTML=IT.slice(0,3).map(i=>`<a class="item" href="#dream" style="text-decoration:none"><svg class="pic" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="120" fill="#2b0f31"/>${PIC[i[3]]}</svg><div class="b"><b>${esc(i[1])}</b><span class="pr">${shortE(i[2])}</span></div></a>`).join('');
+/* newsletter */
+$('news').addEventListener('submit',e=>{e.preventDefault();const v=$('em').value.trim();$('msg').textContent=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)?'Merci. Les inscriptions ouvriront au lancement : votre adresse n\'est pas encore enregistrée dans cet aperçu.':'Adresse email invalide.'});
+/* quiz */
+{
+const REG={'France':'eu','Espagne':'eu','Italie':'eu','Allemagne':'eu','Autriche':'eu','Suisse':'eu','Pays-Bas':'eu','Royaume-Uni':'eu','Irlande':'eu','Suède':'eu','Norvège':'eu','Danemark':'eu','Grèce':'eu','République tchèque':'eu','Chypre':'eu','Russie':'eu','États-Unis':'am','Canada':'am','Mexique':'am','Brésil':'am','Chili':'am','Colombie':'am','Chine':'as','Hong Kong':'as','Japon':'as','Inde':'as','Indonésie':'as','Corée du Sud':'as','Taïwan':'as','Thaïlande':'as','Viêt Nam':'as','Philippines':'as','Taïwan, Canada':'as'};
+const reg=p=>REG[p.country]||'ot';
+const Q=[
+['Votre terrain de jeu ?',[['Tech et IA','Logiciels, puces, réseaux',{sec:['tech','telecom']}],['Luxe et mode','Maisons, marques, boutiques',{sec:['mode']}],['Finance','Fonds, banques, crypto',{sec:['fin']}],['Industrie et énergie','Usines, pétrole, mines, voitures',{sec:['indus','energie','mines','auto','btp','logist']}],['Alimentation et santé','Marques du quotidien, labos',{sec:['food','sante']}],['Médias, sport, immobilier','Clubs, chaînes, tours',{sec:['media','sport','immo','casino','service','div']}]]],
+['Votre fortune, vous la voyez…',[['Bâtie de mes mains','Partir de zéro',{orig:'self'}],['Transmise','Une dynastie à faire fructifier',{orig:'herit'}],['Un peu des deux','Hériter, puis bâtir',{orig:'mix'}]]],
+['Votre âge ?',[['Moins de 30 ans','',{age:25}],['30 à 44 ans','',{age:37}],['45 à 59 ans','',{age:52}],['60 à 74 ans','',{age:67}],['75 ans et plus','',{age:82}]]],
+['Où se joue votre vie ?',[['Europe','Paris, Londres, Genève',{reg:'eu'}],['Amériques','New York, Miami, São Paulo',{reg:'am'}],['Asie','Shanghai, Tokyo, Bombay',{reg:'as'}],['Ailleurs','Dubaï, Lagos, Sydney',{reg:'ot'}]]],
+['On vous compare plutôt à…',[['Une femme','',{g:'f'}],['Un homme','',{g:'h'}],['Peu importe','',{}]]],
+['Votre style ?',[['Discret','Pas de photos, pas de yacht',{size:'small'}],['Flamboyant','Tout le monde doit le savoir',{size:'big'}],['Visionnaire','Toujours un coup d\'avance',{sec2:['tech'],orig2:'self'}],['Dynastique','La famille avant tout',{orig2:'herit'}]]],
+['Votre premier gros achat ?',[['Un club de sport','Le stade, les supporters',{sec2:['sport','media']}],['Une start-up','Miser sur le futur',{sec2:['tech','fin']}],['Un tableau de maître','Pour l\'éternité',{sec2:['mode']}],['Un superyacht','Méditerranée tout l\'été',{size:'big'}]]],
+['Votre ambition ?',[['Être numéro un','Rien d\'autre ne compte',{size:'top'}],['Durer des générations','Transmettre',{orig2:'herit'}],['Changer le monde','Laisser une trace',{sec2:['tech','sante'],orig2:'self'}],['Profiter de la vie','Le reste suivra',{}]]]];
+let step=0,ans=[];
+const score=p=>{let s=0,hits=[];const a=Object.assign({},...ans);
+ if(a.sec&&a.sec.includes(p.sec)){s+=4;hits.push('le secteur')}
+ if(ans.some(x=>x.sec2&&x.sec2.includes(p.sec)))s+=1.2;
+ if(a.orig&&p.orig===a.orig){s+=3;hits.push('l\'origine de la fortune')}else if(a.orig&&p.orig==='na')s+=.6;
+ if(ans.some(x=>x.orig2&&x.orig2===p.orig))s+=1;
+ if(a.age&&p.age){const d=Math.abs(a.age-p.age);s+=Math.max(0,3-d/6);if(d<=8)hits.push('l\'âge')}
+ if(a.reg&&reg(p)===a.reg){s+=2;hits.push('le continent')}
+ if(a.g){if(p.g===a.g){s+=3;hits.push(a.g==='f'?'être une femme':'être un homme')}else s-=20}
+ const big=ans.some(x=>x.size==='big'),top=ans.some(x=>x.size==='top'),small=ans.some(x=>x.size==='small');
+ if(p.nw){if(big)s+=Math.min(2,p.nw/100);if(top&&p.rank&&p.rank<=20){s+=2;hits.push('l\'ambition d\'être au sommet')}if(small&&p.nw<30)s+=1}
+ return [s,hits]};
+const render=()=>{const el=$('quiz');
+ if(step<Q.length){const [q,opts]=Q[step];el.innerHTML=`<p class="tagline">Question ${step+1} sur ${Q.length}</p><h1 style="font-size:clamp(32px,5vw,54px)">${esc(q)}</h1><div class="qprog"><i style="width:${step/Q.length*100}%"></i></div><div class="qopts">${opts.map((o,i)=>`<button class="qopt" type="button" data-o="${i}"><b>${esc(o[0])}</b>${o[1]?`<span>${esc(o[1])}</span>`:''}</button>`).join('')}</div>${step?'<div class="row" style="margin-top:18px"><button class="btn ghost" type="button" id="qback">Question précédente</button></div>':''}`;return}
+ const ranked=P.map(p=>{const [s,h]=score(p);return {p,s,h}}).sort((a,b)=>b.s-a.s||(b.p.nw||0)-(a.p.nw||0));
+ const best=ranked[0],alt=ranked.slice(1,4);window.__qbest=best;
+ el.innerHTML=`<p class="tagline">Votre résultat</p><h1 style="font-size:clamp(30px,4.6vw,50px)">Le milliardaire dont vous êtes le plus proche</h1><div style="margin:26px 0"><a href="${prof(best.p.id)}" style="text-decoration:none;display:block">${billet(best.p,'qz')}</a></div>
+ <p class="lede">${best.h.length?'Vos points communs : '+esc(best.h.join(', '))+'.':'Votre profil est rare : voici la fortune la plus proche de vos réponses.'} ${esc(best.p.bio||'')}</p>
+ <div class="row"><button class="btn gold" type="button" id="qshare">Partager mon billet</button><a class="btn ghost" id="qwa" href="#" rel="noopener">WhatsApp</a><a class="btn ghost" href="${prof(best.p.id)}">Voir sa fiche</a><button class="btn ghost" type="button" id="qagain">Refaire le test</button></div><p class="small" id="qmsg" role="status" style="margin-top:8px"></p>
+ <h2 style="margin-top:34px;font-size:28px">Ils vous ressemblent aussi</h2><div class="grid">${alt.map(x=>pcard(x.p)).join('')}</div>
+ <p class="small" style="margin-top:20px">Un jeu, pas une étude : le rapprochement se fait sur des données publiques (secteur, origine de la fortune, âge, continent, Forbes 2026).</p>`;
+ const txt=`Au test Actualites.fr, je suis le plus proche de ${best.p.name} (${nwTxt(best.p)}). Et vous ?`,url=location.href.split('#')[0]+'#quiz';
+ $('qwa').href='https://wa.me/?text='+encodeURIComponent(txt+' '+url);
+ $('qagain').addEventListener('click',()=>{step=0;ans=[];render()});
+ $('qshare').addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({text:txt,url});return}await navigator.clipboard.writeText(txt+' '+url);$('qmsg').textContent='Texte et lien copiés.'}catch(e){$('qmsg').textContent=txt}})};
+$('quiz').addEventListener('click',e=>{const o=e.target.closest('[data-o]');if(o){ans[step]=Q[step][1][+o.dataset.o][2];step++;render();window.scrollTo(0,0)}if(e.target.closest('#qback')){step--;ans.length=step;render()}});
+render();
+$('quizPat').innerHTML='<g transform="translate(1300 450) scale(9)">'+rosette('quiz','qp','#e2c27a','#e2c27a',260).replace(/^<svg[^>]*>|<\/svg>$/g,'')+'</g>';
+const tz=P.filter(p=>p.rank&&p.rank<=40&&p.orig!=='na');$('quizTeaser').innerHTML=`<a href="#quiz" style="text-decoration:none;display:block">${billet(tz[(new Date().getDate()*7)%tz.length],'tz')}</a>`;
+}
+/* routing */
+const VIEWS=['accueil','finder','profil','singles','dream','france','rubriques','quiz'];
+const route=()=>{let h=location.hash.slice(1)||'accueil';if(h.startsWith('profil-')){location.replace(prof(h.slice(7)));return}let v=h.startsWith('profil-')?'profil':h;if(!VIEWS.includes(v)||v==='profil'&&!h.startsWith('profil-'))v='accueil';
+for(const s of document.querySelectorAll('[data-view]'))s.hidden=s.dataset.view!==v;
+for(const a of document.querySelectorAll('.nav a'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(v==='profil'?'finder':v)),a.getAttribute('href')==='#'+(v==='profil'?'finder':v)&&a.setAttribute('aria-current','page');
+if(v==='profil')renderProfil(h.slice(7));if(v==='finder')renderFinder();if(v==='dream')renderShop();
+window.scrollTo(0,0);document.title=v==='profil'&&byId[h.slice(7)]?byId[h.slice(7)].name+' · Actualites.fr':'Actualites.fr Milliardaires'};
+window.addEventListener('hashchange',route);route();
+if(document.fonts)document.fonts.ready.then(dcard);
+}
+</script>
+</body>
+</html>

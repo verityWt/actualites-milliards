@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendant que vous lisez</title>
+<meta name="description" content="Combien la fortune des plus grandes familles françaises a-t-elle bougé pendant que vous lisiez cette page ? Calcul en direct, sources Challenges et Oxfam, méthode affichée.">
+<meta property="og:title" content="Pendant que vous lisez, leur fortune bouge">
+<meta property="og:description" content="Calculateur en direct : la variation de fortune des plus grandes familles françaises, seconde par seconde, comparée à votre salaire.">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE outil grand public, ironique mais vérifié
+   IDEA un instrument de mesure : un compteur qui tourne et une règle graduée en heures de SMIC
+   PICTURE le compteur en direct, très grand, vert si la fortune monte, rouge si elle fond, avec la règle dessous
+   COLOUR aluminium #e9eaec, encre noire, aiguille orange #ff4f00 ; nuit #141517
+   TYPE Geist 700 + Geist
+   LAYOUT titre court, puces de choix, compteur pleine largeur ; puis bloc salaire et carte de partage côte à côte ; mobile : empilé */
+:root{color-scheme:light dark;--bg:light-dark(#e9eaec,#141517);--card:light-dark(#f7f7f8,#1d1f22);--ink:light-dark(#111214,#ecedef);--mute:light-dark(#55585e,#a3a7ad);--rule:light-dark(#c9cbcf,#33363b);--acc:#ff4f00;--up:light-dark(#0b7a3b,#3ccf7a);--down:light-dark(#c41d12,#ff6a5c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.55 Geist,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+.in{max-width:1240px;margin:0 auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:15px}
+.brand b{font-size:18px;letter-spacing:-.01em}
+.brand b span{color:var(--acc)}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 10px;text-wrap:balance;max-width:20ch}
+h2{font-size:clamp(24px,3vw,32px);line-height:1.1;letter-spacing:-.02em;margin:0 0 12px}
+p{margin:0 0 12px;max-width:68ch}
+.small{font-size:14px;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,button:focus-visible,input:focus-visible,a.btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.meter{background:#0f1012;color:#f1f2f3;border-radius:20px;padding:clamp(20px,3vw,40px)}
+.who{font-size:17px;color:#b9bcc1;margin:0 0 6px}
+.who b{color:#fff}
+.big{font-size:clamp(46px,9vw,104px);font-weight:700;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.big.up{color:#3ccf7a}.big.down{color:#ff6a5c}.big.flat{color:#f1f2f3}
+.sub{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px;color:#b9bcc1;font-size:16px}
+.sub b{color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fig{position:relative;height:110px;margin-top:20px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+button,a.btn{font:inherit;font-size:15px;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #3a3d42;background:#1c1e21;color:#f1f2f3;cursor:pointer;display:inline-flex;align-items:center;text-decoration:none}
+button:hover,a.btn:hover{border-color:var(--acc)}
+.light button,.light a.btn{background:var(--card);color:var(--ink);border-color:var(--rule)}
+button.pri{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:500}
+.method{font-size:14px;color:#9a9ea4;margin-top:14px;max-width:none}
+.two{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:start}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:clamp(18px,2.4vw,28px)}
+label{display:block;font-weight:500;margin-bottom:6px}
+.inp{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+input[type=number]{font:inherit;font-size:20px;width:11ch;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums}
+.facts{display:grid;gap:14px;margin-top:18px}
+.fact{border-top:1px solid var(--rule);padding-top:12px}
+.fact .n{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.fact p{margin:4px 0 0;color:var(--mute);font-size:15px}
+.preview{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.preview canvas{width:min(100%,200px);aspect-ratio:9/16;border-radius:12px;border:1px solid var(--rule);background:#0f1012}
+.preview .col{flex:1 1 220px}
+#msg{min-height:1.5em;font-size:14px;color:var(--mute);margin-top:8px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:14px}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+footer{font-size:14px;color:var(--mute);border-top:1px solid var(--rule)}
+@media(max-width:600px){table{font-size:13px}th,td{padding:8px 6px}.sub{font-size:15px}}
+</style>
+</head>
+<body>
+<header class="band" style="padding-bottom:0"><div class="in">
+<div class="brand"><b>Actualites<span>.fr</span></b><span class="small">Le monde des milliards, chiffres sourcés</span></div>
+<h1>Pendant que vous lisez, leur fortune bouge</h1>
+<p>Choisissez une fortune. Le compteur part de zéro à l'ouverture de la page et suit, seconde par seconde, sa variation estimée sur un an.</p>
+<div class="chips" id="chips" role="group" aria-label="Choisir une fortune"></div>
+</div></header>
+
+<main>
+<section class="band" style="padding-top:0"><div class="in">
+<div class="meter" aria-live="off">
+<p class="who" id="who"></p>
+<div class="big" id="cnt">0 €</div>
+<div class="sub"><span>soit <b id="smic">0</b> h de SMIC net</span><span>rythme : <b id="rate"></b></span><span>depuis <b id="time">0 s</b></span></div>
+<div class="fig"><svg id="ruler" aria-hidden="true"></svg></div>
+<div class="row"><button class="pri" id="share" type="button">Partager ce résultat</button><button id="reset" type="button">Remettre à zéro</button><a class="btn" id="wa" href="#" rel="noopener">WhatsApp</a></div>
+<p class="method" id="method"></p>
+</div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="in two">
+<div class="card">
+<h2>Et à votre salaire ?</h2>
+<label for="sal">Votre salaire net mensuel</label>
+<div class="inp"><input id="sal" type="number" inputmode="numeric" min="100" max="1000000" step="50" value="2000"><span>€ par mois</span></div>
+<div class="facts" id="facts"></div>
+</div>
+<div class="card light">
+<h2>La carte à partager</h2>
+<div class="preview">
+<canvas id="card" width="1080" height="1920" aria-label="Aperçu de la carte de partage"></canvas>
+<div class="col">
+<p>Format vertical 9:16, prêt pour une story Instagram, TikTok ou WhatsApp. Chaque carte affiche sa source et sa méthode.</p>
+<div class="row"><button id="dl" type="button">Télécharger l'image</button><button id="copy" type="button">Copier le lien</button></div>
+<p id="msg" role="status"></p>
+</div>
+</div>
+</div>
+</div></section>
+
+<section class="band" id="methode" style="background:var(--card)"><div class="in">
+<h2>Méthode et sources</h2>
+<p>Ces chiffres sont des <b>fortunes professionnelles estimées</b> (actions et parts d'entreprises), pas des revenus ni des salaires. Une fortune qui « gagne » 100 € par seconde n'encaisse pas 100 € par seconde : c'est la valeur de ses parts qui varie, surtout avec la Bourse. Le rythme affiché lisse sur un an l'écart entre deux classements Challenges (juillet 2025 et juillet 2026). La réalité est faite de hausses et de baisses brutales.</p>
+<div class="scroll"><table>
+<thead><tr><th>Fortune</th><th class="n">2025</th><th class="n">2026</th><th class="n">Écart</th><th class="n">Par seconde</th></tr></thead>
+<tbody id="tbl"></tbody>
+</table></div>
+<p class="small" style="margin-top:14px">Sources : classements Challenges des 500 fortunes professionnelles 2025 et 2026, chiffres repris par l'AFP (FashionUnited, 9 juillet 2025 et 8 juillet 2026) et l'Observatoire des inégalités ; rapport Oxfam France sur les inégalités, janvier 2026 (un milliardaire gagne en moyenne le revenu annuel moyen, 42 438 €, en 24 minutes) ; SMIC net mensuel au 1er juin 2026 : 1 477,93 € pour 151,67 h, soit 9,74 € de l'heure (info.gouv.fr). Challenges appartient à Bernard Arnault depuis fin 2025.</p>
+<p class="small">Une erreur ? Écrivez à contact@actualites.fr avec votre source.</p>
+</div></section>
+</main>
+
+<footer class="band"><div class="in"><p>Actualites.fr · Données publiques, méthode ouverte. Aucune donnée personnelle collectée par ce calculateur.</p></div></footer>
+
+<script>
+{
+const D=[
+{id:'arnault',name:'la famille Arnault',short:'Famille Arnault',co:'LVMH',y25:116.7,y26:121.2},
+{id:'hermes',name:'les héritiers Hermès',short:'Héritiers Hermès',co:'Hermès',y25:163.4,y26:114.0},
+{id:'bettencourt',name:'Françoise Bettencourt Meyers',short:'Bettencourt Meyers',co:"L'Oréal",y25:73.8,y26:69.7},
+{id:'saade',name:'Rodolphe Saadé',short:'Rodolphe Saadé',co:'CMA CGM',y25:35.0,y26:31.5},
+{id:'wertheimer',name:'Alain et Gérard Wertheimer',short:'Frères Wertheimer',co:'Chanel',y25:95.0,y26:95.0},
+{id:'oxfam',name:'un milliardaire français moyen',short:'Milliardaire moyen',co:'Oxfam',oxfam:true}
+];
+const YEAR=365*86400,SMIC_H=1477.93/151.67,OX=42438/(24*60);
+const rateOf=d=>d.oxfam?OX:(d.y26-d.y25)*1e9/YEAR;
+const $=id=>document.getElementById(id);
+const fr=(n,dp=0)=>n.toLocaleString('fr-FR',{minimumFractionDigits:dp,maximumFractionDigits:dp});
+const eur=n=>fr(Math.round(n))+' €';
+const signed=n=>(n>0?'+':n<0?'−':'')+fr(Math.abs(Math.round(n)))+' €';
+const dur=s=>{s=Math.abs(s);if(s<1)return 'moins d\'une seconde';if(s<90)return fr(s,0)+' secondes';if(s<5400)return fr(s/60,0)+' minutes';if(s<172800)return fr(s/3600,1)+' heures';if(s<3*YEAR)return fr(s/86400,0)+' jours';return fr(s/YEAR,0)+' ans'};
+let cur=D.find(d=>d.id===location.hash.slice(1))||D[0],t0=Date.now();
+const elapsed=()=>(Date.now()-t0)/1000;
+$('chips').innerHTML=D.map(d=>`<button class="chip" type="button" data-id="${d.id}" aria-pressed="${d===cur}">${d.short}</button>`).join('');
+$('tbl').innerHTML=D.filter(d=>!d.oxfam).map(d=>`<tr><td>${d.short} <span class="small">(${d.co})</span></td><td class="n">${fr(d.y25,1)} Md€</td><td class="n">${fr(d.y26,1)} Md€</td><td class="n">${(d.y26>=d.y25?'+':'−')+fr(Math.abs(d.y26-d.y25),1)} Md€</td><td class="n">${signed(rateOf(d))}</td></tr>`).join('')+`<tr><td>Milliardaire moyen <span class="small">(Oxfam)</span></td><td class="n">n.d.</td><td class="n">n.d.</td><td class="n">n.d.</td><td class="n">${signed(OX)}</td></tr>`;
+const verb=(v,d)=>{const r=rateOf(d);if(r===0)return 'est restée stable';return r>0?'a pris':'a fondu de'};
+const line=d=>{const v=rateOf(d)*elapsed();if(rateOf(d)===0)return `La fortune de ${d.name} n'a pas bougé entre les classements 2025 et 2026 (${fr(d.y26,0)} Md€).`;return `Pendant que je lisais (${dur(elapsed())}), la fortune de ${d.name} ${verb(v,d)} ${eur(Math.abs(v))}, soit ${fr(Math.abs(v)/SMIC_H,0)} h de SMIC.`};
+const setCur=id=>{cur=D.find(d=>d.id===id)||D[0];for(const b of document.querySelectorAll('.chip'))b.setAttribute('aria-pressed',b.dataset.id===cur.id);try{history.replaceState(null,'','#'+cur.id)}catch(e){location.hash=cur.id}t0=Date.now();tick();facts();card()};
+$('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)setCur(b.dataset.id)});
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(id!==cur.id&&D.some(d=>d.id===id))setCur(id)});
+const s=$('ruler');
+const tick=()=>{const r=rateOf(cur),e=elapsed(),v=r*e,h=Math.abs(v)/SMIC_H,el=$('cnt');
+el.textContent=r===0?'0 €':signed(v);el.className='big '+(r>0?'up':r<0?'down':'flat');
+$('who').innerHTML=r===0?`Fortune de <b>${cur.name}</b> (${cur.co}) : stable sur un an`:`Depuis votre arrivée, la fortune de <b>${cur.name}</b> (${cur.co}) ${r>0?'a pris':'a fondu de'}`;
+$('smic').textContent=fr(h,h<10?1:0);$('time').textContent=dur(e);$('rate').textContent=signed(r)+' / s';
+$('method').textContent=cur.oxfam?'Méthode : moyenne Oxfam France (janvier 2026), un milliardaire gagne le revenu annuel moyen (42 438 €) en 24 minutes.':`Méthode : écart entre les fortunes professionnelles estimées par Challenges en juillet 2025 (${fr(cur.y25,1)} Md€) et juillet 2026 (${fr(cur.y26,1)} Md€), réparti uniformément sur 365 jours.`;
+const W=s.clientWidth,H=s.clientHeight;if(!W)return;const max=Math.max(40,Math.ceil(h/40)*40),step=W<520?max/4:max/8,x=Math.min(W-12,12+(W-24)*h/max),col=r>=0?'#3ccf7a':'#ff6a5c';
+let g=`<line x1="12" y1="${H-34}" x2="${W-12}" y2="${H-34}" stroke="#55585e" stroke-width="2"/>`;
+for(let k=0;k<=max+.01;k+=step){const tx=12+(W-24)*k/max;g+=`<line x1="${tx}" y1="${H-44}" x2="${tx}" y2="${H-24}" stroke="#8a8e94"/><text x="${tx}" y="${H-6}" fill="#9a9ea4" font-size="13" text-anchor="${k===0?'start':k>=max?'end':'middle'}">${Math.round(k)} h</text>`}
+g+=`<rect x="12" y="${H-40}" width="${Math.max(0,x-12)}" height="12" fill="${col}" rx="2"/><path d="M${x} ${H-48} l-7 -12 h14 z" fill="#ff4f00"/><text x="${Math.min(Math.max(x,96),W-96)}" y="${H-68}" fill="#f1f2f3" font-size="14" text-anchor="middle">heures de SMIC net</text>`;s.innerHTML=g};
+const facts=()=>{const sal=Math.max(100,Number($('sal').value)||0),yr=sal*12,r=rateOf(cur),out=[];
+if(!cur.oxfam)out.push([fr(cur.y26*1e9/yr,0)+' ans',`de votre salaire pour accumuler la fortune de ${cur.name} (${fr(cur.y26,1)} Md€), sans rien dépenser.`]);
+if(r!==0)out.push([dur(sal/Math.abs(r)),`pour que cette fortune ${r>0?'gagne':'perde'} l'équivalent de votre salaire mensuel.`]);
+if(r!==0)out.push([fr(Math.abs(r)*YEAR/yr,0)+' ans',`de votre salaire : c'est la variation de cette fortune en un an.`]);
+if(r===0)out.push(['0 €','de variation estimée sur un an : la Bourse a laissé cette fortune au même niveau, à l\'arrondi près.']);
+$('facts').innerHTML=out.map(f=>`<div class="fact"><div class="n">${f[0]}</div><p>${f[1]}</p></div>`).join('')};
+$('sal').addEventListener('input',facts);
+const cv=$('card'),cx=cv.getContext('2d');
+const wrap=(t,x,y,w,lh)=>{const ws=t.split(' ');let l='';for(const word of ws){const tst=l?l+' '+word:word;if(cx.measureText(tst).width>w&&l){cx.fillText(l,x,y);l=word;y+=lh}else l=tst}cx.fillText(l,x,y);return y};
+const card=()=>{const r=rateOf(cur),e=Math.max(elapsed(),1),v=r*e;cx.fillStyle='#0f1012';cx.fillRect(0,0,1080,1920);cx.fillStyle='#ff4f00';cx.fillRect(0,0,1080,18);
+cx.fillStyle='#f1f2f3';cx.font='700 54px Geist, system-ui, sans-serif';cx.fillText('Actualites',80,150);const w=cx.measureText('Actualites').width;cx.fillStyle='#ff4f00';cx.fillText('.fr',80+w,150);
+cx.fillStyle='#b9bcc1';cx.font='500 52px Geist, system-ui, sans-serif';let y=wrap(r===0?`La fortune de ${cur.name}`:`Pendant que je lisais (${dur(e)}), la fortune de ${cur.name}`,80,420,920,68);
+cx.font='500 52px Geist, system-ui, sans-serif';y=wrap(r===0?'est restée stable en un an':r>0?'a pris':'a fondu de',80,y+68,920,68);
+cx.fillStyle=r>0?'#3ccf7a':r<0?'#ff6a5c':'#f1f2f3';cx.font='700 150px Geist, system-ui, sans-serif';const big=r===0?fr(cur.y26,0)+' Md€':eur(Math.abs(v));let fs=150;while(cx.measureText(big).width>920&&fs>60){fs-=8;cx.font=`700 ${fs}px Geist, system-ui, sans-serif`}cx.fillText(big,80,y+200);
+cx.fillStyle='#f1f2f3';cx.font='500 56px Geist, system-ui, sans-serif';if(r!==0)wrap(`soit ${fr(Math.abs(v)/SMIC_H,0)} heures de SMIC net`,80,y+320,920,72);
+cx.fillStyle='#2a2c30';cx.fillRect(80,1560,920,2);cx.fillStyle='#9a9ea4';cx.font='400 34px Geist, system-ui, sans-serif';
+wrap(cur.oxfam?'Source : Oxfam France, janvier 2026. Moyenne des milliardaires français.':'Source : Challenges 2025 et 2026, fortune professionnelle estimée, variation lissée sur un an.',80,1630,920,46);
+cx.fillStyle='#f1f2f3';cx.font='700 42px Geist, system-ui, sans-serif';cx.fillText('Faites le calcul : actualites.fr',80,1820)};
+const say=t=>{$('msg').textContent=t};
+const url=()=>location.href.split('#')[0]+'#'+cur.id;
+$('wa').addEventListener('click',()=>{$('wa').href='https://wa.me/?text='+encodeURIComponent(line(cur)+' '+url())});
+$('wa').addEventListener('pointerdown',()=>{$('wa').href='https://wa.me/?text='+encodeURIComponent(line(cur)+' '+url())});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(line(cur)+' '+url());say('Lien et phrase copiés.')}catch(e){say('Copie refusée par le navigateur. Lien : '+url())}});
+$('dl').addEventListener('click',()=>{card();cv.toBlob(b=>{if(!b){say('Image indisponible.');return}const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='actualites-'+cur.id+'.png';document.body.appendChild(a);a.click();a.remove();say('Image générée. Si rien ne se télécharge, ce navigateur bloque les téléchargements.')},'image/png')});
+$('share').addEventListener('click',async()=>{card();const text=line(cur);try{const b=await new Promise(res=>cv.toBlob(res,'image/png'));const f=b&&new File([b],'actualites-'+cur.id+'.png',{type:'image/png'});if(f&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text,url:url()});return}if(navigator.share){await navigator.share({text,url:url()});return}throw 0}catch(e){try{await navigator.clipboard.writeText(text+' '+url());say('Partage natif indisponible : phrase et lien copiés.')}catch(_){say(text)}}});
+$('reset').addEventListener('click',()=>{t0=Date.now();tick();card()});
+const ro=new ResizeObserver(tick);ro.observe(s);
+setInterval(tick,200);setInterval(card,2000);
+facts();tick();card();
+if(document.fonts)document.fonts.ready.then(card);
+}
+</script>
+</body>
+</html>
