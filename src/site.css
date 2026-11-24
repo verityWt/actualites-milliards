@@ -188,3 +188,6 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .legal{max-width:780px}
 .legal h2{font-size:26px;margin-top:30px}
 .legal p,.legal li{font-size:16.5px}
+
+.g.ph,.guil.ph{border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px #b8892d,0 0 0 5px #fbf6ea,0 0 0 6px #b8892d}
+.g.ph img,.guil.ph img{width:100%;height:100%;object-fit:cover;display:block}
