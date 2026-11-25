@@ -2,6 +2,13 @@
   "name": "actualites-milliards",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node build.mjs", "preview": "node build.mjs --preview" },
-  "engines": { "node": ">=20" }
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs --preview",
+    "research": "node scripts/research.mjs",
+    "test:research": "node --test scripts/research.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }
