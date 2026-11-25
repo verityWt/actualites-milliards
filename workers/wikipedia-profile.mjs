@@ -3,15 +3,22 @@
 const USER_AGENT='ActualitesFR-Research/0.2 (contact@actualites.fr; biographical reference research)';
 export const normalizeName=name=>String(name||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
   .toLocaleLowerCase('en').replace(/[^a-z0-9]+/g,' ').replace(/\b(jr|sr)\b/g,'').trim().replace(/\s+/g,' ');
-const PERSON_WORDS=/person|business|entrepreneur|industrial|investor|executive|founder|billionaire|wealth|philanthrop|author|heir|magnate|politic|singer|musician|actress|actor|fashion|banker|director|american|french|chinese|indian|british|russian|german|japanese|canadian|italian|spanish|brazilian|australian|tycoon/i;
-export function selectCandidate(person, suggestions){
-  const desired=normalizeName(person.name);
-  const compatible=(suggestions||[]).filter(x=>/^Q\d+$/.test(x.wikidataId||'') &&
-    normalizeName(x.label)===desired &&
-    PERSON_WORDS.test(x.description||''));
-  // Multiple exact-name people: decline auto-selection instead of silently mixing biographies.
-  if(compatible.length!==1)return null;
-  return compatible[0];
+const RELEVANT=/business|entrepreneur|industrial|investor|executive|founder|billionaire|wealth|philanthrop|author|heir|heiress|magnate|tycoon|singer|musician|actress|actor|fashion|banker|chair|software|technology|real estate|wealth|financier|company|companies|corporate/i;
+const STRONG=/billionaire|businessman|businesswoman|businessperson|business magnate|entrepreneur|industrialist|investor|founder|heiress|heir|tycoon|banker|philanthropist|software developer|computer scientist|fashion designer|singer.songwriter/i;
+const NON_PERSON=/disambiguation|fictional|family foundation|company|corporation|footballer|football player|basketball|athlete|sportsperson/i;
+export function selectCandidate(person,suggestions){
+ const wanted=normalizeName(person.name);
+ const weighted=(suggestions||[]).filter(x=>/^Q\d+$/.test(x.wikidataId||'')&&
+    normalizeName(x.label)===wanted).map(x=>{
+      const description=x.description||'';
+      const score=(STRONG.test(description)?3:0)+(RELEVANT.test(description)?1:0)-
+        (NON_PERSON.test(description)?6:0);
+      return {candidate:x,score};
+    }).sort((a,b)=>b.score-a.score);
+ if(!weighted.length||weighted[0].score<3)return null;
+ // Require a meaningful margin from alternate exact-name identities.
+ if(weighted[1]&&weighted[0].score-weighted[1].score<2)return null;
+ return weighted[0].candidate;
 }
 export function safeWikiTitle(title){
  if(typeof title!=='string'||title.length<1||title.length>180||/[<>\r\n#?]/.test(title))return null;
