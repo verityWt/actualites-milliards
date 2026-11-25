@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeName,selectCandidate,resolveWikipedia} from './wikipedia-profile.mjs';
+import {normalizeName,selectCandidate,resolveWikipedia,selectTopicSections} from './wikipedia-profile.mjs';
 const person={slug:'bill-gates',name:'Bill Gates',country:'United States'};
 const suggestions=[{wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'}];
 test('normalization handles accents without weakening exact-name match',()=>{
@@ -26,7 +26,7 @@ test('associated Wiki summaries are attributed, URLs constrained and identity re
  assert.equal(v.pages[0].language,'fr');
  assert.deepEqual(v.officialWebsites,['https://www.gatesnotes.com/']);
  assert.equal(v.pages[0].license,'CC BY-SA 4.0');
- assert.equal(calls.length,4);
+ assert.equal(calls.length,5);
 });
 test('ambiguous name skips calls to upstream sources',async()=>{
  let calls=0;const fake=async()=>{calls++;throw Error('should not fetch')};
@@ -46,4 +46,11 @@ test('Bill Gates Sr. does not match Bill Gates and vice versa',()=>{
  const b={wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'};
  assert.notEqual(normalizeName(a.label),normalizeName(b.label));
  assert.equal(selectCandidate(person,[a,b])?.wikidataId,'Q5284');
+});
+
+test('structured Wikimedia passages select informative sections without unrelated bibliography',()=>{
+ const source='Biography introduction.\n\n== Early life ==\nIn his youth, the subject studied computers and participated in technology clubs, later working on software and various electronic experiments. The first projects helped him form connections with future collaborators.\n\n== References ==\nA lengthy collection of books and citations and other bibliographic sources is listed here, none of which is a separate biographical event.\n\n== Career ==\nThe entrepreneur created a company and developed new products in several markets, eventually managing a large international team and expanding the business through acquisitions and investments.';
+ const r=selectTopicSections(source);
+ assert.deepEqual(r.map(x=>x.title),['Early life','Career']);
+ assert.ok(r[0].text.length>110);
 });
