@@ -6,6 +6,7 @@ import path from 'node:path';
 import { rosette } from './src/guil.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
+import { validateExperimentResults } from './scripts/validate-experiments.mjs';
 import { publicSpeechMetrics, experimentalSensitivity } from './src/behavioral-analysis.mjs';
 validate();
 
@@ -80,7 +81,7 @@ const researchData = JSON.parse(fs.readFileSync('data/biographies-research.json'
 const researchQuality = validateResearchProfiles(researchData,P.map(p=>p.id));
 const researchProfiles = researchData.profiles;
 const experimentV2 = JSON.parse(fs.readFileSync('data/behavioral-experiments-v2.json','utf8'));
-if(experimentV2.schemaVersion!==1||!Array.isArray(experimentV2.results)||experimentV2.results.length!==experimentV2.sampleCount)throw Error('Invalid behavioral experiment dataset');
+const experimentIntegrity = validateExperimentResults(experimentV2,researchProfiles);
 
 // ---------- liens ----------
 const link = (from, to) => { // from/to : chemins de répertoire sans slash initial, '' = racine
