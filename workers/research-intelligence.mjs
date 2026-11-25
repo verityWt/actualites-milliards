@@ -66,7 +66,7 @@ export function retryDelayMs(failures,now=Date.now()){
 
 /** Fingerprints group only very similar headlines; shared wording is not independent corroboration. */
 export function headlineFingerprint(title){
- return fold(title).replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
+ return fold(title).replace(/[^\p{L}\p{N}]+/gu,' ').trim().replace(/\s+/g,' ');
 }
 export function reviewMetrics(leads){
  const fingerprints=new Map();
