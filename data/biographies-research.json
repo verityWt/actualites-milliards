@@ -124,7 +124,25 @@
             "source": "https://www.theguardian.com/technology/2023/may/08/facebook-founder-mark-zuckerberg-jiu-jiutsu"
           }
         ]
-      }
+      },
+      "speechSamples": [
+        {
+          "date": "2012-07-26",
+          "kind": "quotation",
+          "language": "en",
+          "text": "Our goal is to help every person stay connected and every product they use be a great social experience",
+          "url": "https://investor.atmeta.com/investor-news/press-release-details/2012/Facebook-Reports-Second-Quarter-2012-Results/default.aspx",
+          "reviewed": true
+        },
+        {
+          "date": "2025-07-30",
+          "kind": "quotation",
+          "language": "en",
+          "text": "We've had a strong quarter both in terms of our business and community",
+          "url": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Reports-Second-Quarter-2025-Results/",
+          "reviewed": true
+        }
+      ]
     },
     "bernard-arnault": {
       "sections": [
