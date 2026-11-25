@@ -32,6 +32,27 @@ export async function fetchJson(url,fetcher=fetch){
 export function cleanSummary(raw){
  return String(raw||'').replace(/\s+/g,' ').trim().slice(0,1500);
 }
+const TRUSTED=/(\.|^)(reuters\.com|apnews\.com|bbc\.(com|co\.uk)|theguardian\.com|forbes\.com|ft\.com|wsj\.com|bloomberg\.com|cnbc\.com|nytimes\.com|sec\.gov|justice\.gov|nasa\.gov|gov\.uk|europa\.eu|lemonde\.fr|lesechos\.fr|france24\.com|rfi\.fr|lefigaro\.fr|washingtonpost\.com|investopedia\.com)$/i;
+export async function supplementaryLinks(title,lang='en',fetcher=fetch){
+ try{
+  const q=new URLSearchParams({action:'parse',format:'json',prop:'externallinks',page:title});
+  const content=await fetchJson('https://'+lang+'.wikipedia.org/w/api.php?'+q.toString(),fetcher);
+  const raw=content?.parse?.externallinks;
+  if(!Array.isArray(raw))return [];
+  const entries=[],used=new Set();
+  for(const item of raw){
+   const str=typeof item==='string'?item:item?.['*'];
+   try{
+    const u=new URL(str);
+    if(u.protocol!=='https:'||!TRUSTED.test(u.hostname)||used.has(u.href))continue;
+    used.add(u.href);
+    entries.push({url:u.href,publisher:u.hostname.replace(/^www\./,''),status:'bibliographic_link_unreviewed'});
+    if(entries.length===8)break;
+   }catch{}
+  }
+  return entries;
+ }catch{return []}
+}
 export async function resolveWikipedia(person,suggestions,fetcher=fetch){
  const suggestion=selectCandidate(person,suggestions);
  if(!suggestion)return {status:'identity_ambiguous',reason:'No unique matching person from Wikidata',verified:false};
@@ -58,6 +79,7 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
   }catch{/* one language can fail independently */}
  }
  if(!pages.length)return {status:'wikipedia_unavailable',wikidataId:suggestion.wikidataId,verified:false};
+ const supplementary=enTitle?await supplementaryLinks(enTitle,'en',fetcher):[];
  const official=(item.claims?.P856||[]).map(x=>x.mainsnak?.datavalue?.value).filter(v=>{
   if(typeof v!=='string')return false;
   try{return new URL(v).protocol==='https:'}catch{return false}
@@ -66,6 +88,6 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
    wikidataUrl:'https://www.wikidata.org/wiki/'+suggestion.wikidataId,
    label:item.labels?.fr?.value||item.labels?.en?.value||suggestion.label,
    description:item.descriptions?.fr?.value||item.descriptions?.en?.value||suggestion.description,
-   pages,officialWebsites:official,verified:false,
+   pages,officialWebsites:official,supplementarySources:supplementary,verified:false,
    disclaimer:'Articles encyclopédiques associés à une proposition d’identité ; les faits n’ont pas encore été recoupés par la rédaction.'};
 }
