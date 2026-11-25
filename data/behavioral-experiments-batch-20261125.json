@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-11-25",
+  "status": "completed_local_experimental",
+  "execution": "Python 3, TextBlob 0.19.0 (PatternAnalyzer) and scikit-learn 1.8.0 TF-IDF cosine",
+  "limitations": "Tiny selected speech excerpts, not comparable samples; linguistic classifications never describe someone's psychology, motives, private life or sincerity.",
+  "runs": [
+    {
+      "schemaVersion": 1,
+      "subject": "jeff-bezos",
+      "sampleCount": 2,
+      "models": [
+        {
+          "name": "TextBlob PatternAnalyzer",
+          "version": "0.19.0",
+          "executed": true
+        },
+        {
+          "name": "scikit-learn TF-IDF cosine",
+          "version": "1.8.0",
+          "executed": true
+        }
+      ],
+      "results": [
+        {
+          "date": "2020-07-29",
+          "url": "https://www.aboutamazon.com/news/policy-news-views/statement-by-jeff-bezos-to-the-u-s-house-committee-on-the-judiciary",
+          "sha256": "d3bead20fd90f30c171f06acd25dcd64e491d52d4579a9def994750e7a85908d",
+          "words": 23,
+          "polarity": 0,
+          "subjectivity": 0
+        },
+        {
+          "date": "2021-02-02",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2021/Amazon.com-Announces-Fourth-Quarter-Results/",
+          "sha256": "50769266f6704ae73cf9b1432c7137638986465d9c60ff56dbb8cdbb57b0c8ad",
+          "words": 10,
+          "polarity": -0.225,
+          "subjectivity": 0.775
+        }
+      ],
+      "comparison": {
+        "tfidfCosineSimilarity": 0.01624,
+        "tfidfNgramRange": [
+          1,
+          2
+        ],
+        "nSamples": 2
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "subject": "bill-gates",
+      "sampleCount": 2,
+      "models": [
+        {
+          "name": "TextBlob PatternAnalyzer",
+          "version": "0.19.0",
+          "executed": true
+        },
+        {
+          "name": "scikit-learn TF-IDF cosine",
+          "version": "1.8.0",
+          "executed": true
+        }
+      ],
+      "results": [
+        {
+          "date": "2026-01-09",
+          "url": "https://www.gatesnotes.com/meet-bill/tech-thinking/reader",
+          "sha256": "ba767673732d1b9ea804097ac937afeebcb5d881be4c7af105131d06194de0a9",
+          "words": 6,
+          "polarity": 0,
+          "subjectivity": 0
+        },
+        {
+          "date": "2023-11-09",
+          "url": "https://www.gatesnotes.com/meet-bill/tech-thinking/reader",
+          "sha256": "7f2df9f60d8263f397e4e023cf2255e7b1bda55b5ff5610449799200801ed57c",
+          "words": 17,
+          "polarity": 0.35,
+          "subjectivity": 0.4
+        }
+      ],
+      "comparison": {
+        "tfidfCosineSimilarity": 0,
+        "tfidfNgramRange": [
+          1,
+          2
+        ],
+        "nSamples": 2
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "subject": "jensen-huang",
+      "sampleCount": 1,
+      "models": [
+        {
+          "name": "TextBlob PatternAnalyzer",
+          "version": "0.19.0",
+          "executed": true
+        },
+        {
+          "name": "scikit-learn TF-IDF cosine",
+          "version": "1.8.0",
+          "executed": true
+        }
+      ],
+      "results": [
+        {
+          "date": "2025-10-28",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-oracle-us-department-of-energy-ai-supercomputer-scientific-discovery",
+          "sha256": "0d20e8ed5d0ae5d87cb0c0dc77a45d876cf0dc63a29017ea35e18796253871ec",
+          "words": 15,
+          "polarity": 0.6,
+          "subjectivity": 0.833333
+        }
+      ],
+      "comparison": null
+    }
+  ]
+}

@@ -87,7 +87,25 @@
             "source": "https://www.reuters.com/world/europe/bezos-sanchez-exchange-wedding-vows-star-studded-venice-party-2025-06-27/"
           }
         ]
-      }
+      },
+      "speechSamples": [
+        {
+          "date": "2020-07-29",
+          "kind": "quotation",
+          "language": "en",
+          "text": "To invent you have to experiment, and if you know in advance that it’s going to work, it’s not an experiment.",
+          "url": "https://www.aboutamazon.com/news/policy-news-views/statement-by-jeff-bezos-to-the-u-s-house-committee-on-the-judiciary",
+          "reviewed": true
+        },
+        {
+          "date": "2021-02-02",
+          "kind": "quotation",
+          "language": "en",
+          "text": "We do crazy things together and then make them normal.",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2021/Amazon.com-Announces-Fourth-Quarter-Results/",
+          "reviewed": true
+        }
+      ]
     },
     "mark-zuckerberg": {
       "sections": [
@@ -174,14 +192,14 @@
     "jensen-huang": {
       "sections": [
         {
-          "heading": "Fondation de NVIDIA en 1993",
-          "body": "Jensen Huang a fondé NVIDIA en 1993. La biographie publiée par l’entreprise indique qu’il exerce depuis la création les fonctions de président et directeur général, et siège au conseil d’administration.",
+          "heading": "Fondation de NVIDIA et direction historique",
+          "body": "Jensen Huang a cofondé NVIDIA en 1993 et dirigé l’entreprise pendant plus de trois décennies. Les documents de gouvernance de NVIDIA décrivent ce parcours historique, mais les fonctions de direction mentionnées dans d'anciennes biographies ne doivent pas être interprétées comme actuelles.",
           "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/"
         },
         {
-          "heading": "Responsabilités dans la gouvernance",
-          "body": "Les documents de gouvernance de NVIDIA présentent Jensen Huang comme cofondateur, président, directeur général et administrateur. Ces éléments décrivent ses fonctions sans présumer du montant actuel de ses titres ou de son patrimoine.",
-          "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/"
+          "heading": "Démission annoncée le 12 novembre 2026",
+          "body": "Le conseil de NVIDIA a annoncé le 12 novembre 2026 que Jensen Huang avait quitté, avec effet immédiat, ses fonctions de président, directeur général et administrateur. Colette Kress a été nommée directrice générale par intérim et Harvey C. Jones président du conseil. Ce communiqué remplace les anciennes indications sur ses fonctions.",
+          "source": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
         }
       ],
       "events": [
@@ -190,6 +208,22 @@
           "title": "Création de NVIDIA par Jensen Huang",
           "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/",
           "type": "company"
+        },
+        {
+          "date": "2026-11-12",
+          "title": "Démission de Jensen Huang de ses fonctions de président, directeur général et administrateur de NVIDIA",
+          "source": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+          "type": "governance"
+        }
+      ],
+      "speechSamples": [
+        {
+          "date": "2025-10-28",
+          "kind": "quotation",
+          "language": "en",
+          "text": "AI is the most powerful technology of our time, and science is its greatest frontier",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-oracle-us-department-of-energy-ai-supercomputer-scientific-discovery",
+          "reviewed": true
         }
       ]
     },
@@ -319,7 +353,25 @@
             "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
           }
         ]
-      }
+      },
+      "speechSamples": [
+        {
+          "date": "2026-01-09",
+          "kind": "quotation",
+          "language": "en",
+          "text": "I have always been an optimist.",
+          "url": "https://www.gatesnotes.com/meet-bill/tech-thinking/reader",
+          "reviewed": true
+        },
+        {
+          "date": "2023-11-09",
+          "kind": "quotation",
+          "language": "en",
+          "text": "I still love software as much today as I did when Paul Allen and I started Microsoft.",
+          "url": "https://www.gatesnotes.com/meet-bill/tech-thinking/reader",
+          "reviewed": true
+        }
+      ]
     }
   }
 }
