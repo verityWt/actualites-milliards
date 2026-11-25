@@ -16,6 +16,18 @@ export function validateResearchProfiles(dataset,knownIds){
       typeof section.body!=='string'||section.body.trim().length<80)throw Error('Insufficient section: '+slug);
    validateSource(section.source);sections++;
   }
+  if(record.personal!==undefined){
+   if(!record.personal||typeof record.personal!=='object'||Array.isArray(record.personal))throw Error('Invalid public personal information: '+slug);
+   const allowed=new Set(['personality','preferences','personalLife','relationships','documentedRisks']);
+   for(const [key,items] of Object.entries(record.personal)){
+    if(!allowed.has(key)||!Array.isArray(items))throw Error('Unsupported personal category: '+slug+'/'+key);
+    for(const item of items){
+     if(typeof item.heading!=='string'||item.heading.trim().length<8||
+        typeof item.body!=='string'||item.body.trim().length<80)throw Error('Insufficient personal claim: '+slug+'/'+key);
+     validateSource(item.source);sections++;
+    }
+   }
+  }
   for(const event of record.events){
    if(typeof event.title!=='string'||event.title.trim().length<12||
      !/^\d{4}(?:-\d{2}){0,2}$/.test(event.date) ||
