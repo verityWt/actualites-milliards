@@ -4,6 +4,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rosette } from './src/guil.mjs';
+import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
+validate();
 
 const PREVIEW = process.argv.includes('--preview');
 const OUT = PREVIEW ? 'dist-preview' : 'dist';
@@ -123,13 +125,14 @@ const economicLinks=(p,from)=>{
  const groups=companyKeys(p).length?'<dl class="facts"><dt>Entreprises recensées</dt><dd>'+esc(p.co)+'</dd>'+(p.role?'<dt>Fonction recensée</dt><dd>'+esc(p.role)+'</dd>':'')+'</dl>':'<p>Entreprise non renseignée dans les données disponibles.</p>';
  return '<section style="margin:30px 0"><h2>Réseau économique</h2>'+groups+'<h3>Autres fortunes associées aux mêmes entreprises</h3>'+(list?'<ul>'+list+'</ul>':'<p>Aucune correspondance exacte dans le corpus actuel.</p>')+'<p class="small">Correspondances calculées à partir des noms d’entreprises du corpus Forbes 2026 et des données éditoriales. Une correspondance ne prouve ni participation actuelle, ni partenariat, ni rivalité personnelle. Les rôles et liens juridiques exigent des sources distinctes.</p></section>';
 };
+const timelineHtml=p=>{const items=timeline(p.id);return '<h2>Chronologie documentée</h2>'+ (items.length?'<ol>'+items.map(e=>'<li><strong>'+esc(e.date)+'</strong> — '+esc(e.title)+' · <a href="'+esc(sources.find(s=>s.id===e.source).url)+'" rel="noopener">Source</a></li>').join('')+'</ol>':'<p class="small">Aucun événement daté supplémentaire enregistré dans la base documentaire.</p>');};
 const dossierHtml=(p,from)=>{
  const sections=dossiers[p.id]||[];
  const peers=P.filter(q=>q.id!==p.id&&q.sec===p.sec).sort((a,b)=>Math.abs((a.nw||0)-(p.nw||0))-Math.abs((b.nw||0)-(p.nw||0))).slice(0,6);
  const comparison=peers.length?'<h2>Comparaisons économiques</h2><p class="small">Même secteur selon le classement : aucune relation personnelle ou rivalité présumée.</p><div class="grid">'+peers.map(q=>card(from,q)).join('')+'</div>':'';
  const details=sections.length?'<h2>Dossier biographique documenté</h2>'+sections.map(([heading,body,url])=>'<section style="margin:22px 0"><h3>'+esc(heading)+'</h3><p>'+esc(body)+'</p><p class="small"><a href="'+esc(url)+'" rel="noopener">Source documentaire</a></p></section>').join(''):'';
  const relations=p.id==='thomas-frist-jr'?'<h2>Relations professionnelles attestées</h2><dl class="facts"><dt>Thomas Frist Sr.</dt><dd>Père et cofondateur de HCA</dd><dt>Jack C. Massey</dt><dd>Cofondateur de HCA</dd><dt>Richard Scott</dt><dd>Dirigeant de Columbia/HCA, remplacé par Frist en 1997</dd><dt>KKR et Bain Capital</dt><dd>Investisseurs associés au rachat de 2006</dd></dl><p class="small">Sources : <a href="https://news.vanderbilt.edu/2002/07/04/vanderbilt-names-frist-distinguished-alumni-60247/">Vanderbilt</a> · <a href="https://www.upi.com/Archives/1997/07/25/UPI-Focus-Report-Columbia-gets-new-chief/6097869803200/">UPI</a> · <a href="https://images.forbes.com/lists/2006/54/biz_06rich400_Thomas-F-Frist-Jr-family_XA34.html">Forbes</a>.</p>':'';
- return '<div style="margin-top:36px">'+details+relations+economicLinks(p,from)+comparison+'<section class="rule-box" style="margin-top:30px"><h3>Intelligence Pro</h3><p>Les études approfondies de gouvernance et de risques sont en préparation. Aucun score individuel non validé ni dossier payant actuellement disponible.</p><a href="'+home(from,'methode')+'">Méthodologie</a> · <a href="'+home(from,'intelligence')+'">Présentation de l’offre</a></section></div>';
+ return '<div style="margin-top:36px">'+details+relations+economicLinks(p,from)+timelineHtml(p)+comparison+'<section class="rule-box" style="margin-top:30px"><h3>Intelligence Pro</h3><p>Les études approfondies de gouvernance et de risques sont en préparation. Aucun score individuel non validé ni dossier payant actuellement disponible.</p><a href="'+home(from,'methode')+'">Méthodologie</a> · <a href="'+home(from,'intelligence')+'">Présentation de l’offre</a></section></div>';
 };
 
 const TOTAL = 20100; // fortune cumulée des 3 428 milliardaires Forbes 2026, en Md$
@@ -226,6 +229,11 @@ fs.writeFileSync(path.join(OUT, 'index.html'), homeHtml);
 write('pendant-que-vous-lisez', page({from:'pendant-que-vous-lisez',title:'Actualites.fr — Recherche',desc:'Retrouvez les dossiers sur les grandes fortunes.',canonical:'pendant-que-vous-lisez/',body:`<div class="band"><div class="in"><h1>Cette rubrique a été retirée</h1><p>Retrouvez les dossiers et comparaisons économiques.</p><a class="btn" href="${home('pendant-que-vous-lisez','finder')}">Explorer les fortunes</a></div></div>`}));
 if (fs.existsSync('src/_headers') && !PREVIEW) fs.copyFileSync('src/_headers', path.join(OUT, '_headers'));
 
+// Public, machine-readable documentary data (no private or inferred traits).
+fs.mkdirSync(path.join(OUT,'data'),{recursive:true});
+const G=graph(P);
+fs.writeFileSync(path.join(OUT,'data/knowledge-graph.json'),JSON.stringify(G));
+fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sources:sources.length,people:P.length,companies:G.nodes.filter(n=>n.type==='company').length,associations:G.edges.length,events:G.events.length,observations:observations.length,candidates:candidates.length,collection:'manual',rankingGrowthAvailable:false}));
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-24';
