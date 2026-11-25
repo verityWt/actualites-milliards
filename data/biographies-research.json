@@ -78,7 +78,16 @@
           "source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
           "type": "governance"
         }
-      ]
+      ],
+      "personal": {
+        "relationships": [
+          {
+            "heading": "Mariage célébré à Venise en juin 2025",
+            "body": "Reuters a couvert la cérémonie de mariage organisée à Venise le 27 juin 2025 pour Jeff Bezos et Lauren Sánchez. L’agence précisait qu’aucun acte civil italien n’était associé à cette cérémonie, ce qui limite ce que l’on peut affirmer sur la date et le lieu du mariage légal.",
+            "source": "https://www.reuters.com/world/europe/bezos-sanchez-exchange-wedding-vows-star-studded-venice-party-2025-06-27/"
+          }
+        ]
+      }
     },
     "mark-zuckerberg": {
       "sections": [
@@ -106,7 +115,16 @@
           "source": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066710/meta-20261021.htm",
           "type": "governance"
         }
-      ]
+      ],
+      "personal": {
+        "preferences": [
+          {
+            "heading": "Pratique publique du jiu-jitsu et des sports de combat",
+            "body": "Mark Zuckerberg pratique le jiu-jitsu brésilien et a participé publiquement à des compétitions. Cette activité sportive est documentée par des reportages et des publications publiques ; elle ne permet aucune conclusion sur son caractère ou sa santé.",
+            "source": "https://www.theguardian.com/technology/2023/may/08/mark-zuckerberg-wins-medals-jiu-jitsu-tournament"
+          }
+        ]
+      }
     },
     "bernard-arnault": {
       "sections": [
