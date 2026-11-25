@@ -26,10 +26,17 @@ test('associated Wiki summaries are attributed, URLs constrained and identity re
  assert.equal(v.pages[0].language,'fr');
  assert.deepEqual(v.officialWebsites,['https://www.gatesnotes.com/']);
  assert.equal(v.pages[0].license,'CC BY-SA 4.0');
- assert.equal(calls.length,3);
+ assert.equal(calls.length,4);
 });
 test('ambiguous name skips calls to upstream sources',async()=>{
  let calls=0;const fake=async()=>{calls++;throw Error('should not fetch')};
  const v=await resolveWikipedia(person,[...suggestions,...suggestions],fake);
  assert.equal(v.status,'identity_ambiguous');assert.equal(calls,0);
+});
+
+test('Bill Gates businessman is distinguished from same-name footballer',()=>{
+ const good={wikidataId:'Q5284',label:'Bill Gates',description:'American businessman, investor, and philanthropist (born 1955)'};
+ const footballer={wikidataId:'Q123411797',label:'Bill Gates',description:'English footballer (1944–2023)'};
+ const other={wikidataId:'Q1181671',label:'Bill Gates',description:'Wikimedia disambiguation page'};
+ assert.equal(selectCandidate(person,[good,footballer,other])?.wikidataId,'Q5284');
 });
