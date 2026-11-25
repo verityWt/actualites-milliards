@@ -161,7 +161,7 @@ for (const p of P) {
   const facts = [['Fortune', nwTxt(p)], p.rank && ['Rang mondial', 'N° ' + p.rank + ' (Forbes 2026)'], p.co && ['Entreprises', p.co], p.role && ['Rôle', p.role], ['Secteur', SEC[p.sec]], ['Pays', p.country],
     (p.age || p.born) && ['Âge', p.age ? p.age + ' ans' + (p.rank ? ' (au 1er mars 2026)' : '') : (p.g === 'f' ? 'Née' : 'Né') + ' en ' + p.born],
     p.orig && ['Origine', { self: 'Fortune bâtie', herit: 'Fortune héritée', mix: 'Fortune mixte' }[p.orig]],
-    ...(p.single ? [['Situation personnelle annoncée', `${esc(p.single.d)} : ${esc(p.single.t)} <span class="small">(source : <a href="${esc(p.single.u)}" rel="noopener">${esc(p.single.src)}</a>)</span>` : '']]:[])].filter(Boolean);
+    ...(p.single ? [['Situation personnelle annoncée', `${esc(p.single.d)} : ${esc(p.single.t)} <span class="small">(source : <a href="${esc(p.single.u)}" rel="noopener noreferrer">${esc(p.single.src)}</a>)</span>`]] : [])].filter(Boolean);
   const kpis = p.nw ? [[fr(p.nw / TOTAL * 100, 2) + ' %', 'de la fortune de tous les milliardaires du monde'], [fr(p.nw / MUSK * 100, p.nw / MUSK < .1 ? 1 : 0) + ' %', 'de la fortune d\'Elon Musk']] : [];
   const body = `<section class="inkband" id="identite">${pattern(p.id)}<div class="in band"><p class="small"><a href="${link(from, 'milliardaires')}">Milliardaires</a> · <a href="${link(from, 'milliardaires/secteur/' + SECSLUG[p.sec])}">${esc(SEC[p.sec])}</a> · <a href="${link(from, 'milliardaires/' + (p.country === 'France' ? 'france' : 'pays/' + slugify(p.country)))}">${esc(p.country)}</a></p>
 <div class="hero" style="margin-top:6px"><div class="in" style="padding:10px 0 20px"><div><p class="tagline">${esc(rankTxt || 'Billion Index')}</p><h1 style="font-size:clamp(38px,5.6vw,64px)">${esc(fullName(p))}</h1>${p.role || p.co ? `<p class="lede" style="margin-top:14px">${esc([p.role, p.co].filter(Boolean).join(' · '))}</p>` : ''}<div class="row">${p.orig ? `<span class="chip">${{ self: 'Fortune bâtie', herit: 'Fortune héritée', mix: 'Fortune mixte' }[p.orig]}</span>` : ''}<span class="chip">${esc(SEC[p.sec])}</span></div></div>${billet(p, true, from)}</div></div></div></section>
@@ -181,7 +181,7 @@ ${sameSec.length ? `<h2 style="margin-top:36px">Même secteur : ${esc(SEC[p.sec]
   const desc = p.nw != null ? `${fullName(p)}${p.co ? ' (' + p.co + ')' : ''} : fortune estimée à ${fr(p.nw)} Md$${p.rank ? ', ' + p.rank + 'e fortune mondiale' : ''}. Parcours, rôle, faits clés et fortunes comparables, sources citées.` : `${fullName(p)} : parcours et situation publique, sources citées.`;
   write(from, page({
     from, title, desc, canonical: from + '/', body, jsonld: [
-      { '@context': 'https://schema.org', '@type': 'Person', name: p.name, nationality: p.country, ...(p.co && { worksFor: p.co.split(', ').map(n => ({ '@type': 'Organization', name: n })) }), ...(p.nw != null && { netWorth: { '@type': 'MonetaryAmount', currency: 'USD', value: p.nw * 1e9 } }), url: `${SITE}/${from}/` },
+      { '@context': 'https://schema.org', '@type': 'Person', name: p.name, nationality: p.country, ...(p.nw != null && { netWorth: { '@type': 'MonetaryAmount', currency: 'USD', value: p.nw * 1e9 } }), url: `${SITE}/${from}/` },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Milliardaires', item: `${SITE}/milliardaires/` }, { '@type': 'ListItem', position: 2, name: p.name, item: `${SITE}/${from}/` }] }]
   }));
 }
