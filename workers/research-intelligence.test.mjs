@@ -58,3 +58,8 @@ test('old unclassified documents remain unpublished after metrics processing',()
  const metrics=reviewMetrics([{title:'El Pentágono cuestiona a Canadá',url:'https://example.org'}]);
  assert.equal(metrics.highPriorityReview,0);assert.equal(metrics.verifiedEvents,0);
 });
+
+test('Greek duplicated headlines remain detectable',()=>{
+ const data=[{title:'Μάτζικ Τζόνσον το μπάσκετ'},{title:'Μάτζικ Τζόνσον το μπάσκετ'}];
+ assert.equal(reviewMetrics(data).repeatedHeadlineGroups,1);
+});
