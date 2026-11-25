@@ -8,7 +8,8 @@
     "research": "node scripts/research.mjs",
     "test:research": "node --test scripts/research.test.mjs",
     "research:queue": "node scripts/biography-queue.mjs",
-    "test:behavior": "node --test scripts/behavioral-analysis.test.mjs scripts/validate-experiments.test.mjs"
+    "test:behavior": "node --test scripts/behavioral-analysis.test.mjs scripts/validate-experiments.test.mjs",
+    "test:discovery": "node --test workers/biography-discovery.test.mjs"
   },
   "engines": {
     "node": ">=20"
