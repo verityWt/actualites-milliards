@@ -18,7 +18,7 @@ export function validateResearchProfiles(dataset,knownIds){
   }
   for(const event of record.events){
    if(typeof event.title!=='string'||event.title.trim().length<12||
-     !/^\\d{4}(?:-\\d{2}){0,2}$/.test(event.date) ||
+     !/^\d{4}(?:-\d{2}){0,2}$/.test(event.date) ||
      !['company','governance','transaction','investment','philanthropy','regulation'].includes(event.type))throw Error('Invalid dated event: '+slug);
    validateSource(event.source);events++;
   }
