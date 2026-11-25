@@ -26,3 +26,17 @@ test('fake model execution provenance and invalid scores fail',()=>{
  const invalid=copy(record);invalid.results[0].polarity=4;
  assert.throws(()=>validateExperimentResults(invalid,profiles),/out of range/);
 });
+
+const batch=JSON.parse(fs.readFileSync('data/behavioral-experiments-batch-20261125.json','utf8'));
+test('all batch experiments link to reviewed excerpts and match SHA256',()=>{
+ assert.equal(batch.runs.length,3);
+ for(const run of batch.runs){
+  const x=validateExperimentResults(run,profiles);
+  assert.equal(x.checkedExcerpts,run.sampleCount);
+ }
+});
+test('an unverified alteration to a batch quotation blocks generation',()=>{
+ const modified=copy(batch.runs[0]);
+ modified.results[0].sha256='0'.repeat(64);
+ assert.throws(()=>validateExperimentResults(modified,profiles),/hash mismatch/);
+});
