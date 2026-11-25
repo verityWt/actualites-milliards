@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {matchEntities,classifyEvent,transformCandidate,mergeCandidates,retryDelayMs} from './research-intelligence.mjs';
+import {matchEntities,classifyEvent,transformCandidate,mergeCandidates,retryDelayMs,reviewMetrics} from './research-intelligence.mjs';
 import {collect} from './wealth-research.mjs';
 function kv(){const db=new Map();return {db,get:async(k)=>db.has(k)?JSON.parse(db.get(k)):null,put:async(k,v)=>db.set(k,v)};}
 test('entity match requires full normalized name and does not assert verification',()=>{
@@ -42,3 +42,19 @@ test('successful collection records candidate matches but no verified events',as
  assert.ok(RESEARCH.db.get('leads').includes('"pending_review"'));
 });
 test('backoff is bounded',()=>{assert.ok(Date.parse(retryDelayMs(10,0))<=6*60*60*1000);});
+
+test('review figures distinguish volume, relevance and independent proof',()=>{
+ const at='2026-11-25T12:00:00Z';
+ const leads=[
+  transformCandidate({url:'https://media-a.test/one',title:'Elon Musk acquisition'},'acquisition',at),
+  transformCandidate({url:'https://media-b.test/two',title:'Elon Musk acquisition'},'acquisition',at),
+  transformCandidate({url:'https://media-c.test/three',title:'Unrelated global market analysis'},'acquisition',at)
+ ];
+ assert.deepEqual(reviewMetrics(leads),{
+  matchedCandidates:2,classifiedCandidates:2,highPriorityReview:2,repeatedHeadlineGroups:1,verifiedEvents:0
+ });
+});
+test('old unclassified documents remain unpublished after metrics processing',()=>{
+ const metrics=reviewMetrics([{title:'El Pentágono cuestiona a Canadá',url:'https://example.org'}]);
+ assert.equal(metrics.highPriorityReview,0);assert.equal(metrics.verifiedEvents,0);
+});
