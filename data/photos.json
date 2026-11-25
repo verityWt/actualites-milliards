@@ -1,3 +1,14 @@
 {
-  "_mode_emploi": "Ajouter pour chaque fiche (clé = slug de l'URL) une liste de photos sous licence libre ou achetées, avec crédit et licence obligatoires. Exemple : \"bernard-arnault\": [{\"src\": \"https://upload.wikimedia.org/...jpg\", \"credit\": \"Nom du photographe\", \"licence\": \"CC BY-SA 4.0\", \"source\": \"https://commons.wikimedia.org/wiki/File:...\", \"legende\": \"Paris, 2023\"}]"
+  "_mode_emploi": "Ajouter pour chaque fiche (clé = slug de l'URL) une liste de photos sous licence libre ou achetées, avec crédit et licence obligatoires. Exemple : \"bernard-arnault\": [{\"src\": \"https://upload.wikimedia.org/...jpg\", \"credit\": \"Nom du photographe\", \"licence\": \"CC BY-SA 4.0\", \"source\": \"https://commons.wikimedia.org/wiki/File:...\", \"legende\": \"Paris, 2023\"}]",
+  "bill-gates": [
+    {
+      "type": "portrait",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
+      "credit": "Bogdan Hoyaux / Union européenne",
+      "auteur": "Bogdan Hoyaux / Union européenne",
+      "licence": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_(cropped).jpg",
+      "legende": "Bill Gates à la Commission européenne, 25 juin 2025."
+    }
+  ]
 }
