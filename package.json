@@ -7,7 +7,8 @@
     "preview": "node build.mjs --preview",
     "research": "node scripts/research.mjs",
     "test:research": "node --test scripts/research.test.mjs",
-    "research:queue": "node scripts/biography-queue.mjs"
+    "research:queue": "node scripts/biography-queue.mjs",
+    "test:behavior": "node --test scripts/behavioral-analysis.test.mjs"
   },
   "engines": {
     "node": ">=20"
