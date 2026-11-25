@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { rosette } from './src/guil.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
+import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
 validate();
 
 const PREVIEW = process.argv.includes('--preview');
@@ -74,6 +75,9 @@ for (const [id, c] of Object.entries(curated)) if (c.extra) P.push({
 const seen = {}; for (const p of P) { if (seen[p.id]) p.id += '-' + (++seen[p.id]); else seen[p.id] = 1; }
 P.sort((a, b) => (b.nw ?? -1) - (a.nw ?? -1));
 const byId = Object.fromEntries(P.map(p => [p.id, p]));
+const researchData = JSON.parse(fs.readFileSync('data/biographies-research.json','utf8'));
+const researchQuality = validateResearchProfiles(researchData,P.map(p=>p.id));
+const researchProfiles = researchData.profiles;
 
 // ---------- liens ----------
 const link = (from, to) => { // from/to : chemins de répertoire sans slash initial, '' = racine
@@ -126,7 +130,8 @@ const economicLinks=(p,from)=>{
  return '<section style="margin:30px 0"><h2>Réseau économique</h2>'+groups+'<h3>Autres fortunes associées aux mêmes entreprises</h3>'+(list?'<ul>'+list+'</ul>':'<p>Aucune correspondance exacte dans le corpus actuel.</p>')+'<p class="small">Correspondances calculées à partir des noms d’entreprises du corpus Forbes 2026 et des données éditoriales. Une correspondance ne prouve ni participation actuelle, ni partenariat, ni rivalité personnelle. Les rôles et liens juridiques exigent des sources distinctes.</p></section>';
 };
 const dossierHtml=(p,from)=>{
- const sections=dossiers[p.id]||[];
+ const researched=researchProfiles[p.id]||null;
+ const sections=[...(dossiers[p.id]||[]),...(researched?.sections||[]).map(x=>[x.heading,x.body,x.source])];
  const peers=P.filter(q=>q.id!==p.id&&q.sec===p.sec).sort((a,b)=>Math.abs((a.nw||0)-(p.nw||0))-Math.abs((b.nw||0)-(p.nw||0))).slice(0,6);
  const details=sections.length
   ?'<section class="bio-section" id="parcours"><div class="bio-section-head"><p class="bio-eyebrow">Biography / Research</p><h2>Parcours documenté</h2><p>Chaque passage renvoie à la source utilisée pour l’établir.</p></div>'+sections.map(([heading,body,url],i)=>'<article class="bio-document"><div class="bio-document-index">'+String(i+1).padStart(2,'0')+'</div><div><h3>'+esc(heading)+'</h3><p>'+esc(body)+'</p><a class="bio-source-link" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Consulter le document source ↗</a></div></article>').join('')+'</section>'
@@ -137,8 +142,8 @@ const dossierHtml=(p,from)=>{
   ?'<section class="bio-section" id="relations"><div class="bio-section-head"><p class="bio-eyebrow">Knowledge Graph / Vérifié</p><h2>Relations professionnelles documentées</h2></div><dl class="facts"><dt>Thomas Frist Sr.</dt><dd>Père et cofondateur de HCA</dd><dt>Jack C. Massey</dt><dd>Cofondateur de HCA</dd><dt>Richard Scott</dt><dd>Dirigeant de Columbia/HCA, remplacé par Frist en 1997</dd><dt>KKR et Bain Capital</dt><dd>Investisseurs associés au rachat de 2006</dd></dl><p class="bio-note">Sources : <a href="https://news.vanderbilt.edu/2002/07/04/vanderbilt-names-frist-distinguished-alumni-60247/">Vanderbilt</a>, <a href="https://www.upi.com/Archives/1997/07/25/UPI-Focus-Report-Columbia-gets-new-chief/6097869803200/">UPI</a>, <a href="https://images.forbes.com/lists/2006/54/biz_06rich400_Thomas-F-Frist-Jr-family_XA34.html">Forbes</a>.</p></section>'
   :'<section class="bio-section" id="relations"><div class="bio-section-head"><p class="bio-eyebrow">Knowledge Graph / Enrichissement</p><h2>Relations professionnelles documentées</h2></div><p class="bio-empty">Aucune relation interpersonnelle n’a encore été ajoutée au dossier vérifié. Les entreprises communes signalées ci-dessous ne prouvent pas une relation personnelle.</p></section>';
  const companies='<section class="bio-section" id="entreprises"><div class="bio-section-head"><p class="bio-eyebrow">Knowledge Graph / Associations</p><h2>Entreprises et réseaux économiques</h2></div>'+economicLinks(p,from)+'</section>';
- const items=timeline(p.id);
- const chronology='<section class="bio-section" id="chronologie"><div class="bio-section-head"><p class="bio-eyebrow">Billionaire Timeline</p><h2>Chronologie vérifiable</h2></div>'+(items.length?'<ol class="bio-timeline">'+items.map(e=>'<li><time>'+esc(e.date)+'</time><div><strong>'+esc(e.title)+'</strong><a href="'+esc(sources.find(s=>s.id===e.source).url)+'" target="_blank" rel="noopener noreferrer">Document original ↗</a></div></li>').join('')+'</ol>':'<p class="bio-empty">Aucun événement supplémentaire daté et sourcé n’est enregistré pour cette fiche.</p>')+'</section>';
+ const items=[...timeline(p.id),...(researched?.events||[]).map(e=>({date:e.date,type:e.type,title:e.title,sourceUrl:e.source}))].sort((a,b)=>a.date.localeCompare(b.date));
+ const chronology='<section class="bio-section" id="chronologie"><div class="bio-section-head"><p class="bio-eyebrow">Billionaire Timeline</p><h2>Chronologie vérifiable</h2></div>'+(items.length?'<ol class="bio-timeline">'+items.map(e=>'<li><time>'+esc(e.date)+'</time><div><strong>'+esc(e.title)+'</strong><a href="'+esc(e.sourceUrl||sources.find(s=>s.id===e.source)?.url||'#sources')+'" target="_blank" rel="noopener noreferrer">Document original ↗</a></div></li>').join('')+'</ol>':'<p class="bio-empty">Aucun événement supplémentaire daté et sourcé n’est enregistré pour cette fiche.</p>')+'</section>';
  const risk=p.id==='elon-musk'
   ?'<section class="bio-section" id="risques"><div class="bio-section-head"><p class="bio-eyebrow">Billionaire Risk Monitor / Sources primaires</p><h2>Gouvernance et procédures documentées</h2></div><article class="bio-document"><div class="bio-document-index">2026</div><div><h3>Plan de rémunération Tesla</h3><p>Le rapport de Tesla pour septembre 2026 décrit la décision du 21 avril 2026 qui a entraîné la déchéance de l’attribution intérimaire de 96 millions d’actions de 2025, après le rétablissement judiciaire du plan de 2018.</p><a class="bio-source-link" href="https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm" target="_blank" rel="noopener noreferrer">Document réglementaire SEC ↗</a></div></article><p class="bio-note">Cette rubrique ne constitue ni une liste exhaustive des procédures ni un score de risque individuel. Les éventuelles accusations, jugements et recours sont distingués selon leur statut.</p></section>'
   :'<section class="bio-section" id="risques"><div class="bio-section-head"><p class="bio-eyebrow">Billionaire Risk Monitor</p><h2>Gouvernance et événements sensibles</h2></div><p class="bio-empty">Le suivi automatisé des controverses, décisions de justice et risques de gouvernance n’est pas encore validé pour cette fiche. Aucune absence de risque ne peut en être déduite.</p><p class="bio-note">Un fait allégué, une procédure en cours et une décision définitive doivent être présentés séparément, avec date et source.</p></section>';
@@ -249,6 +254,7 @@ fs.mkdirSync(path.join(OUT,'data'),{recursive:true});
 const G=graph(P);
 fs.writeFileSync(path.join(OUT,'data/knowledge-graph.json'),JSON.stringify(G));
 fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sources:sources.length,people:P.length,companies:G.nodes.filter(n=>n.type==='company').length,associations:G.edges.length,events:G.events.length,observations:observations.length,candidates:candidates.length,collection:'manual',rankingGrowthAvailable:false}));
+ fs.writeFileSync(path.join(OUT,'data/biography-research-coverage.json'),JSON.stringify({totalProfiles:P.length,researchedProfiles:researchQuality.profiles,researchedSections:researchQuality.sections,researchedEvents:researchQuality.events,distinctSourceUrls:researchQuality.uniqueSourceUrls,updatedAt:researchData.updatedAt,method:'Editorial records with direct source links; not automatically corroborated'}));
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-24';
