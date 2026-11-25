@@ -2,7 +2,7 @@
 // Never treat an API search suggestion as verified identity.
 const USER_AGENT='ActualitesFR-Research/0.2 (contact@actualites.fr; biographical reference research)';
 export const normalizeName=name=>String(name||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
-  .toLocaleLowerCase('en').replace(/[^a-z0-9]+/g,' ').replace(/\b(jr|sr)\b/g,'').trim().replace(/\s+/g,' ');
+  .toLocaleLowerCase('en').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
 const RELEVANT=/business|entrepreneur|industrial|investor|executive|founder|billionaire|wealth|philanthrop|author|heir|heiress|magnate|tycoon|singer|musician|actress|actor|fashion|banker|chair|software|technology|real estate|wealth|financier|company|companies|corporate/i;
 const STRONG=/billionaire|businessman|businesswoman|businessperson|business magnate|entrepreneur|industrialist|investor|founder|heiress|heir|tycoon|banker|philanthropist|software developer|computer scientist|fashion designer|singer.songwriter/i;
 const NON_PERSON=/disambiguation|fictional|family foundation|footballer|football player|basketball|athlete|sportsperson/i;
