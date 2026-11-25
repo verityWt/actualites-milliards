@@ -1,0 +1,56 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {normalizeName,selectCandidate,resolveWikipedia,selectTopicSections} from './wikipedia-profile.mjs';
+const person={slug:'bill-gates',name:'Bill Gates',country:'United States'};
+const suggestions=[{wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'}];
+test('normalization handles accents without weakening exact-name match',()=>{
+ assert.equal(normalizeName('Françoise Bettencourt Meyers'),normalizeName('Francoise Bettencourt Meyers'));
+ assert.equal(selectCandidate(person,suggestions)?.wikidataId,'Q5284');
+ assert.equal(selectCandidate(person,[{...suggestions[0],label:'Bill Gates II'}]),null);
+ assert.equal(selectCandidate(person,[...suggestions,...suggestions]),null);
+});
+test('associated Wiki summaries are attributed, URLs constrained and identity remains unverified',async()=>{
+ const calls=[];
+ const mock=async url=>{
+  calls.push(url);
+  if(url.includes('wbgetentities'))return {ok:true,json:async()=>({entities:{Q5284:{labels:{en:{value:'Bill Gates'}},
+   sitelinks:{frwiki:{title:'Bill Gates'},enwiki:{title:'Bill Gates'}},
+   claims:{P856:[{mainsnak:{datavalue:{value:'https://www.gatesnotes.com/'}}}]}}}})};
+  if(url.includes('fr.wikipedia.org'))return {ok:true,json:async()=>({type:'standard',title:'Bill Gates',extract:'Bill Gates est un entrepreneur américain, connu comme cofondateur de Microsoft et pour ses activités dans la santé mondiale.',content_urls:{desktop:{page:'https://fr.wikipedia.org/wiki/Bill_Gates'}}})};
+  return {ok:true,json:async()=>({type:'standard',title:'Bill Gates',extract:'Bill Gates is an American entrepreneur, co-founder of Microsoft, and a major contributor to global health projects.',content_urls:{desktop:{page:'https://en.wikipedia.org/wiki/Bill_Gates'}}})};
+ };
+ const v=await resolveWikipedia(person,suggestions,mock);
+ assert.equal(v.status,'encyclopedic_sources_found');
+ assert.equal(v.verified,false);
+ assert.equal(v.pages.length,2);
+ assert.equal(v.pages[0].language,'fr');
+ assert.deepEqual(v.officialWebsites,['https://www.gatesnotes.com/']);
+ assert.equal(v.pages[0].license,'CC BY-SA 4.0');
+ assert.equal(calls.length,5);
+});
+test('ambiguous name skips calls to upstream sources',async()=>{
+ let calls=0;const fake=async()=>{calls++;throw Error('should not fetch')};
+ const v=await resolveWikipedia(person,[...suggestions,...suggestions],fake);
+ assert.equal(v.status,'identity_ambiguous');assert.equal(calls,0);
+});
+
+test('Bill Gates businessman is distinguished from same-name footballer',()=>{
+ const good={wikidataId:'Q5284',label:'Bill Gates',description:'American businessman, investor, and philanthropist (born 1955)'};
+ const footballer={wikidataId:'Q123411797',label:'Bill Gates',description:'English footballer (1944–2023)'};
+ const other={wikidataId:'Q1181671',label:'Bill Gates',description:'Wikimedia disambiguation page'};
+ assert.equal(selectCandidate(person,[good,footballer,other])?.wikidataId,'Q5284');
+});
+
+test('Bill Gates Sr. does not match Bill Gates and vice versa',()=>{
+ const a={wikidataId:'Q684014',label:'Bill Gates Sr.',description:'American attorney and philanthropist'};
+ const b={wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'};
+ assert.notEqual(normalizeName(a.label),normalizeName(b.label));
+ assert.equal(selectCandidate(person,[a,b])?.wikidataId,'Q5284');
+});
+
+test('structured Wikimedia passages select informative sections without unrelated bibliography',()=>{
+ const source='Biography introduction.\n\n== Early life ==\nIn his youth, the subject studied computers and participated in technology clubs, later working on software and various electronic experiments. The first projects helped him form connections with future collaborators.\n\n== References ==\nA lengthy collection of books and citations and other bibliographic sources is listed here, none of which is a separate biographical event.\n\n== Career ==\nThe entrepreneur created a company and developed new products in several markets, eventually managing a large international team and expanding the business through acquisitions and investments.';
+ const r=selectTopicSections(source);
+ assert.deepEqual(r.map(x=>x.title),['Early life','Career']);
+ assert.ok(r[0].text.length>110);
+});

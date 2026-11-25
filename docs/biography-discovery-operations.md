@@ -1,47 +1,39 @@
-# Veille biographique continue — état opérationnel
+# Enrichissement continu des 207 biographies
 
-**Activation vérifiée : 25 novembre 2026, 22:45 UTC.**
+Version : 26 novembre 2026. Le moteur est hébergé sur Cloudflare et fonctionne hors de la conversation ChatGPT.
 
-## Ressources
-- **Générateur de site** : `build.mjs`, Cloudflare Pages `actualites-milliardaires`. Le site statique **n'est pas** automatiquement enrichi à chaque passage.
-- **Liste** : 207 fiches — Top 200 Forbes 2026 et fiches supplémentaires du corpus `curated.json`.
-- **Worker déclencheur** : `actualites-wealth-research`, Cron `*/15 * * * *`, déjà présent avant cette évolution. Sa fonction `collect` demeure active.
-- **Nouveau traitement** : `workers/biography-discovery.mjs`, appelé en parallèle de `collect` via `Promise.allSettled`. Un échec d'une tâche ne bloque pas l'autre.
-- **Worker lecture seule** : `actualites-biography-discovery`, exposé sur `actualites-biography-discovery.actualites-fr-next.workers.dev`, chemins `/status` et `/profiles/<slug>`.
-- **KV original** : `actualites-wealth-research-v1` (identifiant `76fe5058389e4f6d9781a5595e683a1d`).
-- **KV biographique distinct** : `actualites-biography-discovery-v1` (identifiant `efa49ac39e834b1ca83773e11c5aba98`).
+## Flux automatique déployé
 
-## Fonctionnement
-1. À chaque déclenchement, un index déterministe sélectionne une fiche. Aucun curseur KV partagé n'est modifié. Chaque personne apparaît une fois dans un cycle de 207 déclenchements.
-2. Une recherche Wikidata `wbsearchentities` renvoie jusqu'à cinq entités candidates. Ce sont uniquement des **propositions d'identité**, pas des confirmations, des biographies, des relations ou des analyses psychologiques.
-3. Le résultat est conservé dans `profile:<slug>`; le dernier passage dans `latest` et `run:<slot>` ; les erreurs dans `error:<slug>`.
-4. En cas de panne fournisseur, l'erreur est enregistrée ; le prochain déclenchement traite la fiche suivante, et la fiche échouée sera retentée au cycle suivant.
+- **Déclencheur** : `actualites-wealth-research`, Cron `*/15 * * * *`. Il conserve sa collecte générale et lance en parallèle `discoverBatch` via la liaison `BIOGRAPHY`. Le quota Workers Free de cinq déclencheurs Cron reste respecté.
+- **Inventaire** : 207 profils dérivés du classement Top 200 Forbes 2026 et de 7 profils supplémentaires.
+- **Lot** : 4 profils à chaque déclenchement. Une rotation théorique couvre 207 entrées en 52 quarts d'heure, soit environ 13 heures, en l'absence de défaillance. Un échec est journalisé et retenté à un cycle ultérieur.
+- **Identité** : recherche Wikidata avec filtrage des homonymes ; correspondance des libellés, occupations et suffixes familiaux `Sr.`/`Jr.`. Si l'identité est ambiguë, aucun extrait individuel n'est associé.
+- **Encyclopédie** : récupération des introductions Wikipédia FR/EN, jusqu'à cinq extraits thématiques, de leurs URL canoniques et de leurs références de presse/institutions externes. Les liens de référence sont des pistes documentaires **non relues**.
+- **Affichage** : les 207 pages de Cloudflare Pages comprennent un bloc `data-wiki-profile`, chargé par `assets/wiki-live.js`. Au premier accès, l'API complète à la demande les sources absentes.
+- **Attribution** : passages clairement identifiés comme extraits Wikipédia, lien article et licence CC BY-SA 4.0. Aucun texte n'est présenté comme un article original d'Actualites.fr.
+- **Stockage** : Cloudflare KV `actualites-biography-discovery-v1`, liaison `BIOGRAPHY` dans le worker Cron et `RESEARCH` dans le worker public. Succès mis en cache sept jours ; recherches infructueuses réessayées après dix minutes. Le cache KV est éventuellement cohérent et les mises à jour ne sont pas instantanées dans tous les centres de données.
+- **API** : `https://actualites-biography-discovery.actualites-fr-next.workers.dev/status` ; `/profiles/<slug>`. L'API est en lecture HTTP GET mais peut déclencher une collecte sur un cache manquant pour les seuls slugs autorisés.
 
-**Capacité théorique** : 207 × 15 minutes = 51 h 45 par cycle, à condition que les déclenchements surviennent et que les recherches réussissent. Le Cron n'est pas une garantie de temps exact.
+## Ce qui est réellement automatisé
 
-## Première preuve de fonctionnement
-Lecture Cloudflare KV du 25 novembre 2026, 22:45:30 UTC :
-- fiche : `israel-englander`, rang 98 ;
-- état : `candidate_found` ;
-- Wikidata candidat : `Q16120832`, libellé `Israel Englander` ;
-- `verifiedFacts:0`, `analysisStatus:not_executed`, `editorialStatus:pending_independent_review`.
+Recherche d'identifiants, récupération de documents encyclopédiques et de liens complémentaires, rotation, cache, disponibilité par fiche et affichage client. Le statut `encyclopedic_sources_found` indique une collecte réussie, **pas** une corroboration indépendante des assertions.
 
-## Étapes restant à automatiser
-- Résolution d'identité : pays, entreprises, identifiants et homonymes ; revue des faux positifs.
-- Recherche multi-source : déclarations réglementaires, sites des entreprises, rapports annuels, archives de presse ; conserver URI, date, passage précis et droits.
-- Extraction de faits et graphe : corroboration indépendante, contradictions apparentes, correction des déclarations périmées.
-- Corpus de discours : uniquement documents originaux, attribution vérifiée, dates, versions de transcription, comparaison de modèles et tests.
-- Publication : processus de revue et regeneration du site ; aucune publication automatique d'allégations non vérifiées, d'analyses intimes ou d'inférences cliniques.
-- Suivi : taux de réussite par cycle, source indisponible, erreurs, retard, nombre de dossiers documentés et dates de dernière validation.
+## Ce qui ne l'est pas encore
 
-## Quotas
-Le compte Cloudflare gratuit était à la limite de cinq déclencheurs Cron. La solution **réutilise** celui du Worker de veille patrimoniale : aucun nouveau déclencheur n'a été ajouté et aucun Cron existant n'a été supprimé. Un passage déclenche désormais deux tâches réseau ; observer les coûts et les limitations des fournisseurs.
+- Rédaction de plusieurs articles originaux pour chaque personne à partir d'un corpus de plusieurs sources.
+- Analyse des contradictions, vérification des affiliations à partir de plusieurs documents primaires, actualisation automatique des anciennes informations contradictoires.
+- Exécution de nouveaux modèles de langage comportemental ou validation psychométrique.
+- Réindexation SEO systématique des textes importés par JavaScript : les pages statiques conservent leur contenu initial pour les robots ne chargeant pas le JavaScript.
 
-## Tests
-`npm run test:discovery` exécute les tests déterministes de rotation, dépôt de candidats, erreur fournisseur et lecture seule. Ces tests ont été ajoutés mais leur exécution dans GitHub Actions n'est pas encore confirmée. Le déploiement de modules Cloudflare et le premier passage de production ont été vérifiés.
+## Contrôles réalisés
 
-## Distinguer les états
-- `candidate_found` = identifiant Wikidata proposé ; **non confirmé**.
-- `verifiedFacts:0` = aucune vérification individuelle menée par ce service.
-- `analysisStatus:not_executed` = aucun modèle de comportement exécuté par ce Worker.
-- Le contenu statique de la fiche peut avoir été enrichi manuellement par ailleurs et ne doit pas être confondu avec les résultats de cette veille.
+- Test isolé du Worker de préproduction : profils Bill Gates (homonymes distincts), Sergey Brin, Elon Musk, Larry Ellison et Bernard Arnault.
+- Production vérifiée : API sur Bill Gates et Larry Ellison, avec articles Wikipédia et passages thématiques.
+- Déclencheur Cron et bindings KV vérifiés avec l'API Cloudflare.
+- Compilation Cloudflare Pages vérifiée sur la branche de travail avant fusion.
+- Tests `npm run test:all` disponibles dans le dépôt. Un job GitHub Actions a été tenté, mais GitHub a refusé de le lancer **avant l'exécution de toute étape**, signalant un problème de facturation. Le workflow a été retiré pour éviter un échec permanent ; ces tests restent exécutables localement ou par un autre système CI.
+- L'exécution d'un cycle complet de 207 fiches et le contrôle visuel navigateur complet ne sont pas encore confirmés.
+
+## Risques à surveiller
+
+Quota HTTP et disponibilité Wikimedia, homonymes, changements de contenu Wikipédia, actualité des données, licence des reproductions et limites de l'indexation des textes chargés par JavaScript. Les nouveaux faits personnels sensibles ne sont pas inférés par le moteur.

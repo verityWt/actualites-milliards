@@ -1,4 +1,4 @@
-import {discover} from './biography-discovery.mjs';
+import {discoverBatch} from './biography-discovery.mjs';
 const QUERIES=['"billionaire" acquisition','"milliardaire" succession','"billionaire" IPO','"billionaire" corporate governance'];
 export async function collect(env,slot=Date.now(),fetcher=fetch){
  const query=QUERIES[Math.floor(slot/900000)%QUERIES.length], started=new Date().toISOString();
@@ -12,4 +12,4 @@ export async function collect(env,slot=Date.now(),fetcher=fetch){
  }catch(e){status.error=String(e.message).slice(0,160);}
  await env.RESEARCH.put('status',JSON.stringify(status));return status;
 }
-export default {async scheduled(event,env,ctx){ctx.waitUntil(Promise.allSettled([collect(env,event.scheduledTime),discover({RESEARCH:env.BIOGRAPHY},new Date(event.scheduledTime))]));},async fetch(request,env){const u=new URL(request.url);if(request.method!=='GET'||u.pathname!=='/status')return new Response('Not found',{status:404});const s=await env.RESEARCH.get('status',{type:'json'});return Response.json(s?{state:s.state,lastAttempt:s.lastAttempt,lastSuccess:s.lastSuccess,leads:s.leads,newLeads:s.newLeads??null}:{state:'not_run',lastAttempt:null,lastSuccess:null,leads:0},{headers:{'Access-Control-Allow-Origin':'*','Cache-Control':'no-store'}});}};
+export default {async scheduled(event,env,ctx){ctx.waitUntil(Promise.allSettled([collect(env,event.scheduledTime),discoverBatch({RESEARCH:env.BIOGRAPHY},new Date(event.scheduledTime))]));},async fetch(request,env){const u=new URL(request.url);if(request.method!=='GET'||u.pathname!=='/status')return new Response('Not found',{status:404});const s=await env.RESEARCH.get('status',{type:'json'});return Response.json(s?{state:s.state,lastAttempt:s.lastAttempt,lastSuccess:s.lastSuccess,leads:s.leads,newLeads:s.newLeads??null}:{state:'not_run',lastAttempt:null,lastSuccess:null,leads:0},{headers:{'Access-Control-Allow-Origin':'*','Cache-Control':'no-store'}});}};
