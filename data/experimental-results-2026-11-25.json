@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-11-25",
+  "subject": "mark-zuckerberg",
+  "execution": "isolated Node.js 22 implementation of repository lexical_count_v1 and lexical-preprocessing-sensitivity-v1",
+  "sourceVerification": "two original Meta investor-relations releases located and quotations matched",
+  "scope": "two attributed public corporate quotations; not a representative individual corpus",
+  "results": [
+    {
+      "date": "2012-07-26",
+      "source": "https://investor.atmeta.com/investor-news/press-release-details/2012/Facebook-Reports-Second-Quarter-2012-Results/default.aspx",
+      "words": 19,
+      "uniqueWords": 18,
+      "frequencies": {
+        "future": 0,
+        "collective": 1,
+        "uncertainty": 0,
+        "business": 1
+      },
+      "experiment": {
+        "protocol": "lexical-preprocessing-sensitivity-v1",
+        "transformed": false,
+        "baselineWords": 19,
+        "alternateWords": 19,
+        "deltas": {
+          "future": 0,
+          "collective": 0,
+          "uncertainty": 0,
+          "business": 0
+        }
+      }
+    },
+    {
+      "date": "2025-07-30",
+      "source": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Reports-Second-Quarter-2025-Results/",
+      "words": 14,
+      "uniqueWords": 14,
+      "frequencies": {
+        "future": 0,
+        "collective": 2,
+        "uncertainty": 0,
+        "business": 1
+      },
+      "experiment": {
+        "protocol": "lexical-preprocessing-sensitivity-v1",
+        "transformed": false,
+        "baselineWords": 14,
+        "alternateWords": 14,
+        "deltas": {
+          "future": 0,
+          "collective": 0,
+          "uncertainty": 0,
+          "business": 0
+        }
+      }
+    }
+  ],
+  "validation": {
+    "localChecks": 4,
+    "passed": 4,
+    "failed": 0,
+    "fixtureCorrection": "expected collective token count corrected from 2 to 3",
+    "notes": "No sample includes a comma so sensitivity transform does not activate. Control fixture with comma was tested and changes counts."
+  },
+  "notExecuted": {
+    "tweetnlp": "not installed; model weights unavailable",
+    "pysentimiento": "not installed; noncommercial license restriction",
+    "bertopic": "not installed",
+    "sentenceTransformers": "not installed"
+  },
+  "limitations": "Not a psychological profile. No diagnostic, intimate-life estimate, emotion-model output or individualized behavior prediction. No production model inference executed."
+}
