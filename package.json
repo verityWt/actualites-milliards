@@ -6,7 +6,7 @@
     "build": "node build.mjs",
     "preview": "node build.mjs --preview",
     "research": "node scripts/research.mjs",
-    "test:research": "node --test scripts/research.test.mjs"
+    "test:research": "node --test scripts/research.test.mjs workers/research-intelligence.test.mjs"
   },
   "engines": {
     "node": ">=20"
