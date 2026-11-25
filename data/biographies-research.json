@@ -327,30 +327,165 @@
     "bill-gates": {
       "sections": [
         {
-          "heading": "Cofondateur de Microsoft et évolution de ses fonctions",
-          "body": "Bill Gates est l’un des cofondateurs de Microsoft. Le communiqué du 13 mars 2020 le présente comme cofondateur et conseiller technologique, et précise qu’il quitte alors le conseil d’administration pour consacrer davantage de temps à ses activités philanthropiques.",
+          "heading": "L’adolescent de Seattle qui a parié sur le logiciel",
+          "body": "William Henry Gates III grandit à Seattle, découvre très tôt la programmation à Lakeside School et se lie à Paul Allen. Dans son autobiographie Source Code, publiée en 2025, il raconte le rôle de sa famille, ses expériences de programmation et le numéro de Popular Electronics consacré à l’Altair 8800 qui les pousse, fin 1974, à proposer un interpréteur BASIC. Microsoft naît l’année suivante.",
+          "source": "https://www.gatesnotes.com/books/source-code"
+        },
+        {
+          "heading": "1975–2000 : Microsoft et la généralisation de l’ordinateur personnel",
+          "body": "Avec Paul Allen, Gates cofonde Microsoft en 1975. L’entreprise se développe d’abord autour des langages et systèmes d’exploitation, puis de MS-DOS, Windows et des logiciels bureautiques. Gates en reste le directeur général jusqu’en 2000, avant de céder la direction à Steve Ballmer et de privilégier progressivement la stratégie technologique et la philanthropie.",
+          "source": "https://www.gatesfoundation.org/about/leadership/bill-gates"
+        },
+        {
+          "heading": "Une entreprise dominante et des conflits sur la concurrence",
+          "body": "La croissance de Microsoft s’accompagne d’une confrontation avec les autorités américaines de la concurrence à la fin des années 1990. Le contentieux sur l’intégration du navigateur Internet Explorer à Windows a durablement marqué l’image publique du groupe. Cette histoire éclaire le passage du fondateur d’un logiciel omniprésent à un acteur majeur de la philanthropie mondiale.",
+          "source": "https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp."
+        },
+        {
+          "heading": "Le retrait de Microsoft, sans rupture avec la technologie",
+          "body": "Gates quitte ses fonctions exécutives quotidiennes en 2008 puis le conseil d’administration de Microsoft le 13 mars 2020. Le groupe précise alors qu’il reste conseiller technologique. Ses interventions ultérieures sur l’intelligence artificielle, l’énergie et les sciences montrent qu’il conserve une activité publique tournée vers les technologies, sans diriger l’entreprise.",
           "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
         },
         {
-          "heading": "Départ du conseil d’administration en mars 2020",
-          "body": "Microsoft a annoncé le 13 mars 2020 la démission de Bill Gates du conseil d’administration. Le groupe liait cette décision à ses activités philanthropiques en santé mondiale, développement, éducation et climat. Cette annonce ne prouve pas son implication opérationnelle quotidienne actuelle.",
-          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+          "heading": "Le tournant de la santé mondiale et de l’éducation",
+          "body": "Créée en 2000 avec Melinda French Gates, la fondation finance des programmes de vaccination, de lutte contre les maladies infectieuses, de développement et d’éducation. En mai 2025, Bill Gates annonce une accélération du financement jusqu’en 2045. La fondation prévoit de mobiliser environ 200 milliards de dollars supplémentaires sur vingt ans, avant sa fermeture annoncée le 31 décembre 2045.",
+          "source": "https://www.gatesfoundation.org/ideas/media-center/press-releases/2025/05/25th-anniversary-announcement"
+        },
+        {
+          "heading": "Pourquoi la fondation doit dépenser son patrimoine d’ici 2045",
+          "body": "Le choix d’une date de fermeture modifie le fonctionnement habituel d’une grande fondation, souvent conçue pour durer indéfiniment. La direction affirme vouloir financer plus rapidement les programmes de santé et réduire les inégalités. Le chiffre de 200 milliards de dollars représente des dépenses prévues par l’organisation sur vingt ans, et non la fortune personnelle disponible de Bill Gates à un instant donné.",
+          "source": "https://www.gatesfoundation.org/about/foundation-faq"
+        },
+        {
+          "heading": "2026 : le pari nucléaire de TerraPower devient un chantier",
+          "body": "Bill Gates compte parmi les fondateurs de TerraPower. En mars 2026, les autorités américaines accordent un permis de construction au projet Natrium, près de Kemmerer, dans le Wyoming. TerraPower annonce le début officiel des travaux le 23 avril 2026. Le réacteur prévu utilise du sodium comme fluide caloporteur et s’accompagne d’un système de stockage thermique. Il s’agit d’un projet industriel en développement, pas d’une centrale déjà opérationnelle.",
+          "source": "https://www.terrapower.com/TerraPower-Commences-Construction-on-Americas-First-Utility-Scale-Advanced-Nuclear-Power-Plant"
+        },
+        {
+          "heading": "L’intelligence artificielle : enthousiasme et inquiétudes sur les inégalités",
+          "body": "Dans ses écrits de 2026, Gates décrit l’IA comme une technologie pouvant accroître l’accès au savoir et à certains services, mais susceptible d’accentuer les inégalités si son déploiement et ses bénéfices sont mal répartis. Ses textes permettent de comparer ses positions publiques au fil du temps, sans prétendre déduire ses intentions privées ou son tempérament.",
+          "source": "https://www.gatesnotes.com/work/work-section-topic/reader"
+        },
+        {
+          "heading": "Source Code : raconter le jeune Bill Gates avant l’empire Microsoft",
+          "body": "Dans ses mémoires publiés en 2025, Gates revient sur l’école, ses amitiés, les jeux intellectuels, les rapports avec ses parents et ses premières ambitions. Le livre s’arrête à la naissance de Microsoft et fournit un point de vue autobiographique, à confronter à d’autres biographies pour les épisodes controversés.",
+          "source": "https://www.gatesnotes.com/books/source-code"
         }
       ],
       "events": [
         {
+          "date": "1975",
+          "title": "Création de Microsoft avec Paul Allen",
+          "type": "company",
+          "source": "https://www.gatesfoundation.org/about/leadership/bill-gates"
+        },
+        {
+          "date": "2000",
+          "title": "Départ du poste de directeur général de Microsoft et création de la fondation",
+          "type": "governance",
+          "source": "https://www.gatesfoundation.org/about/leadership/bill-gates"
+        },
+        {
+          "date": "2008-06-27",
+          "title": "Fin du travail quotidien chez Microsoft pour se consacrer davantage à la philanthropie",
+          "type": "governance",
+          "source": "https://abc17news.com/news/national-world/cnn-national/2024/10/09/bill-gates-fast-facts-4/"
+        },
+        {
           "date": "2020-03-13",
-          "title": "Microsoft annonce le départ de Bill Gates de son conseil d’administration",
+          "title": "Départ du conseil d’administration de Microsoft",
           "type": "governance",
           "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        },
+        {
+          "date": "2021-08-02",
+          "title": "Divorce avec Melinda French Gates finalisé",
+          "type": "governance",
+          "source": "https://abc17news.com/news/national-world/cnn-national/2024/10/09/bill-gates-fast-facts-4/"
+        },
+        {
+          "date": "2025-05-08",
+          "title": "Annonce du plan de dépenses de la Gates Foundation jusqu’en 2045",
+          "type": "philanthropy",
+          "source": "https://www.gatesfoundation.org/ideas/media-center/press-releases/2025/05/25th-anniversary-announcement"
+        },
+        {
+          "date": "2026-03-04",
+          "title": "Permis de construction accordé à TerraPower pour le projet nucléaire Natrium",
+          "type": "investment",
+          "source": "https://www.terrapower.com/NRC-Approves-Natrium-Reactor-Construction-Permit"
+        },
+        {
+          "date": "2026-04-23",
+          "title": "Début annoncé de la construction de la centrale Natrium au Wyoming",
+          "type": "investment",
+          "source": "https://www.terrapower.com/TerraPower-Commences-Construction-on-Americas-First-Utility-Scale-Advanced-Nuclear-Power-Plant"
         }
       ],
       "personal": {
+        "personality": [
+          {
+            "heading": "Un discours public centré sur la technique et la résolution de problèmes",
+            "body": "Gates décrit depuis plusieurs années les questions de santé, de climat et de technologie à travers des chiffres, des recherches et des solutions concrètes. Ses interventions sur les vaccins, la mortalité infantile ou l’intelligence artificielle illustrent sa façon de présenter les problèmes publics. Cette observation porte sur ses textes publiés, sans prétendre mesurer ses traits psychologiques.",
+            "source": "https://www.gatesnotes.com/work/work-section-topic/reader"
+          },
+          {
+            "heading": "Le regard rétrospectif de ses mémoires",
+            "body": "Dans Source Code, Gates raconte un adolescent passionné d’informatique, de lecture et de défis intellectuels. Il attribue une importance particulière à ses parents et à Paul Allen dans sa formation. Ce récit autobiographique montre comment il présente aujourd’hui ses débuts ; il reste une source subjective sur sa propre vie.",
+            "source": "https://www.gatesnotes.com/books/source-code"
+          }
+        ],
+        "preferences": [
+          {
+            "heading": "Un lecteur qui publie régulièrement ses recommandations",
+            "body": "Gates publie sur Gates Notes des listes de lectures et des commentaires sur l’histoire, les sciences, la société et la littérature. Sa sélection comprend aussi bien des ouvrages scientifiques que des romans et des biographies. Cette activité publique est suivie depuis des années et permet de retracer précisément ses goûts littéraires déclarés.",
+            "source": "https://www.gatesnotes.com/books/reading-lists"
+          },
+          {
+            "heading": "Le tennis, l’un de ses sports favoris",
+            "body": "Dans ses recommandations de livres, Gates présente le tennis comme l’un de ses sports préférés et cite notamment The Inner Game of Tennis de Timothy Gallwey, qu’il relie à son apprentissage personnel. Il a également recommandé des livres consacrés à Roger Federer et à la pratique du tennis.",
+            "source": "https://www.gatesnotes.com/books/society/reader"
+          },
+          {
+            "heading": "Un intérêt ancien pour les encyclopédies et la programmation",
+            "body": "Gates explique avoir lu très jeune des volumes d’encyclopédie et s’être passionné pour les ordinateurs disponibles à son école. Ses souvenirs de lecture et ses récits de programmation forment une constante entre les mémoires et ses écrits récents.",
+            "source": "https://www.gatesnotes.com/books/reading-lists"
+          }
+        ],
         "personalLife": [
           {
-            "heading": "Engagements philanthropiques déclarés",
-            "body": "Dans son communiqué de mars 2020, Microsoft indique que Bill Gates prévoit d’accorder plus de temps à ses priorités philanthropiques en matière de santé mondiale, développement, éducation et climat. Il s’agit d’intentions publiques datées et non d’une observation de ses activités personnelles quotidiennes.",
-            "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+            "heading": "L’enfance à Seattle et la place de ses parents",
+            "body": "Né à Seattle en 1955, Gates raconte dans Source Code le rôle de sa mère Mary, de son père Bill Gates Sr. et de son entourage dans son éducation. Il explique que les premières rencontres et les expériences de jeunesse l’ont amené à se consacrer à l’informatique.",
+            "source": "https://www.gatesnotes.com/books/source-code"
+          },
+          {
+            "heading": "Trois enfants et une histoire familiale rendue publique",
+            "body": "Bill Gates et Melinda French Gates ont trois enfants, Jennifer, Rory et Phoebe. Leur séparation a été annoncée en mai 2021 et le divorce finalisé en août de la même année. Leur ancienne coopération philanthropique s’est ensuite transformée, Melinda quittant la fondation en 2024.",
+            "source": "https://en.wikipedia.org/wiki/Bill_Gates"
+          },
+          {
+            "heading": "De l’histoire familiale à la philanthropie",
+            "body": "Gates cite publiquement ses parents parmi les influences de son travail caritatif. Son père a également participé à la direction de la fondation. Cette continuité aide à comprendre pourquoi il présente aujourd’hui son engagement philanthropique comme un projet de plusieurs décennies.",
+            "source": "https://www.gatesnotes.com/meet-bill/meet-bill-home-topic/reader"
+          }
+        ],
+        "relationships": [
+          {
+            "heading": "Mariage avec Melinda French Gates et divorce en 2021",
+            "body": "Bill Gates et Melinda French Gates se sont mariés en 1994. Ils ont annoncé leur séparation en 2021 et leur divorce a été finalisé le 2 août 2021. Ils ont poursuivi temporairement leur collaboration au sein de la fondation avant le départ de Melinda en 2024.",
+            "source": "https://abc17news.com/news/national-world/cnn-national/2024/10/09/bill-gates-fast-facts-4/"
+          },
+          {
+            "heading": "Paula Hurd : une relation confirmée par Gates en février 2025",
+            "body": "Dans une interview accordée à l’émission Today en février 2025, Gates a parlé publiquement de sa relation avec Paula Hurd et l’a qualifiée de relation sérieuse. Il n’est pas nécessaire d’en inférer davantage sur leur situation sentimentale actuelle pour rapporter cette déclaration datée.",
+            "source": "https://www.youtube.com/watch?v=nC_rd5NMdIA"
+          }
+        ],
+        "documentedRisks": [
+          {
+            "heading": "Rencontres avec Jeffrey Epstein : les explications publiques de 2026",
+            "body": "En février 2026, la Gates Foundation a confirmé à Reuters que Gates avait répondu aux questions de ses employés et reconnu sa responsabilité dans ses relations avec Jeffrey Epstein, condamné pour des infractions sexuelles. Les comptes rendus de presse rapportent aussi qu’il a reconnu des liaisons extraconjugales ; il a nié toute implication dans les crimes d’Epstein. Ces affirmations sont attribuées à leurs sources, sans extrapolation sur les faits privés non établis.",
+            "source": "https://www.reuters.com/world/us/bill-gates-took-responsibility-his-actions-over-epstein-links-foundation-says-2026-02-25/"
           }
         ]
       },
