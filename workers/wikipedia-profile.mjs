@@ -53,6 +53,36 @@ export async function supplementaryLinks(title,lang='en',fetcher=fetch){
   return entries;
  }catch{return []}
 }
+export function selectTopicSections(extract){
+ const text=String(extract||'').slice(0,90000);
+ const rx=/^={2,4}\s*([^=\n]+?)\s*={2,4}\s*$/gm;
+ const matches=[...text.matchAll(rx)];
+ const sections=[];
+ const wanted=/biograph|enfance|jeunesse|formation|education|career|early life|parcours|histoire|history|entreprise|business|fondation|philanthrop|activité|activit|engagement|technolog|investment|investiss|politic|controvers|famille|personal life/i;
+ const excluded=/références|notes|bibliographie|source|lien externe|external links|further reading|voir aussi|see also|filmographie|distinction|awards|récompense/i;
+ for(let i=0;i<matches.length;i++){
+  const name=matches[i][1].trim().replace(/\s+/g,' ');
+  if(name.length<4||excluded.test(name)||!wanted.test(name))continue;
+  const start=matches[i].index+matches[i][0].length;
+  const end=i+1<matches.length?matches[i+1].index:text.length;
+  const segment=text.slice(start,end).replace(/^={2,4}.*?={2,4}$/gm,'').trim();
+  const paragraphs=segment.split(/\n\s*\n/g).map(x=>x.trim()).filter(x=>x.length>120&&!/^(voir|read|article|main)/i.test(x));
+  if(!paragraphs.length)continue;
+  const passage=paragraphs.slice(0,2).join('\n\n').slice(0,750).trim();
+  if(passage.length<100)continue;
+  if(sections.some(x=>x.title.toLowerCase()===name.toLowerCase()))continue;
+  sections.push({title:name,text:passage});
+  if(sections.length===5)break;
+ }
+ return sections;
+}
+export async function detailedWikipediaSections(title,lang='fr',fetcher=fetch){
+ try{
+  const q=new URLSearchParams({action:'query',prop:'extracts',explaintext:'1',format:'json',formatversion:'2',titles:title});
+  const json=await fetchJson('https://'+lang+'.wikipedia.org/w/api.php?'+q.toString(),fetcher);
+  return selectTopicSections(json?.query?.pages?.[0]?.extract||'');
+ }catch{return [];}
+}
 export async function resolveWikipedia(person,suggestions,fetcher=fetch){
  const suggestion=selectCandidate(person,suggestions);
  if(!suggestion)return {status:'identity_ambiguous',reason:'No unique matching person from Wikidata',verified:false};
@@ -79,7 +109,7 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
   }catch{/* one language can fail independently */}
  }
  if(!pages.length)return {status:'wikipedia_unavailable',wikidataId:suggestion.wikidataId,verified:false};
- const supplementary=enTitle?await supplementaryLinks(enTitle,'en',fetcher):[];
+ const [supplementary,topicSections]=await Promise.all([enTitle?supplementaryLinks(enTitle,'en',fetcher):Promise.resolve([]),detailedWikipediaSections(frTitle||enTitle,frTitle?'fr':'en',fetcher)]);
  const official=(item.claims?.P856||[]).map(x=>x.mainsnak?.datavalue?.value).filter(v=>{
   if(typeof v!=='string')return false;
   try{return new URL(v).protocol==='https:'}catch{return false}
@@ -88,6 +118,6 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
    wikidataUrl:'https://www.wikidata.org/wiki/'+suggestion.wikidataId,
    label:item.labels?.fr?.value||item.labels?.en?.value||suggestion.label,
    description:item.descriptions?.fr?.value||item.descriptions?.en?.value||suggestion.description,
-   pages,officialWebsites:official,supplementarySources:supplementary,verified:false,
+   pages,officialWebsites:official,supplementarySources:supplementary,topicSections,verified:false,
    disclaimer:'Articles encyclopédiques associés à une proposition d’identité ; les faits n’ont pas encore été recoupés par la rédaction.'};
 }
