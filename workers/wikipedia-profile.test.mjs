@@ -40,3 +40,10 @@ test('Bill Gates businessman is distinguished from same-name footballer',()=>{
  const other={wikidataId:'Q1181671',label:'Bill Gates',description:'Wikimedia disambiguation page'};
  assert.equal(selectCandidate(person,[good,footballer,other])?.wikidataId,'Q5284');
 });
+
+test('Bill Gates Sr. does not match Bill Gates and vice versa',()=>{
+ const a={wikidataId:'Q684014',label:'Bill Gates Sr.',description:'American attorney and philanthropist'};
+ const b={wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'};
+ assert.notEqual(normalizeName(a.label),normalizeName(b.label));
+ assert.equal(selectCandidate(person,[a,b])?.wikidataId,'Q5284');
+});
