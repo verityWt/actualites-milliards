@@ -339,7 +339,7 @@
         {
           "heading": "Une entreprise dominante et des conflits sur la concurrence",
           "body": "La croissance de Microsoft s’accompagne d’une confrontation avec les autorités américaines de la concurrence à la fin des années 1990. Le contentieux sur l’intégration du navigateur Internet Explorer à Windows a durablement marqué l’image publique du groupe. Cette histoire éclaire le passage du fondateur d’un logiciel omniprésent à un acteur majeur de la philanthropie mondiale.",
-          "source": "https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp."
+          "source": "https://www.justice.gov/atr/case/us-v-microsoft-corporation-browser-and-middleware"
         },
         {
           "heading": "Le retrait de Microsoft, sans rupture avec la technologie",
@@ -370,6 +370,11 @@
           "heading": "Source Code : raconter le jeune Bill Gates avant l’empire Microsoft",
           "body": "Dans ses mémoires publiés en 2025, Gates revient sur l’école, ses amitiés, les jeux intellectuels, les rapports avec ses parents et ses premières ambitions. Le livre s’arrête à la naissance de Microsoft et fournit un point de vue autobiographique, à confronter à d’autres biographies pour les épisodes controversés.",
           "source": "https://www.gatesnotes.com/books/source-code"
+        },
+        {
+          "heading": "Warren Buffett, un allié de longue date dans la philanthropie",
+          "body": "La relation entre Bill Gates et Warren Buffett est à la fois amicale et institutionnelle. Buffett a siégé au conseil de la fondation de 2006 à 2021 et lui a apporté des contributions financières importantes sur près de vingt ans. Avec Gates, il a lancé en 2010 le Giving Pledge, invitant les grandes fortunes à consacrer une partie substantielle de leur patrimoine à la philanthropie. Cette coopération explique aussi pourquoi les deux hommes apparaissent souvent ensemble dans les archives de la fondation.",
+          "source": "https://www.gatesfoundation.org/about/leadership/warren-buffett"
         }
       ],
       "events": [
@@ -420,6 +425,18 @@
           "title": "Début annoncé de la construction de la centrale Natrium au Wyoming",
           "type": "investment",
           "source": "https://www.terrapower.com/TerraPower-Commences-Construction-on-Americas-First-Utility-Scale-Advanced-Nuclear-Power-Plant"
+        },
+        {
+          "date": "1998-05-18",
+          "title": "Le ministère américain de la Justice poursuit Microsoft pour pratiques anticoncurrentielles",
+          "type": "regulation",
+          "source": "https://www.justice.gov/archive/atr/public/press_releases/1998/1764.htm"
+        },
+        {
+          "date": "2010",
+          "title": "Lancement du Giving Pledge avec Warren Buffett",
+          "type": "philanthropy",
+          "source": "https://en.wikipedia.org/wiki/The_Giving_Pledge"
         }
       ],
       "personal": {
