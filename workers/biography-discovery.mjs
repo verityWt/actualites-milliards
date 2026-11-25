@@ -40,13 +40,14 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  if(!original)return {status:'not_discovered'};
  const prior=original.wikipedia;
  const age=prior?.fetchedAt?Date.now()-Date.parse(prior.fetchedAt):Number.POSITIVE_INFINITY;
- if(!force&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
+ if(!force&&prior?.pipelineVersion===2&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
  let result;
  try{
    result=await resolveWikipedia(person,original.suggestions||[],fetcher);
  }catch(e){
    result={status:'provider_error',error:String(e.message||e).slice(0,160),verified:false};
  }
+ result.pipelineVersion=2;
  result.fetchedAt=new Date().toISOString();
  // Preserve existing review state and provenance; never publish a candidate as a verified fact.
  await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result}));
