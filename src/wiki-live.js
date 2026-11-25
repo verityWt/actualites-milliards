@@ -30,6 +30,17 @@
     }
     const p=document.createElement('p');p.className='wiki-extract';
     p.textContent=main.summary;holder.append(p);
+    if(Array.isArray(article.topicSections)&&article.topicSections.length){
+      const topics=document.createElement('div');topics.className='wiki-topics';
+      for(const item of article.topicSections){
+        if(!item?.title||!item?.text)continue;
+        const card=document.createElement('article');card.className='wiki-topic';
+        const h=document.createElement('h3');h.textContent=item.title;
+        const p=document.createElement('p');p.textContent=item.text;
+        card.append(h,p);topics.append(card);
+      }
+      if(topics.children.length)holder.append(topics);
+    }
     const links=document.createElement('div');links.className='wiki-links';
     const add=(label,url)=>{
       try{
