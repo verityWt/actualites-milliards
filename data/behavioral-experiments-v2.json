@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "runDate": "2026-11-25",
+  "status": "completed_local_experimental",
+  "subject": "mark-zuckerberg",
+  "sampleCount": 2,
+  "models": [
+    {
+      "name": "TextBlob PatternAnalyzer",
+      "version": "0.19.0",
+      "executed": true
+    },
+    {
+      "name": "scikit-learn TF-IDF cosine",
+      "version": "1.8.0",
+      "executed": true
+    },
+    {
+      "name": "TweetNLP",
+      "executed": false
+    },
+    {
+      "name": "BERTopic",
+      "executed": false
+    },
+    {
+      "name": "pysentimiento",
+      "executed": false
+    },
+    {
+      "name": "sentence-transformers",
+      "executed": false
+    }
+  ],
+  "results": [
+    {
+      "date": "2012-07-26",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2012/Facebook-Reports-Second-Quarter-2012-Results/default.aspx",
+      "sha256": "f24cc3f35ec36629d1903baa6ade845989ea916e0a271e1f29dc5fc2ea53a45f",
+      "words": 19,
+      "polarity": 0.416667,
+      "subjectivity": 0.408333
+    },
+    {
+      "date": "2025-07-30",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Reports-Second-Quarter-2025-Results/",
+      "sha256": "8d0dd9f73a923ba23489604f1a251de8d200cb1443d2167a205650570c156b21",
+      "words": 14,
+      "polarity": 0.433333,
+      "subjectivity": 0.733333
+    }
+  ],
+  "comparison": {
+    "tfidfCosineSimilarity": 0.034431,
+    "tfidfNgramRange": [
+      1,
+      2
+    ],
+    "nSamples": 2
+  },
+  "checks": {
+    "words": true,
+    "scoreRanges": true,
+    "cosineRange": true
+  },
+  "interpretation": "Text-only lexical differences on two selected short corporate statements; no individual psychological inference.",
+  "limitations": [
+    "Too few and too short excerpts for stable statistics",
+    "No evidence of psychological or behavioral change",
+    "Tone score is not a personality or health measure"
+  ],
+  "sourcesVerified": "Original official Meta earnings release quotations independently matched on 2026-11-25"
+}

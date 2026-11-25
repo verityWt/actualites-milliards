@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "editorialStatus": "source_anchored_reviewable",
+  "updatedAt": "2026-11-25",
+  "profiles": {
+    "larry-page": {
+      "sections": [
+        {
+          "heading": "Fondation de Google et passage à Alphabet",
+          "body": "Larry Page a cofondé Google avec Sergey Brin. Il a ensuite dirigé Alphabet, la société mère créée en 2015. En décembre 2019, il a quitté la fonction de directeur général d’Alphabet, tout en demeurant cofondateur, actionnaire et administrateur selon l’annonce officielle du groupe.",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx"
+        },
+        {
+          "heading": "Gouvernance et limites de l'information patrimoniale",
+          "body": "Alphabet précisait en décembre 2019 que Larry Page et Sergey Brin demeuraient actionnaires et membres du conseil. Cette source établit leur position à cette date, mais ne permet pas à elle seule de déterminer leurs participations actuelles ou leur fortune en temps réel.",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx"
+        }
+      ],
+      "events": [
+        {
+          "date": "2019-12-03",
+          "title": "Annonce du départ de Larry Page de la direction générale d’Alphabet",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx",
+          "type": "governance"
+        }
+      ]
+    },
+    "sergey-brin": {
+      "sections": [
+        {
+          "heading": "Cofondation de Google et responsabilités historiques",
+          "body": "Sergey Brin a cofondé Google avec Larry Page. Il a ensuite occupé la présidence d’Alphabet. Les documents de gouvernance d’Alphabet permettent de distinguer ces responsabilités anciennes de sa situation actuelle.",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx"
+        },
+        {
+          "heading": "Transition de gouvernance en 2019",
+          "body": "Le 3 décembre 2019, Alphabet a annoncé le départ de Sergey Brin de sa fonction de président, simultanément au départ de Larry Page de la direction générale. Le groupe indiquait alors qu’ils restaient cofondateurs, actionnaires et administrateurs.",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx"
+        }
+      ],
+      "events": [
+        {
+          "date": "2019-12-03",
+          "title": "Annonce du départ de Sergey Brin de la présidence d’Alphabet",
+          "source": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx",
+          "type": "governance"
+        }
+      ]
+    },
+    "jeff-bezos": {
+      "sections": [
+        {
+          "heading": "Fondation d’Amazon",
+          "body": "Jeff Bezos a fondé Amazon en 1994. Les documents de relations investisseurs et rapports déposés auprès de la SEC retracent sa place dans la gouvernance du groupe.",
+          "source": "https://ir.aboutamazon.com/officers-and-directors/default.aspx"
+        },
+        {
+          "heading": "Présidence exécutive depuis 2021",
+          "body": "Jeff Bezos a quitté la direction générale d’Amazon en juillet 2021 et occupe depuis la fonction de président exécutif du conseil. La déclaration annuelle d’Amazon pour 2025 confirme cette transition et le rôle distinct de son successeur à la direction générale.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
+        },
+        {
+          "heading": "Blue Origin et autres activités publiques",
+          "body": "La biographie publiée par Amazon cite Jeff Bezos comme fondateur de Blue Origin et propriétaire du Washington Post. Ces activités sont présentées séparément d’Amazon, sans inférer de lien juridique entre les sociétés.",
+          "source": "https://ir.aboutamazon.com/officers-and-directors/default.aspx"
+        }
+      ],
+      "events": [
+        {
+          "date": "1994",
+          "title": "Fondation d’Amazon par Jeff Bezos",
+          "source": "https://ir.aboutamazon.com/officers-and-directors/default.aspx",
+          "type": "company"
+        },
+        {
+          "date": "2021-07",
+          "title": "Jeff Bezos devient président exécutif d’Amazon",
+          "source": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+          "type": "governance"
+        }
+      ],
+      "personal": {
+        "relationships": [
+          {
+            "heading": "Mariage célébré à Venise en juin 2025",
+            "body": "Reuters a couvert la cérémonie de mariage organisée à Venise le 27 juin 2025 pour Jeff Bezos et Lauren Sánchez. L’agence précisait qu’aucun acte civil italien n’était associé à cette cérémonie, ce qui limite ce que l’on peut affirmer sur la date et le lieu du mariage légal.",
+            "source": "https://www.reuters.com/world/europe/bezos-sanchez-exchange-wedding-vows-star-studded-venice-party-2025-06-27/"
+          }
+        ]
+      }
+    },
+    "mark-zuckerberg": {
+      "sections": [
+        {
+          "heading": "Fondation de Facebook et évolution vers Meta",
+          "body": "Mark Zuckerberg a fondé Facebook en 2004. Le site de relations investisseurs de Meta le présente comme fondateur, président du conseil d’administration et directeur général du groupe.",
+          "source": "https://investor.atmeta.com/leadership-and-governance/default.aspx"
+        },
+        {
+          "heading": "Gouvernance attestée en octobre 2026",
+          "body": "Une déclaration déposée à la SEC en octobre 2026 identifie Mark Zuckerberg comme fondateur, président et directeur général de Meta. Ce document permet de dater sa fonction et doit être consulté pour les informations de gouvernance qu’il contient.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066710/meta-20261021.htm"
+        }
+      ],
+      "events": [
+        {
+          "date": "2004",
+          "title": "Fondation de Facebook",
+          "source": "https://investor.atmeta.com/leadership-and-governance/default.aspx",
+          "type": "company"
+        },
+        {
+          "date": "2026-10-21",
+          "title": "Déclaration réglementaire identifiant Zuckerberg comme dirigeant de Meta",
+          "source": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066710/meta-20261021.htm",
+          "type": "governance"
+        }
+      ],
+      "personal": {
+        "preferences": [
+          {
+            "heading": "Pratique publique du jiu-jitsu et des sports de combat",
+            "body": "Mark Zuckerberg pratique le jiu-jitsu brésilien et a participé publiquement à des compétitions. Cette activité sportive est documentée par des reportages et des publications publiques ; elle ne permet aucune conclusion sur son caractère ou sa santé.",
+            "source": "https://www.theguardian.com/technology/2023/may/08/facebook-founder-mark-zuckerberg-jiu-jiutsu"
+          }
+        ]
+      },
+      "speechSamples": [
+        {
+          "date": "2012-07-26",
+          "kind": "quotation",
+          "language": "en",
+          "text": "Our goal is to help every person stay connected and every product they use be a great social experience",
+          "url": "https://investor.atmeta.com/investor-news/press-release-details/2012/Facebook-Reports-Second-Quarter-2012-Results/default.aspx",
+          "reviewed": true
+        },
+        {
+          "date": "2025-07-30",
+          "kind": "quotation",
+          "language": "en",
+          "text": "We've had a strong quarter both in terms of our business and community",
+          "url": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Reports-Second-Quarter-2025-Results/",
+          "reviewed": true
+        }
+      ]
+    },
+    "bernard-arnault": {
+      "sections": [
+        {
+          "heading": "Formation et premières fonctions industrielles",
+          "body": "Bernard Arnault est diplômé de l’École polytechnique. Sa biographie officielle chez LVMH indique qu’il a commencé sa carrière comme ingénieur chez Ferret-Savinel, avant d’y exercer plusieurs fonctions de direction.",
+          "source": "https://www.lvmh.com/fr/notre-groupe/notre-gouvernance/bernard-arnault"
+        },
+        {
+          "heading": "Direction du groupe LVMH depuis 1989",
+          "body": "LVMH indique que Bernard Arnault dirige le groupe depuis 1989. La documentation de gouvernance du groupe l’identifie comme président-directeur général. Cette fonction ne permet pas, sans document supplémentaire, d’estimer précisément sa participation personnelle ni les avoirs des membres de sa famille.",
+          "source": "https://www.lvmh.com/fr/notre-groupe/notre-histoire"
+        },
+        {
+          "heading": "Structure et responsabilités actuelles",
+          "body": "La page de gouvernance de LVMH présente Bernard Arnault comme président-directeur général. Les organes de gouvernance, les entités du groupe et les participations doivent être distingués de ses liens familiaux ou personnels.",
+          "source": "https://www.lvmh.com/fr/notre-groupe/notre-gouvernance"
+        }
+      ],
+      "events": [
+        {
+          "date": "1989",
+          "title": "Début de la direction de LVMH par Bernard Arnault selon l’histoire officielle du groupe",
+          "source": "https://www.lvmh.com/fr/notre-groupe/notre-histoire",
+          "type": "governance"
+        }
+      ]
+    },
+    "jensen-huang": {
+      "sections": [
+        {
+          "heading": "Fondation de NVIDIA en 1993",
+          "body": "Jensen Huang a fondé NVIDIA en 1993. La biographie publiée par l’entreprise indique qu’il exerce depuis la création les fonctions de président et directeur général, et siège au conseil d’administration.",
+          "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/"
+        },
+        {
+          "heading": "Responsabilités dans la gouvernance",
+          "body": "Les documents de gouvernance de NVIDIA présentent Jensen Huang comme cofondateur, président, directeur général et administrateur. Ces éléments décrivent ses fonctions sans présumer du montant actuel de ses titres ou de son patrimoine.",
+          "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/"
+        }
+      ],
+      "events": [
+        {
+          "date": "1993",
+          "title": "Création de NVIDIA par Jensen Huang",
+          "source": "https://www.nvidia.com/en-us/about-nvidia/board-of-directors/jensen-huang/",
+          "type": "company"
+        }
+      ]
+    },
+    "elon-musk": {
+      "sections": [],
+      "events": [],
+      "personal": {
+        "preferences": [
+          {
+            "heading": "Jeux vidéo et loisirs déclarés publiquement",
+            "body": "Dans un entretien publié en mars 2024, Elon Musk a expliqué qu’il utilisait les jeux vidéo pour se détendre et qu’il appréciait notamment les jeux compétitifs entre joueurs. Il s’agit d’une préférence déclarée publiquement, et non d’une évaluation de sa personnalité.",
+            "source": "https://apnews.com/article/74baa378151f97dfb40b9a8b1450e6ef"
+          }
+        ]
+      }
+    },
+    "warren-buffett": {
+      "sections": [
+        {
+          "heading": "Direction historique de Berkshire Hathaway",
+          "body": "Warren Buffett a dirigé Berkshire Hathaway pendant plusieurs décennies. La société a organisé sa succession en deux étapes, concernant séparément la direction exécutive et la présidence du conseil d’administration. Ces fonctions sont précisées dans les communications officielles du groupe.",
+          "source": "https://www.berkshirehathaway.com/2025ar/202510-k.pdf"
+        },
+        {
+          "heading": "Greg Abel devient directeur général le 1er janvier 2026",
+          "body": "Le changement de direction annoncé en 2025 a pris effet le 1er janvier 2026 : Greg Abel a succédé à Warren Buffett à la direction générale de Berkshire Hathaway. Le rapport annuel déposé auprès de la SEC atteste ce changement. Il ne faut donc plus présenter Buffett comme directeur général en exercice.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        },
+        {
+          "heading": "Passage à la présidence honoraire en septembre 2026",
+          "body": "Le communiqué de Berkshire Hathaway du 18 septembre 2026 annonce la démission de Warren Buffett de la présidence du conseil d’administration et la nomination de Howard Buffett à cette fonction. Warren Buffett devient président honoraire et reste administrateur. La succession de la présidence est distincte de celle du directeur général.",
+          "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-01-01",
+          "title": "Greg Abel succède à Warren Buffett comme directeur général de Berkshire Hathaway",
+          "type": "governance",
+          "source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        },
+        {
+          "date": "2026-09-18",
+          "title": "Howard Buffett est nommé président du conseil ; Warren Buffett devient président honoraire",
+          "type": "governance",
+          "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Transmission de la présidence à Howard Buffett",
+            "body": "Howard Buffett, fils de Warren Buffett et administrateur de Berkshire Hathaway depuis 1993, a pris la présidence du conseil en septembre 2026. Ce lien familial et ce rôle public sont confirmés par le communiqué de la société ; ils ne renseignent pas la vie privée quotidienne de la famille.",
+            "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+          }
+        ]
+      }
+    },
+    "michael-dell": {
+      "sections": [
+        {
+          "heading": "Parcours industriel et retour de Dell Technologies en Bourse",
+          "body": "La biographie officielle de Michael Dell retrace la privatisation de Dell Technologies en 2013, l’opération impliquant EMC en 2016 et le retour de Dell Technologies sur les marchés publics en 2018. Ces étapes sont des événements d’entreprise distincts, dont les conditions doivent être vérifiées dans les documents transactionnels.",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        },
+        {
+          "heading": "Direction et présidence chez Dell Technologies",
+          "body": "Le rapport annuel de Dell Technologies pour l’exercice 2026 identifie Michael Dell comme président et directeur général. Cette fonction est documentée par un dépôt réglementaire, contrairement à une estimation de son influence personnelle ou du nombre d’actions qu’il détient aujourd’hui.",
+          "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+        },
+        {
+          "heading": "Fondation Michael & Susan Dell",
+          "body": "Le rapport annuel de Dell Technologies mentionne la création en 1999 de la fondation familiale Michael & Susan Dell Foundation. Cette fondation poursuit des actions philanthropiques ; son existence institutionnelle est documentée indépendamment des préférences privées de ses fondateurs.",
+          "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+        }
+      ],
+      "events": [
+        {
+          "date": "2013",
+          "title": "Dell Technologies est retirée de la Bourse dans le cadre de sa privatisation",
+          "type": "transaction",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        },
+        {
+          "date": "2018",
+          "title": "Retour de Dell Technologies sur les marchés publics",
+          "type": "company",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Fondation philanthropique familiale",
+            "body": "Michael Dell et Susan Dell ont créé leur fondation familiale en 1999. La date et la mission philanthropique figurent dans le rapport annuel de Dell Technologies. Cette information publique ne permet aucune extrapolation sur leur relation personnelle ou sentimentale.",
+            "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+          }
+        ]
+      }
+    },
+    "bill-gates": {
+      "sections": [
+        {
+          "heading": "Cofondateur de Microsoft et évolution de ses fonctions",
+          "body": "Bill Gates est l’un des cofondateurs de Microsoft. Le communiqué du 13 mars 2020 le présente comme cofondateur et conseiller technologique, et précise qu’il quitte alors le conseil d’administration pour consacrer davantage de temps à ses activités philanthropiques.",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        },
+        {
+          "heading": "Départ du conseil d’administration en mars 2020",
+          "body": "Microsoft a annoncé le 13 mars 2020 la démission de Bill Gates du conseil d’administration. Le groupe liait cette décision à ses activités philanthropiques en santé mondiale, développement, éducation et climat. Cette annonce ne prouve pas son implication opérationnelle quotidienne actuelle.",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        }
+      ],
+      "events": [
+        {
+          "date": "2020-03-13",
+          "title": "Microsoft annonce le départ de Bill Gates de son conseil d’administration",
+          "type": "governance",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Engagements philanthropiques déclarés",
+            "body": "Dans son communiqué de mars 2020, Microsoft indique que Bill Gates prévoit d’accorder plus de temps à ses priorités philanthropiques en matière de santé mondiale, développement, éducation et climat. Il s’agit d’intentions publiques datées et non d’une observation de ses activités personnelles quotidiennes.",
+            "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+          }
+        ]
+      }
+    }
+  }
+}
