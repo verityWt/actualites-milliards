@@ -1,0 +1,28 @@
+name: Verify biographies and research pipeline
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run research and editorial regression tests
+        run: npm run test:all
+      - name: Build all biographies
+        run: npm run build
+      - name: Verify generated Wikipedia source modules
+        run: |
+          test -f dist/assets/wiki-live.js
+          test -f dist/milliardaires/bill-gates/index.html
+          test -f dist/milliardaires/larry-ellison/index.html
+          grep -q 'data-wiki-profile="bill-gates"' dist/milliardaires/bill-gates/index.html
+          grep -q 'data-wiki-profile="larry-ellison"' dist/milliardaires/larry-ellison/index.html
