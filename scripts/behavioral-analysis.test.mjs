@@ -4,7 +4,7 @@ import {publicSpeechMetrics,experimentalSensitivity,validateSpeechSamples} from 
 const sample={text:'We will build our future, and we will continue to work',url:'https://example.org/original',date:'2026-11-25',language:'en',kind:'quotation',reviewed:true};
 test('deterministic lexical counts',()=>{
  const a=publicSpeechMetrics(sample),b=publicSpeechMetrics(sample);
- assert.deepEqual(a,b);assert.equal(a.frequencies.collective,2);assert.equal(a.frequencies.future,3);
+ assert.deepEqual(a,b);assert.equal(a.frequencies.collective,3);assert.equal(a.frequencies.future,3);
 });
 test('experimental sensitivity does not claim psychometrics',()=>{
  const x=experimentalSensitivity(sample);
