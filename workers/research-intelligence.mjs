@@ -63,3 +63,24 @@ export function retryDelayMs(failures,now=Date.now()){
  const exp=Math.min(Math.max(1,failures),7);
  return new Date(now+Math.min(15*60*1000*2**(exp-1),6*60*60*1000)).toISOString();
 }
+
+/** Fingerprints group only very similar headlines; shared wording is not independent corroboration. */
+export function headlineFingerprint(title){
+ return fold(title).replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
+}
+export function reviewMetrics(leads){
+ const fingerprints=new Map();
+ let matched=0,classified=0,actionable=0;
+ for(const lead of leads){
+  const people=Array.isArray(lead.personMatches)?lead.personMatches:matchEntities(lead.title);
+  const type=lead.eventTypeCandidate||classifyEvent(lead.title);
+  if(people.length)matched++;
+  if(type!=='unclassified')classified++;
+  if(people.length && type!=='unclassified')actionable++;
+  const key=headlineFingerprint(lead.title);
+  if(key)fingerprints.set(key,(fingerprints.get(key)||0)+1);
+ }
+ return {matchedCandidates:matched,classifiedCandidates:classified,highPriorityReview:actionable,
+  repeatedHeadlineGroups:[...fingerprints.values()].filter(n=>n>1).length,
+  verifiedEvents:0};
+}
