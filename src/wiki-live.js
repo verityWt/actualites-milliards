@@ -43,6 +43,21 @@
     for(const page of article.pages){if(page.url!==main.url)add('Autre version ('+page.language.toUpperCase()+')',page.url);}
     if(article.wikidataUrl)add('Fiche Wikidata',article.wikidataUrl);
     holder.append(links);
+    if(Array.isArray(article.supplementarySources)&&article.supplementarySources.length){
+      const title=document.createElement('h3');title.textContent='Autres publications à consulter';holder.append(title);
+      const list=document.createElement('ul');list.className='wiki-references';
+      for(const source of article.supplementarySources){
+        try{
+          const u=new URL(source.url);
+          if(u.protocol!=='https:'||!source.publisher)continue;
+          const row=document.createElement('li');
+          const a=document.createElement('a');a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';
+          a.textContent=source.publisher+' · '+decodeURIComponent(u.pathname.replace(/\\/g,'/')).split('/').filter(Boolean).slice(-1)[0]?.replace(/[-_]/g,' ').slice(0,100);
+          row.append(a);list.append(row);
+        }catch{}
+      }
+      holder.append(list);
+    }
     const attribution=document.createElement('p');attribution.className='wiki-attribution';
     attribution.textContent='Extrait de Wikipédia — contributeurs de Wikipédia, licence CC BY-SA 4.0. Ce contenu encyclopédique complète les articles du site ; il peut comporter des erreurs et ne remplace pas la vérification des sources originales.';
     holder.append(attribution);
