@@ -10,7 +10,9 @@
     "research:queue": "node scripts/biography-queue.mjs",
     "test:behavior": "node --test scripts/behavioral-analysis.test.mjs scripts/validate-experiments.test.mjs",
     "test:discovery": "node --test workers/biography-discovery.test.mjs",
-    "test:editorial": "node --test scripts/editorial-quality.test.mjs"
+    "test:editorial": "node --test scripts/editorial-quality.test.mjs",
+    "test:wikipedia": "node --test workers/wikipedia-profile.test.mjs",
+    "test:all": "npm run test:research && npm run test:behavior && npm run test:discovery && npm run test:editorial && npm run test:wikipedia"
   },
   "engines": {
     "node": ">=20"
