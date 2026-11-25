@@ -247,6 +247,79 @@
           }
         ]
       }
+    },
+    "michael-dell": {
+      "sections": [
+        {
+          "heading": "Parcours industriel et retour de Dell Technologies en Bourse",
+          "body": "La biographie officielle de Michael Dell retrace la privatisation de Dell Technologies en 2013, l’opération impliquant EMC en 2016 et le retour de Dell Technologies sur les marchés publics en 2018. Ces étapes sont des événements d’entreprise distincts, dont les conditions doivent être vérifiées dans les documents transactionnels.",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        },
+        {
+          "heading": "Direction et présidence chez Dell Technologies",
+          "body": "Le rapport annuel de Dell Technologies pour l’exercice 2026 identifie Michael Dell comme président et directeur général. Cette fonction est documentée par un dépôt réglementaire, contrairement à une estimation de son influence personnelle ou du nombre d’actions qu’il détient aujourd’hui.",
+          "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+        },
+        {
+          "heading": "Fondation Michael & Susan Dell",
+          "body": "Le rapport annuel de Dell Technologies mentionne la création en 1999 de la fondation familiale Michael & Susan Dell Foundation. Cette fondation poursuit des actions philanthropiques ; son existence institutionnelle est documentée indépendamment des préférences privées de ses fondateurs.",
+          "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+        }
+      ],
+      "events": [
+        {
+          "date": "2013",
+          "title": "Dell Technologies est retirée de la Bourse dans le cadre de sa privatisation",
+          "type": "transaction",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        },
+        {
+          "date": "2018",
+          "title": "Retour de Dell Technologies sur les marchés publics",
+          "type": "company",
+          "source": "https://www.dell.com/en-us/learn/our-company/lp/who-we-are/michael-dell"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Fondation philanthropique familiale",
+            "body": "Michael Dell et Susan Dell ont créé leur fondation familiale en 1999. La date et la mission philanthropique figurent dans le rapport annuel de Dell Technologies. Cette information publique ne permet aucune extrapolation sur leur relation personnelle ou sentimentale.",
+            "source": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000008/dell-20260130.htm"
+          }
+        ]
+      }
+    },
+    "bill-gates": {
+      "sections": [
+        {
+          "heading": "Cofondateur de Microsoft et évolution de ses fonctions",
+          "body": "Bill Gates est l’un des cofondateurs de Microsoft. Le communiqué du 13 mars 2020 le présente comme cofondateur et conseiller technologique, et précise qu’il quitte alors le conseil d’administration pour consacrer davantage de temps à ses activités philanthropiques.",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        },
+        {
+          "heading": "Départ du conseil d’administration en mars 2020",
+          "body": "Microsoft a annoncé le 13 mars 2020 la démission de Bill Gates du conseil d’administration. Le groupe liait cette décision à ses activités philanthropiques en santé mondiale, développement, éducation et climat. Cette annonce ne prouve pas son implication opérationnelle quotidienne actuelle.",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        }
+      ],
+      "events": [
+        {
+          "date": "2020-03-13",
+          "title": "Microsoft annonce le départ de Bill Gates de son conseil d’administration",
+          "type": "governance",
+          "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Engagements philanthropiques déclarés",
+            "body": "Dans son communiqué de mars 2020, Microsoft indique que Bill Gates prévoit d’accorder plus de temps à ses priorités philanthropiques en matière de santé mondiale, développement, éducation et climat. Il s’agit d’intentions publiques datées et non d’une observation de ses activités personnelles quotidiennes.",
+            "source": "https://news.microsoft.com/source/2020/03/13/microsoft-announces-change-to-its-board-of-directors/"
+          }
+        ]
+      }
     }
   }
 }
