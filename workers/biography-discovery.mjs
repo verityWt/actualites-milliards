@@ -98,7 +98,7 @@ export default {
    }
    // If a prior Cron has resolved this biography, use the cached snapshot.
    const wiki=item.wikipedia;
-   if(!wiki||Date.now()-Date.parse(wiki.fetchedAt)>7*86400000){
+   if(!wiki||wiki.pipelineVersion!==2||Date.now()-Date.parse(wiki.fetchedAt)>(wiki.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
      try{await enrichProfile(env,person);item=await env.RESEARCH.get('profile:'+slug,{type:'json'});}catch{}
    }
    return Response.json(item||{slug,state:'not_processed_yet',verifiedFacts:0},{headers:cors});
