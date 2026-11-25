@@ -40,7 +40,7 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  if(!original)return {status:'not_discovered'};
  const prior=original.wikipedia;
  const age=prior?.fetchedAt?Date.now()-Date.parse(prior.fetchedAt):Number.POSITIVE_INFINITY;
- if(!force&&Number.isFinite(age)&&age<24*60*60*1000)return prior;
+ if(!force&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
  let result;
  try{
    result=await resolveWikipedia(person,original.suggestions||[],fetcher);
