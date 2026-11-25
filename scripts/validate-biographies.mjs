@@ -1,3 +1,4 @@
+import {validateSpeechSamples} from '../src/behavioral-analysis.mjs';
 // Validate editorial records before any public site build. No invented corroboration scores.
 export function validateResearchProfiles(dataset,knownIds){
  if(dataset?.schemaVersion!==1||!dataset.profiles||typeof dataset.profiles!=='object')throw Error('Invalid biography research schema');
@@ -16,6 +17,7 @@ export function validateResearchProfiles(dataset,knownIds){
       typeof section.body!=='string'||section.body.trim().length<80)throw Error('Insufficient section: '+slug);
    validateSource(section.source);sections++;
   }
+  if(record.speechSamples!==undefined)validateSpeechSamples(record.speechSamples);
   if(record.personal!==undefined){
    if(!record.personal||typeof record.personal!=='object'||Array.isArray(record.personal))throw Error('Invalid public personal information: '+slug);
    const allowed=new Set(['personality','preferences','personalLife','relationships','documentedRisks']);
