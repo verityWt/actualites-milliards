@@ -58,7 +58,7 @@ export function selectTopicSections(extract){
  const rx=/^={2,4}\s*([^=\n]+?)\s*={2,4}\s*$/gm;
  const matches=[...text.matchAll(rx)];
  const sections=[];
- const wanted=/biograph|enfance|jeunesse|formation|education|career|early life|parcours|histoire|history|entreprise|business|fondation|philanthrop|activité|activit|engagement|technolog|investment|investiss|politic|controvers|famille|personal life/i;
+ const wanted=/biograph|enfance|jeunesse|formation|education|career|early life|parcours|histoire|history|entreprise|business|fondation|philanthrop|activité|activit|engagement|technolog|investment|investiss|politic|controvers|famille|personal life|microsoft|google|amazon|tesla|spacex|nvidia|apple|facebook|meta|oracle|lvmh|début|beginning|fortune/i;
  const excluded=/références|notes|bibliographie|source|lien externe|external links|further reading|voir aussi|see also|filmographie|distinction|awards|récompense/i;
  for(let i=0;i<matches.length;i++){
   const name=matches[i][1].trim().replace(/\s+/g,' ');
