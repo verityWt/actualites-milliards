@@ -232,3 +232,8 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .wiki-panel .wiki-links a{display:inline-flex;border:1px solid currentColor;border-radius:999px;padding:8px 14px;text-decoration:none;font-size:13px;font-weight:700}
 .wiki-panel .wiki-links a:hover{text-decoration:underline}
 .wiki-panel .wiki-attribution{font-size:12px;line-height:1.65;color:var(--muted,#555);max-width:800px}
+
+.wiki-panel .wiki-references{margin:12px 0 20px;padding-left:22px;columns:2;column-gap:26px}
+.wiki-panel .wiki-references li{margin:0 0 10px;break-inside:avoid;overflow-wrap:anywhere;font-size:14px}
+.wiki-panel .wiki-references a{text-underline-offset:3px}
+@media(max-width:680px){.wiki-panel .wiki-references{columns:1}}
