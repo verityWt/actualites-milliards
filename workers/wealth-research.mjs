@@ -1,10 +1,10 @@
-import {transformCandidate,mergeCandidates,retryDelayMs} from './research-intelligence.mjs';
+import {transformCandidate,mergeCandidates,retryDelayMs,reviewMetrics} from './research-intelligence.mjs';
 const QUERIES=['"billionaire" acquisition','"milliardaire" succession','"billionaire" IPO','"billionaire" corporate governance'];
 const HEADERS={'Access-Control-Allow-Origin':'*','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 function safeStatus(s){
  return {state:s.state,lastAttempt:s.lastAttempt??null,lastSuccess:s.lastSuccess??null,leads:s.leads??0,
   newLeads:s.newLeads??null,lastError:s.error??null,failures:s.failures??0,retryAfter:s.retryAfter??null,
-  lastQuery:s.query??null,classifiedCandidates:s.classifiedCandidates??0,matchedCandidates:s.matchedCandidates??0};
+  lastQuery:s.query??null,classifiedCandidates:s.classifiedCandidates??0,matchedCandidates:s.matchedCandidates??0,highPriorityReview:s.highPriorityReview??0,repeatedHeadlineGroups:s.repeatedHeadlineGroups??0,verifiedEvents:0};
 }
 export async function collect(env,slot=Date.now(),fetcher=fetch){
  const now=new Date().toISOString(), query=QUERIES[Math.floor(slot/900000)%QUERIES.length];
@@ -22,17 +22,17 @@ export async function collect(env,slot=Date.now(),fetcher=fetch){
   const data=await response.json();if(!Array.isArray(data.articles))throw Error('invalid response');
   const items=data.articles.flatMap(a=>{try{return [transformCandidate(a,query,now)];}catch{return [];}});
   const old=await env.RESEARCH.get('leads',{type:'json'})||[];
-  const merged=mergeCandidates(Array.isArray(old)?old:[],items);
+  const normalized=Array.isArray(old)?old.flatMap(a=>{try{return [a.personMatches? a : {...a,...transformCandidate(a,query,a.discoveredAt||now),queries:a.queries||[query]}]}catch{return []}}):[];
+  const merged=mergeCandidates(normalized,items);
   await env.RESEARCH.put('leads',JSON.stringify(merged.leads));
   status={...status,state:'ok',lastSuccess:now,leads:merged.leads.length,newLeads:merged.newLeads,
-   classifiedCandidates:merged.leads.filter(x=>x.eventTypeCandidate&&x.eventTypeCandidate!=='unclassified').length,
-   matchedCandidates:merged.leads.filter(x=>x.personMatches?.length).length,
+   ...reviewMetrics(merged.leads),
    failures:0,retryAfter:null,error:null};
  }catch(e){
   const failures=(Number(prev.failures)||0)+1;
   status={...status,state:e.status===429?'rate_limited':'error',error:String(e.message).slice(0,160),
    failures,retryAfter:retryDelayMs(failures,Date.parse(now)),lastSuccess:prev.lastSuccess||null,
-   leads:prev.leads||0,classifiedCandidates:prev.classifiedCandidates||0,matchedCandidates:prev.matchedCandidates||0};
+   leads:prev.leads||0,classifiedCandidates:prev.classifiedCandidates||0,matchedCandidates:prev.matchedCandidates||0,highPriorityReview:prev.highPriorityReview||0,repeatedHeadlineGroups:prev.repeatedHeadlineGroups||0};
  }
  await env.RESEARCH.put('status',JSON.stringify(status));return status;
 }
