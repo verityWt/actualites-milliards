@@ -5,7 +5,7 @@ export const normalizeName=name=>String(name||'').normalize('NFKD').replace(/[\u
   .toLocaleLowerCase('en').replace(/[^a-z0-9]+/g,' ').replace(/\b(jr|sr)\b/g,'').trim().replace(/\s+/g,' ');
 const RELEVANT=/business|entrepreneur|industrial|investor|executive|founder|billionaire|wealth|philanthrop|author|heir|heiress|magnate|tycoon|singer|musician|actress|actor|fashion|banker|chair|software|technology|real estate|wealth|financier|company|companies|corporate/i;
 const STRONG=/billionaire|businessman|businesswoman|businessperson|business magnate|entrepreneur|industrialist|investor|founder|heiress|heir|tycoon|banker|philanthropist|software developer|computer scientist|fashion designer|singer.songwriter/i;
-const NON_PERSON=/disambiguation|fictional|family foundation|company|corporation|footballer|football player|basketball|athlete|sportsperson/i;
+const NON_PERSON=/disambiguation|fictional|family foundation|footballer|football player|basketball|athlete|sportsperson/i;
 export function selectCandidate(person,suggestions){
  const wanted=normalizeName(person.name);
  const weighted=(suggestions||[]).filter(x=>/^Q\d+$/.test(x.wikidataId||'')&&
