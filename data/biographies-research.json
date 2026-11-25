@@ -205,6 +205,48 @@
           }
         ]
       }
+    },
+    "warren-buffett": {
+      "sections": [
+        {
+          "heading": "Direction historique de Berkshire Hathaway",
+          "body": "Warren Buffett a dirigé Berkshire Hathaway pendant plusieurs décennies. La société a organisé sa succession en deux étapes, concernant séparément la direction exécutive et la présidence du conseil d’administration. Ces fonctions sont précisées dans les communications officielles du groupe.",
+          "source": "https://www.berkshirehathaway.com/2025ar/202510-k.pdf"
+        },
+        {
+          "heading": "Greg Abel devient directeur général le 1er janvier 2026",
+          "body": "Le changement de direction annoncé en 2025 a pris effet le 1er janvier 2026 : Greg Abel a succédé à Warren Buffett à la direction générale de Berkshire Hathaway. Le rapport annuel déposé auprès de la SEC atteste ce changement. Il ne faut donc plus présenter Buffett comme directeur général en exercice.",
+          "source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        },
+        {
+          "heading": "Passage à la présidence honoraire en septembre 2026",
+          "body": "Le communiqué de Berkshire Hathaway du 18 septembre 2026 annonce la démission de Warren Buffett de la présidence du conseil d’administration et la nomination de Howard Buffett à cette fonction. Warren Buffett devient président honoraire et reste administrateur. La succession de la présidence est distincte de celle du directeur général.",
+          "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-01-01",
+          "title": "Greg Abel succède à Warren Buffett comme directeur général de Berkshire Hathaway",
+          "type": "governance",
+          "source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm"
+        },
+        {
+          "date": "2026-09-18",
+          "title": "Howard Buffett est nommé président du conseil ; Warren Buffett devient président honoraire",
+          "type": "governance",
+          "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+        }
+      ],
+      "personal": {
+        "personalLife": [
+          {
+            "heading": "Transmission de la présidence à Howard Buffett",
+            "body": "Howard Buffett, fils de Warren Buffett et administrateur de Berkshire Hathaway depuis 1993, a pris la présidence du conseil en septembre 2026. Ce lien familial et ce rôle public sont confirmés par le communiqué de la société ; ils ne renseignent pas la vie privée quotidienne de la famille.",
+            "source": "https://www.berkshirehathaway.com/news/sep1826.pdf"
+          }
+        ]
+      }
     }
   }
 }
