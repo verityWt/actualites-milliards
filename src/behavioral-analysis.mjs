@@ -30,3 +30,29 @@ export function validateSpeechSamples(samples){
  }
  return true;
 }
+
+/**
+ * Experimental protocol: controlled lexical sensitivity test.
+ * The baseline and the alternate protocol count exactly the same terms;
+ * the alternate excludes an initial reporting clause up to the first comma.
+ * The difference measures preprocessing sensitivity, not psychology.
+ */
+export function experimentalSensitivity(sample) {
+ const text=String(sample?.text||'');
+ if(!text.trim())throw Error('Source text required');
+ const baseline=publicSpeechMetrics(sample);
+ const comma=text.indexOf(',');
+ const processed=comma<0?text:text.slice(comma+1).trim();
+ const alternative=publicSpeechMetrics({...sample,text:processed});
+ const delta=Object.fromEntries(Object.keys(baseline.frequencies).map(key=>
+   [key,alternative.frequencies[key]-baseline.frequencies[key]]));
+ return {
+  protocolId:'lexical-preprocessing-sensitivity-v1',
+  status:'experimental_computation',
+  baselineWords:baseline.words,
+  alternateWords:alternative.words,
+  changeInTermCounts:delta,
+  transformed:comma>=0,
+  limitation:'Preprocessing sensitivity on one excerpt. No psychometric validity; do not extrapolate to the speaker.'
+ };
+}
