@@ -261,22 +261,33 @@ const lists = [
   { dir: 'milliardaires/france', h: 'Les milliardaires français', t: 'Les milliardaires français les plus riches en 2026', d: 'Les plus grandes fortunes françaises en 2026 : Arnault, Bettencourt Meyers, Wertheimer, Pinault, Besnier, Niel. Classements Forbes et Challenges.', f: p => p.country === 'France', extra: 'france' },
   { dir: 'milliardaires/moins-de-40-ans', h: 'Les milliardaires de moins de 40 ans', t: 'Les plus jeunes milliardaires du monde en 2026', d: 'Les milliardaires de moins de 40 ans en 2026 : héritiers et fondateurs de la tech et de l\'intelligence artificielle.', f: p => p.age && p.age < 40 }
 ];
+const geographicGroups=[
+ {slug:'chine-hong-kong',name:'Chine continentale et Hong Kong',countries:['Chine','Hong Kong']},
+ {slug:'asie-orientale',name:'Asie orientale',countries:['Chine','Hong Kong','Taïwan','Japon','Corée du Sud']},
+ {slug:'pays-arabes',name:'Pays arabes',countries:['Arabie saoudite','Émirats arabes unis','Qatar','Koweït','Bahreïn','Oman','Égypte','Liban','Maroc','Algérie','Tunisie','Jordanie','Irak','Syrie','Libye','Soudan','Yémen','Mauritanie','Somalie','Djibouti','Comores','Palestine']},
+ {slug:'golfe',name:'Pays du Golfe (CCG)',countries:['Arabie saoudite','Émirats arabes unis','Qatar','Koweït','Bahreïn','Oman']},
+ {slug:'afrique-du-nord',name:'Afrique du Nord',countries:['Maroc','Algérie','Tunisie','Libye','Égypte','Soudan']},
+ {slug:'inde',name:'Inde',countries:['Inde']}
+];
+for(const g of geographicGroups) lists.push({dir:'milliardaires/region/'+g.slug,h:'Fortunes : '+g.name,t:'Les grandes fortunes recensées : '+g.name+' (2026)',d:'Profils disponibles dans notre corpus pour '+g.name+'. Couverture partielle, sans actifs souverains.',f:p=>g.countries.includes(p.country),regional:true});
 const secs = [...new Set(P.map(p => p.sec))];
 for (const s of secs) lists.push({ dir: 'milliardaires/secteur/' + SECSLUG[s], h: 'Milliardaires : ' + SEC[s], t: `Les milliardaires de la catégorie ${SEC[s].toLowerCase()} en 2026`, d: `Les plus grandes fortunes du secteur ${SEC[s].toLowerCase()} en 2026, avec fiche détaillée pour chacune.`, f: p => p.sec === s });
-const countries = Object.entries(P.reduce((a, p) => (a[p.country] = (a[p.country] || 0) + 1, a), {})).filter(([, n]) => n >= 3).map(([c]) => c);
+const countries = Object.entries(P.reduce((a, p) => (a[p.country] = (a[p.country] || 0) + 1, a), {})).filter(([, n]) => n >= 1).map(([c]) => c);
 const cslug = c => slugify(c);
 for (const c of countries) if (c !== 'France') lists.push({ dir: 'milliardaires/pays/' + cslug(c), h: 'Milliardaires : ' + c, t: `Les milliardaires les plus riches : ${c} (2026)`, d: `Les plus grandes fortunes de ce pays en 2026 (${c}), avec fiche détaillée pour chacune. Source Forbes.`, f: p => p.country === c });
 
 const FRCH = [['Famille Arnault', 'LVMH', 116.7, 121.2], ['Héritiers Hermès', 'Hermès', 163.4, 114], ['Alain et Gérard Wertheimer', 'Chanel', 95, 95], ['Françoise Bettencourt Meyers', 'L\'Oréal', 73.8, 69.7], ['Rodolphe Saadé', 'CMA CGM', 35, 31.5], ['Emmanuel Besnier', 'Lactalis', null, 14.2]];
 for (const L of lists) {
-  const items = P.filter(L.f), from = L.dir, max = Math.max(...items.map(p => p.nw || 0));
+  const items = P.filter(L.f), from = L.dir, max = Math.max(1,...items.map(p => p.nw || 0));
   const chips = [['milliardaires', 'Monde'], ['milliardaires/femmes', 'Femmes'], ['milliardaires/france', 'France'], ['milliardaires/moins-de-40-ans', 'Moins de 40 ans'], ...countries.filter(c => c !== 'France').map(c => ['milliardaires/pays/' + cslug(c), c])];
   const frBlock = L.extra === 'france' ? `<h2 style="margin-top:40px">Le classement Challenges 2026</h2><p class="small">Fortunes professionnelles en milliards d'euros, publiées le 8 juillet 2026. Challenges compte par famille et en euros, Forbes par personne et en dollars : les chiffres diffèrent.</p><div class="scroll"><table><thead><tr><th>Fortune</th><th>Groupe</th><th class="n">2025</th><th class="n">2026</th></tr></thead><tbody>${FRCH.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td class="n">${r[2] == null ? 'n.d.' : fr(r[2], 1)}</td><td class="n">${fr(r[3], 1)}</td></tr>`).join('')}</tbody></table></div><p class="small">Bernard Arnault est devenu l'unique propriétaire de Challenges fin 2025.</p>` : '';
   const body = `<section class="inkband">${pattern(L.dir.replace(/\//g, '-'))}<div class="in band"><p class="tagline">Billion Index</p><h1 style="font-size:clamp(36px,5.4vw,60px);max-width:18ch">${esc(L.h)}</h1>
-<p class="lede" style="margin-top:12px">${items.length} fortunes. ${esc(SRC_FORBES)}.</p></div></section><div class="band"><div class="in">
+<p class="lede" style="margin-top:12px">${items.length} profils dans le corpus. ${esc(L.regional ? "Couverture partielle : ce classement ne recense pas toutes les fortunes de la région." : SRC_FORBES)}.</p></div></section><div class="band"><div class="in">
 <div class="row" style="margin:0 0 26px">${chips.slice(0, 4).map(([d, l]) => `<a class="btn${d === from ? ' pri' : ''}" href="${link(from, d)}">${esc(l)}</a>`).join('')}<a class="btn" href="${link(from, 'recherche')}">Recherche avancée</a></div>
 ${items.length >= 3 ? `<div class="grid podium" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px;margin:10px 0 34px">${items.slice(0, 3).map(p => `<a href="${link(from, 'milliardaires/' + p.id)}" style="text-decoration:none">${billet(p, false, from)}</a>`).join('')}</div>` : ''}<div class="bars">${items.map((p, i) => `<a class="bar${i ? '' : ' top1'}" href="${link(from, 'milliardaires/' + p.id)}"><span>${i + 1}. ${esc(fullName(p))}</span><div class="t"><div class="f" style="width:${p.nw ? (p.nw / max * 100).toFixed(1) : 0}%"></div></div><span class="v">${nwTxt(p)}</span></a>`).join('')}</div>
+${items.length===0?'<p class="small">Aucun profil publié dans ce périmètre à ce jour. Cela ne signifie pas qu’aucun milliardaire n’y existe.</p>':''}
 ${frBlock}
+<h2 style="margin-top:40px">Explorer par région</h2><div class="row">${geographicGroups.map(g=>`<a class="btn" href="${link(from,'milliardaires/region/'+g.slug)}">${esc(g.name)} (${P.filter(p=>g.countries.includes(p.country)).length})</a>`).join('')}</div>
 <h2 style="margin-top:40px">Explorer par pays et par secteur</h2>
 <div class="row">${chips.slice(4).map(([d, l]) => `<a class="btn" href="${link(from, d)}">${esc(l)}</a>`).join('')}</div>
 <div class="row" style="margin-top:10px">${secs.map(s => `<a class="btn" href="${link(from, 'milliardaires/secteur/' + SECSLUG[s])}">${esc(SEC[s])}</a>`).join('')}</div>
