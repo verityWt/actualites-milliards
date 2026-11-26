@@ -35,11 +35,11 @@ test('Every published portrait has a fallback when a hotlinked image fails',()=>
  const css=fs.readFileSync('src/site.css','utf8');
  const fallback=fs.readFileSync('src/portrait-fallback.js','utf8');
  assert.match(build,/const portrait = p => pickPortrait/);
- assert.match(build,/class="portrait-initials"/);
- assert.match(build,/window\\.actualitesPhotoError\\?window\\.actualitesPhotoError\\(this\\):this\\.remove\\(\\)/);
- assert.match(css,/\\.g\\.ph \\.portrait-initials/);
- assert.match(fallback,/window\\.actualitesPhotoError/);
- assert.match(build,/photo-audit\\.json/);
+ assert.ok(build.includes('class="portrait-initials"'));
+ assert.ok(build.includes('window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()'));
+ assert.ok(css.includes('.g.ph .portrait-initials'));
+ assert.ok(fallback.includes('window.actualitesPhotoError'));
+ assert.ok(build.includes('photo-audit.json'));
 });
 
 test('review queue covers every published profile and provides source-discovery searches',()=>{
