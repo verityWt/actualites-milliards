@@ -132,8 +132,9 @@ const page = ({ from, title, desc, canonical, body, jsonld = [] }) => `<!DOCTYPE
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${asset(from, 'assets/site.css')}">
+<script src="${asset(from,'assets/portrait-fallback.js')}"></script>
 ${jsonld.map(j => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
-</head><body>${header(from)}<main>${body}</main>${footer(from)}<script src="${asset(from,'assets/portrait-fallback.js')}"></script><script src="${asset(from, 'assets/guil.js')}" defer></script></body></html>`;
+</head><body>${header(from)}<main>${body}</main>${footer(from)}<script src="${asset(from, 'assets/guil.js')}" defer></script></body></html>`;
 const write = (dir, html) => { const d = path.join(OUT, dir); fs.mkdirSync(d, { recursive: true }); fs.writeFileSync(path.join(d, 'index.html'), html); };
 
 fs.rmSync(OUT, { recursive: true, force: true });
