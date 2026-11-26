@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { rosette } from './src/guil.mjs';
+import {pickPortrait,photoInitials,photoAudit} from './src/portrait-selection.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
 import { renderInfluenceDashboard } from './src/influence-dashboard.mjs';
@@ -56,7 +57,7 @@ const fr = (n, d) => Number(n).toLocaleString('fr-FR', { minimumFractionDigits: 
 
 const PHOTOS = JSON.parse(fs.readFileSync('data/photos.json', 'utf8'));
 const phSrc = (from, ph) => /^https?:/.test(ph.fichier || ph.src || '') ? (ph.fichier || ph.src) : asset(from, ph.fichier || ph.src);
-const portrait = p => (PHOTOS[p.id] || []).find(x => x.type === 'portrait') || (PHOTOS[p.id] || [])[0];
+const portrait = p => pickPortrait(PHOTOS[p.id]||[]);
 const curated = JSON.parse(fs.readFileSync('data/curated.json', 'utf8'));
 const DET = Object.fromEntries(fs.readFileSync('data/details-fr.psv', 'utf8').trim().split('\n').map(l => l.split('|')).map(([n, co, role, fact, o]) => [n, { co, role, fact, orig: { s: 'self', h: 'herit', m: 'mix' }[o] }]));
 const rows = fs.readFileSync('data/forbes2026-top200.psv', 'utf8').trim().split('\n').map(l => l.split('|'));
@@ -106,9 +107,9 @@ const home = (from, hash = '') => (PREVIEW ? '../'.repeat(from ? from.split('/')
 
 const COL = { tech: '#3b5bdb', mode: '#b8860b', fin: '#0f766e', telecom: '#0e7490', div: '#6b21a8', food: '#c2410c', mines: '#57534e', energie: '#b45309', logist: '#1e40af', sante: '#15803d', auto: '#be123c', indus: '#475569', casino: '#9d174d', immo: '#7c2d12', media: '#be185d', btp: '#78716c', sport: '#7c3aed', service: '#0f766e' };
 const INK = { tech: '#1f4e8c', mode: '#7a1d3a', fin: '#0e5a5c', telecom: '#155e75', div: '#5b2a86', food: '#9a3412', mines: '#44403c', energie: '#92400e', logist: '#1e3a8a', sante: '#166534', auto: '#9f1239', indus: '#334155', casino: '#831843', immo: '#7c2d12', media: '#9d174d', btp: '#57534e', sport: '#6d28d9', service: '#0f766e' };
-const medal = (p, size = 64, from = '') => portrait(p) ? `<div class="g ph"><img src="${esc(phSrc(from, portrait(p)))}" alt="${esc(p.name)}" loading="lazy"></div>` : `<div class="g" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="${size > 100 ? 200 : 80}"></div>`;
+const medal = (p, size = 64, from = '') => portrait(p) ? `<div class="g ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span><img src="${esc(phSrc(from, portrait(p)))}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()"></div>` : `<div class="g" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="${size > 100 ? 200 : 80}"></div>`;
 const serial = p => p.rank ? 'N° ' + String(p.rank).padStart(3, '0') : 'HORS CLASSEMENT';
-const billet = (p, big, from = '') => `<div class="billet${big ? ' big' : ''}">${portrait(p) ? `<div class="guil ph"><img src="${esc(phSrc(from, portrait(p)))}" alt="Portrait de ${esc(p.name)}"></div>` : `<div class="guil" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="220"></div>`}<div><div class="bt"><span>${serial(p)}</span><span>${p.rank ? 'FORBES 2026' : 'ACTUALITES.FR'}</span></div><div class="bn">${esc(fullName(p))}</div><div class="bm">${esc([p.co || SEC[p.sec], p.country].filter(Boolean).join(' · '))}</div><div class="bv">${nwTxt(p)}</div></div><div class="micro">ACTUALITES.FR · LE MONDE DES MILLIARDS · ${esc(fullName(p).toUpperCase())} · ${serial(p)} · ACTUALITES.FR · LE MONDE DES MILLIARDS</div></div>`;
+const billet = (p, big, from = '') => `<div class="billet${big ? ' big' : ''}">${portrait(p) ? `<div class="guil ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span><img src="${esc(phSrc(from, portrait(p)))}" alt="Portrait de ${esc(p.name)}" onerror="this.remove()"></div>` : `<div class="guil" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="220"></div>`}<div><div class="bt"><span>${serial(p)}</span><span>${p.rank ? 'FORBES 2026' : 'ACTUALITES.FR'}</span></div><div class="bn">${esc(fullName(p))}</div><div class="bm">${esc([p.co || SEC[p.sec], p.country].filter(Boolean).join(' · '))}</div><div class="bv">${nwTxt(p)}</div></div><div class="micro">ACTUALITES.FR · LE MONDE DES MILLIARDS · ${esc(fullName(p).toUpperCase())} · ${serial(p)} · ACTUALITES.FR · LE MONDE DES MILLIARDS</div></div>`;
 const nwTxt = p => p.nw == null ? 'Fortune liée' : fr(p.nw) + ' Md$';
 const fullName = p => p.name + (p.fam ? ' et sa famille' : '');
 const meta = p => [p.co || SEC[p.sec], p.country, p.age ? p.age + ' ans' : (p.born ? (p.g === 'f' ? 'née' : 'né') + ' en ' + p.born : '')].filter(Boolean).join(' · ');
@@ -384,6 +385,7 @@ const G=graph(P);
 fs.writeFileSync(path.join(OUT,'data/knowledge-graph.json'),JSON.stringify(G));
 fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sources:sources.length,people:P.length,companies:G.nodes.filter(n=>n.type==='company').length,associations:G.edges.length,events:G.events.length,observations:observations.length,candidates:candidates.length,collection:'manual',rankingGrowthAvailable:false}));
  fs.writeFileSync(path.join(OUT,'data/research-backlog.json'),JSON.stringify(researchBacklog));
+fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photoAudit(PHOTOS),generatedAt:new Date().toISOString()}));
  fs.writeFileSync(path.join(OUT,'data/biography-research-coverage.json'),JSON.stringify({totalProfiles:P.length,researchedProfiles:researchQuality.profiles,researchedSections:researchQuality.sections,researchedEvents:researchQuality.events,distinctSourceUrls:researchQuality.uniqueSourceUrls,updatedAt:researchData.updatedAt,method:'Editorial records with direct source links; not automatically corroborated'}));
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
