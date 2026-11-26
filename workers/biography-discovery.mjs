@@ -51,8 +51,7 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  }
  result.pipelineVersion=4;
  result.fetchedAt=new Date().toISOString();
- const press=result.status==='encyclopedic_sources_found'?original.pressDiscovery:
-   await discoverPress(person,fetcher);
+ const press=original.pressDiscovery;
  // Preserve existing review state and provenance; never publish a candidate as a verified fact.
  await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result,pressDiscovery:press}));
  return result;
@@ -64,8 +63,8 @@ export async function researchOne(env,person,at=new Date(),fetcher=fetch){
  const previous=await env.RESEARCH.get(key,{type:'json'});
  const lastAttempt=previous?.attemptedAt?Date.parse(previous.attemptedAt):0;
  if((previous?.state==='candidate_found'||previous?.state==='no_candidate')&&
-    (previous?.wikipedia?.status==='encyclopedic_sources_found'||previous?.pressDiscovery?.status==='candidates_found')&&Date.now()-lastAttempt<24*60*60*1000){
-    return {person:person.slug,state:'cached',wikipedia:previous.wikipedia.status};
+    (previous?.wikipedia?.status==='encyclopedic_sources_found'||previous?.pressDiscovery?.status==='candidates_found')&&Date.now()-lastAttempt<24*60*60*1000&&previous?.pressDiscovery?.attemptedAt&&Date.now()-Date.parse(previous.pressDiscovery.attemptedAt)<12*3600000){
+    return {person:person.slug,state:'cached',wikipedia:previous.wikipedia?.status};
  }
  const record={...(previous||{}),person,attemptedAt:atISO,
    verifiedFacts:0,analysisStatus:'not_executed',editorialStatus:'pending_independent_review'};
@@ -104,7 +103,7 @@ export async function researchOne(env,person,at=new Date(),fetcher=fetch){
        record.wikipedia.fetchedAt=new Date().toISOString();
      }
    }
-   if(!record.wikipedia||record.wikipedia.status!=='encyclopedic_sources_found'){
+   {
      const prev=previous?.pressDiscovery;
      const age=prev?.attemptedAt?Date.now()-Date.parse(prev.attemptedAt):Infinity;
      record.pressDiscovery=Number.isFinite(age)&&age<12*60*60*1000?prev:await discoverPress(person,fetcher);
@@ -180,6 +179,18 @@ export default {
     const response=Response.json(live,{headers:{...cors,'Cache-Control':'public,max-age='+ttl}});
     if(cache){try{await cache.put(cacheKey,response.clone())}catch{}}
     return response;
+  }
+  if(u.pathname.startsWith('/news/')){
+   const slug=u.pathname.slice('/news/'.length);
+   const person=PEOPLE.find(p=>p.slug===slug);
+   if(!person)return new Response('Not found',{status:404,headers:cors});
+   const cache=typeof caches!=='undefined'?caches.default:null;
+   const key=new Request(u.origin+'/news-cache/'+slug);
+   const hit=cache?await cache.match(key):null;if(hit)return hit;
+   const result=await discoverPress(person);
+   const response=Response.json(result,{headers:{...cors,'Cache-Control':'public,max-age='+(result.items.length?1800:300)}});
+   if(cache){try{await cache.put(key,response.clone())}catch{}}
+   return response;
   }
   if(u.pathname.startsWith('/profiles/')){
    const slug=u.pathname.slice('/profiles/'.length);
