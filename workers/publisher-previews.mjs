@@ -65,8 +65,8 @@ export async function sourcePreviews(links,fetcher=fetch){
  for(const link of (links||[])){
   if(!acceptedPublisher(link.url)||seen.has(link.url))continue;
   seen.add(link.url);urls.push(link);
-  if(urls.length===5)break;
+  if(urls.length===2)break;
  }
  const result=await Promise.allSettled(urls.map(link=>fetchPublisherMetadata(link,fetcher)));
- return result.filter(x=>x.status==='fulfilled'&&x.value).map(x=>x.value).slice(0,4);
+ return result.filter(x=>x.status==='fulfilled'&&x.value).map(x=>x.value).slice(0,2);
 }
