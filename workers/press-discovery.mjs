@@ -7,7 +7,7 @@ const decode=x=>String(x||'').replace(/&(?:amp|lt|gt|quot|apos|#39|#(\d+));/gi,(
 });
 const strip=x=>decode(String(x||'').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,'$1').replace(/<[^>]+>/g,'')).replace(/\s+/g,' ').trim();
 const tag=(item,name)=>item.match(new RegExp('<'+name+'(?:\\s[^>]*)?>([\\s\\S]*?)<\\/'+name+'>','i'))?.[1]||'';
-const essentialWords=name=>safeName(name).toLocaleLowerCase('de').normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/).filter(w=>w.length>=4&&w!=='von'&&w!=='der');
+const essentialWords=name=>safeName(name).toLocaleLowerCase('de').normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/\s+/).filter(w=>w.length>=3&&w!=='von'&&w!=='der');
 export function parsePressRSS(xml,person){
  const raw=String(xml||'').slice(0,160000);
  const output=[],used=new Set();
@@ -23,7 +23,9 @@ export function parsePressRSS(xml,person){
   if(u.protocol!=='https:'||u.hostname!=='news.google.com')continue;
   used.add(canonical);
   const at=Date.parse(pub);
-  output.push({title,url:u.href,publisher:publisher||'Google News',publishedAt:Number.isFinite(at)?new Date(at).toISOString().slice(0,10):null,reviewStatus:'candidate_unreviewed',origin:'Google News RSS'});
+  const description=strip(decode(tag(item,'description'))).replace(/\s+/g,' ').trim();
+  const excerpt=description && !canonical.includes(description.toLowerCase()) && !description.toLowerCase().startsWith(title.toLowerCase()) ? description.split(/\s+/).slice(0,25).join(' ') : '';
+  output.push({title,url:u.href,...(excerpt?{description:excerpt}:{}),publisher:publisher||'Google News',publishedAt:Number.isFinite(at)?new Date(at).toISOString().slice(0,10):null,reviewStatus:'candidate_unreviewed',origin:'Google News RSS'});
   if(output.length>=8)break;
  }
  return output;
@@ -39,10 +41,10 @@ export const pressLocale=country=>NEWS_LOCALES[country]||['en','US'];
 export async function discoverPress(person,fetcher=fetch){
  const name=safeName(person.name),attemptedAt=new Date().toISOString();
  if(name.length<5)return {status:'invalid_name',items:[],attemptedAt};
- const query='"'+name+'"';
+ const query='"'+name+'" when:30d';
  const preferred=pressLocale(person.country);
- const attempts=[preferred];
- if(preferred[0]!=='en')attempts.push(['en','US']);
+ const attempts=[['fr','FR'],preferred].filter((x,i,a)=>a.findIndex(y=>y.join()===x.join())===i);
+ if(!attempts.some(x=>x[0]==='en'))attempts.push(['en','US']);
  const all=[],tried=[],errors=[];
  for(const [language,country] of attempts){
   const request='https://news.google.com/rss/search?'+new URLSearchParams({
@@ -58,14 +60,14 @@ export async function discoverPress(person,fetcher=fetch){
    if(!xml.includes('<rss')&&!xml.includes('<item>'))throw Error('Unexpected feed response');
    const items=parsePressRSS(xml,person);
    all.push(...items);
-   if(all.length>=3)break;
+   if(all.length>=16)break;
   }catch(error){errors.push(String(error?.message||error).slice(0,100))}
  }
  const uniq=[],seen=new Set();
  for(const x of all){
   const k=x.title.toLowerCase();
   if(!seen.has(k)){seen.add(k);uniq.push(x);}
-  if(uniq.length>=8)break;
+  if(uniq.length>=12)break;
  }
  return {status:uniq.length?'candidates_found':errors.length===tried.length?'feed_unavailable':'no_matching_articles',
   items:uniq,source:'https://news.google.com/',query,languagesTried:tried,
