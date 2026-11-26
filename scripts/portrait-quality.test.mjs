@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {pickPortrait,photoInitials,photoAudit} from '../src/portrait-selection.mjs';
+import {pickPortrait,photoInitials,photoAudit,photoReviewQueue} from '../src/portrait-selection.mjs';
 const DATA=JSON.parse(fs.readFileSync('data/photos.json','utf8'));
 test('Van der Velde uses the user-selected Hearst editorial photograph ahead of old press image',()=>{
  const photos=DATA['jean-louis-van-der-velde'];
@@ -38,4 +38,15 @@ test('Every published portrait has a fallback when a hotlinked image fails',()=>
  assert.match(build,/onerror=\\"this.remove\(\)\\"/);
  assert.match(css,/\.g\.ph \.portrait-initials/);
  assert.match(build,/photo-audit\.json/);
+});
+
+test('review queue covers every published profile and provides source-discovery searches',()=>{
+ const rows=photoReviewQueue(DATA);
+ assert.equal(rows.length,207);
+ const person=rows.find(p=>p.slug==='jean-louis-van-der-velde');
+ assert.ok(person.selectedUrl.includes('hearstapps.com'));
+ assert.ok(person.researchQueries.photoSearch.includes('google.com/search'));
+ assert.ok(person.researchQueries.linkedinSearch.includes('linkedin.com%2Fin'));
+ assert.ok(person.issues.includes('republication_rights_unconfirmed'));
+ assert.ok(rows.every(x=>typeof x.reviewed==='boolean'&&Array.isArray(x.issues)));
 });
