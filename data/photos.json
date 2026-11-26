@@ -41,6 +41,16 @@
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Elon_Musk_-_March_28,_2024.jpg",
       "legende": "Elon Musk lors d’une conférence à Big Sky, le 28 mars 2024."
+    },
+    {
+      "type": "portrait",
+      "src": "https://d.newsweek.com/en/full/2677520/elon-musk.jpg",
+      "source": "https://www.newsweek.com/elon-musk-helps-people-lets-recognize-his-public-service-opinion-1968739",
+      "credit": "Source : www.newsweek.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Elon Musk dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "jeff-bezos": [
@@ -63,6 +73,26 @@
       "licence_url": "https://creativecommons.org/licenses/by/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Jeff_Bezos%27_iconic_laugh.jpg",
       "legende": "Jeff Bezos aux ENCORE Awards, le 27 octobre 2010 (archive)."
+    },
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.fr/photos/61f27a85690b12c4c8ed39b1/3:2/pass/jeff%20bezos.jpg",
+      "source": "https://www.vanityfair.fr/dossier/jeff-bezos",
+      "credit": "Source : www.vanityfair.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Jeff Bezos dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.fr/photos/65b8fe55e8defb911eb4d875/master/w_3940,c_limit/GettyImages-51042947.jpg",
+      "source": "https://www.vanityfair.fr/article/dou-vient-la-fortune-de-jeff-bezos",
+      "credit": "Source : www.vanityfair.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Jeff Bezos dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "jim-walton": [
@@ -129,6 +159,16 @@
       "licence_url": "https://creativecommons.org/licenses/by/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(46985048834).jpg",
       "legende": "Mark Zuckerberg à la conférence F8, le 30 avril 2019 (archive)."
+    },
+    {
+      "type": "portrait",
+      "src": "https://people.com/thmb/ZL0v6zP0-S5FL6w-O_GzUe96Muw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(979x539:981x541)/mark-zuckerberg-priscilla-chan-1-a98a114c1a1d40648720051d09c069f7.jpg",
+      "source": "https://people.com/mark-zuckerberg-celebrates-20th-anniversary-first-date-wife-priscilla-chan-8402171",
+      "credit": "Source : people.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Mark Zuckerberg dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "bernard-arnault": [
@@ -151,6 +191,26 @@
       "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Bernard_Arnault.jpg",
       "legende": "Bernard Arnault au défilé Jean-Paul Gaultier à Paris, le 6 juillet 2009 (archive)."
+    },
+    {
+      "type": "portrait",
+      "src": "https://forbes.es/wp-content/uploads/2018/07/principal-28.jpg",
+      "source": "https://forbes.es/portadas-print/44780/forbes-55-bernard-arnault-la-mano-que-mece-lvmh/",
+      "credit": "Source : forbes.es ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Bernard Arnault dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://cdn-s-www.ledauphine.com/images/cc2937ac-e3d2-4b03-a239-6ce189a56e9a/NW_raw/bernard-arnault-ce-jeudi-durant-l-assemblee-generale-des-actionnaires-de-lvmh-photo-sipa-romuald-meigneux-1776944434.jpg",
+      "source": "https://www.ledauphine.com/economie/2026/04/23/on-en-reparlera-dans-7-8-ans-bernard-arnault-pdg-de-lvmh-ne-veut-pas-entendre-parler-de-retraite",
+      "credit": "Source : www.ledauphine.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Bernard Arnault dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "alice-walton": [
@@ -199,6 +259,16 @@
       "legende": "Gautam Adani — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://forbes.vn/wp-content/uploads/2023/01/GA-1024x1024.jpg",
+      "source": "https://forbes.vn/ti-phu-an-do-gautam-adani-la-ai-ma-cong-ty-ban-khong-hindenburg-cao-buoc-gian-lan/",
+      "credit": "Source : forbes.vn ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Gautam Adani dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "li-ka-shing": [
@@ -235,6 +305,16 @@
       "legende": "Klaus-Michael Kühne — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJp_MlIIF.jg/v1/-1x-1.webp",
+      "source": "https://www.bloomberg.com/news/articles/2022-09-06/germany-s-richest-man-looking-to-buy-more-lufthansa-shares",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Klaus-Michael Kuehne dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "sergey-brin": [
@@ -245,6 +325,16 @@
       "licence": "Non renseignée",
       "source": "https://www.bloomberg.com/news/articles/2025-10-27/sergey-brin-nonprofit-gets-a-242-million-lift-from-maplight-ipo",
       "legende": "Photographie candidate associée à Sergey Brin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2023/05/GettyImages-1172241528-e1683936356155.jpg?w=1440&q=75",
+      "source": "https://fortune.com/2023/05/12/google-cofounders-ai-larry-page-sergey-brin-net-worth/",
+      "credit": "Source : fortune.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Sergey Brin dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -259,6 +349,16 @@
       "legende": "Photographie candidate associée à Amancio Ortega dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_ortega.png",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/amancio-ortega/",
+      "credit": "Source : www.forbes.sk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Amancio Ortega dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "charles-koch": [
@@ -269,6 +369,16 @@
       "licence": "Non renseignée",
       "source": "https://fortune.com/ranking/most-powerful-people/2024/charles-koch/",
       "legende": "Photographie candidate associée à Charles Koch dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_charles_koch.png",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/charles-koch-s-rodinou/",
+      "credit": "Source : www.forbes.sk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Charles Koch dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -295,6 +405,26 @@
       "legende": "Photographie candidate associée à Tadashi Yanai dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ibdfcfinnPSE/v1/-1x-1.webp",
+      "source": "https://www.bloomberg.com/news/articles/2025-05-22/uniqlo-founder-tadashi-yanai-to-buy-300-million-milan-building",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Tadashi Yanai dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2025/07/MPP_092025-Tadashi-Yanai.jpg",
+      "source": "https://fortune.com/ranking/most-powerful-people/2025/tadashi-yanai/",
+      "credit": "Source : fortune.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Tadashi Yanai dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "giovanni-ferrero": [
@@ -305,6 +435,26 @@
       "licence": "Non renseignée",
       "source": "https://forbes.it/2026/03/04/ferrero-riorganizza-i-vertici-ecco-il-nuovo-ceo-e-le-altre-nomine",
       "legende": "Photographie candidate associée à Giovanni Ferrero dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/68703048cf57d5a6c7ac465c/Photo-portrait-of-Giovanni-Ferrero/0x0.jpg?format=jpg&height=2500&width=2500",
+      "source": "https://www.forbes.com/sites/giacomotognini/2025/07/11/meet-the-italian-billionaire-behind-ferreros-giovanni-ferrero-froot-loops-nutella-31-billion-deal-for-kellogg/",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Giovanni Ferrero dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://forbes.it/wp-content/uploads/2022/11/Imagoeconomica_1324877-scaled.jpg",
+      "source": "https://forbes.it/2023/12/14/miliardari-italiani-classifica-fine-2023-testa-ferrero",
+      "credit": "Source : forbes.it ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Giovanni Ferrero dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -331,6 +481,16 @@
       "legende": "Photographie candidate associée à Xavier Niel dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i.x2wmjwnOoY/v0/1200x1800.jpg",
+      "source": "https://www.bloomberg.com/opinion/articles/2019-11-12/xavier-niel-s-iliad-buyback-puts-dividend-in-line-with-rivals",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Xavier Niel dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "paolo-ardoino": [
@@ -355,6 +515,26 @@
       "legende": "Photographie candidate associée à Eric Schmidt dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://people.com/thmb/VZ9YdGn-YrB3-xcKblpbMq3gpPk=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(599x0:601x2)/Eric-Schmidt-2-051826-89e5881d1ce8458a92b06f3544828abe.jpg",
+      "source": "https://people.com/billionaire-eric-schmidt-booed-during-in-graduation-speech-at-university-of-arizona-11978286",
+      "credit": "Source : people.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Eric Schmidt dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2012/12/12/19/web-google-getty.jpg",
+      "source": "https://www.independent.co.uk/news/world/asia/google-s-globetrotting-executive-eric-schmidt-lands-in-burma-8546544.html",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Eric Schmidt dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "phil-knight": [
@@ -365,6 +545,16 @@
       "licence": "Non renseignée",
       "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/phil-knight-s-rodinou/",
       "legende": "Photographie candidate associée à Phil Knight dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://people.com/thmb/UOfBj1xGx4o1pVnYE-XPQqHJiuc=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/phil-knight-2-4e78059605c34521bb78b7ff80f22e9b.jpg",
+      "source": "https://people.com/sports/all-about-phil-knight-nike-founder/",
+      "credit": "Source : people.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Phil Knight dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -379,6 +569,26 @@
       "legende": "Photographie candidate associée à Aliko Dangote dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iFazQoU26AHY/v0/-1x-1.webp",
+      "source": "https://www.bloomberg.com/news/articles/2021-12-03/richest-african-man-s-wealth-surges-to-highest-in-seven-years",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Aliko Dangote dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/05/12/Dangote1.jpg",
+      "source": "https://www.independent.co.uk/sport/football/premier-league/who-is-aliko-dangote-the-billionaire-businessman-interested-in-buying-arsenal-10225926.html",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Aliko Dangote dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "harry-triguboff": [
@@ -389,6 +599,26 @@
       "licence": "Non renseignée",
       "source": "https://www.bloomberg.com/news/newsletters/2025-10-23/harry-triguboff-sydney-split-by-property-tycoon-s-ambition",
       "legende": "Photographie candidate associée à Harry Triguboff dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/665e8b8721d5c88fe64f2d7f/240313-Forbes-HarryTriguboff-01-0043-huw--/0x0.jpg?format=jpg&height=4724&width=3150",
+      "source": "https://www.forbes.com/sites/markwhittaker/2024/06/04/how-property-billionaire-harry-triguboff-left-his-rivals-in-the-shade/",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Harry Triguboff dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://www.forbes.com.au/wp-content/uploads/2024/04/Harry_contact-sheet.jpg?resize=1536",
+      "source": "https://www.forbes.com.au/covers/billionaires/the-relentless-harry-triguboff-inside-his-25-billion-journey/",
+      "credit": "Source : www.forbes.com.au ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Harry Triguboff dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -461,6 +691,16 @@
       "licence": "Non renseignée",
       "source": "https://observer.com/2025/02/takeaways-warren-buffetts-annual-berkshire-hathaway-letter/",
       "legende": "Photographie candidate associée à Warren Buffett dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://www.reuters.com/resizer/v2/NMNDLAA365LQZCZYYGTAMJYXWY.jpg?auth=74fdf3349580a09e0336c1f537a5aa618c41dd81b36a3db74f0a0aa746cb5e30&width=1920&quality=80",
+      "source": "https://www.reuters.com/business/warren-buffett-berkshire-hathaway-glance-2021-04-29/",
+      "credit": "Source : www.reuters.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Warren Buffett dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -545,6 +785,16 @@
       "licence": "Non renseignée",
       "source": "https://forbes.it/2024/06/06/francoise-bettencourt-meyers-supera-100-miliardi-patrimonio",
       "legende": "Photographie candidate associée à Françoise Bettencourt Meyers dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.fr/photos/658e98c027a4904bada22a4c/16:9/w_2560,c_limit/GettyImages-1181020136.jpg",
+      "source": "https://www.vanityfair.fr/article/francoise-bettencourt-meyers-devient-la-premiere-femme-a-integrer-le-club-des-100-milliards-de-dollars",
+      "credit": "Source : www.vanityfair.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Françoise Bettencourt Meyers dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -691,6 +941,16 @@
       "legende": "Photographie candidate associée à Masayoshi Son dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/5e879be4bf94c200067fce02/Masayoshi-Son-Talks-WeWork--Vision-Fund-And-SoftBank-Under-Siege/0x0.jpg?format=jpg&height=2686&width=5000",
+      "source": "https://www.forbes.com/sites/alexkonrad/2020/04/05/exclusive-interview-masayoshi-son-talks-wework-vision-fund-softbank/",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Masayoshi Son dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "ken-griffin": [
@@ -701,6 +961,16 @@
       "licence": "Non renseignée",
       "source": "https://www.wsj.com/finance/investing/citadel-ken-griffin-hedge-funds-c9ddf51d",
       "legende": "Photographie candidate associée à Ken Griffin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/2OXKKEJ4WFLLZPF3DSGGSLZ5RE.jpg",
+      "source": "https://www.reuters.com/world/us/citadel-founder-ken-griffin-donates-300-million-more-alma-mater-harvard-2023-04-11/",
+      "credit": "Source : www.reuters.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Ken Griffin dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -907,6 +1177,26 @@
       "legende": "Photographie candidate associée à Melinda French Gates dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/2024/10/09/11/Philanthropy_Melinda_French_Gates_70817.jpg",
+      "source": "https://www.independent.co.uk/news/ap-french-melinda-gates-foundation-mackenzie-scott-people-b2626418.html",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Melinda French Gates dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.com/photos/66d86d045825657ac030a142/master/w_1600,c_limit/VanityFair_Philanthropists02.jpg",
+      "source": "https://www.vanityfair.com/style/story/melinda-gates-interview-politics",
+      "credit": "Source : www.vanityfair.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Melinda French Gates dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "susanne-klatten": [
@@ -977,6 +1267,16 @@
       "licence": "Non renseignée",
       "source": "https://www.forbes.com/sites/clareoconnor/2016/08/11/trump-adds-richest-self-made-woman-diane-hendricks-to-economic-advisory-team/",
       "legende": "Photographie candidate associée à Diane Hendricks dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/667b1eeecf5d62dedd8d2d08/headshots-trumpbidendonors-Diane-Hendricks-by-Gabriela-Hasbun-for-Forbes-0153-RGB2/0x0.jpg?format=jpg&width=1440",
+      "source": "https://forbes.com.mx/estos-son-los-10-mayores-multimillonarios-donantes-de-trump/",
+      "credit": "Source : forbes.com.mx ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Diane Hendricks dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -1260,6 +1560,16 @@
       "legende": "Photographie candidate associée à Len Blavatnik dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iWyx.KjWXFlc/v1/-1x-1.webp",
+      "source": "https://www.bloomberg.com/news/features/2022-06-03/len-blavatnik-net-worth-quiet-billionaire-separates-fortune-from-russian-money",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Len Blavatnik dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "vladimir-potanin": [
@@ -1270,6 +1580,16 @@
       "licence": "Non renseignée",
       "source": "https://www.bloomberg.com/news/articles/2024-01-31/vladimir-potanin-fails-in-bid-to-dismiss-9-billion-uk-divorce",
       "legende": "Photographie candidate associée à Vladimir Potanin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.fr/photos/639ca23937c8c5193ff6bd0c/16:9/w_2560,c_limit/GettyImages-1075275412.jpg",
+      "source": "https://www.vanityfair.fr/actualites/article/vladimir-potanine-russie-sanctions",
+      "credit": "Source : www.vanityfair.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Vladimir Potanin dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -1296,6 +1616,16 @@
       "legende": "Photographie candidate associée à Jack Ma dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/10/31/22/Jack-Ma.jpg",
+      "source": "https://www.independent.co.uk/news/people/profiles/jack-ma-the-man-who-took-on-ebay-and-won-9832262.html",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Jack Ma dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "prajogo-pangestu": [
@@ -1318,6 +1648,16 @@
       "licence": "Non renseignée",
       "source": "https://www.independent.co.uk/sport/olympics/enhanced-games-peter-thiel-olympics-b2488157.html",
       "legende": "Photographie candidate associée à Peter Thiel dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://d.newsweek.com/en/full/1981986/peter-thiel.jpg",
+      "source": "https://www.newsweek.com/paypal-co-founder-peter-thiel-stepping-down-metas-board-1676983",
+      "credit": "Source : www.newsweek.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Peter Thiel dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -1354,6 +1694,16 @@
       "licence": "Non renseignée",
       "source": "https://www.bloomberg.com/news/articles/2026-03-06/vietnam-s-richest-man-names-wife-chair-of-taxi-firm-gsm-report",
       "legende": "Photographie candidate associée à Pham Nhat Vuong dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://forbes.vn/wp-content/uploads/2023/02/pham-nhat-vuong-new.jpg",
+      "source": "https://forbes.vn/forbesvn-20-gia-dinh-kinh-doanh-hang-dau/pham-nhat-vuong-gia-dinh/",
+      "credit": "Source : forbes.vn ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Pham Nhat Vuong dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -1476,6 +1826,16 @@
       "legende": "Photographie candidate associée à Steve Cohen dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://www.reuters.com/resizer/v2/GXORUV55HNMKNOSCE6626HVQG4.jpg?auth=444e570b0a0aa4dffcde18387f032b069de7aeb5e41116060165461e2901e517&width=3500&quality=80",
+      "source": "https://www.reuters.com/business/finance/steve-cohen-stops-trading-hedge-fund-point72-bloomberg-news-reports-2024-09-17/",
+      "credit": "Source : www.reuters.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Steve Cohen dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "rupert-murdoch": [
@@ -1536,6 +1896,26 @@
       "legende": "Photographie candidate associée à Wang Chuanfu dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/66eb7c203ba8a9d0a6cba15b/4x5-Wang-Chuanfu-by-Aska-Liu-for-Forbes-China/0x0.jpg?format=jpg&width=1440",
+      "source": "https://forbes.com.mx/esta-es-la-primera-lista-forbes-de-los-lideres-de-la-sostenibilidad-empresarial/",
+      "credit": "Source : forbes.com.mx ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Wang Chuanfu dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/636b49226566767b247fde57/0x0.jpg?format=jpg&width=1440",
+      "source": "https://www.forbes.com/sites/russellflannery/2022/11/09/plugged-in-byds-wang-chuanfu-explains-how-chinas-no-1-ev-maker-caught-up-with-tesla/",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Wang Chuanfu dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ],
   "john-fredriksen": [
@@ -1582,6 +1962,16 @@
       "licence": "Non renseignée",
       "source": "https://www.forbes.com.ec/daily-cover/dentro-polemico-conglomerado-gautam-vinod-adani-n31475",
       "legende": "Photographie candidate associée à Vinod Adani dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://forbesme-prestaging-media.s3.us-east-2.amazonaws.com/lists/uploads/2026/05/08112542/Vinod-Adani-1-1024x1024.jpg",
+      "source": "https://www.forbesmiddleeast.com/lists/richest-residents-in-the-uae-2026/vinod-adani/",
+      "credit": "Source : www.forbesmiddleeast.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Vinod Adani dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
@@ -1774,6 +2164,16 @@
       "licence": "Non renseignée",
       "source": "https://www.bloomberg.com/news/articles/2024-07-03/billionaire-revolut-ceo-nik-storonsky-builds-side-vc-bet-firm-quantumlight",
       "legende": "Photographie candidate associée à Nik Storonsky dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2020/08/40_Finance_Storonsky.jpg",
+      "source": "https://fortune.com/ranking/40-under-40/2020/nik-storonsky/",
+      "credit": "Source : fortune.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "legende": "Photographie complémentaire associée à Nik Storonsky dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
