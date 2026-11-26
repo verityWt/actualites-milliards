@@ -15,7 +15,8 @@ export function renderInfluenceDashboard(ctx){
  }
  function logo(name){
   const slug=brandIcon(name),fallback=e(name.slice(0,2).toUpperCase());
-  return '<span class="inf-logo" aria-hidden="true">'+(slug?'<img loading="lazy" decoding="async" src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/'+slug+'.svg" alt="" onload="this.nextElementSibling.style.opacity=0" onerror="this.remove()">':'')+'<span>'+fallback+'</span></span>';
+  const url=name.toLowerCase()==='walmart'?'https://commons.wikimedia.org/wiki/Special:FilePath/Walmart_spark_(2025).svg':slug?'https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/'+slug+'.svg':null;
+  return '<span class="inf-logo" aria-hidden="true">'+(url?'<img loading="lazy" decoding="async" src="'+e(url)+'" alt="" onload="this.nextElementSibling.style.opacity=0" onerror="this.remove()">':'')+'<span>'+fallback+'</span></span>';
  }
  const groups=dataset.groups.slice(0,14),first=groups[0]||null;
  const cards=groups.slice(0,9).map(group=>'<article class="inf-group"><div class="inf-group-header">'+logo(group.name)+'<div><span class="inf-overline">GROUPE ÉCONOMIQUE</span><h3>'+e(group.name)+'</h3><small>'+group.count+' personnes associées</small></div></div><ul>'+group.people.slice(0,6).map(p=>'<li><a href="'+linkPerson(p.id)+'">'+e(p.name)+'</a><b>'+format(p.wealth)+' Md$</b></li>').join('')+'</ul><button class="inf-group-button" type="button" data-graph-group="'+e(group.name)+'">Explorer ce réseau</button></article>').join('');
