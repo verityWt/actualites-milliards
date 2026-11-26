@@ -78,6 +78,30 @@
     for(const page of article.pages){if(page.url!==main.url)add('Autre version ('+page.language.toUpperCase()+')',page.url);}
     if(article.wikidataUrl)add('Fiche Wikidata',article.wikidataUrl);
     holder.append(links);
+    if(Array.isArray(article.publisherCards)&&article.publisherCards.length){
+      const section=document.createElement('section');section.className='wiki-press';
+      const heading=document.createElement('h3');heading.textContent='Enquêtes et articles complémentaires';section.append(heading);
+      const intro=document.createElement('p');intro.className='wiki-press-intro';intro.textContent='Titres et présentations fournis par les éditeurs des articles. Sélection documentaire complémentaire.';
+      section.append(intro);
+      const grid=document.createElement('div');grid.className='wiki-press-grid';
+      for(const item of article.publisherCards){
+        try{
+          const url=new URL(item.url);
+          if(url.protocol!=='https:'||!item.title||!item.publisher)continue;
+          const card=document.createElement('article');card.className='wiki-press-card';
+          const publisher=document.createElement('div');publisher.className='wiki-press-meta';
+          publisher.textContent=item.publisher+(item.publishedAt?' · '+item.publishedAt:'');
+          const headline=document.createElement('h4');
+          const a=document.createElement('a');a.href=url.href;a.rel='noopener noreferrer';a.target='_blank';a.textContent=item.title;headline.append(a);
+          card.append(publisher,headline);
+          if(item.description){
+            const desc=document.createElement('p');desc.textContent=item.description;card.append(desc);
+          }
+          grid.append(card);
+        }catch{}
+      }
+      if(grid.children.length){section.append(grid);holder.append(section);}
+    }
     if(Array.isArray(article.supplementarySources)&&article.supplementarySources.length){
       const title=document.createElement('h3');title.textContent='Autres publications à consulter';holder.append(title);
       const list=document.createElement('ul');list.className='wiki-references';
