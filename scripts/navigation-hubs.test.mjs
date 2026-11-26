@@ -22,3 +22,10 @@ test('category pages contain actual records and not placeholder-only copy',()=>{
  assert.match(source,/hubSection\('Profils hors du Top 200'/);
  assert.match(source,/id="hubResults"/);
 });
+
+test('Influence group cards display an explicit title, number and associated people',()=>{
+ assert.match(source,/hub-group-label/);
+ assert.match(source,/hub-group-count/);
+ assert.match(source,/hub-group-people/);
+ assert.match(source,/hub-group-people[^\n]*item\.people\.map/);
+});
