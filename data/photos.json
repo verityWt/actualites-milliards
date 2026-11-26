@@ -2468,5 +2468,45 @@
       "identity_verified": false,
       "publication_autorisee": null
     }
-  ]
+  ],
+  "katharina-von-baumbach": [
+    {
+      "type": "portrait",
+      "src": "https://images.bild.de/6ad876b5db679f40b5d6cdcd/e9e12e60d14bbb416609f2c9a79b7992%2C39d8a245?w=992",
+      "source": "https://www.bild.de/unterhaltung/royals-adel/katharina-von-baumbach-mit-leopold-von-baden-verlobt-so-tickt-die-milliardaerstochter-6ad876b5db679f40b5d6cdcd",
+      "credit": "kb-design.de, selon BILD",
+      "legende": "Portrait publié par BILD le 21 octobre 2026, crédité à kb-design.de. Date de prise de vue non établie.",
+      "licence": "Non renseignée",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "huang-shilin": [
+    {
+      "type": "portrait",
+      "src": "https://p1.img.cctvpic.com/photoAlbum/page/performance/img/2015/12/7/1449454899052_457.jpg",
+      "source": "https://fxsczx.cntv.cn/chuangke/fujian/huangshilin/index.shtml",
+      "credit": "CCTV/CNTV ; photographe non renseigné",
+      "legende": "Portrait d’archive publié dans le profil consacré au cofondateur de CATL.",
+      "licence": "Non renseignée",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zou-zhinong": [
+    {
+      "type": "portrait",
+      "src": "https://www.tfcsz.com/Uploads/image/20210810/20210810094957_18437.jpg",
+      "source": "https://www.tfcsz.com/news/326.html",
+      "credit": "Suzhou TFC Optical Communication ; photographe non renseigné",
+      "legende": "Image associée à l’entretien avec le président de TFC publié le 10 août 2021. Accessibilité de l’image non confirmée.",
+      "licence": "Non renseignée",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "elaine-marshall": [],
+  "beate-heister": [],
+  "karl-albrecht-jr": [],
+  "yu-yong": []
 }
