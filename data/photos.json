@@ -1092,13 +1092,29 @@
   "jean-louis-van-der-velde": [
     {
       "type": "portrait",
+      "src": "https://hips.hearstapps.com/hmg-prod/images/c405e9d0-080e-4642-9806-0cf8d8e48e5d.jpg?crop=0.563xw:1.00xh;0.315xw,0&resize=1200:*",
+      "credit": "Image publiée sur l'infrastructure Hearst (photo ou photographe non attribué)",
+      "licence": "Droits réservés — autorisation non vérifiée",
+      "source": "https://www.quotenet.nl/zakelijk/a70709713/is-jean-louis-van-der-velde-de-rijkste-nederlander-ooit-dubbel-zo-rijk-als-charlene-de-carvalho-heineken/",
+      "legende": "Jean-Louis van der Velde — photographie proposée par l'éditeur du site et vérifiée techniquement dans le navigateur le 26 novembre 2026.",
+      "publication_autorisee": null,
+      "identity_verified": false,
+      "editorial_priority": 100,
+      "quality_review": "candidate_user_selected",
+      "image_width": 769,
+      "image_height": 768,
+      "checked_at": "2026-11-26"
+    },
+    {
+      "type": "portrait",
       "src": "https://indodax.com/academy/wp-content/uploads/2025/11/Jean-Louis-van-der-Velde-scaled.jpg",
       "credit": "Source : indodax.com ; photographe non confirmé",
       "licence": "Non renseignée",
       "source": "https://indodax.com/academy/profil-jean-louis-van-der-velde/",
       "legende": "Photographie candidate associée à Jean-Louis van der Velde dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
-      "identity_verified": false
+      "identity_verified": false,
+      "editorial_priority": 0
     }
   ],
   "alexey-mordashov": [
