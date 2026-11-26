@@ -372,7 +372,7 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .inf-logo{width:52px;height:52px;min-width:52px;border-radius:11px;display:grid;place-items:center;background:#e8e2d7;color:#372a27;overflow:hidden;position:relative}
 .inf-logo img{width:31px;height:31px;object-fit:contain;position:absolute;inset:10px}
 .inf-logo>span{font-size:13px;font-weight:900;letter-spacing:-.03em}
-.inf-logo:has(img)>span{opacity:0}
+.inf-logo:has(img)>span{opacity:1}
 .inf-logo:not(:has(img))>span{opacity:1}
 .inf-group ul{list-style:none;padding:0;margin:5px 0 17px}
 .inf-group li{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px}
