@@ -118,7 +118,7 @@
       holder.append(list);
     }
     const attribution=document.createElement('p');attribution.className='wiki-attribution';
-    attribution.textContent='Extrait de Wikipédia — contributeurs de Wikipédia, licence CC BY-SA 4.0. Ce contenu encyclopédique complète les articles du site ; il peut comporter des erreurs et ne remplace pas la vérification des sources originales.';
+    attribution.textContent='Sources des extraits : Wikipédia, licence CC BY-SA 4.0. Données : Wikidata. Les titres et présentations des articles complémentaires proviennent de leurs éditeurs respectifs.';
     holder.append(attribution);
   }catch{
     if(status)status.textContent='Documentation encyclopédique temporairement indisponible.';
