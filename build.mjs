@@ -107,15 +107,15 @@ const home = (from, hash = '') => (PREVIEW ? '../'.repeat(from ? from.split('/')
 
 const COL = { tech: '#3b5bdb', mode: '#b8860b', fin: '#0f766e', telecom: '#0e7490', div: '#6b21a8', food: '#c2410c', mines: '#57534e', energie: '#b45309', logist: '#1e40af', sante: '#15803d', auto: '#be123c', indus: '#475569', casino: '#9d174d', immo: '#7c2d12', media: '#be185d', btp: '#78716c', sport: '#7c3aed', service: '#0f766e' };
 const INK = { tech: '#1f4e8c', mode: '#7a1d3a', fin: '#0e5a5c', telecom: '#155e75', div: '#5b2a86', food: '#9a3412', mines: '#44403c', energie: '#92400e', logist: '#1e3a8a', sante: '#166534', auto: '#9f1239', indus: '#334155', casino: '#831843', immo: '#7c2d12', media: '#9d174d', btp: '#57534e', sport: '#6d28d9', service: '#0f766e' };
-const portraitImage = (p,from='',alt='',loading='lazy') => {
+const portraitImage = (p,from='',alt='',loading='lazy',auto=false) => {
  const candidates=portraitCandidates(PHOTOS[p.id]||[]);
  if(!candidates.length)return '';
  const srcs=candidates.map(ph=>phSrc(from,ph));
- return `<img src="${esc(srcs[0])}" data-portrait-fallbacks="${esc(JSON.stringify(srcs.slice(1)))}" alt="${esc(alt||p.name)}" loading="${loading}" decoding="async" onerror="window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()">`;
+ return `<img src="${esc(srcs[0])}" data-portrait-fallbacks="${esc(JSON.stringify(srcs.slice(1)))}" ${auto&&Number(portrait(p)?.editorial_priority||0)<100?'data-auto-portrait="'+esc(p.id)+'"':''} alt="${esc(alt||p.name)}" loading="${loading}" decoding="async" onerror="window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()">`;
 };
 const medal = (p, size = 64, from = '') => portrait(p) ? `<div class="g ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span>${portraitImage(p,from,p.name)}</div>` : `<div class="g" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="${size > 100 ? 200 : 80}"></div>`;
 const serial = p => p.rank ? 'N° ' + String(p.rank).padStart(3, '0') : 'HORS CLASSEMENT';
-const billet = (p, big, from = '') => `<div class="billet${big ? ' big' : ''}">${portrait(p) ? `<div class="guil ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span>${portraitImage(p,from,'Portrait de '+p.name,'eager')}</div>` : `<div class="guil" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="220"></div>`}<div><div class="bt"><span>${serial(p)}</span><span>${p.rank ? 'FORBES 2026' : 'ACTUALITES.FR'}</span></div><div class="bn">${esc(fullName(p))}</div><div class="bm">${esc([p.co || SEC[p.sec], p.country].filter(Boolean).join(' · '))}</div><div class="bv">${nwTxt(p)}</div></div><div class="micro">ACTUALITES.FR · LE MONDE DES MILLIARDS · ${esc(fullName(p).toUpperCase())} · ${serial(p)} · ACTUALITES.FR · LE MONDE DES MILLIARDS</div></div>`;
+const billet = (p, big, from = '') => `<div class="billet${big ? ' big' : ''}">${portrait(p) ? `<div class="guil ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span>${portraitImage(p,from,'Portrait de '+p.name,'eager',big)}</div>` : `<div class="guil" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="220"></div>`}<div><div class="bt"><span>${serial(p)}</span><span>${p.rank ? 'FORBES 2026' : 'ACTUALITES.FR'}</span></div><div class="bn">${esc(fullName(p))}</div><div class="bm">${esc([p.co || SEC[p.sec], p.country].filter(Boolean).join(' · '))}</div><div class="bv">${nwTxt(p)}</div></div><div class="micro">ACTUALITES.FR · LE MONDE DES MILLIARDS · ${esc(fullName(p).toUpperCase())} · ${serial(p)} · ACTUALITES.FR · LE MONDE DES MILLIARDS</div></div>`;
 const nwTxt = p => p.nw == null ? 'Fortune liée' : fr(p.nw) + ' Md$';
 const fullName = p => p.name + (p.fam ? ' et sa famille' : '');
 const meta = p => [p.co || SEC[p.sec], p.country, p.age ? p.age + ' ans' : (p.born ? (p.g === 'f' ? 'née' : 'né') + ' en ' + p.born : '')].filter(Boolean).join(' · ');
@@ -132,7 +132,7 @@ const page = ({ from, title, desc, canonical, body, jsonld = [] }) => `<!DOCTYPE
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${asset(from, 'assets/site.css')}">
-<script src="${asset(from,'assets/portrait-fallback.js')}"></script>
+<script src="${asset(from,'assets/portrait-fallback.js')}"></script><script src="${asset(from,'assets/portrait-auto.js')}" defer></script>
 ${jsonld.map(j => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head><body>${header(from)}<main>${body}</main>${footer(from)}<script src="${asset(from, 'assets/guil.js')}" defer></script></body></html>`;
 const write = (dir, html) => { const d = path.join(OUT, dir); fs.mkdirSync(d, { recursive: true }); fs.writeFileSync(path.join(d, 'index.html'), html); };
@@ -141,6 +141,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 fs.copyFileSync('src/site.css', path.join(OUT, 'assets/site.css'));
 fs.copyFileSync('src/portrait-fallback.js',path.join(OUT,'assets/portrait-fallback.js'));
+fs.copyFileSync('src/portrait-auto.js',path.join(OUT,'assets/portrait-auto.js'));
 fs.copyFileSync('src/photo-review-console.js',path.join(OUT,'assets/photo-review-console.js'));
 fs.copyFileSync('src/influence-live.js',path.join(OUT,'assets/influence-live.js'));
 if(fs.existsSync('assets/brands'))fs.cpSync('assets/brands',path.join(OUT,'assets/brands'),{recursive:true});
