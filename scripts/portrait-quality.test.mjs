@@ -33,11 +33,13 @@ test('Higher editorial priority wins irrespective of insertion order, with stabl
 test('Every published portrait has a fallback when a hotlinked image fails',()=>{
  const build=fs.readFileSync('build.mjs','utf8');
  const css=fs.readFileSync('src/site.css','utf8');
+ const fallback=fs.readFileSync('src/portrait-fallback.js','utf8');
  assert.match(build,/const portrait = p => pickPortrait/);
- assert.match(build,/class=\\"portrait-initials\\"/);
- assert.match(build,/onerror=\\"this.remove\(\)\\"/);
- assert.match(css,/\.g\.ph \.portrait-initials/);
- assert.match(build,/photo-audit\.json/);
+ assert.ok(build.includes('class="portrait-initials"'));
+ assert.ok(build.includes('window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()'));
+ assert.ok(css.includes('.g.ph .portrait-initials'));
+ assert.ok(fallback.includes('window.actualitesPhotoError'));
+ assert.ok(build.includes('photo-audit.json'));
 });
 
 test('review queue covers every published profile and provides source-discovery searches',()=>{
@@ -74,4 +76,22 @@ test('photo review console renders source candidates and exports decisions witho
  assert.match(js,/localStorage/);
  assert.match(js,/Exporter|exportedAt/);
  assert.match(js,/republication|droits|droits/i);
+});
+
+test('Unrelated gallery media cannot become a profile portrait',()=>{
+ const galleryOnly={type:'event',src:'https://example.com/award-ceremony.jpg'};
+ assert.equal(pickPortrait([galleryOnly]),null);
+ assert.deepEqual(portraitCandidates([galleryOnly]),[]);
+ const row=photoReviewQueue({'sample-person':[galleryOnly]})[0];
+ assert.equal(row.selectedUrl,null);
+ assert.ok(row.issues.includes('missing_photo'));
+});
+test('Photo review requires a loaded image for framing approval and exposes its provenance',()=>{
+ const js=fs.readFileSync('src/photo-review-console.js','utf8');
+ assert.match(js,/const canAccept=.*photo\.naturalWidth>0/);
+ assert.match(js,/acceptButton\.disabled=!canAccept\(\)/);
+ assert.match(js,/if\(value==='acceptable'&&!canAccept\(\)\)return/);
+ assert.match(js,/Aucune photo candidate/);
+ assert.match(js,/candidate\?\.source/);
+ assert.match(js,/Consulter la source de cette photo/);
 });

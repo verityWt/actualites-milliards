@@ -3,7 +3,8 @@ export const hasPhoto=(p)=>Boolean(p&&typeof(p.src||p.fichier)==='string'&&/^(ht
 export function pickPortrait(entries){
  if(!Array.isArray(entries))return null;
  const images=entries.filter(p=>p?.type==='portrait'&&hasPhoto(p));
- if(!images.length)return entries.find(hasPhoto)||null;
+ // An event or gallery image must not be silently promoted to a person's portrait.
+ if(!images.length)return null;
  return images.map((photo,index)=>({photo,index})).sort((a,b)=>{
   const priority=(Number(b.photo.editorial_priority)||0)-(Number(a.photo.editorial_priority)||0);
   return priority||a.index-b.index;
