@@ -453,3 +453,7 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .photo-review-links a{text-decoration:underline;text-underline-offset:2px}
 #photoReviewMore{display:block;margin:28px auto}
 #photoReviewMore[hidden]{display:none}
+
+/* Automatic Commons photo attribution, visible without obscuring portraits. */
+.guil.ph .portrait-commons-credit{position:absolute;bottom:0;left:0;right:0;z-index:3;display:block;padding:5px 8px;background:rgba(19,15,20,.82);color:#fff7e8;font-size:9px;line-height:1.35;text-decoration:underline;text-underline-offset:2px;text-align:center;white-space:normal;overflow-wrap:anywhere}
+.guil.ph .portrait-commons-credit:hover{background:#21151e}
