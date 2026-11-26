@@ -250,3 +250,14 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .wiki-panel .wiki-facts dd{font-size:14px;line-height:1.6;margin:0;overflow-wrap:anywhere}
 .wiki-panel .wiki-facts dd a{text-underline-offset:3px}
 @media(max-width:600px){.wiki-panel .wiki-facts dl{grid-template-columns:1fr;row-gap:4px}.wiki-panel .wiki-facts dt:not(:first-child){margin-top:12px}}
+
+.wiki-panel .wiki-press{margin:32px 0 26px}
+.wiki-panel .wiki-press h3{font-size:23px;margin:0 0 8px}
+.wiki-panel .wiki-press-intro{font-size:14px;color:var(--muted,#555);line-height:1.6;margin-bottom:18px}
+.wiki-panel .wiki-press-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:15px}
+.wiki-panel .wiki-press-card{border:1px solid var(--line,#ddd);border-radius:13px;padding:19px 20px;background:var(--surface,#fff)}
+.wiki-panel .wiki-press-card .wiki-press-meta{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--wine,#73213d);margin-bottom:9px}
+.wiki-panel .wiki-press-card h4{font-size:17px;line-height:1.42;margin:0 0 9px}
+.wiki-panel .wiki-press-card h4 a{text-decoration:none;color:inherit}
+.wiki-panel .wiki-press-card h4 a:hover{text-decoration:underline;text-underline-offset:3px}
+.wiki-panel .wiki-press-card>p{font-size:13px;line-height:1.55;color:var(--muted,#555);margin:0}
