@@ -7,6 +7,12 @@
  const input=document.getElementById('photoQuery'),filter=document.getElementById('photoStatusFilter');
  const grid=document.getElementById('photoReviewGrid'),counts=document.getElementById('photoReviewCount');
  const more=document.getElementById('photoReviewMore'),exportBtn=document.getElementById('photoReviewExport');
+ const status=document.getElementById('photoAutoStatus');
+ if(status)fetch('https://actualites-biography-discovery.actualites-fr-next.workers.dev/photos/status',{credentials:'omit'})
+  .then(r=>r.ok?r.json():null).then(x=>{
+   if(x&&Number.isFinite(x.checked)){status.textContent='Recherche automatique Wikimedia : '+x.checked+' / '+x.totalProfiles+' dossiers examinés · une fiche toutes les '+x.cadenceMinutes+' minutes. Résultats qualifiés par licence et résolution ; absence de photo validée possible.';}
+   else status.textContent='État de la collecte photographique indisponible.';
+  }).catch(()=>{status.textContent='État de la collecte photographique indisponible.';});
  const key='actualites.photo.review.v1';let saved={};
  try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch{}
  if(!saved||typeof saved!=='object'||Array.isArray(saved))saved={};
