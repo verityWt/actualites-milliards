@@ -46,5 +46,41 @@
       "source": "https://commons.wikimedia.org/wiki/File:Jim_Walton.jpg",
       "legende": "Jim Walton, le 2 juin 2011 (archive)."
     }
+  ],
+  "jensen-huang": [
+    {
+      "type": "portrait",
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Jensen_Huang_at_the_%E2%80%9CU.S._Leadership_in_AI%E2%80%9D_discussion%2C_Stanford_University%2C_2026.jpg/960px-Jensen_Huang_at_the_%E2%80%9CU.S._Leadership_in_AI%E2%80%9D_discussion%2C_Stanford_University%2C_2026.jpg",
+      "credit": "Anders Eidesvik",
+      "auteur": "Anders Eidesvik",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_at_the_%E2%80%9CU.S._Leadership_in_AI%E2%80%9D_discussion%2C_Stanford_University%2C_2026.jpg",
+      "legende": "Jensen Huang à Stanford, le 9 avril 2026."
+    }
+  ],
+  "mark-zuckerberg": [
+    {
+      "type": "portrait",
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg/1280px-Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg",
+      "credit": "Anthony Quintano",
+      "auteur": "Anthony Quintano",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(46985048834).jpg",
+      "legende": "Mark Zuckerberg à la conférence F8, le 30 avril 2019 (archive)."
+    }
+  ],
+  "bernard-arnault": [
+    {
+      "type": "portrait",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bernard_Arnault.jpg",
+      "credit": "nicogenin",
+      "auteur": "nicogenin",
+      "licence": "CC BY-SA 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Bernard_Arnault.jpg",
+      "legende": "Bernard Arnault au défilé Jean-Paul Gaultier à Paris, le 6 juillet 2009 (archive)."
+    }
   ]
 }
