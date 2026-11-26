@@ -421,3 +421,10 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .inf-offers article>a{font-weight:750;font-size:14px;display:inline-flex;padding:12px 16px;border:1px solid var(--gold);border-radius:6px;text-decoration:none}
 .inf-offers article>a:hover{background:rgba(195,153,95,.1)}
 @media(max-width:700px){.inf-offers{grid-template-columns:1fr}}
+
+/* Editorial portraits: a readable fallback stays available when publishers block hotlinks. */
+.g.ph,.guil.ph{position:relative;background:linear-gradient(145deg,#c8af84,#634554);isolation:isolate}
+.g.ph .portrait-initials,.guil.ph .portrait-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Bodoni Moda",Georgia,serif;font-weight:650;font-size:clamp(16px,2.4vw,48px);letter-spacing:.03em;color:#fff4e0;z-index:0;pointer-events:none}
+.g.ph img,.guil.ph img{position:relative;z-index:1;object-position:center 35%;background:#cbbcb6}
+.g.ph:has(img) .portrait-initials,.guil.ph:has(img) .portrait-initials{opacity:0}
+.g.ph:not(:has(img)) .portrait-initials,.guil.ph:not(:has(img)) .portrait-initials{opacity:1}
