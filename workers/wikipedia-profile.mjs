@@ -86,7 +86,7 @@ export async function detailedWikipediaSections(title,lang='fr',fetcher=fetch){
 
 const FACT_PROPERTIES=Object.freeze([
  ['P106','Activité professionnelle'],['P69','Études et établissements'],['P108','Employeurs déclarés'],
- ['P463','Organisations associées'],['P166','Distinctions']
+ ['P166','Distinctions']
 ]);
 // Wikidata statements are a sourced database view, not independently confirmed facts.
 export async function publicWikidataFacts(item,fetcher=fetch){
