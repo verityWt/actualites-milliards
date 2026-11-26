@@ -63,7 +63,7 @@ export async function researchOne(env,person,at=new Date(),fetcher=fetch){
  const previous=await env.RESEARCH.get(key,{type:'json'});
  const lastAttempt=previous?.attemptedAt?Date.parse(previous.attemptedAt):0;
  if((previous?.state==='candidate_found'||previous?.state==='no_candidate')&&
-    (previous?.wikipedia?.pipelineVersion===4||previous?.pressDiscovery?.status==='candidates_found')&&Date.now()-lastAttempt<24*60*60*1000){
+    (previous?.wikipedia?.status==='encyclopedic_sources_found'||previous?.pressDiscovery?.status==='candidates_found')&&Date.now()-lastAttempt<24*60*60*1000){
     return {person:person.slug,state:'cached',wikipedia:previous.wikipedia.status};
  }
  const record={...(previous||{}),person,attemptedAt:atISO,
