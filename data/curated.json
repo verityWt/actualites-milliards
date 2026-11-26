@@ -342,5 +342,65 @@
     "co": "Mercor",
     "orig": "self",
     "bio": "Cofondateur de Mercor, start-up de recrutement par intelligence artificielle valorisée 10 milliards de dollars en 2025. Milliardaire à 22 ans."
+  },
+  "issad-rebrab": {
+    "extra": true,
+    "name": "Issad Rebrab et famille",
+    "g": "h",
+    "age": 82,
+    "country": "Algérie",
+    "ind": "alimentation",
+    "nw": 3.6,
+    "co": "Cevital",
+    "bio": "Fondateur de Cevital, groupe actif notamment dans l’agroalimentaire.",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/issad-rebrab-family/"
+  },
+  "aziz-akhannouch": {
+    "extra": true,
+    "name": "Aziz Akhannouch et famille",
+    "g": "h",
+    "age": 65,
+    "country": "Maroc",
+    "ind": "div",
+    "nw": 1.6,
+    "co": "Akwa Group",
+    "bio": "Actionnaire majoritaire du groupe Akwa, actif dans les hydrocarbures et la chimie.",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/aziz-akhannouch-family/"
+  },
+  "othman-benjelloun": {
+    "extra": true,
+    "name": "Othman Benjelloun et famille",
+    "g": "h",
+    "age": 93,
+    "country": "Maroc",
+    "ind": "fin",
+    "nw": 1.7,
+    "co": "Bank of Africa, O Capital Group",
+    "bio": "Dirigeant du groupe bancaire Bank of Africa et investisseur dans les assurances.",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/othman-benjelloun-family/"
+  },
+  "abdullah-bin-sulaiman-al-rajhi": {
+    "extra": true,
+    "name": "Abdullah bin Sulaiman Al Rajhi",
+    "g": "h",
+    "age": 68,
+    "country": "Arabie saoudite",
+    "ind": "fin",
+    "nw": 2.6,
+    "co": "Al Rajhi Bank",
+    "bio": "Président d’Al Rajhi Bank, banque islamique cotée en Arabie saoudite.",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/abdullah-bin-sulaiman-al-rajhi/"
+  },
+  "fahed-hariri": {
+    "extra": true,
+    "name": "Fahed Hariri",
+    "g": "h",
+    "age": 45,
+    "country": "Liban",
+    "ind": "btp",
+    "nw": 1.1,
+    "co": "Immobilier",
+    "bio": "Investisseur immobilier issu de la famille de Rafic Hariri.",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/fahed-hariri/"
   }
 }
