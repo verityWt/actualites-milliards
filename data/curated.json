@@ -402,5 +402,145 @@
     "co": "Immobilier",
     "bio": "Investisseur immobilier issu de la famille de Rafic Hariri.",
     "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/fahed-hariri/"
+  },
+  "sulaiman-al-habib": {
+    "extra": true,
+    "name": "Sulaiman Al Habib",
+    "g": "h",
+    "country": "Arabie saoudite",
+    "ind": "sante",
+    "nw": 10.2,
+    "co": "HMG",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/sulaiman-al-habib/"
+  },
+  "nassef-sawiris": {
+    "extra": true,
+    "name": "Nassef Sawiris",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "div",
+    "nw": 9.6,
+    "co": "OCI, Orascom Construction",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/nassef-sawiris/"
+  },
+  "naguib-sawiris": {
+    "extra": true,
+    "name": "Naguib Sawiris",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "telecom",
+    "nw": 5.6,
+    "co": "Orascom",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/naguib-sawiris/"
+  },
+  "hamad-bin-jassim-bin-jaber-al-thani": {
+    "extra": true,
+    "name": "Hamad bin Jassim bin Jaber Al Thani",
+    "g": "h",
+    "country": "Qatar",
+    "ind": "fin",
+    "nw": 5.2,
+    "co": "Investissements",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/hamad-bin-jassim-bin-jaber-al-thani/"
+  },
+  "abdulla-al-futtaim-family": {
+    "extra": true,
+    "name": "Abdulla Al Futtaim et famille",
+    "g": "h",
+    "country": "Émirats arabes unis",
+    "ind": "div",
+    "nw": 4.8,
+    "co": "Al-Futtaim Group",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/abdulla-al-futtaim-family/"
+  },
+  "abdulla-bin-ahmad-al-ghurair-family": {
+    "extra": true,
+    "name": "Abdulla bin Ahmad Al Ghurair et famille",
+    "g": "h",
+    "country": "Émirats arabes unis",
+    "ind": "div",
+    "nw": 4.5,
+    "co": "Mashreqbank, Al Ghurair",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/abdulla-bin-ahmad-al-ghurair-family/"
+  },
+  "mohamed-mansour": {
+    "extra": true,
+    "name": "Mohamed Mansour",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "div",
+    "nw": 4,
+    "co": "Mansour Group",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/mohamed-mansour/"
+  },
+  "najib-mikati": {
+    "extra": true,
+    "name": "Najib Mikati",
+    "g": "h",
+    "country": "Liban",
+    "ind": "telecom",
+    "nw": 3.8,
+    "co": "Investcom",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/najib-mikati/"
+  },
+  "taha-mikati": {
+    "extra": true,
+    "name": "Taha Mikati",
+    "g": "h",
+    "country": "Liban",
+    "ind": "telecom",
+    "nw": 3.8,
+    "co": "Investcom",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/taha-mikati/"
+  },
+  "ibrahim-al-muhaidib": {
+    "extra": true,
+    "name": "Ibrahim Al Muhaidib",
+    "g": "h",
+    "country": "Arabie saoudite",
+    "ind": "immo",
+    "nw": 2.1,
+    "co": "HDB Group",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/ibrahim-al-muhaidib/"
+  },
+  "abbas-sajwani": {
+    "extra": true,
+    "name": "Abbas Sajwani",
+    "g": "h",
+    "country": "Émirats arabes unis",
+    "ind": "immo",
+    "nw": 1.9,
+    "co": "AHS Properties",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/abbas-sajwani/"
+  },
+  "youssef-mansour": {
+    "extra": true,
+    "name": "Youssef Mansour",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "div",
+    "nw": 1.8,
+    "co": "Mansour Group",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/youssef-mansour/"
+  },
+  "samih-sawiris": {
+    "extra": true,
+    "name": "Samih Sawiris",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "immo",
+    "nw": 1.4,
+    "co": "Orascom",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/samih-sawiris/"
+  },
+  "yasseen-mansour": {
+    "extra": true,
+    "name": "Yasseen Mansour",
+    "g": "h",
+    "country": "Égypte",
+    "ind": "div",
+    "nw": 1.4,
+    "co": "Mansour Group",
+    "srcNote": "Forbes Middle East 2026, estimation au 1er mars 2026 : https://www.forbesmiddleeast.com/lists/the-worlds-richest-arabs-2026/yasseen-mansour/"
   }
 }
