@@ -6,6 +6,7 @@ import path from 'node:path';
 import { rosette } from './src/guil.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
+import { renderInfluenceDashboard } from './src/influence-dashboard.mjs';
 import { auditProfiles } from './scripts/research-backlog.mjs';
 import { validateExperimentResults } from './scripts/validate-experiments.mjs';
 import { publicSpeechMetrics, experimentalSensitivity } from './src/behavioral-analysis.mjs';
@@ -131,6 +132,8 @@ const write = (dir, html) => { const d = path.join(OUT, dir); fs.mkdirSync(d, { 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 fs.copyFileSync('src/site.css', path.join(OUT, 'assets/site.css'));
+fs.copyFileSync('src/influence-live.js',path.join(OUT,'assets/influence-live.js'));
+
 fs.copyFileSync('src/wiki-live.js', path.join(OUT, 'assets/wiki-live.js'));
 
 if (fs.existsSync('photos')) fs.cpSync('photos', path.join(OUT, 'photos'), { recursive: true });
@@ -300,14 +303,23 @@ hubWrite('entreprises','Entreprises et groupes associés aux grandes fortunes',
  hubSection('Secteurs économiques','Classement par nombre de personnalités présentes dans le corpus.',sectorCards)+
  hubSection('Groupes associés à plusieurs fortunes','Les liens ci-dessous proviennent des entreprises mentionnées dans les fiches. Ils peuvent correspondre à des situations différentes : héritiers, cofondateurs ou dirigeants.',bigCompanyCards)));
 
-const inherited=P.filter(p=>p.orig==='herit'||p.orig==='mix').sort((a,b)=>(b.nw||0)-(a.nw||0));
-const cofounders=companyGroups.filter(x=>x.people.length>=2).slice(0,12);
+const influenceDashboard=renderInfluenceDashboard({people:P,companyGroups,researchProfiles,link,escape:esc,format:fr,sectorNames:SEC,asset});
 hubWrite('influence','Influence économique, dynasties et réseaux',
- 'Familles fortunées, cofondateurs et réseaux professionnels issus du classement des milliardaires.',
- hubHead('Pouvoir économique','Dynasties, réseaux et influence','Découvrez les fortunes issues de transmissions familiales et les groupes associés à plusieurs personnalités.')+
- hubWrap('<div class="hub-metrics"><div><b>'+inherited.length+'</b><span>profils à origine héritée ou mixte renseignée</span></div><div><b>'+cofounders.length+'</b><span>groupes à personnalités multiples affichés</span></div></div>'+
- hubSection('Fortunes héritées et transmissions','Personnalités classées selon l’origine de la fortune indiquée dans les données biographiques.',inherited.slice(0,18).map(p=>hubCard('influence',p,[p.orig==='herit'?'Fortune héritée':'Origine mixte',p.co,p.country].filter(Boolean).join(' · '))).join(''))+
- hubSection('Personnalités liées aux mêmes groupes','Un accès direct aux fiches pour explorer les histoires communes.',cofounders.map(item=>'<article class="card hub-company influence-group"><p class="hub-group-label">Groupe économique</p><h3>'+esc(item.name)+'</h3><p class="hub-group-count">'+item.people.length+' personnalités associées dans le classement</p><ul class="hub-group-people">'+item.people.map(p=>'<li><a href="'+link('influence','milliardaires/'+p.id)+'">'+esc(fullName(p))+'</a><span>'+esc(p.country)+' · '+esc(nwTxt(p))+'</span></li>').join('')+'</ul></article>').join(''))));
+ 'Graphiques, réseaux économiques, entreprises et décisions publiques des grandes fortunes.',influenceDashboard.html);
+
+const influenceNetworkPages=companyGroups.filter(g=>g.people.length>=2).slice(0,14).map(group=>{
+ const route='influence/reseaux/'+slugify(group.name);
+ const peopleRows=group.people.map(p=>'<a class="card hub-profile" href="'+link(route,'milliardaires/'+p.id)+'">'+medal(p,64,route)+'<div><h3>'+esc(fullName(p))+'</h3><p>'+esc([p.country,SEC[p.sec],p.orig==='herit'?'Fortune héritée':p.orig==='mix'?'Origine mixte':p.orig==='self'?'Création personnelle':null].filter(Boolean).join(' · '))+'</p><strong>'+esc(nwTxt(p))+'</strong></div></a>').join('');
+ const title=group.name+' : réseau de '+group.people.length+' grandes fortunes';
+ const intro='Explorez les '+group.people.length+' personnes du classement Forbes 2026 associées au groupe '+group.name+', leurs fortunes estimées, pays et biographies.';
+ const body=hubHead('LE RÉSEAU / '+group.name,title,intro)+
+  hubWrap('<div class="hub-metrics"><div><b>'+group.people.length+'</b><span>profils associés à ce groupe</span></div><div><b>'+new Set(group.people.map(p=>p.country)).size+'</b><span>pays représentés dans ce sous-ensemble</span></div></div>'+
+  '<section class="hub-part"><h2>Les personnalités liées à '+esc(group.name)+'</h2><p>Relations issues de noms d’entreprises recensés dans le classement. Les fonctions, participations et appartenances familiales sont à préciser dans chaque biographie.</p><div class="grid hub-cards">'+peopleRows+'</div></section>'+
+  '<section class="hub-part"><h2>Explorer et comparer</h2><p>Comparez ce groupe aux autres réseaux identifiés, consultez les documents de ses membres et partagez cette sélection.</p><div class="inf-pro-actions"><a class="inf-primary" href="'+link(route,'influence')+'?g='+encodeURIComponent(group.name)+'#reseaux">Voir le graphe interactif</a><a href="'+link(route,'entreprises')+'">Toutes les entreprises</a></div></section>');
+ write(route,page({from:route,title:title+' · Actualites.fr',desc:intro,canonical:route+'/',body}));
+ return route;
+});
+
 
 const riskEntries=[];
 for(const p of P){const r=researchProfiles[p.id]?.personal?.documentedRisks||[];for(const e of r){if(e.heading&&e.body&&/^https:\/\//.test(e.source||''))riskEntries.push({person:p,item:e})}}
@@ -337,15 +349,17 @@ hubWrite('recherche','Recherche avancée des grandes fortunes',
 
 const documented=Object.values(researchProfiles).reduce((a,p)=>a+(p.sections?.length||0),0);
 const sourced=Object.values(researchProfiles).reduce((a,p)=>a+(p.events?.length||0),0);
-hubWrite('intelligence','Intelligence Pro — données et recherche',
- 'Accès aux travaux documentaires, classements et outils de suivi des grandes fortunes.',
- hubHead('Intelligence Pro','Le centre de recherche des grandes fortunes','Consultez le corpus existant, les groupes économiques, les événements documentés et l’avancement de la collecte.')+
- hubWrap('<div class="hub-metrics"><div><b>'+P.length+'</b><span>fiches disponibles</span></div><div><b>'+documented+'</b><span>chapitres éditoriaux</span></div><div><b>'+sourced+'</b><span>événements enregistrés</span></div></div>'+
- hubSection('Explorer la base','Les fonctions réellement disponibles.',[
- ['Base de fortunes','Classement et biographies', 'milliardaires'],['Graphe d’entreprises','Groupes et personnes associés','entreprises'],['Réseaux et dynasties','Transmissions et groupes économiques','influence'],['Risques documentés','Enquêtes et chronologies','risques'],['Prochaine génération','Fortunes jeunes et hors Top 200','next-billionaires'],['Recherche','Filtre sur tous les dossiers','recherche']
+hubWrite('intelligence','Intelligence Pro — dossiers et surveillance',
+ 'Explorer les réseaux économiques, documenter les événements et préparer la veille des entreprises et grandes fortunes.',
+ hubHead('ACTUALITES.FR / INTELLIGENCE PRO','De la recherche à la surveillance des grandes fortunes','Réseaux économiques, chronologies, événements et sources consultables. Des fonctionnalités gratuites actives et une offre professionnelle en préparation.')+
+ hubWrap('<div class="hub-metrics"><div><b>'+P.length+'</b><span>fiches de grandes fortunes</span></div><div><b>'+documented+'</b><span>chapitres documentaires rédigés</span></div><div><b>'+sourced+'</b><span>événements éditoriaux datés</span></div><div><b>'+influenceDashboard.stats.groupsCount+'</b><span>groupes associés à plusieurs fortunes</span></div></div>'+
+ '<section class="hub-part"><div class="hub-heading"><p class="inf-overline">ACCÈS IMMÉDIAT</p><h2>Un poste d’observation déjà consultable</h2><p>Le tableau de bord Influence permet de filtrer les réseaux d’entreprises, conserver des sélections sur votre appareil, exporter leur graphique SVG et diffuser un lien direct vers un groupe.</p></div><div class="inf-pro-actions"><a class="inf-primary" href="'+link('intelligence','influence')+'">Ouvrir l’explorateur de réseaux</a><a href="'+link('intelligence','recherche')+'">Rechercher parmi les 207 profils</a></div></section>'+
+ '<section class="hub-part"><div class="hub-heading"><p class="inf-overline">OFFRES ET DISPONIBILITÉ</p><h2>Public aujourd’hui. Professionnel ensuite.</h2><p>Les tarifs historiques sont encore à réviser selon le service réellement livré. Aucun abonnement ne peut actuellement être acheté sur ce site.</p></div><div class="inf-offers"><article><p class="inf-overline">GRATUIT / ACTIF</p><h3>Explorer</h3><p>Sans paiement, sans création de compte.</p><ul><li>207 fiches et classements</li><li>Graphiques d’influence et réseaux</li><li>Liens vers les documents sources</li><li>Exports SVG et liens partageables</li><li>Suivis locaux, uniquement sur l’appareil</li></ul><a href="'+link('intelligence','influence')+'">Accéder gratuitement</a></article><article><p class="inf-overline">INTELLIGENCE PRO / EN PRÉPARATION</p><h3>Surveiller</h3><p>Pour les analystes, journalistes et professionnels.</p><ul><li>Listes de surveillance synchronisées</li><li>Alertes datées et attribuées par e-mail</li><li>Comparaison des changements et divergences</li><li>Rapports exportables et archives</li><li>Accès professionnel et facturation récurrente</li></ul><a href="mailto:contact@actualites.fr?subject=Acc%C3%A8s%20anticip%C3%A9%20Intelligence%20Pro">Demander un accès anticipé</a></article></div></section>'+
+ hubSection('Explorer le corpus et les sources','Ouvrez directement les modules réellement accessibles.',[
+ ['Base des fortunes','Classement et biographies sourcées', 'milliardaires'],['Réseaux économiques','Statistiques, liens, logos, partage et graphiques','influence'],['Entreprises','Groupes et personnes associés','entreprises'],['Dossiers de gouvernance','Chronologies et événements documentés','risques'],['Next Billionaires','Jeunes fortunes et entrants hors Top 200','next-billionaires'],['Recherche avancée','Filtres sur les fiches publiques','recherche']
  ].map(([title,body,dir])=>'<a class="card" href="'+link('intelligence',dir)+'"><h3>'+esc(title)+'</h3><p>'+esc(body)+'</p></a>').join(''))+
- '<section class="hub-part"><h2>Suivi de la collecte</h2><p>Le moteur Cloudflare parcourt les personnalités répertoriées et récupère des références encyclopédiques et documentaires.</p><p><a href="https://actualites-biography-discovery.actualites-fr-next.workers.dev/status" target="_blank" rel="noopener noreferrer">État des traitements automatiques</a> · <a href="'+asset('intelligence','data/research-backlog.json')+'" target="_blank" rel="noopener noreferrer">Dossiers à documenter (JSON)</a></p><p>Les offres payantes ne sont pas ouvertes.</p></section>'));
-
+ '<section class="hub-part"><h2>Transparence de la couverture</h2><p>La veille documentaire est lancée, mais toutes les biographies ne disposent pas encore d’une enquête rédigée. Les données de couverture et les passages du moteur peuvent être examinés.</p><div class="inf-pro-actions"><a href="'+asset('intelligence','data/research-backlog.json')+'" target="_blank" rel="noopener noreferrer">Audit des 207 fiches</a><a href="https://actualites-biography-discovery.actualites-fr-next.workers.dev/status" target="_blank" rel="noopener noreferrer">État du moteur automatique</a></div></section>'));
+ 
 // ---------- pages légales ----------
 const LEGAL = JSON.parse(fs.readFileSync('data/legal.json', 'utf8'));
 for (const [dir, L] of Object.entries(LEGAL)) {
@@ -373,7 +387,7 @@ fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sour
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-26';
-  const urls = ['', 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
