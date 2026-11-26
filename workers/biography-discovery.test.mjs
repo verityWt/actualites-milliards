@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import service,{PEOPLE,selection,slotFor,discover,batchSelection,discoverBatch,BATCH_SIZE} from './biography-discovery.mjs';
+import service,{PEOPLE,selection,slotFor,discover,batchSelection,discoverBatch,researchOne,BATCH_SIZE} from './biography-discovery.mjs';
 function kv(){const m=new Map();return {m,async get(k){return m.has(k)?JSON.parse(m.get(k)):null},async put(k,v){m.set(k,v)},async list({prefix}){return {keys:[...m.keys()].filter(k=>k.startsWith(prefix)).map(name=>({name}))}}}}
 test('coverage: all people are visited across a full rotation',()=>{
  assert.equal(PEOPLE.length,207);
@@ -58,4 +58,29 @@ test('batch persists outcomes when provider has transient errors',async()=>{
  assert.equal(result.items.length,4);
  assert.equal(result.items.every(x=>x.state==='error'),true);
  assert.equal((await store.get('batch:last')).count,4);
+});
+
+test('scheduled batch stays within six KV writes per 15-minute tick',async()=>{
+ const store=kv();let writes=0;
+ const put=store.put.bind(store);
+ store.put=async(k,v)=>{writes++;return put(k,v);};
+ const raw=async url=>({ok:true,json:async()=>({search:[]})});
+ const run=await discoverBatch({RESEARCH:store},new Date('2026-11-26T03:00:00Z'),raw);
+ assert.equal(run.count,4);
+ assert.equal(writes,6);
+ assert.equal((await store.get('batch:history')).length,1);
+ assert.equal(await store.get('batch:slot:1'),null);
+});
+test('single-profile discovery never writes fabricated evidence after fetch error',async()=>{
+ const store=kv();let writes=0;
+ const put=store.put.bind(store);store.put=async(k,v)=>{writes++;return put(k,v);};
+ const person=PEOPLE[0];
+ const result=await researchOne({RESEARCH:store},person,new Date('2026-11-26T03:00:00Z'),
+   async()=>({ok:false,status:429}));
+ assert.equal(result.state,'error');
+ assert.equal(writes,1);
+ const saved=await store.get('profile:'+person.slug);
+ assert.equal(saved.state,'error');
+ assert.equal(saved.verifiedFacts,0);
+ assert.equal(saved.wikipedia,undefined);
 });

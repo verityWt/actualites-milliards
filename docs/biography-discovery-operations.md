@@ -37,3 +37,28 @@ Recherche d'identifiants, récupération de documents encyclopédiques et de lie
 ## Risques à surveiller
 
 Quota HTTP et disponibilité Wikimedia, homonymes, changements de contenu Wikipédia, actualité des données, licence des reproductions et limites de l'indexation des textes chargés par JavaScript. Les nouveaux faits personnels sensibles ne sont pas inférés par le moteur.
+
+## Mise à jour du 26 novembre 2026 : revue de presse liée aux biographies
+
+Le Worker de découverte récupère désormais, lorsque les sites le permettent, les métadonnées éditoriales des articles cités dans la bibliographie Wikipédia. Le code conserve au maximum deux cartes de presse par personne : titre attribué à l'éditeur, description issue de la page (limitée à 280 caractères), date si présente et URL originale. Les contenus bloqués, non HTML ou sans titre exploitable sont ignorés.
+
+La rotation actuelle est de 4 profils par déclenchement Cron (15 min). La nouvelle implémentation `researchOne` sauvegarde la recherche et l'enrichissement en une seule écriture KV par personne. Les dossiers récents sont réutilisés pendant 24 h ; `batch:last` est écrit à chaque déclenchement, `batch:history` une fois par heure.
+
+### Estimation de capacité
+
+- 96 déclenchements théoriques par jour.
+- Au plus 4 écritures de dossier et 1 écriture de synthèse par passage ; une écriture d'historique supplémentaire par heure. À charge maximale, 4 × 96 + 96 + 24 = 504 écritures biographiques quotidiennes, hors rafraîchissements déclenchés par les visites. Le service général de veille peut ajouter environ 192 écritures par jour.
+- Environ 36 requêtes réseau externes maximum pour 4 profils entièrement enrichis, plus le collecteur général GDELT (1 requête) : sous le plafond de 50 requêtes externes par invocation des Workers Free, tant que la logique des collecteurs ne change pas.
+- Cloudflare KV Free est limité à 1 000 écritures quotidiennes au niveau du plan ; les visites, changements futurs et autres services doivent rester surveillés.
+
+Ces valeurs sont des **estimations calculées à partir du code**, pas des statistiques de facturation Cloudflare. Le moteur conserve les résultats déjà connus si les éditeurs bloquent l'accès.
+
+L'application affiche ces métadonnées comme **articles complémentaires**, jamais comme de nouveaux articles originaux rédigés par Actualites.fr. Les articles de fond autonomes ne sont pas encore automatiquement générés.
+
+### Vérifications de développement
+
+- Tests locaux isolés de l'extraction de métadonnées, du rejet des domaines non autorisés et du cache.
+- Test simulé sur 4 fiches : rotation sans doublons, nombre d'écritures KV borné.
+- La compilation du Worker en préproduction Cloudflare est confirmée.
+- Le contrôle visuel complet dans un navigateur n'est pas encore réalisé.
+- GitHub Actions reste bloqué par un incident de facturation du compte, signalé le 25 novembre 2026.
