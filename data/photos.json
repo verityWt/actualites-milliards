@@ -26,6 +26,16 @@
   "jeff-bezos": [
     {
       "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2025/07/MPP_092025-Jeff-Bezos-2.jpg",
+      "credit": "Source : Fortune ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://fortune.com/ranking/most-powerful-people/2025/jeff-bezos/",
+      "legende": "Jeff Bezos — illustration du profil publié par Fortune en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Jeff_Bezos%27_iconic_laugh.jpg/1920px-Jeff_Bezos%27_iconic_laugh.jpg",
       "credit": "Steve Jurvetson",
       "auteur": "Steve Jurvetson",
@@ -81,6 +91,90 @@
       "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Bernard_Arnault.jpg",
       "legende": "Bernard Arnault au défilé Jean-Paul Gaultier à Paris, le 6 juillet 2009 (archive)."
+    }
+  ],
+  "alice-walton": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_alice_walton.png",
+      "credit": "Source : Forbes Slovaquie ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/alice-walton/",
+      "legende": "Alice Walton — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zhou-qunfei": [
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2025/10/MPW-Asia-2025-Zhou-Qunfei.jpg",
+      "credit": "Source : Fortune ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://fortune.com/ranking/most-powerful-women-asia/2025/zhou-qunfei/",
+      "legende": "Zhou Qunfei — illustration du profil publié par Fortune en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "larry-page": [
+    {
+      "type": "portrait",
+      "src": "https://www.forbes.be/fr/wp-content/uploads/2024/10/Larry-Page-copie-1920x1562.jpg",
+      "credit": "Source : Forbes Belgique ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.be/fr/les-10-personnalites-les-plus-riches-du-monde/",
+      "legende": "Larry Page — illustration du profil publié par Forbes Belgique en 2024. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "gautam-adani": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_adani.png",
+      "credit": "Source : Forbes Slovaquie ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/gautam-adani/",
+      "legende": "Gautam Adani — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "li-ka-shing": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_shing.png",
+      "credit": "Source : Forbes Slovaquie ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/li-ka-shing/",
+      "legende": "Li Ka-shing — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "rafaela-aponte-diamant": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_diamant.png",
+      "credit": "Source : Forbes Slovaquie ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/rafaela-aponte-diamant/",
+      "legende": "Rafaela Aponte-Diamant — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "klaus-michael-kuehne": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.sk/uploads/2025/04/1080x1080_kuehne.png",
+      "credit": "Source : Forbes Slovaquie ; photographe non renseigné",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.sk/lists/rebricek-najbohatsi-ludia-2025/klaus-michael-kuehne/",
+      "legende": "Klaus-Michael Kühne — illustration du profil publié par Forbes Slovaquie en 2025. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
     }
   ]
 }
