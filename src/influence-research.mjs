@@ -36,7 +36,7 @@ export function wealthRank(people,n=10){
  return people.filter(p=>Number.isFinite(p.nw)&&p.nw>0).sort((a,b)=>b.nw-a.nw).slice(0,n).map(p=>({name:p.name,wealth:p.nw,company:p.co||'',id:p.id}));
 }
 export const BRAND_LOGOS=Object.freeze({
- 'google':'google','alphabet':'google','amazon':'amazon','microsoft':'microsoft','meta':'meta','facebook':'facebook',
+ 'tether':'tether','google':'google','alphabet':'google','amazon':'amazon','microsoft':'microsoft','meta':'meta','facebook':'facebook',
  'oracle':'oracle','nvidia':'nvidia','tesla':'tesla','walmart':'walmart','paypal':'paypal',
  'chanel':'chanel','loreal':'loreal','l’oréal':'loreal',"l'oréal":'loreal','netflix':'netflix',
  'spotify':'spotify','samsung':'samsung','nike':'nike','adidas':'adidas','tiktok':'tiktok','bytedance':'tiktok',
