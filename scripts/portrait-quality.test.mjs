@@ -76,7 +76,7 @@ test('photo review console renders source candidates and exports decisions witho
  assert.match(js,/republication|droits|droits/i);
 });
 
-test('Unrelated gallery media cannot become a person's portrait',()=>{
+test('Unrelated gallery media cannot become a profile portrait',()=>{
  const galleryOnly={type:'event',src:'https://example.com/award-ceremony.jpg'};
  assert.equal(pickPortrait([galleryOnly]),null);
  assert.deepEqual(portraitCandidates([galleryOnly]),[]);
