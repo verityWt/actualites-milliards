@@ -195,7 +195,9 @@ $('sectorIndex').addEventListener('click',e=>{const a=e.target.closest('[data-se
 const updateNext=()=>{const v=Number($('nextValue').value),g=Number($('nextGrowth').value),t=Number($('nextThreshold').value);const y=v>0&&t>0?(v>=t?0:g>0?Math.log(t/v)/Math.log1p(g/100):null):null;$('nextResult').textContent=y===null||!Number.isFinite(y)?'Aucun franchissement calculable avec ces paramètres.':y===0?'Seuil déjà atteint dans ce scénario.':'Franchissement théorique : '+y.toLocaleString('fr-FR',{maximumFractionDigits:2})+' ans.'};for(const id of ['nextValue','nextGrowth','nextThreshold'])$(id).addEventListener('input',updateNext);updateNext();
 /* routing */
 const VIEWS=['accueil','finder','profil','france','entreprises','influence','risques','intelligence','methode','next','laboratoire','recherche'];
-const route=()=>{let h=location.hash.slice(1)||'accueil';if(h.startsWith('profil-')){location.replace(prof(h.slice(7)));return}let v=h.startsWith('profil-')?'profil':h;if(!VIEWS.includes(v)||v==='profil'&&!h.startsWith('profil-'))v='accueil';
+const route=()=>{let h=location.hash.slice(1)||'accueil';
+const independent={entreprises:'__L_ENTREPRISES__',influence:'__L_INFLUENCE__',risques:'__L_RISQUES__',next:'__L_NEXT__',finder:'__L_RECHERCHE__',intelligence:'__L_INTELLIGENCE__'};
+if(independent[h]){location.replace(independent[h]);return;}if(h.startsWith('profil-')){location.replace(prof(h.slice(7)));return}let v=h.startsWith('profil-')?'profil':h;if(!VIEWS.includes(v)||v==='profil'&&!h.startsWith('profil-'))v='accueil';
 for(const s of document.querySelectorAll('[data-view]'))s.hidden=s.dataset.view!==v;
 for(const a of document.querySelectorAll('.nav a'))a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(v==='profil'?'finder':v)),a.getAttribute('href')==='#'+(v==='profil'?'finder':v)&&a.setAttribute('aria-current','page');
 if(v==='profil')renderProfil(h.slice(7));if(v==='finder')renderFinder();
