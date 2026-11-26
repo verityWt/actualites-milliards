@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeName,selectCandidate,resolveWikipedia,selectTopicSections} from './wikipedia-profile.mjs';
+import {normalizeName,selectCandidate,resolveWikipedia,selectTopicSections,publicWikidataFacts} from './wikipedia-profile.mjs';
 const person={slug:'bill-gates',name:'Bill Gates',country:'United States'};
 const suggestions=[{wikidataId:'Q5284',label:'Bill Gates',description:'American businessman and philanthropist'}];
 test('normalization handles accents without weakening exact-name match',()=>{
@@ -53,4 +53,23 @@ test('structured Wikimedia passages select informative sections without unrelate
  const r=selectTopicSections(source);
  assert.deepEqual(r.map(x=>x.title),['Early life','Career']);
  assert.ok(r[0].text.length>110);
+});
+
+test('structured public Wikidata claims retain entity IDs and individual source links',async()=>{
+ const item={id:'Q5284',claims:{
+   P69:[{rank:'normal',mainsnak:{datavalue:{value:{id:'Q49122'}}}}],
+   P106:[{rank:'normal',mainsnak:{datavalue:{value:{id:'Q131524'}}}}],
+   P26:[{rank:'normal',mainsnak:{datavalue:{value:{id:'Q1234'}}}}]
+ }};
+ let requests=0;
+ const fake=async url=>{requests++;return {ok:true,json:async()=>({
+   entities:{Q49122:{labels:{fr:{value:'Université Harvard'}}},Q131524:{labels:{en:{value:'Entrepreneur'}}}}
+ })}};
+ };
+ const result=await publicWikidataFacts(item,fake);
+ assert.equal(result.length,2);
+ assert.equal(result.some(f=>f.category.includes('Études')),true);
+ assert.equal(result.some(f=>f.source.includes('#P106')),true);
+ assert.equal(result.some(f=>f.source.includes('#P26')),false);
+ assert.equal(requests,1);
 });
