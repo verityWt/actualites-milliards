@@ -6,6 +6,7 @@ import path from 'node:path';
 import { rosette } from './src/guil.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
+import { renderInfluenceDashboard } from './src/influence-dashboard.mjs';
 import { auditProfiles } from './scripts/research-backlog.mjs';
 import { validateExperimentResults } from './scripts/validate-experiments.mjs';
 import { publicSpeechMetrics, experimentalSensitivity } from './src/behavioral-analysis.mjs';
@@ -131,6 +132,8 @@ const write = (dir, html) => { const d = path.join(OUT, dir); fs.mkdirSync(d, { 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 fs.copyFileSync('src/site.css', path.join(OUT, 'assets/site.css'));
+fs.copyFileSync('src/influence-live.js',path.join(OUT,'assets/influence-live.js'));
+
 fs.copyFileSync('src/wiki-live.js', path.join(OUT, 'assets/wiki-live.js'));
 
 if (fs.existsSync('photos')) fs.cpSync('photos', path.join(OUT, 'photos'), { recursive: true });
@@ -300,14 +303,9 @@ hubWrite('entreprises','Entreprises et groupes associés aux grandes fortunes',
  hubSection('Secteurs économiques','Classement par nombre de personnalités présentes dans le corpus.',sectorCards)+
  hubSection('Groupes associés à plusieurs fortunes','Les liens ci-dessous proviennent des entreprises mentionnées dans les fiches. Ils peuvent correspondre à des situations différentes : héritiers, cofondateurs ou dirigeants.',bigCompanyCards)));
 
-const inherited=P.filter(p=>p.orig==='herit'||p.orig==='mix').sort((a,b)=>(b.nw||0)-(a.nw||0));
-const cofounders=companyGroups.filter(x=>x.people.length>=2).slice(0,12);
+const influenceDashboard=renderInfluenceDashboard({people:P,companyGroups,researchProfiles,link,escape:esc,format:fr,sectorNames:SEC,asset});
 hubWrite('influence','Influence économique, dynasties et réseaux',
- 'Familles fortunées, cofondateurs et réseaux professionnels issus du classement des milliardaires.',
- hubHead('Pouvoir économique','Dynasties, réseaux et influence','Découvrez les fortunes issues de transmissions familiales et les groupes associés à plusieurs personnalités.')+
- hubWrap('<div class="hub-metrics"><div><b>'+inherited.length+'</b><span>profils à origine héritée ou mixte renseignée</span></div><div><b>'+cofounders.length+'</b><span>groupes à personnalités multiples affichés</span></div></div>'+
- hubSection('Fortunes héritées et transmissions','Personnalités classées selon l’origine de la fortune indiquée dans les données biographiques.',inherited.slice(0,18).map(p=>hubCard('influence',p,[p.orig==='herit'?'Fortune héritée':'Origine mixte',p.co,p.country].filter(Boolean).join(' · '))).join(''))+
- hubSection('Personnalités liées aux mêmes groupes','Un accès direct aux fiches pour explorer les histoires communes.',cofounders.map(item=>'<article class="card hub-company influence-group"><p class="hub-group-label">Groupe économique</p><h3>'+esc(item.name)+'</h3><p class="hub-group-count">'+item.people.length+' personnalités associées dans le classement</p><ul class="hub-group-people">'+item.people.map(p=>'<li><a href="'+link('influence','milliardaires/'+p.id)+'">'+esc(fullName(p))+'</a><span>'+esc(p.country)+' · '+esc(nwTxt(p))+'</span></li>').join('')+'</ul></article>').join(''))));
+ 'Graphiques, réseaux économiques, entreprises et décisions publiques des grandes fortunes.',influenceDashboard.html);
 
 const riskEntries=[];
 for(const p of P){const r=researchProfiles[p.id]?.personal?.documentedRisks||[];for(const e of r){if(e.heading&&e.body&&/^https:\/\//.test(e.source||''))riskEntries.push({person:p,item:e})}}
