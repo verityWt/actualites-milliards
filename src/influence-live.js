@@ -46,7 +46,7 @@
  }));
  const share=document.getElementById('infShare'),status=document.getElementById('infShareStatus');
  if(share)share.addEventListener('click',async()=>{
-  const link=new URL(location.href);link.searchParams.set('g',select.value);link.hash='reseaux';
+  const slug=select.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');const link=new URL('/influence/reseaux/'+slug+'/',location.origin);
   if(navigator.share){try{await navigator.share({title:'Influence économique – '+select.value,text:'Explorer les réseaux des grandes fortunes',url:link.href});return}catch{}}
   try{await navigator.clipboard.writeText(link.href);status.textContent='Lien copié';}catch{status.textContent=link.href;}
  });
