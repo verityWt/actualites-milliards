@@ -33,11 +33,13 @@ test('Higher editorial priority wins irrespective of insertion order, with stabl
 test('Every published portrait has a fallback when a hotlinked image fails',()=>{
  const build=fs.readFileSync('build.mjs','utf8');
  const css=fs.readFileSync('src/site.css','utf8');
+ const fallback=fs.readFileSync('src/portrait-fallback.js','utf8');
  assert.match(build,/const portrait = p => pickPortrait/);
- assert.match(build,/class=\\"portrait-initials\\"/);
- assert.match(build,/onerror=\\"this.remove\(\)\\"/);
- assert.match(css,/\.g\.ph \.portrait-initials/);
- assert.match(build,/photo-audit\.json/);
+ assert.match(build,/class="portrait-initials"/);
+ assert.match(build,/window\\.actualitesPhotoError\\?window\\.actualitesPhotoError\\(this\\):this\\.remove\\(\\)/);
+ assert.match(css,/\\.g\\.ph \\.portrait-initials/);
+ assert.match(fallback,/window\\.actualitesPhotoError/);
+ assert.match(build,/photo-audit\\.json/);
 });
 
 test('review queue covers every published profile and provides source-discovery searches',()=>{
