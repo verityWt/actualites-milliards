@@ -293,3 +293,13 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .hub-research{display:flex;flex-direction:column}
 .hub-research .hub-company-links{margin-top:auto}
 @media(max-width:650px){.hub-searchbar{grid-template-columns:1fr}.hub-searchbar label:nth-of-type(1),.hub-searchbar input,.hub-searchbar label:nth-of-type(2),.hub-searchbar select{grid-column:1;grid-row:auto}.hub-page .hub-part{margin:28px 0 42px}}
+
+/* Influence: every economic relationship needs a visible group and people list. */
+.influence-group{display:flex;flex-direction:column;min-width:0}
+.influence-group .hub-group-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--wine,#73213d);margin:0 0 6px}
+.influence-group h3{font-size:22px;line-height:1.24;overflow-wrap:anywhere;margin:0 0 7px}
+.influence-group .hub-group-count{margin:0 0 14px;color:var(--muted,#625d65);font-size:13px}
+.influence-group .hub-group-people{padding:0;margin:0;list-style:none;display:grid;gap:0}
+.influence-group .hub-group-people li{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-top:1px solid var(--rule,#ddd);min-width:0}
+.influence-group .hub-group-people a{font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.influence-group .hub-group-people span{font-size:12px;color:var(--muted,#625d65)}
