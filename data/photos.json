@@ -3,6 +3,16 @@
   "bill-gates": [
     {
       "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/17/08/bill-gates.jpg",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.independent.co.uk/news/business/news/bill-gates-worlds-richest-person-forbes-list-wealthiest-donald-trump-falls-a7639706.html",
+      "legende": "Photographie candidate associée à Bill Gates dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
       "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
       "credit": "Bogdan Hoyaux / Union européenne",
       "auteur": "Bogdan Hoyaux / Union européenne",
@@ -12,6 +22,16 @@
     }
   ],
   "elon-musk": [
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.fr/photos/67e7fe6e4cb55695a3362246/16:9/w_2560,c_limit/GettyImages-2194358323.jpg",
+      "credit": "Source : www.vanityfair.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.vanityfair.fr/article/en-pleine-chute-de-sa-fortune-elon-musk-rachete-x-a-lui-meme",
+      "legende": "Photographie candidate associée à Elon Musk dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
     {
       "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Elon_Musk_-_March_28%2C_2024.jpg/1920px-Elon_Musk_-_March_28%2C_2024.jpg",
@@ -48,6 +68,16 @@
   "jim-walton": [
     {
       "type": "portrait",
+      "src": "https://files.sunoresearch.com.br/p/uploads/2022/01/Jim-Walton-2.jpg",
+      "credit": "Source : www.suno.com.br ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.suno.com.br/tudo-sobre/jim-walton/",
+      "legende": "Photographie candidate associée à Jim Walton dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Jim_Walton.jpg/1920px-Jim_Walton.jpg",
       "credit": "Walmart Corporate",
       "auteur": "Walmart Corporate",
@@ -58,6 +88,16 @@
     }
   ],
   "jensen-huang": [
+    {
+      "type": "portrait",
+      "src": "https://247wallst.com/wp-content/uploads/2026/05/sf-jensen-huang-official-0-1778698689512.jpg",
+      "credit": "Source : 247wallst.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://247wallst.com/investing/2026/05/20/nvidias-5-7-trillion-market-cap-faces-its-toughest-test-yet-can-it-beat-75-gross-margin-expectations-before-earnings/",
+      "legende": "Photographie candidate associée à Jensen Huang dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
     {
       "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Jensen_Huang_at_the_%E2%80%9CU.S._Leadership_in_AI%E2%80%9D_discussion%2C_Stanford_University%2C_2026.jpg/960px-Jensen_Huang_at_the_%E2%80%9CU.S._Leadership_in_AI%E2%80%9D_discussion%2C_Stanford_University%2C_2026.jpg",
@@ -72,6 +112,16 @@
   "mark-zuckerberg": [
     {
       "type": "portrait",
+      "src": "https://media.cnn.com/api/v1/images/stellar/prod/230711141746-01-mark-zuckerberg-life-in-pictures-lead-restricted.jpg?q=w_3000,c_fill",
+      "credit": "Source : www.cnn.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.cnn.com/2023/07/28/us/gallery/mark-zuckerberg",
+      "legende": "Photographie candidate associée à Mark Zuckerberg dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
+    {
+      "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg/1280px-Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg",
       "credit": "Anthony Quintano",
       "auteur": "Anthony Quintano",
@@ -82,6 +132,16 @@
     }
   ],
   "bernard-arnault": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3uPEZkidt_8/v0/2000x-1.jpg",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/features/2024-lvmh-bernard-arnault/",
+      "legende": "Photographie candidate associée à Bernard Arnault dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    },
     {
       "type": "portrait",
       "src": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Bernard_Arnault.jpg",
@@ -377,6 +437,1458 @@
       "licence": "Non renseignée",
       "source": "https://www.independent.co.uk/tech/james-dyson-dyson-germany-b2820261.html",
       "legende": "Photographie candidate associée à James Dyson dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "larry-ellison": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2022/06/20/20cfe4e9-466e-443a-b267-78068903bfb6_3b396ea3.jpg",
+      "credit": "Source : www.scmp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.scmp.com/topics/larry-ellison",
+      "legende": "Photographie candidate associée à Larry Ellison dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "warren-buffett": [
+    {
+      "type": "portrait",
+      "src": "https://observer.com/wp-content/uploads/sites/2/2023/06/Warren-Buffett.jpg?resize=2048",
+      "credit": "Source : observer.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://observer.com/2025/02/takeaways-warren-buffetts-annual-berkshire-hathaway-letter/",
+      "legende": "Photographie candidate associée à Warren Buffett dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "rob-walton": [
+    {
+      "type": "portrait",
+      "src": "https://www.reuters.com/resizer/v2/74JECS6RAVKBXAKKKRJGI6NFMY.jpg?auth=c9571dbee4b1ebd4846c7e508f82c3780142700485ee7ee43b4bce2589d74465&width=3500&quality=80",
+      "credit": "Source : www.reuters.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.reuters.com/business/retail-consumer/walmart-ex-chairman-rob-walton-retire-board-2024-04-25/",
+      "legende": "Photographie candidate associée à Rob Walton dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "michael-dell": [
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2024/03/AL_FINAL-DELL.0524.edt2-_brs7640-_v5.jpg?w=1440&q=90",
+      "credit": "Source : fortune.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://fortune.com/2024/03/25/michael-dell-technologies-generative-ai-servers-storage-neural-processor-latitude/",
+      "legende": "Photographie candidate associée à Michael Dell dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "steve-ballmer": [
+    {
+      "type": "portrait",
+      "src": "https://specials-images.forbesimg.com/imageserve/64137a04fe5a928b6b7ffb6c/Ballmer-cover/1960x0.gif?fit=scale",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.com/sites/jabariyoung/2023/03/18/for-steve-ballmer-building-an-nba-champion-is-harder-than-running-microsoft-but-more-fun/",
+      "legende": "Photographie candidate associée à Steve Ballmer dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "carlos-slim-helu": [
+    {
+      "type": "portrait",
+      "src": "https://s1.staticld.com/2024/04/03/carlos-slim-helu-forbes.jpg",
+      "credit": "Source : www.libertaddigital.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.libertaddigital.com/libremercado/2024-04-08/las-20-personas-mas-ricas-del-mundo-segun-forbes-7113399/",
+      "legende": "Photographie candidate associée à Carlos Slim Helu dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "changpeng-zhao": [
+    {
+      "type": "portrait",
+      "src": "https://cafebiz.cafebizcdn.vn/162123310254002176/2026/2/28/screenshot-2026-02-28-at-090622-1772244651717-17722446523331481939010.png",
+      "credit": "Source : cafebiz.vn ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://cafebiz.vn/ceo-binance-ke-lai-hoi-ky-trong-tu-lan-dau-tien-tiet-lo-nhung-cuoc-dam-phan-bi-mat-17626022809111977.chn",
+      "legende": "Photographie candidate associée à Changpeng Zhao dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "michael-bloomberg": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bbhub.io/dotorg/sites/64/2019/10/mrb-photo1.jpg",
+      "credit": "Source : www.bloomberg.org ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.org/team/michael-bloomberg/",
+      "legende": "Photographie candidate associée à Michael Bloomberg dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "francoise-bettencourt-meyers": [
+    {
+      "type": "portrait",
+      "src": "https://forbes.it/wp-content/uploads/2023/04/GettyImages-137678679-1.jpg",
+      "credit": "Source : forbes.it ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbes.it/2024/06/06/francoise-bettencourt-meyers-supera-100-miliardi-patrimonio",
+      "legende": "Photographie candidate associée à Françoise Bettencourt Meyers dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "mukesh-ambani": [
+    {
+      "type": "portrait",
+      "src": "https://images.yourstory.com/cs/2/dc9aa1302d6c11e9aa979329348d4c3e/Mukesh-Ambani-3-1626328264177.png?mode=crop&crop=faces&ar=16:9&format=auto&w=3840&q=75",
+      "credit": "Source : yourstory.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://yourstory.com/2024/01/reliance-industries-new-investmests-tamil-nadu-data-centres",
+      "legende": "Photographie candidate associée à Mukesh Ambani dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "giancarlo-devasini": [
+    {
+      "type": "portrait",
+      "src": "https://www.economia-italia.com/wp-content/uploads/2025/09/giancarlo-devasini-patrimonio.jpg",
+      "credit": "Source : www.economia-italia.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.economia-italia.com/giancarlo-devasini-patrimonio",
+      "legende": "Photographie candidate associée à Giancarlo Devasini dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "thomas-peterffy": [
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6a27483bd287843f1a90274a/thomas-peterffy-by-matthew-furman-for-forbes-1x1/0x0.jpg?format=jpg&width=1440",
+      "credit": "Source : forbes.com.mx ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbes.com.mx/forbes-250-los-inmigrantes-mas-exitosos-de-estados-unidos/",
+      "legende": "Photographie candidate associée à Thomas Peterffy dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "julia-koch": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.cz/uploads/2024/10/julia-koch-scaled.jpg",
+      "credit": "Source : forbes.cz ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbes.cz/zbohatli-o-miliardy-nekteri-o-desitky-miliard-toto-je-25-nejbohatsich-americanu/",
+      "legende": "Photographie candidate associée à Julia Koch dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zhang-yiming": [
+    {
+      "type": "portrait",
+      "src": "https://nypost.com/wp-content/uploads/sites/2/2021/05/zhang-yiming.jpg?quality=90&strip=all&w=1280",
+      "credit": "Source : nypost.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://nypost.com/2021/05/01/beijing-tops-nyc-in-number-of-billionaires-on-latest-forbes-list/",
+      "legende": "Photographie candidate associée à Zhang Yiming dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zhong-shanshan": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.luxuo.com/2026/01/Zhong-Shanshan-02-scaled.jpg",
+      "credit": "Source : www.luxuo.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.luxuo.com/business/zhong-shanshan-the-bottled-water-tycoon-who-outpaced-chinas-tech-elite.html",
+      "legende": "Photographie candidate associée à Zhong Shanshan dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jeff-yass": [
+    {
+      "type": "portrait",
+      "src": "https://g.foolcdn.com/image/?url=https://g.foolcdn.com/editorial/images/796725/data-center-engineer-gpu-artificial-intelligence-ai-cloud-server-getty.jpg&w=3840&op=resize",
+      "credit": "Source : www.fool.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.fool.com/investing/2024/11/07/billionaire-jeff-yass-sold-61-stake-in-palantir-ai/",
+      "legende": "Photographie candidate associée à Jeff Yass dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "dieter-schwarz": [
+    {
+      "type": "portrait",
+      "src": "https://www.echo24.de/bilder/2018/09/25/10274526/1587033525-lidl-story5-12f9.jpg",
+      "credit": "Source : zubatherm.de ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://zubatherm.de/die-lidlstory-wer-ist-der-mysteriose-discounterchef-dieter-schwarz/",
+      "legende": "Photographie candidate associée à Dieter Schwarz dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "ma-huateng": [
+    {
+      "type": "portrait",
+      "src": "https://www.oreilly.com/api/v2/epubs/urn:orm:book:9780744036114/files/Images/Page_274_01.jpg",
+      "credit": "Source : www.oreilly.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.oreilly.com/library/view/entrepreneurs-who-changed/9780744036114/Text/274-279_Ma_Huateng.xhtml",
+      "legende": "Photographie candidate associée à Ma Huateng dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "robin-zeng": [
+    {
+      "type": "portrait",
+      "src": "https://c8.alamy.com/comp/3CFHGJ8/catl-listing-ceremony-at-hong-kong-stock-exchange-robin-zeng-yuqun-founder-and-chairman-of-battery-manufacturer-contemporary-amperex-technology-catl-speaking-on-stage-during-the-listing-ceremony-at-hong-kong-stock-exchange-on-may-20-2025-in-hong-kong-the-chinese-battery-giant-catl-contemporary-amperex-technology-co-ltd-is-listed-on-the-hong-kong-stock-exchange-as-of-today-3CFHGJ8.jpg",
+      "credit": "Source : www.alamy.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.alamy.com/catl-listing-ceremony-at-hong-kong-stock-exchange-robin-zeng-yuqun-founder-and-chairman-of-battery-manufacturer-contemporary-amperex-technology-catl-speaking-on-stage-during-the-listing-ceremony-at-hong-kong-stock-exchange-on-may-20-2025-in-hong-kong-the-chinese-battery-giant-catl-contemporary-amperex-technology-co-ltd-is-listed-on-the-hong-kong-stock-exchange-as-of-today-image698020800.html",
+      "legende": "Photographie candidate associée à Robin Zeng dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "iris-fontbona": [
+    {
+      "type": "portrait",
+      "src": "https://media.biobiochile.cl/wp-content/uploads/2024/04/chilenos-mas-ricos-del-mundo-iris-fontbona-scaled.jpg",
+      "credit": "Source : www.biobiochile.cl ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.biobiochile.cl/noticias/servicios/explicado/2024/04/03/iris-fontbona-sigue-encabezando-el-ranking-cuales-son-los-chilenos-mas-ricos-segun-forbes.shtml",
+      "legende": "Photographie candidate associée à Iris Fontbona dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "masayoshi-son": [
+    {
+      "type": "portrait",
+      "src": "https://www.chinadailyhk.com/upload/main/image/2025/06/27/2c406638c5dc59c1b6ec2e3b8722c502.jpg",
+      "credit": "Source : www.chinadailyhk.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.chinadailyhk.com/hk/article/614789",
+      "legende": "Photographie candidate associée à Masayoshi Son dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "ken-griffin": [
+    {
+      "type": "portrait",
+      "src": "https://images.wsj.net/im-967797/?width=1280&height=1280",
+      "credit": "Source : www.wsj.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.wsj.com/finance/investing/citadel-ken-griffin-hedge-funds-c9ddf51d",
+      "legende": "Photographie candidate associée à Ken Griffin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jacqueline-mars": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.amomama.com/b5d6391c1ca20f9617b14c89b7a8fec3.jpg?width=2398&height=3000",
+      "credit": "Source : news.amomama.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://news.amomama.com/212322-mars-founders-daughter-jacqueline-mars-h.html",
+      "legende": "Photographie candidate associée à Jacqueline Mars dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "john-mars": [
+    {
+      "type": "portrait",
+      "src": "https://luxlux.net/lux/wp-content/uploads/john-mars-2-scaled.jpeg",
+      "credit": "Source : luxlux.net ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://luxlux.net/en/celebrities/john-mars/",
+      "legende": "Photographie candidate associée à John Mars dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "mark-mateschitz": [
+    {
+      "type": "portrait",
+      "src": "https://heute-at-prod-images.imgix.net/2023/11/01/feec1794-517e-4cf4-a75a-70a0a717e3e6.jpeg?w=1280&auto=format",
+      "credit": "Source : www.heute.at ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.heute.at/s/red-bull-gewinn-mark-mateschitz-casht-582-millionen-120002280",
+      "legende": "Photographie candidate associée à Mark Mateschitz dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "andrea-pignataro": [
+    {
+      "type": "portrait",
+      "src": "https://www.gedistatic.it/content/gnn/img/lastampa/2025/04/10/101009056-025a3d3e-62bb-44d4-a498-1cc070d22a83.jpg",
+      "credit": "Source : www.lastampa.it ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.lastampa.it/economia/2025/04/10/news/andrea_pignataro_ion_fisco_evasione-15096600/",
+      "legende": "Photographie candidate associée à Andrea Pignataro dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "alain-wertheimer": [
+    {
+      "type": "portrait",
+      "src": "https://img-3.journaldesfemmes.fr/PU3-62_O2OCLG9OCOaDJp2LARYk=/3617x/smart/daa7f3d35580403f8b630e96d2e03dad/ccmcms-jdf/10738308.jpg",
+      "credit": "Source : www.journaldesfemmes.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.journaldesfemmes.fr/people/argent/2051971-francais-riches-forbes/2052060-alain-wertheimer",
+      "legende": "Photographie candidate associée à Alain Wertheimer dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "gerard-wertheimer": [
+    {
+      "type": "portrait",
+      "src": "https://img-3.journaldesfemmes.fr/YlHHaaQ03erXPXUdq-xbHo0jjTU=/2537x/smart/649e1f43855146cbabab0f5f850dbefe/ccmcms-jdf/10738310.jpg",
+      "credit": "Source : www.journaldesfemmes.fr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.journaldesfemmes.fr/people/argent/2051971-francais-riches-forbes/2052062-gerard-wertheimer",
+      "legende": "Photographie candidate associée à Gérard Wertheimer dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "francois-pinault": [
+    {
+      "type": "portrait",
+      "src": "https://www.parismatch.com/lmnr/var/pm/public/media/image/Francois-Pinault.jpg?VersionId=EgAhB6t2KhQPmiXysi01ns240lluDlAn",
+      "credit": "Source : www.parismatch.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.parismatch.com/bio/francois-pinault",
+      "legende": "Photographie candidate associée à François Pinault dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "emmanuel-besnier": [
+    {
+      "type": "portrait",
+      "src": "https://i.la-croix.com/x/smart/2024/04/17/1420536-le-pdg-de-lactalis-emmanuel-besnier-lors-d-une-reunion-au-siege-de-la-cooperativ.jpg",
+      "credit": "Source : www.la-croix.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.la-croix.com/leader-laitier-mondial-lactalis-mise-sur-le-bresil-et-son-enorme-marche-20240417",
+      "legende": "Photographie candidate associée à Emmanuel Besnier dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "joe-tsai": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.hoopsrumors.com/files/2025/10/Joe-Tsai-1365x2048.jpg",
+      "credit": "Source : www.hoopsrumors.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.hoopsrumors.com/2025/10/joe-tsai-good-pick-in-2026-draft-a-priority-for-nets.html",
+      "legende": "Photographie candidate associée à Joe Tsai dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "chip-wilson": [
+    {
+      "type": "portrait",
+      "src": "https://wwd.com/wp-content/uploads/2024/01/chipwilsonlululemoncertaincustomers.jpg?resize=102",
+      "credit": "Source : wwd.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://wwd.com/sourcing-journal/industry-news/lululemon-founder-chip-wilson-certain-customers-plus-size-racist-japanese-1238827342/",
+      "legende": "Photographie candidate associée à Chip Wilson dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "clara-wu-tsai": [
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6887b4ddc8558756afa8557d/Clara-Wu-Tsai/0x0.jpg?format=jpg&width=1440",
+      "credit": "Source : forbescentroamerica.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbescentroamerica.com/2025/08/04/forbes-50-over-50-de-2025-conoce-a-las-mujeres-que-definen-la-innovacion-el-impulso-y-la-esperanza",
+      "legende": "Photographie candidate associée à Clara Wu Tsai dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "savitri-jindal": [
+    {
+      "type": "portrait",
+      "src": "https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1024,format=auto/sites/default/files/d8/images/canvas/2022/12/07/ba6a091d-025e-48cb-bb2c-9d84603e3788_56318163.jpg",
+      "credit": "Source : www.scmp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.scmp.com/magazines/style/celebrity/article/3202405/meet-indias-richest-woman-savitri-jindal-net-worth-us177-billion-wealthy-jindal-group-mogul-joins",
+      "legende": "Photographie candidate associée à Savitri Jindal dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "miriam-adelson": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.iac360.org/wp-content/uploads/2024/07/DR.-Miriam-Adelson-Physician-Businesswoman-Philanthropist-e1729683766792.jpg",
+      "credit": "Source : iac360.org ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://iac360.org/iac-rg/dr-miriam-adelson/",
+      "legende": "Photographie candidate associée à Miriam Adelson dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "abigail-johnson": [
+    {
+      "type": "portrait",
+      "src": "https://fortune.com/img-assets/wp-content/uploads/2020/10/MPW2020_03_Abigail-Johnson.jpg",
+      "credit": "Source : fortune.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://fortune.com/ranking/most-powerful-women/2020/abigail-johnson/",
+      "legende": "Photographie candidate associée à Abigail Johnson dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zheng-shuliang": [
+    {
+      "type": "portrait",
+      "src": "https://phunuvietnam.mediacdn.vn/thumb_w/1200/179072216278405120/2026/3/12/zheng-shuliang-17733140567901537802093.jpg",
+      "credit": "Source : phunuvietnam.vn ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://phunuvietnam.vn/chan-dung-10-nu-ty-phu-giau-nhat-the-gioi-23826031218232307.htm",
+      "legende": "Photographie candidate associée à Zheng Shuliang dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "marilyn-simons": [
+    {
+      "type": "portrait",
+      "src": "https://www.the-sun.com/wp-content/uploads/sites/6/2024/05/marilyn-simons-jim-simons-attend-900380282.jpg?resize=744",
+      "credit": "Source : www.the-sun.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.the-sun.com/news/11334819/who-jim-simons-wife-marilyn-renaissance-technologies-net-worth/",
+      "legende": "Photographie candidate associée à Marilyn Simons dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "melinda-french-gates": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2024/06/07/a31498f2-3701-4900-b3c7-eff7ffc1593c_de019856.jpg",
+      "credit": "Source : www.scmp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.scmp.com/magazines/style/people/celebrities/article/3265823/billionaire-philanthropist-melinda-french-gates-beyond-her-former-marriage-bill-gates",
+      "legende": "Photographie candidate associée à Melinda French Gates dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "susanne-klatten": [
+    {
+      "type": "portrait",
+      "src": "https://www.vermoegenmagazin.de/wp-content/uploads/2018/11/Susanne-Klatten-Einkommen.jpg",
+      "credit": "Source : world-behind.de ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://world-behind.de/susanne-klatten-bloomberg-billionaires-index/",
+      "legende": "Photographie candidate associée à Susanne Klatten dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "mackenzie-scott": [
+    {
+      "type": "portrait",
+      "src": "https://static01.nyt.com/images/2020/07/29/multimedia/29xp-scott/29xp-scott-superJumbo.jpg",
+      "credit": "Source : ifeg.info ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://ifeg.info/2025/11/16/mackenzie-scott-a-legacy-of-philanthropy-and-empowerment-for-hbcus/",
+      "legende": "Photographie candidate associée à MacKenzie Scott dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "vicky-safra": [
+    {
+      "type": "portrait",
+      "src": "https://otempo.scene7.com/is/image/sempreeditora/economia-vicky-safra--herdeira-forbes--1743514385?qlt=90&ts=1743514598079&dpr=off",
+      "credit": "Source : www.otempo.com.br ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.otempo.com.br/interessa/2025/8/30/quem-sao-as-mulheres-mais-ricas-do-brasil-segundo-a-lista-de-bilionarios-da-forbes",
+      "legende": "Photographie candidate associée à Vicky Safra dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "gina-rinehart": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i2vN.DqdMwkU/v0/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2024-04-11/australian-lithium-hopeful-surges-after-making-pilot-batch",
+      "legende": "Photographie candidate associée à Gina Rinehart dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "christy-walton": [
+    {
+      "type": "portrait",
+      "src": "https://nypost.com/wp-content/uploads/sites/2/2025/06/106315009.jpg?quality=75&strip=all",
+      "credit": "Source : nypost.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://nypost.com/2025/06/11/business/walmart-heiress-christy-waltons-anti-trump-ad-fuels-maga-led-call-for-boycott-of-retailer/",
+      "legende": "Photographie candidate associée à Christy Walton dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "diane-hendricks": [
+    {
+      "type": "portrait",
+      "src": "https://blogs-images.forbes.com/clareoconnor/files/2016/08/1211x1211-1200x1200.jpg",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.com/sites/clareoconnor/2016/08/11/trump-adds-richest-self-made-woman-diane-hendricks-to-economic-advisory-team/",
+      "legende": "Photographie candidate associée à Diane Hendricks dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "kwong-siu-hing": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.i-scmp.com/sites/default/files/d8/images/methode/2020/05/07/e4c902e4-8ea9-11ea-a674-527cfdef49ee_972x_102842.JPG",
+      "credit": "Source : www.scmp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.scmp.com/magazines/style/news-trends/article/3083181/hong-kongs-kwong-siu-hing-isnt-richest-woman-asia-which",
+      "legende": "Photographie candidate associée à Kwong Siu-hing dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "renata-kellnerova": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.forbes.cz/uploads/2024/10/ppf-renata-kellnerova-scaled.jpg",
+      "credit": "Source : forbes.cz ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbes.cz/lists/cesti-dolarovi-miliardari-2024/renata-kellnerova-s-rodinou/",
+      "legende": "Photographie candidate associée à Renata Kellnerova dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "nancy-walton-laurie": [
+    {
+      "type": "portrait",
+      "src": "https://www.govastileto.gr/Uploads/2025/07/1191_NANCY_WALTON_LAURIE_1562025.gif",
+      "credit": "Source : www.govastileto.gr ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.govastileto.gr/lifestyle/celebrities/nancy-walton-laurie-sti-mykono-i-disekatommyriouchos-tis-aftokratorias-ton-walmart-to-entyposiako-skafos/",
+      "legende": "Photographie candidate associée à Nancy Walton Laurie dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "zhong-huijuan": [
+    {
+      "type": "portrait",
+      "src": "https://oncodaily.com/pub/uploads/2026/01/IMG_6513.webp",
+      "credit": "Source : oncodaily.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://oncodaily.com/community/zhong-huijuan-439200",
+      "legende": "Photographie candidate associée à Zhong Huijuan dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "charlene-de-carvalho-heineken": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.businessinsider.de/wp-content/uploads/2025/04/Charlene-de-Carvalho-Heineken-scaled.jpg?ver=1744799463",
+      "credit": "Source : www.filmboards.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.filmboards.com/t/The-Magic-of-Heineken/A-Woman-is-the-richest-Person-💎​-in-the-Netherlands-🇳🇱​-3567046/",
+      "legende": "Photographie candidate associée à Charlene de Carvalho-Heineken dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "ann-walton-kroenke": [
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/6a4573783d5fa93ea0b77555/Ann-Walton-Kroenke-and-Stan-Kroenke/0x0.jpg?format=jpg&width=1440",
+      "credit": "Source : www.forbesargentina.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbesargentina.com/millonarios/los-duenos-imperio-walmart-familia-ya-vale-us-520000-millones-supera-lejos-todos-sus-rivales-n93733",
+      "legende": "Photographie candidate associée à Ann Walton Kroenke dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "taylor-swift": [
+    {
+      "type": "portrait",
+      "src": "https://www.usmagazine.com/wp-content/uploads/2025/12/Taylor-Swift-s-Best-Style-Moments-of-2025-Grammys-Game-Day-More-3.jpg?quality=40&strip=all",
+      "credit": "Source : www.usmagazine.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.usmagazine.com/enespanol/estilo/los-mejores-looks-de-taylor-swift-en-2025-grammys-dias-de-juego-y-mas/",
+      "legende": "Photographie candidate associée à Taylor Swift dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "beyonce": [
+    {
+      "type": "portrait",
+      "src": "https://people.com/thmb/jz4B8HMxWBx5XSCTdK2ado-CutE=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(734x0:736x2)/beyonce-cover-112123-44bed98cf31b4a75bce8be082b6eab4c.jpg",
+      "credit": "Source : people.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://people.com/taylor-swift-shares-beyonce-blake-lively-renaissance-concert-film-premiere-photos-8409940",
+      "legende": "Photographie candidate associée à Beyoncé dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "stephen-schwarzman": [
+    {
+      "type": "portrait",
+      "src": "https://observer.com/wp-content/uploads/sites/2/2019/09/gettyimages-1175538313.jpg?quality=80",
+      "credit": "Source : observer.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://observer.com/2019/09/blackstone-ceo-stephen-schwarzman-invest-bitcoin-blockchain/",
+      "legende": "Photographie candidate associée à Stephen Schwarzman dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jean-louis-van-der-velde": [
+    {
+      "type": "portrait",
+      "src": "https://indodax.com/academy/wp-content/uploads/2025/11/Jean-Louis-van-der-Velde-scaled.jpg",
+      "credit": "Source : indodax.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://indodax.com/academy/profil-jean-louis-van-der-velde/",
+      "legende": "Photographie candidate associée à Jean-Louis van der Velde dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "alexey-mordashov": [
+    {
+      "type": "portrait",
+      "src": "https://thumbs.dreamstime.com/z/alexey-mordashov-85564438.jpg",
+      "credit": "Source : es.dreamstime.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://es.dreamstime.com/foto-de-archivo-editorial-alexey-mordashov-image85564438",
+      "legende": "Photographie candidate associée à Alexey Mordashov dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "colin-huang": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.businessinsider.de/wp-content/uploads/2023/09/5efb408c3f73701d111f36e4-scaled.jpg?ver=1693836163",
+      "credit": "Source : www.businessinsider.de ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.businessinsider.de/wirtschaft/international-business/gruender-von-temu-mutter-pdd-colin-huang-ist-der-reichste-mensch-chinas/",
+      "legende": "Photographie candidate associée à Colin Huang dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "eduardo-saverin": [
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/162225568/0x0.jpg?format=jpg&width=1200",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.com/sites/naazneenkarmali/2015/06/25/secret-wedding-celebration-of-facebook-co-founder-eduardo-saverin-kicks-off/",
+      "legende": "Photographie candidate associée à Eduardo Saverin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "eyal-ofer": [
+    {
+      "type": "portrait",
+      "src": "https://media.licdn.com/dms/image/v2/C4D22AQEwcuZpCoRyHg/feedshare-shrink_800/feedshare-shrink_800/0/1673768386207?e=2147483647&v=beta&t=9ZBlU7LczLFq8pR8jlpXtAZ-pERgBXPCi4hR84mD0h0",
+      "credit": "Source : il.linkedin.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://il.linkedin.com/posts/eyal-ofer-a4a07815_כנס-סביבה-2050-שלישי-במלון-הילטון-https-activity-7020293441192378368-h8gw",
+      "legende": "Photographie candidate associée à Eyal Ofer dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "robert-pera": [
+    {
+      "type": "portrait",
+      "src": "https://www.opencourt-basketball.com/wp-content/uploads/2026/01/robert-pera.jpg",
+      "credit": "Source : www.opencourt-basketball.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.opencourt-basketball.com/2026/01/27/memphis-grizzlies-owner-robert-peras-tech-empire-drawn-into-ukraine-war-allegations-after-undercover-report/",
+      "legende": "Photographie candidate associée à Robert Pera dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "michal-strnad": [
+    {
+      "type": "portrait",
+      "src": "https://d39-a.sdn.cz/d_39/c_img_of_A/nO5OZtPbfGEEwhJWFEzmfeZ/236b/michal-strnad.jpeg?fl=cro,0,0,1932,2400|res,1200,,1|jpg,80,,1",
+      "credit": "Source : www.seznamzpravy.cz ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.seznamzpravy.cz/tag/czechoslovak-group-csg-1042",
+      "legende": "Photographie candidate associée à Michal Strnad dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "lakshmi-mittal": [
+    {
+      "type": "portrait",
+      "src": "https://images.nrc.nl/4-j-WAdUcTbf0GRxOXjcjMK8dR8=/1920x/filters:no_upscale()/s3/static.nrc.nl/wp-content/uploads/2025/03/31154359/data130051653-850676.jpg",
+      "credit": "Source : www.nrc.nl ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.nrc.nl/nieuws/2025/03/28/waar-kan-staalmagnaat-lakshmi-mittal-van-arcelormittal-heen-a4888097",
+      "legende": "Photographie candidate associée à Lakshmi Mittal dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "shiv-nadar": [
+    {
+      "type": "portrait",
+      "src": "https://societyachievers.com/wp-content/uploads/2024/05/2-scaled-e1715158539849.jpeg",
+      "credit": "Source : societyachievers.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://societyachievers.com/from-hcl-to-shiv-nadar-foundation-tracing-shiv-nadars-remarkable-career/",
+      "legende": "Photographie candidate associée à Shiv Nadar dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "henry-samueli": [
+    {
+      "type": "portrait",
+      "src": "https://samueli.ucla.edu/wp-content/uploads/samueli/Henry-Samueli_NIH.png",
+      "credit": "Source : samueli.ucla.edu ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://samueli.ucla.edu/henry-samueli-broadband-communications-pioneer-and-ucla-alum-elected-to-national-inventors-hall-of-fame/",
+      "legende": "Photographie candidate associée à Henry Samueli dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "stefan-quandt": [
+    {
+      "type": "portrait",
+      "src": "https://forbes.it/wp-content/uploads/2021/10/stefan-quandt-bmw.jpeg",
+      "credit": "Source : forbes.it ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://forbes.it/2021/10/14/miliardari-bellezza-persone-attraenti-ricche",
+      "legende": "Photographie candidate associée à Stefan Quandt dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "reinhold-wuerth": [
+    {
+      "type": "portrait",
+      "src": "https://images.wiwo.de/BDnWmmF7E8NM/cover/3000/1687/0/0/0/313/0.467/0.388/reinhold-wuerth-mit-tochter-marion-wuerth-bei-den-bayreuther-festspielen-2019-30072019festspie.jpg",
+      "credit": "Source : www.wiwo.de ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.wiwo.de/unternehmen/handel/reinhold-wuerth-tochter-marion-wuerth-ist-ueberraschend-gestorben/100160509.html",
+      "legende": "Photographie candidate associée à Reinhold Wuerth dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "len-blavatnik": [
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/09/01/12/Len-Blavatnik.jpg",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.independent.co.uk/arts-entertainment/music/warner-music-owner-len-blavatnik-tops-sunday-times-rich-list-10204461.html",
+      "legende": "Photographie candidate associée à Len Blavatnik dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "vladimir-potanin": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ikiDZuZBEGyI/v0/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2024-01-31/vladimir-potanin-fails-in-bid-to-dismiss-9-billion-uk-divorce",
+      "legende": "Photographie candidate associée à Vladimir Potanin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "vagit-alekperov": [
+    {
+      "type": "portrait",
+      "src": "https://luxlux.net/lux/wp-content/uploads/vagit-alekperov-2.jpeg",
+      "credit": "Source : luxlux.net ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://luxlux.net/en/celebrities/vagit-alekperov/",
+      "legende": "Photographie candidate associée à Vagit Alekperov dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jack-ma": [
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/11/18/11/Jack-Ma.jpg",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.independent.co.uk/news/business/news/alibaba-chief-jack-ma-says-fakes-are-better-quality-than-authentic-luxury-goods-a7083236.html",
+      "legende": "Photographie candidate associée à Jack Ma dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "prajogo-pangestu": [
+    {
+      "type": "portrait",
+      "src": "https://images.bisnis.com/posts/2025/02/07/1837413/prajogo_pangestu_1705533650.jpg",
+      "credit": "Source : market.bisnis.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://market.bisnis.com/read/20250207/7/1837413/mengekor-jejak-prajogo-pangestu-di-saham-barito-pacific-brpt",
+      "legende": "Photographie candidate associée à Prajogo Pangestu dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "peter-thiel": [
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/2022/11/03/18/GettyImages-1239811965.jpg",
+      "credit": "Source : www.independent.co.uk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.independent.co.uk/sport/olympics/enhanced-games-peter-thiel-olympics-b2488157.html",
+      "legende": "Photographie candidate associée à Peter Thiel dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "lei-jun": [
+    {
+      "type": "portrait",
+      "src": "https://www.ourchinastory.com/images/cover/innovation-leader/2024/04/square/Ourchinastory-Xiaomi_x2.jpg",
+      "credit": "Source : www.ourchinastory.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.ourchinastory.com/en/11056/Xiaomi｜Lei-Jun:-Xiaomi-is-officially-a-car-company",
+      "legende": "Photographie candidate associée à Lei Jun dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "andreas-von-bechtolsheim": [
+    {
+      "type": "portrait",
+      "src": "https://res.cloudinary.com/micronetonline/image/upload/c_crop,h_1080,w_1920,x_0,y_0/f_auto/q_auto:best/f_auto/q_auto:best/v1759091411/tenants/7b361918-9aa6-44b4-a17a-77e9badabcbc/cd282e70a63040f4a2eef2e8811820f7/2025-11-06-Living-Legends-AvB.png",
+      "credit": "Source : members.gaba-network.org ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://members.gaba-network.org/norcal-events/Details/living-legends-andreas-von-bechtolsheim-1503859?sourceTypeId=Website",
+      "legende": "Photographie candidate associée à Andreas von Bechtolsheim dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "pham-nhat-vuong": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/izJaw3EIEokA/v1/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2026-03-06/vietnam-s-richest-man-names-wife-chair-of-taxi-firm-gsm-report",
+      "legende": "Photographie candidate associée à Pham Nhat Vuong dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jay-y-lee": [
+    {
+      "type": "portrait",
+      "src": "https://meremobil.dk/wp-content/uploads/2021/01/Jay-Y-Lee-Samsung.jpg",
+      "credit": "Source : meremobil.dk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://meremobil.dk/2021/01/samsung-arving-faengsles-for-bestikkelse/",
+      "legende": "Photographie candidate associée à Jay Y. Lee dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "cyrus-poonawalla": [
+    {
+      "type": "portrait",
+      "src": "https://bl-i.thgim.com/public/incoming/3yjgrb/article64939890.ece/alternates/FREE_1200/IMG_BL_-_INDIA_SERUM_2_1_PK8SDTVD.jpg",
+      "credit": "Source : www.thehindubusinessline.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.thehindubusinessline.com/news/dr-cyrus-poonawalla/article64939834.ece",
+      "legende": "Photographie candidate associée à Cyrus Poonawalla dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "rick-cohen": [
+    {
+      "type": "portrait",
+      "src": "https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/Q2NC55TGMNEY7NXF6ZA3XVYQAM.jpg?auth=5646bcf06a9db89fe9e859b8f1c816a6693b9bd7f48a5a9cca39eb06c96d4734&width=1440&focal=965,973",
+      "credit": "Source : www.bostonglobe.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bostonglobe.com/2024/01/03/business/rick-cohen-symbotic-cs-grocers-new-hampshire/",
+      "legende": "Photographie candidate associée à Rick Cohen dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "suleiman-kerimov": [
+    {
+      "type": "portrait",
+      "src": "https://www.grip.globalrelay.com/wp-content/uploads/2025/12/G-Suleiman-Kerimov-1232307204-e1764798935192.jpg",
+      "credit": "Source : www.grip.globalrelay.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.grip.globalrelay.com/ofac-fines-equity-manager-11-5m-over-ties-to-sanctioned-russian-oligarch/",
+      "legende": "Photographie candidate associée à Suleiman Kerimov dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "dilip-shanghvi": [
+    {
+      "type": "portrait",
+      "src": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-in/campaigns/entrepreneur-of-the-year/2026/jury-members/ey-dilip-shanghvi.jpg",
+      "credit": "Source : www.ey.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.ey.com/en_in/entrepreneur-of-the-year/jury/dilip-shanghvi",
+      "legende": "Photographie candidate associée à Dilip Shanghvi dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "vladimir-lisin": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iaPJSuFoLHC4/v0/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2023-06-30/abu-dhabi-lures-russian-steel-tycoon-s-holdings-away-from-cyprus",
+      "legende": "Photographie candidate associée à Vladimir Lisin dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "stefan-persson": [
+    {
+      "type": "portrait",
+      "src": "https://img.europapress.es/fotoweb/fotonoticia_20200130130613_1200.jpg",
+      "credit": "Source : www.notimerica.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.notimerica.com/politica/noticia-suecia-stefan-persson-cede-hijo-presidencia-hm-20200130130613.html",
+      "legende": "Photographie candidate associée à Stefan Persson dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "gennady-timchenko": [
+    {
+      "type": "portrait",
+      "src": "https://www.occrp.org/interactives/russian-asset-tracker/assets/static/GT_kopiya_2_1_d861f34de7.4e03734.fd7c54e241c301c0fa73d12836633c6e.jpeg",
+      "credit": "Source : www.occrp.org ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.occrp.org/interactives/russian-asset-tracker/en/person/6/gennady-timchenko/",
+      "legende": "Photographie candidate associée à Gennady Timchenko dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "david-tepper": [
+    {
+      "type": "portrait",
+      "src": "https://g.foolcdn.com/image/?url=https://g.foolcdn.com/editorial/images/883833/david-tepper_appaloosa-management_founder_imagesource_getty-images.jpeg&w=2048&op=resize",
+      "credit": "Source : www.fool.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.fool.com/investing/2026/08/20/billionaire-investor-david-tepper-recently-dumped/",
+      "legende": "Photographie candidate associée à David Tepper dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "steve-cohen": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imbXtuE1lAn0/v2/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2018-02-01/steve-cohen-needs-to-prove-himself-to-wall-street-all-over-again",
+      "legende": "Photographie candidate associée à Steve Cohen dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "rupert-murdoch": [
+    {
+      "type": "portrait",
+      "src": "https://res.cloudinary.com/ddx2ct6bi/images/f_auto,q_auto:good/v1628905206/070208Brabyn_5468/070208Brabyn_5468.jpg?_i=AA",
+      "credit": "Source : davidbrabyn.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://davidbrabyn.com/stock-images/rupert-murdoch-chairman-and-chief-executive-of-news-corporation/",
+      "legende": "Photographie candidate associée à Rupert Murdoch dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "stanley-kroenke": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ij6gOj6PEIN8/v0/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2021-08-31/billionaire-who-took-rams-from-st-louis-can-t-move-lawsuit-too",
+      "legende": "Photographie candidate associée à Stanley Kroenke dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "todd-graves": [
+    {
+      "type": "portrait",
+      "src": "https://billionairereporter.com/wp-content/uploads/2025/10/BREC_Dog_Park_Groundbreaking_City_Park_Scaled-10-1-scaled-e1760381769229.webp",
+      "credit": "Source : billionairereporter.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://billionairereporter.com/todd-graves-treehouse/",
+      "legende": "Photographie candidate associée à Todd Graves dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "ernest-garcia-ii": [
+    {
+      "type": "portrait",
+      "src": "https://www.the-sun.com/wp-content/uploads/sites/6/2022/05/NINTCHDBPICT000732624846.jpg?resize=878",
+      "credit": "Source : www.the-sun.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.the-sun.com/money/5330941/who-carvana-ceo-ernest-garcia-iii/",
+      "legende": "Photographie candidate associée à Ernest Garcia II dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "wang-chuanfu": [
+    {
+      "type": "portrait",
+      "src": "https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2023/08/09/819e3dd4-efe3-4c14-8586-e9a922e8c533_f30b0c7f.jpg",
+      "credit": "Source : www.scmp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.scmp.com/business/china-business/article/3230566/chinese-carmakers-will-upend-global-auto-industry-says-byd-founder-wang-chuanfu-company-makes-5",
+      "legende": "Photographie candidate associée à Wang Chuanfu dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "john-fredriksen": [
+    {
+      "type": "portrait",
+      "src": "https://premium.vgc.no/v2/images/d4a88d70-627e-4b17-8999-4618b860815f?fit=crop&format=auto&h=1425&tight=true&w=1900&s=3ba6c2e143beabd42c1e5c1b34b618b21846c7e4",
+      "credit": "Source : www.bt.no ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bt.no/nyheter/okonomi/i/dvjyw/siden-mai-har-john-fredriksen-tjent-11-millioner-paa-laks-hver-dag",
+      "legende": "Photographie candidate associée à John Fredriksen dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "kumar-birla": [
+    {
+      "type": "portrait",
+      "src": "https://d1epq84pwgteub.cloudfront.net/72e4f333e78545cc9c993eb59d5c326c.jpg",
+      "credit": "Source : www.forbesmiddleeast.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbesmiddleeast.com/billionaires/world-billionaires/indian-billionaire-kumar-birla-to-spend-$605-million-expanding-into-jewelry",
+      "legende": "Photographie candidate associée à Kumar Birla dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "michael-platt": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iVpN72dvUwss/v1/-1x-1.jpg",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2022-10-05/michael-platt-s-bluecrest-set-for-record-year-with-114-gain",
+      "legende": "Photographie candidate associée à Michael Platt dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "vinod-adani": [
+    {
+      "type": "portrait",
+      "src": "https://statics.forbes.com.ec/2023/03/64259d397ab0a.png",
+      "credit": "Source : www.forbes.com.ec ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.com.ec/daily-cover/dentro-polemico-conglomerado-gautam-vinod-adani-n31475",
+      "legende": "Photographie candidate associée à Vinod Adani dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "chen-tianshi": [
+    {
+      "type": "portrait",
+      "src": "https://c8.alamy.com/comp/W6BYY3/cambricon-technology-ceo-chen-tianshi-introduces-the-cambricon-mlu100-cloud-chip-also-chinas-first-cloud-artificial-intelligence-ai-chip-develope-W6BYY3.jpg",
+      "credit": "Source : www.alamy.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.alamy.com/cambricon-technology-ceo-chen-tianshi-introduces-the-cambricon-mlu100-cloud-chip-also-chinas-first-cloud-artificial-intelligence-ai-chip-develope-image262106855.html",
+      "legende": "Photographie candidate associée à Chen Tianshi dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "andrey-melnichenko": [
+    {
+      "type": "portrait",
+      "src": "https://vz.cnwimg.com/wp-content/uploads/2010/08/Melnichenko_217089.jpg?x15139",
+      "credit": "Source : www.celebritynetworth.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.celebritynetworth.com/richest-businessmen/richest-billionaires/andrey-melnichenko-net-worth/",
+      "legende": "Photographie candidate associée à Andrey Melnichenko dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "andrew-forrest": [
+    {
+      "type": "portrait",
+      "src": "https://gcp-na-images.contentstack.com/v3/assets/bltea6093859af6183b/bltfa720cfd71c91247/6998c44d07a30da4db77cc2c/andrew-forrest-08.jpeg?branch=production&width=3840&quality=75&auto=webp",
+      "credit": "Source : time.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://time.com/7260055/green-energy-andrew-forrest-fortescue/",
+      "legende": "Photographie candidate associée à Andrew Forrest dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jerry-jones": [
+    {
+      "type": "portrait",
+      "src": "https://www.the-sun.com/wp-content/uploads/sites/6/2025/12/owner-jerry-jones-dallas-cowboys-1020818460.jpg?resize=878",
+      "credit": "Source : www.the-sun.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.the-sun.com/sport/15680076/jerry-jones-dallas-cowboys-miserable-playoff-defeat/",
+      "legende": "Photographie candidate associée à Jerry Jones dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "takemitsu-takizaki": [
+    {
+      "type": "portrait",
+      "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/01/09/10/tadashi-yanai.gif",
+      "credit": "Source : www.idcrawl.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.idcrawl.com/takemitsu-takizaki",
+      "legende": "Photographie candidate associée à Takemitsu Takizaki dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "andre-esteves": [
+    {
+      "type": "portrait",
+      "src": "https://iclnoticias.com.br/app/uploads/2025/12/30473848-high-scaled.webp",
+      "credit": "Source : iclnoticias.com.br ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://iclnoticias.com.br/andre-esteves-se-ve-forcado-a-comprar-o-master-por-estrategia-juridica-de-vorcaro/",
+      "legende": "Photographie candidate associée à Andre Esteves dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "low-tuck-kwong": [
+    {
+      "type": "portrait",
+      "src": "https://imageio.forbes.com/specials-images/imageserve/638f01db52ba120c020d997c/Low-Tuck-Kwong-in-Tabang-coal-mine--East-Kalimantan-/0x0.jpg?format=jpg&height=1280&width=2400",
+      "credit": "Source : www.forbes.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.forbes.com/sites/ardianwibisono/2022/12/07/indonesian-coal-billionaire-low-tuck-kwong-mines-super-profits-to-become-the-countrys-second-richest-person/",
+      "legende": "Photographie candidate associée à Low Tuck Kwong dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "john-doerr": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/io_VNyASOJPo/v1/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2022-05-23/investor-john-doerr-silicon-valley-should-triple-down-on-clean-tech",
+      "legende": "Photographie candidate associée à John Doerr dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jorge-paulo-lemann": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bbhub.io/media/sites/25/2025/03/Jorge-Paulo-Lemann.jpg",
+      "credit": "Source : www.bloombergneweconomy.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloombergneweconomy.com/advisory-board/",
+      "legende": "Photographie candidate associée à Jorge Paulo Lemann dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "alejandro-bailleres-gual": [
+    {
+      "type": "portrait",
+      "src": "https://periodicocorreo.com.mx/__export/sites/correo/img/2024/08/30/presentacion-libre-producto-6-529341687.jpg",
+      "credit": "Source : periodicocorreo.com.mx ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://periodicocorreo.com.mx/ocio/2024/aug/30/quien-es-alejandro-bailleres-gual-el-nuevo-novio-de-tania-ruiz-exnovia-de-pena-nieto-108374.html",
+      "legende": "Photographie candidate associée à Alejandro Baillères Gual dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "philip-anschutz": [
+    {
+      "type": "portrait",
+      "src": "https://deweb-519a7.b-cdn.net/post-images/fdaef298-cd46-4fe0-8e81-657958ac48e7.jpeg",
+      "credit": "Source : thehockeynews.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://thehockeynews.com/money/100-people-of-power/2026-people-of-power-influence-in-hockey-no-50-philip-anschutz",
+      "legende": "Photographie candidate associée à Philip Anschutz dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "john-menard-jr": [
+    {
+      "type": "portrait",
+      "src": "https://www.lolaapp.com/wp-content/uploads/2024/08/surprising-facts-about-john-menard-jr.jpg",
+      "credit": "Source : www.lolaapp.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.lolaapp.com/surprising-facts-about-john-menard-jr/",
+      "legende": "Photographie candidate associée à John Menard Jr dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "georg-schaeffler": [
+    {
+      "type": "portrait",
+      "src": "https://c8.alamy.com/compde/2d25egx/maria-elisabeth-schaeffler-inhaber-der-deutschen-firma-schaeffler-gruppe-und-mitglied-des-aufsichtsrats-der-deutschen-continental-ag-l-ist-mit-ihrem-sohn-georg-schaeffler-abgebildet-wahrend-der-audi-100-jahr-feier-in-inglostadt-16-juli-2009-bild-16-juli-2009-reutersdaniel-karmannpool-deutschland-transport-2d25egx.jpg",
+      "credit": "Source : www.alamy.de ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.alamy.de/fotos-bilder/schaeffler-ag.html",
+      "legende": "Photographie candidate associée à Georg Schaeffler dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "brett-adcock": [
+    {
+      "type": "portrait",
+      "src": "https://assets.newatlas.com/dims4/default/b1a57ec/2147483647/strip/true/crop/1847x899+0+0/resize/2880x1402!/format/webp/quality/85/?url=https://newatlas-brightspot.s3.amazonaws.com/4e/05/cc5962f247d6938a546713ba61f4/early-life.jpeg",
+      "credit": "Source : newatlas.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://newatlas.com/remarkable-people/brett-adcock-history/",
+      "legende": "Photographie candidate associée à Brett Adcock dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "michael-hartono": [
+    {
+      "type": "portrait",
+      "src": "https://assets.goal.com/images/v3/bltb06aec8efeee9da8/Michael+Hartono.jpg?auto=webp&format=pjpg&width=3840&quality=60",
+      "credit": "Source : www.goal.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.goal.com/en-ae/lists/michael-hartono-co-owner-of-the-como-club-alongside-his-brother-robert-has-died/bltd626de7cadd37465",
+      "legende": "Photographie candidate associée à Michael Hartono dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "nik-storonsky": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iUIic3DFB9J4/v2/-1x-1.webp",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/news/articles/2024-07-03/billionaire-revolut-ceo-nik-storonsky-builds-side-vc-bet-firm-quantumlight",
+      "legende": "Photographie candidate associée à Nik Storonsky dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "torstein-hagen": [
+    {
+      "type": "portrait",
+      "src": "https://premium.vgc.no/v2/images/fdf2aa3f-4092-4ecd-b2a2-7c8c489a2f50?fit=crop&format=auto&h=1504&w=2048&s=010d9b7ccadf003310333ecfdce3b6de3bc51a80",
+      "credit": "Source : www.aftenposten.no ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.aftenposten.no/amagasinet/i/4d8L06/cruisereder-torstein-hagen-jeg-visste-ikke-at-det-var-fengselsstraff-for-brudd-paa-janteloven",
+      "legende": "Photographie candidate associée à Torstein Hagen dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "wang-ning": [
+    {
+      "type": "portrait",
+      "src": "https://console.kr-asia.com/wp-content/uploads/2026/02/Pop-Mart-Wang-Ning.jpg",
+      "credit": "Source : kr-asia.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://kr-asia.com/pop-marts-wang-ning-urges-restraint-amid-global-labubu-surge",
+      "legende": "Photographie candidate associée à Wang Ning dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "sarath-ratanavadi": [
+    {
+      "type": "portrait",
+      "src": "https://images.thetechcapital.com/2024/07/Sarath-Ratanavadis-Gulf-Energy-ventures-into-AI-digital-infrastructure.jpg",
+      "credit": "Source : thetechcapital.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://thetechcapital.com/sarath-ratanavadis-gulf-energy-ventures-into-ai-digital-infrastructure/",
+      "legende": "Photographie candidate associée à Sarath Ratanavadi dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "john-collison": [
+    {
+      "type": "portrait",
+      "src": "https://www.webpronews.com/wp-content/uploads/2025/05/Stripe-co-founder-John-Collison.png",
+      "credit": "Source : www.webpronews.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.webpronews.com/stripes-ai-revolution-john-collison-unveils-the-future-of-payments-and-global-commerce/",
+      "legende": "Photographie candidate associée à John Collison dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "patrick-collison": [
+    {
+      "type": "portrait",
+      "src": "https://images.stripeassets.com/fzn2n1nzq965/1300I0FknSuWN4cGmqhWfT/10f100082df385ef5a4079db9a065b01/Keynote_S23.jpg?fm=webp&q=80",
+      "credit": "Source : stripe.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://stripe.com/sessions/2023/powering-growth-for-the-internet-economy",
+      "legende": "Photographie candidate associée à Patrick Collison dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "david-sun": [
+    {
+      "type": "portrait",
+      "src": "https://aplus.hkicpa.org.hk/wp-content/uploads/2025/07/David-Sun3-scaled.jpg",
+      "credit": "Source : aplus.hkicpa.org.hk ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://aplus.hkicpa.org.hk/2025-issue-3-coming-full-circle/",
+      "legende": "Photographie candidate associée à David Sun dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "brad-jacobs": [
+    {
+      "type": "portrait",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iIbGOQdnf80g/v1/1200x811.jpg",
+      "credit": "Source : www.bloomberg.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.bloomberg.com/opinion/articles/2022-10-17/xpo-logistics-ceo-brad-jacobs-is-on-the-hunt-investors-should-pay-attention",
+      "legende": "Photographie candidate associée à Brad Jacobs dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "jan-koum": [
+    {
+      "type": "portrait",
+      "src": "https://media.vanityfair.com/photos/5ae88fc84facd07a30eac5df/master/w_2560,c_limit/jan-koum-leaves-whatsapp.jpg",
+      "credit": "Source : www.vanityfair.com ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://www.vanityfair.com/news/2018/05/why-jan-koums-resignation-should-be-a-wake-up-call-for-mark-zuckerberg",
+      "legende": "Photographie candidate associée à Jan Koum dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "stephen-ross": [
+    {
+      "type": "portrait",
+      "src": "https://impactwealth.org/wp-content/uploads/2025/09/Steve-Ross-051-copy-scaled-e1758801131222.jpg",
+      "credit": "Source : impactwealth.org ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://impactwealth.org/stephen-ross-billionaire-developer-west-palm-beach/",
+      "legende": "Photographie candidate associée à Stephen Ross dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "wang-wei": [
+    {
+      "type": "portrait",
+      "src": "https://luxlux.net/lux/wp-content/uploads/wang-wei-2-scaled.jpeg",
+      "credit": "Source : luxlux.net ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://luxlux.net/en/celebrities/wang-wei/",
+      "legende": "Photographie candidate associée à Wang Wei dans la collecte de presse. Date de prise de vue non établie.",
+      "publication_autorisee": null,
+      "identity_verified": false
+    }
+  ],
+  "mikhail-fridman": [
+    {
+      "type": "portrait",
+      "src": "https://turkishweekly.net/wp-content/uploads/2022/01/Mikhail-Fridman.webp",
+      "credit": "Source : turkishweekly.net ; photographe non confirmé",
+      "licence": "Non renseignée",
+      "source": "https://turkishweekly.net/the-history-of-the-creation-of-the-business-empire-of-mikhail-fridman/",
+      "legende": "Photographie candidate associée à Mikhail Fridman dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
     }
