@@ -9,6 +9,13 @@ export function pickPortrait(entries){
   return priority||a.index-b.index;
  })[0].photo;
 }
+export function portraitCandidates(entries){
+ if(!Array.isArray(entries))return [];
+ return entries.filter(p=>p?.type==='portrait'&&hasPhoto(p))
+ .map((photo,index)=>({photo,index}))
+ .sort((a,b)=>(Number(b.photo.editorial_priority)||0)-(Number(a.photo.editorial_priority)||0)||a.index-b.index)
+ .map(x=>x.photo);
+}
 export function photoInitials(name){
  return String(name||'?').trim().replace(/\s*& family$/i,'').split(/\s+/).filter(w=>w&&!['von','van','der','de','du','the','of'].includes(w.toLowerCase())).slice(0,2).map(w=>w[0]).join('').toLocaleUpperCase('fr')||'?';
 }

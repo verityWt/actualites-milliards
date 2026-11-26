@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {pickPortrait,photoInitials,photoAudit,photoReviewQueue} from '../src/portrait-selection.mjs';
+import {pickPortrait,portraitCandidates,photoInitials,photoAudit,photoReviewQueue} from '../src/portrait-selection.mjs';
 const DATA=JSON.parse(fs.readFileSync('data/photos.json','utf8'));
 test('Van der Velde uses the user-selected Hearst editorial photograph ahead of old press image',()=>{
  const photos=DATA['jean-louis-van-der-velde'];
@@ -49,4 +49,29 @@ test('review queue covers every published profile and provides source-discovery 
  assert.ok(person.researchQueries.linkedinSearch.includes('linkedin.com%2Fin'));
  assert.ok(person.issues.includes('republication_rights_unconfirmed'));
  assert.ok(rows.every(x=>typeof x.reviewed==='boolean'&&Array.isArray(x.issues)));
+});
+
+test('fallback candidates try editorial favorite, then previously documented alternatives',()=>{
+ const list=DATA['jean-louis-van-der-velde'];
+ const ordered=portraitCandidates(list);
+ assert.equal(ordered.length,2);
+ assert.match(ordered[0].src,/hips\.hearstapps\.com/);
+ assert.match(ordered[1].src,/indodax\.com/);
+ const build=fs.readFileSync('build.mjs','utf8');
+ assert.match(build,/data-portrait-fallbacks/);
+ assert.match(build,/assets\/portrait-fallback\.js/);
+ assert.match(build,/window\.actualitesPhotoError/);
+ const script=fs.readFileSync('src/portrait-fallback.js','utf8');
+ assert.match(script,/window\.actualitesPhotoError/);
+ assert.match(script,/while\(sources\.length\)/);
+});
+test('photo review console renders source candidates and exports decisions without altering the source photos',()=>{
+ const build=fs.readFileSync('build.mjs','utf8');
+ const js=fs.readFileSync('src/photo-review-console.js','utf8');
+ assert.match(build,/write\('photos-a-verifier'/);
+ assert.match(build,/name="robots" content="noindex,nofollow"/);
+ assert.match(build,/photoReviewData=P\.map/);
+ assert.match(js,/localStorage/);
+ assert.match(js,/Exporter|exportedAt/);
+ assert.match(js,/republication|droits|droits/i);
 });
