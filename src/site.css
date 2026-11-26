@@ -261,3 +261,35 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .wiki-panel .wiki-press-card h4 a{text-decoration:none;color:inherit}
 .wiki-panel .wiki-press-card h4 a:hover{text-decoration:underline;text-underline-offset:3px}
 .wiki-panel .wiki-press-card>p{font-size:13px;line-height:1.55;color:var(--muted,#555);margin:0}
+
+/* Actualites.fr documentary hubs: navigation landing pages with real indexed content. */
+.hub-page{padding-top:34px;padding-bottom:55px}
+.hub-page .hub-part{margin:42px 0 58px}
+.hub-page .hub-heading{margin-bottom:19px}
+.hub-page .hub-heading h2{font-size:clamp(24px,3vw,36px);margin:0 0 7px}
+.hub-page .hub-heading p{color:var(--muted,#625d65);max-width:780px;line-height:1.7;margin:0}
+.hub-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:13px;margin:20px 0 38px}
+.hub-metrics>div{padding:24px;border:1px solid var(--line,#ddd);border-radius:12px}
+.hub-metrics b{font-size:34px;display:block;line-height:1.2}
+.hub-metrics span{display:block;font-size:12px;color:var(--muted,#625d65);margin-top:6px}
+.hub-cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px}
+.hub-cards .card{min-width:0;text-decoration:none}
+.hub-cards .card h3{font-size:19px;line-height:1.3;margin:0 0 9px}
+.hub-cards .card p{font-size:14px;line-height:1.6;color:var(--muted,#625d65)}
+.hub-cards .card strong{font-size:14px}
+.hub-profile{display:flex;gap:15px;align-items:start}
+.hub-profile .g{flex-shrink:0}
+.hub-company-links{display:flex;flex-wrap:wrap;gap:10px 15px;margin-top:16px;font-size:13px}
+.hub-company-links a{text-decoration:underline;text-underline-offset:3px}
+.hub-searchbar{display:grid;grid-template-columns:minmax(190px,1fr) minmax(180px,.45fr);gap:9px 16px;margin:14px 0 20px}
+.hub-searchbar label{font-size:13px;font-weight:700}
+.hub-searchbar input,.hub-searchbar select{width:100%;padding:14px;border:1px solid #8b8189;border-radius:8px;font:inherit;background:var(--surface,#fff);color:inherit}
+.hub-searchbar label:nth-of-type(1){grid-column:1;grid-row:1}
+.hub-searchbar input{grid-column:1;grid-row:2}
+.hub-searchbar label:nth-of-type(2){grid-column:2;grid-row:1}
+.hub-searchbar select{grid-column:2;grid-row:2}
+.hub-search-card[hidden]{display:none!important}
+.hub-note{padding:26px;margin:34px 0;border-top:1px solid var(--line,#ddd)}
+.hub-research{display:flex;flex-direction:column}
+.hub-research .hub-company-links{margin-top:auto}
+@media(max-width:650px){.hub-searchbar{grid-template-columns:1fr}.hub-searchbar label:nth-of-type(1),.hub-searchbar input,.hub-searchbar label:nth-of-type(2),.hub-searchbar select{grid-column:1;grid-row:auto}.hub-page .hub-part{margin:28px 0 42px}}

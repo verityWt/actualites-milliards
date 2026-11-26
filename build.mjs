@@ -111,7 +111,7 @@ const fullName = p => p.name + (p.fam ? ' et sa famille' : '');
 const meta = p => [p.co || SEC[p.sec], p.country, p.age ? p.age + ' ans' : (p.born ? (p.g === 'f' ? 'née' : 'né') + ' en ' + p.born : '')].filter(Boolean).join(' · ');
 const card = (from, p) => `<a class="card pcard" href="${link(from, 'milliardaires/' + p.id)}">${p.rank ? `<span class="rk">N° ${p.rank}</span>` : ''}${medal(p, 64, from)}<div><div class="nm">${esc(fullName(p))}</div><div class="meta">${esc(meta(p))}</div><div class="nw" style="margin-top:6px">${nwTxt(p)}</div></div></a>`;
 
-const header = from => `<header class="top"><div class="in"><a class="logo" href="${home(from)}">Actualites<span>.fr</span></a><nav class="nav" aria-label="Rubriques"><a href="${link(from, 'milliardaires')}">Fortunes</a><a href="${home(from, 'entreprises')}">Entreprises</a><a href="${home(from, 'influence')}">Influence</a><a href="${home(from, 'risques')}">Risques</a><a href="${home(from, 'finder')}">Recherche</a><a class="hot" href="${home(from, 'intelligence')}">Intelligence Pro</a></nav></div></header>`;
+const header = from => `<header class="top"><div class="in"><a class="logo" href="${home(from)}">Actualites<span>.fr</span></a><nav class="nav" aria-label="Rubriques"><a href="${link(from, 'milliardaires')}">Fortunes</a><a href="${link(from, 'entreprises')}">Entreprises</a><a href="${link(from, 'influence')}">Influence</a><a href="${link(from, 'risques')}">Risques</a><a href="${link(from, 'next-billionaires')}">Next Billionaires</a><a href="${link(from, 'recherche')}">Recherche</a><a class="hot" href="${link(from, 'intelligence')}">Intelligence Pro</a></nav></div></header>`;
 const footer = from => `<footer class="band"><div class="in cols"><div><div class="logo" style="color:#f5ede3">Actualites<span>.fr</span></div><p style="margin-top:8px">Global Billionaire Intelligence — fortunes, pouvoir, influence et risques.</p></div><div><b style="color:#f5ede3">Classements</b><p><a href="${link(from, 'milliardaires')}">Les 200 plus grandes fortunes</a><br><a href="${link(from, 'milliardaires/femmes')}">Les femmes milliardaires</a><br><a href="${link(from, 'milliardaires/france')}">Les milliardaires français</a><br><a href="${link(from, 'milliardaires/moins-de-40-ans')}">Les milliardaires de moins de 40 ans</a></p></div><div><b style="color:#f5ede3">Méthode</b><p>Fortunes : ${esc(SRC_FORBES)} ; Challenges 2026 pour la France. <a href="${home(from, 'methode')}">Méthodologie et corrections</a>.</p></div><div><b style="color:#f5ede3">Éditeur</b><p>Édité par DeepSci Labs<br><a href="${link(from, 'mentions-legales')}">Mentions légales</a><br><a href="${link(from, 'cgu')}">Conditions d'utilisation</a><br><a href="${link(from, 'confidentialite')}">Confidentialité</a><br>Corrections : contact@actualites.fr</p></div></div></footer>`;
 const page = ({ from, title, desc, canonical, body, jsonld = [] }) => `<!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -257,7 +257,7 @@ for (const L of lists) {
   const frBlock = L.extra === 'france' ? `<h2 style="margin-top:40px">Le classement Challenges 2026</h2><p class="small">Fortunes professionnelles en milliards d'euros, publiées le 8 juillet 2026. Challenges compte par famille et en euros, Forbes par personne et en dollars : les chiffres diffèrent.</p><div class="scroll"><table><thead><tr><th>Fortune</th><th>Groupe</th><th class="n">2025</th><th class="n">2026</th></tr></thead><tbody>${FRCH.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td class="n">${r[2] == null ? 'n.d.' : fr(r[2], 1)}</td><td class="n">${fr(r[3], 1)}</td></tr>`).join('')}</tbody></table></div><p class="small">Bernard Arnault est devenu l'unique propriétaire de Challenges fin 2025.</p>` : '';
   const body = `<section class="inkband">${pattern(L.dir.replace(/\//g, '-'))}<div class="in band"><p class="tagline">Billion Index</p><h1 style="font-size:clamp(36px,5.4vw,60px);max-width:18ch">${esc(L.h)}</h1>
 <p class="lede" style="margin-top:12px">${items.length} fortunes. ${esc(SRC_FORBES)}.</p></div></section><div class="band"><div class="in">
-<div class="row" style="margin:0 0 26px">${chips.slice(0, 4).map(([d, l]) => `<a class="btn${d === from ? ' pri' : ''}" href="${link(from, d)}">${esc(l)}</a>`).join('')}<a class="btn" href="${home(from, 'finder')}">Recherche avancée</a></div>
+<div class="row" style="margin:0 0 26px">${chips.slice(0, 4).map(([d, l]) => `<a class="btn${d === from ? ' pri' : ''}" href="${link(from, d)}">${esc(l)}</a>`).join('')}<a class="btn" href="${link(from, 'recherche')}">Recherche avancée</a></div>
 ${items.length >= 3 ? `<div class="grid podium" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px;margin:10px 0 34px">${items.slice(0, 3).map(p => `<a href="${link(from, 'milliardaires/' + p.id)}" style="text-decoration:none">${billet(p, false, from)}</a>`).join('')}</div>` : ''}<div class="bars">${items.map((p, i) => `<a class="bar${i ? '' : ' top1'}" href="${link(from, 'milliardaires/' + p.id)}"><span>${i + 1}. ${esc(fullName(p))}</span><div class="t"><div class="f" style="width:${p.nw ? (p.nw / max * 100).toFixed(1) : 0}%"></div></div><span class="v">${nwTxt(p)}</span></a>`).join('')}</div>
 ${frBlock}
 <h2 style="margin-top:40px">Explorer par pays et par secteur</h2>
@@ -273,6 +273,77 @@ ${frBlock}
 }
 
 
+
+// ---------- rubriques documentaires autonomes, accessibles sans routage JavaScript ----------
+const hubHead=(eyebrow,title,subtitle)=>'<section class="inkband"><div class="in band"><p class="tagline">'+esc(eyebrow)+'</p><h1>'+esc(title)+'</h1><p class="lede" style="margin-top:13px">'+esc(subtitle)+'</p></div></section>';
+const hubWrap=(content)=>'<div class="band"><div class="in hub-page">'+content+'</div></div>';
+const hubSection=(title,subtitle,cards)=>'<section class="hub-part"><div class="hub-heading"><h2>'+esc(title)+'</h2>'+(subtitle?'<p>'+esc(subtitle)+'</p>':'')+'</div><div class="grid hub-cards">'+cards+'</div></section>';
+const hubCard=(from,p,detail)=>'<a class="card hub-profile" href="'+link(from,'milliardaires/'+p.id)+'">'+medal(p,64,from)+'<div><h3>'+esc(fullName(p))+'</h3><p>'+esc(detail||[p.co,SEC[p.sec],p.country].filter(Boolean).join(' · '))+'</p><strong>'+esc(nwTxt(p))+'</strong></div></a>';
+const hubWrite=(dir,title,description,body)=>write(dir,page({from:dir,title:title+' · Actualites.fr',desc:description,canonical:dir+'/',body}));
+
+const companyIndex=new Map();
+for(const p of P){
+ const names=new Set(String(p.co||'').split(/[,;/]/).map(x=>x.trim()).filter(x=>x.length>=3));
+ for(const name of names){const id=normalizeCompany(name);if(!companyIndex.has(id))companyIndex.set(id,{name,people:[]});companyIndex.get(id).people.push(p)}
+}
+function normalizeCompany(v){return v.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim()}
+const companyGroups=[...companyIndex.values()].sort((a,b)=>b.people.length-a.people.length||a.name.localeCompare(b.name,'fr'));
+const activeSectors=Object.entries(SEC).map(([k,name])=>({id:k,name,people:P.filter(p=>p.sec===k)})).filter(x=>x.people.length).sort((a,b)=>b.people.length-a.people.length);
+const sectorCards=activeSectors.map(item=>'<a class="card hub-sector" href="'+link('entreprises','milliardaires/secteur/'+SECSLUG[item.id])+'"><h3>'+esc(item.name)+'</h3><p>'+item.people.length+' profils associés</p><strong>'+esc(item.people.slice(0,3).map(p=>p.name).join(' · '))+'</strong></a>').join('');
+const bigCompanyCards=companyGroups.filter(x=>x.people.length>1).slice(0,22).map(item=>'<article class="card hub-company"><h3>'+esc(item.name)+'</h3><p>'+item.people.length+' personnalités associées dans notre corpus</p><div class="hub-company-links">'+item.people.slice(0,8).map(p=>'<a href="'+link('entreprises','milliardaires/'+p.id)+'">'+esc(p.name)+'</a>').join('')+'</div></article>').join('');
+hubWrite('entreprises','Entreprises et groupes associés aux grandes fortunes',
+ 'Explorez les secteurs, groupes et personnes présents dans le classement des grandes fortunes.',
+ hubHead('Billionaire Knowledge Graph','Les entreprises derrière les fortunes','Explorez les groupes et les secteurs, puis ouvrez les biographies des personnes concernées.')+
+ hubWrap('<div class="hub-metrics"><div><b>'+companyIndex.size+'</b><span>noms d’entreprises recensés</span></div><div><b>'+activeSectors.length+'</b><span>secteurs d’activité</span></div><div><b>'+P.length+'</b><span>fiches personnelles</span></div></div>'+
+ hubSection('Secteurs économiques','Classement par nombre de personnalités présentes dans le corpus.',sectorCards)+
+ hubSection('Groupes associés à plusieurs fortunes','Les liens ci-dessous proviennent des entreprises mentionnées dans les fiches. Ils peuvent correspondre à des situations différentes : héritiers, cofondateurs ou dirigeants.',bigCompanyCards)));
+
+const inherited=P.filter(p=>p.orig==='herit'||p.orig==='mix').sort((a,b)=>(b.nw||0)-(a.nw||0));
+const cofounders=companyGroups.filter(x=>x.people.length>=2).slice(0,12);
+hubWrite('influence','Influence économique, dynasties et réseaux',
+ 'Familles fortunées, cofondateurs et réseaux professionnels issus du classement des milliardaires.',
+ hubHead('Pouvoir économique','Dynasties, réseaux et influence','Découvrez les fortunes issues de transmissions familiales et les groupes associés à plusieurs personnalités.')+
+ hubWrap('<div class="hub-metrics"><div><b>'+inherited.length+'</b><span>profils à origine héritée ou mixte renseignée</span></div><div><b>'+cofounders.length+'</b><span>groupes à personnalités multiples affichés</span></div></div>'+
+ hubSection('Fortunes héritées et transmissions','Personnalités classées selon l’origine de la fortune indiquée dans les données biographiques.',inherited.slice(0,18).map(p=>hubCard('influence',p,[p.orig==='herit'?'Fortune héritée':'Origine mixte',p.co,p.country].filter(Boolean).join(' · '))).join(''))+
+ hubSection('Personnalités liées aux mêmes groupes','Un accès direct aux fiches pour explorer les histoires communes.',cofounders.map(item=>'<article class="card hub-company"><h3>'+esc(item.name)+'</h3><div class="hub-company-links">'+item.people.map(p=>'<a href="'+link('influence','milliardaires/'+p.id)+'">'+esc(p.name)+'</a>').join('')+'</div></article>').join(''))));
+
+const riskEntries=[];
+for(const p of P){const r=researchProfiles[p.id]?.personal?.documentedRisks||[];for(const e of r){if(e.heading&&e.body&&/^https:\/\//.test(e.source||''))riskEntries.push({person:p,item:e})}}
+const governanceEvents=[...timeline('elon-musk'),...timeline('thomas-frist-jr')].filter(x=>x.type==='governance');
+hubWrite('risques','Gouvernance, procédures et controverses',
+ 'Événements économiques, controverses et décisions de gouvernance documentés concernant les grandes fortunes.',
+ hubHead('Billionaire Risk Monitor','Gouvernance et controverses','Des événements datés, des décisions d’entreprise et des enquêtes, avec accès aux documents cités.')+
+ hubWrap(hubSection('Dossiers documentaires','Épisodes faisant déjà l’objet d’une section de recherche sourcée dans nos biographies.',riskEntries.map(({person:p,item})=>'<article class="card hub-research"><p class="tagline">'+esc(p.name)+'</p><h3>'+esc(item.heading)+'</h3><p>'+esc(item.body.slice(0,490))+'</p><div class="hub-company-links"><a href="'+link('risques','milliardaires/'+p.id)+'#risques-personnels">Voir la fiche</a><a target="_blank" rel="noopener noreferrer" href="'+esc(item.source)+'">Document source</a></div></article>').join(''))+
+ hubSection('Chronologie de gouvernance','Une sélection de faits datés contenus dans le moteur documentaire.',governanceEvents.map(e=>'<article class="card hub-research"><p class="tagline">'+esc(e.date)+'</p><h3>'+esc(e.title)+'</h3><p>'+esc(e.person==='elon-musk'?'Elon Musk':'Thomas Frist Jr.')+'</p><a href="'+link('risques','milliardaires/'+e.person)+'">Ouvrir le dossier</a></article>').join(''))));
+
+const newUnranked=P.filter(p=>p.rank==null).sort((a,b)=>(b.nw??-1)-(a.nw??-1));
+const young=P.filter(p=>p.age!=null&&p.age<40).sort((a,b)=>(b.nw??-1)-(a.nw??-1));
+hubWrite('next-billionaires','Next Billionaires — nouvelles fortunes et relève',
+ 'Les fortunes émergentes, les moins de quarante ans et les candidats suivis hors du top 200.',
+ hubHead('Next Billionaires','Les fortunes de demain','Suivez les personnalités hors des deux cents premières fortunes et la nouvelle génération déjà présente dans le classement.')+
+ hubWrap(hubSection('Profils hors du Top 200','Personnalités suivies dans le site, sans les présenter comme des prédictions de richesse future.',newUnranked.map(p=>hubCard('next-billionaires',p)).join(''))+
+ hubSection('Les fortunes de moins de 40 ans','Jeunes milliardaires recensés dans les données Forbes 2026.',young.slice(0,24).map(p=>hubCard('next-billionaires',p)).join(''))+
+ '<div class="hub-note"><h2>Suivre les nouveaux entrants</h2><p>La veille biographique collecte des documents sur les personnalités répertoriées. Les annonces de financement et de participation devront être ajoutées au corpus avant l’établissement d’une liste de candidats qui ne sont pas encore milliardaires.</p></div>'));
+
+const searchRows=P.map(p=>({id:p.id,name:fullName(p),country:p.country,co:p.co,sec:SEC[p.sec],nw:p.nw,age:p.age,orig:p.orig||''}));
+const searchCards=P.map(p=>'<a class="card hub-profile hub-search-card" data-search="'+esc([p.name,p.co,p.country,SEC[p.sec]].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase())+'" data-sector="'+esc(p.sec)+'" href="'+link('recherche','milliardaires/'+p.id)+'">'+medal(p,60,'recherche')+'<div><h3>'+esc(p.name)+'</h3><p>'+esc([p.co,p.country].filter(Boolean).join(' · '))+'</p><strong>'+nwTxt(p)+'</strong></div></a>').join('');
+hubWrite('recherche','Recherche avancée des grandes fortunes',
+ 'Moteur de recherche par nom, entreprise, pays et secteur sur les 207 biographies.',
+ hubHead('Billionaire Finder','Rechercher dans 207 biographies','Parcourez les personnes, entreprises, pays et secteurs à partir des données publiées.')+
+ hubWrap('<div class="hub-searchbar"><label for="hubQuery">Personne, entreprise ou pays</label><input id="hubQuery" type="search" autocomplete="off" placeholder="Ex. Microsoft, Arnault, France"><label for="hubSector">Secteur</label><select id="hubSector"><option value="">Tous les secteurs</option>'+activeSectors.map(x=>'<option value="'+x.id+'">'+esc(x.name)+'</option>').join('')+'</select></div><p id="hubCount" class="small" role="status">'+P.length+' fiches</p><div class="grid hub-cards" id="hubResults">'+searchCards+'</div>'+
+ '<script>const q=document.getElementById("hubQuery"),sector=document.getElementById("hubSector"),cards=[...document.querySelectorAll(".hub-search-card")],count=document.getElementById("hubCount");function filter(){const v=q.value.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").trim().toLowerCase(),s=sector.value;let n=0;for(const c of cards){const yes=(!v||c.dataset.search.includes(v))&&(!s||c.dataset.sector===s);c.hidden=!yes;if(yes)n++}count.textContent=n+" fiche"+(n>1?"s":"")+" correspondante"+(n>1?"s":"")}q.addEventListener("input",filter);sector.addEventListener("change",filter);</script>'));
+
+const documented=Object.values(researchProfiles).reduce((a,p)=>a+(p.sections?.length||0),0);
+const sourced=Object.values(researchProfiles).reduce((a,p)=>a+(p.events?.length||0),0);
+hubWrite('intelligence','Intelligence Pro — données et recherche',
+ 'Accès aux travaux documentaires, classements et outils de suivi des grandes fortunes.',
+ hubHead('Intelligence Pro','Le centre de recherche des grandes fortunes','Consultez le corpus existant, les groupes économiques, les événements documentés et l’avancement de la collecte.')+
+ hubWrap('<div class="hub-metrics"><div><b>'+P.length+'</b><span>fiches disponibles</span></div><div><b>'+documented+'</b><span>chapitres éditoriaux</span></div><div><b>'+sourced+'</b><span>événements enregistrés</span></div></div>'+
+ hubSection('Explorer la base','Les fonctions réellement disponibles.',[
+ ['Base de fortunes','Classement et biographies', 'milliardaires'],['Graphe d’entreprises','Groupes et personnes associés','entreprises'],['Réseaux et dynasties','Transmissions et groupes économiques','influence'],['Risques documentés','Enquêtes et chronologies','risques'],['Prochaine génération','Fortunes jeunes et hors Top 200','next-billionaires'],['Recherche','Filtre sur tous les dossiers','recherche']
+ ].map(([title,body,dir])=>'<a class="card" href="'+link('intelligence',dir)+'"><h3>'+esc(title)+'</h3><p>'+esc(body)+'</p></a>').join(''))+
+ '<section class="hub-part"><h2>Suivi de la collecte</h2><p>Le moteur Cloudflare parcourt les personnalités répertoriées et récupère des références encyclopédiques et documentaires.</p><p><a href="https://actualites-biography-discovery.actualites-fr-next.workers.dev/status" target="_blank" rel="noopener noreferrer">État des traitements automatiques</a></p><p>Les offres payantes ne sont pas ouvertes.</p></section>'));
+
 // ---------- pages légales ----------
 const LEGAL = JSON.parse(fs.readFileSync('data/legal.json', 'utf8'));
 for (const [dir, L] of Object.entries(LEGAL)) {
@@ -285,7 +356,7 @@ const DATA = P.map(p => ({ id: p.id, name: fullName(p), g: p.g, age: p.age, born
 let homeHtml = fs.readFileSync('src/home.html', 'utf8')
   .replace('/*__DATA__*/', `window.__P=${JSON.stringify(DATA).replace(/</g, '\\u003c')};window.__SEC=${JSON.stringify(SEC)};window.__INK=${JSON.stringify(INK)};window.rosette=${rosette.toString()};window.__COL=${JSON.stringify(COL)};window.__PROFILE=${JSON.stringify(PREVIEW ? 'milliardaires/{id}/index.html' : '/milliardaires/{id}/')};window.__LINK=${JSON.stringify({ all: link('', 'milliardaires'), femmes: link('', 'milliardaires/femmes'), france: link('', 'milliardaires/france'), jeunes: link('', 'milliardaires/moins-de-40-ans') })};`)
   .replaceAll('__CSS__', asset('', 'assets/site.css'));
-for (const [k, v] of Object.entries({ __L_ALL__: link('', 'milliardaires'), __L_FEMMES__: link('', 'milliardaires/femmes'), __L_FRANCE__: link('', 'milliardaires/france'), __L_JEUNES__: link('', 'milliardaires/moins-de-40-ans'), __L_ML__: link('', 'mentions-legales'), __L_CGU__: link('', 'cgu'), __L_CONF__: link('', 'confidentialite') })) homeHtml = homeHtml.replaceAll(k, v);
+for (const [k, v] of Object.entries({ __L_ALL__: link('', 'milliardaires'), __L_FEMMES__: link('', 'milliardaires/femmes'), __L_FRANCE__: link('', 'milliardaires/france'), __L_JEUNES__: link('', 'milliardaires/moins-de-40-ans'), __L_ENTREPRISES__: link('', 'entreprises'), __L_INFLUENCE__: link('', 'influence'), __L_RISQUES__: link('', 'risques'), __L_NEXT__: link('', 'next-billionaires'), __L_RECHERCHE__: link('', 'recherche'), __L_INTELLIGENCE__: link('', 'intelligence'), __L_ML__: link('', 'mentions-legales'), __L_CGU__: link('', 'cgu'), __L_CONF__: link('', 'confidentialite') })) homeHtml = homeHtml.replaceAll(k, v);
 fs.writeFileSync(path.join(OUT, 'index.html'), homeHtml);
 write('pendant-que-vous-lisez', page({from:'pendant-que-vous-lisez',title:'Actualites.fr — Recherche',desc:'Retrouvez les dossiers sur les grandes fortunes.',canonical:'pendant-que-vous-lisez/',body:`<div class="band"><div class="in"><h1>Cette rubrique a été retirée</h1><p>Retrouvez les dossiers et comparaisons économiques.</p><a class="btn" href="${home('pendant-que-vous-lisez','finder')}">Explorer les fortunes</a></div></div>`}));
 if (fs.existsSync('src/_headers') && !PREVIEW) fs.copyFileSync('src/_headers', path.join(OUT, '_headers'));
@@ -299,7 +370,7 @@ fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sour
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-24';
-  const urls = ['', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
