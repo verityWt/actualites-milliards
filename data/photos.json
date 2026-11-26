@@ -10,5 +10,41 @@
       "source": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_(cropped).jpg",
       "legende": "Bill Gates à la Commission européenne, 25 juin 2025."
     }
+  ],
+  "elon-musk": [
+    {
+      "type": "portrait",
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Elon_Musk_-_March_28%2C_2024.jpg/1920px-Elon_Musk_-_March_28%2C_2024.jpg",
+      "credit": "Wcamp9",
+      "auteur": "Wcamp9",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Elon_Musk_-_March_28,_2024.jpg",
+      "legende": "Elon Musk lors d’une conférence à Big Sky, le 28 mars 2024."
+    }
+  ],
+  "jeff-bezos": [
+    {
+      "type": "portrait",
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Jeff_Bezos%27_iconic_laugh.jpg/1920px-Jeff_Bezos%27_iconic_laugh.jpg",
+      "credit": "Steve Jurvetson",
+      "auteur": "Steve Jurvetson",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeff_Bezos%27_iconic_laugh.jpg",
+      "legende": "Jeff Bezos aux ENCORE Awards, le 27 octobre 2010 (archive)."
+    }
+  ],
+  "jim-walton": [
+    {
+      "type": "portrait",
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Jim_Walton.jpg/1920px-Jim_Walton.jpg",
+      "credit": "Walmart Corporate",
+      "auteur": "Walmart Corporate",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Jim_Walton.jpg",
+      "legende": "Jim Walton, le 2 juin 2011 (archive)."
+    }
   ]
 }
