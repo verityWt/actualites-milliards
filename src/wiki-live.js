@@ -11,9 +11,35 @@
     const response=await fetch(endpoint,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(17500)});
     if(!response.ok)throw Error('Unavailable');
     const data=await response.json();
+    const renderPressCandidates=()=>{
+      const results=data.pressDiscovery?.items;
+      if(!Array.isArray(results)||!results.length)return false;
+      const section=document.createElement('section');section.className='wiki-press';
+      const h=document.createElement('h2');h.textContent='Dans la presse internationale';section.append(h);
+      const intro=document.createElement('p');intro.className='wiki-press-intro';
+      intro.textContent='Articles retrouvés par la veille documentaire. Consultez chaque publication pour accéder aux informations complètes.';
+      section.append(intro);
+      const cards=document.createElement('div');cards.className='wiki-press-grid';
+      for(const entry of results){
+        try{
+          const u=new URL(entry.url);
+          if(u.protocol!=='https:'||u.hostname!=='news.google.com'||!entry.title)continue;
+          const articleCard=document.createElement('article');articleCard.className='wiki-press-card';
+          const p=document.createElement('div');p.className='wiki-press-meta';
+          p.textContent=(entry.publisher||'Presse')+(entry.publishedAt?' · '+entry.publishedAt:'');
+          const h=document.createElement('h4'),a=document.createElement('a');
+          a.textContent=entry.title;a.href=u.href;a.rel='noopener noreferrer';a.target='_blank';
+          h.append(a);articleCard.append(p,h);cards.append(articleCard);
+        }catch{}
+      }
+      if(!cards.children.length)return false;
+      section.append(cards);holder.append(section);
+      return true;
+    };
     const article=data.wikipedia;
     if(!article||article.status!=='encyclopedic_sources_found'||!Array.isArray(article.pages)||!article.pages.length){
-      status.textContent='Les références encyclopédiques de cette personne sont en cours de recherche.';
+      if(renderPressCandidates()){status.remove();return;}
+      status.textContent='Recherche documentaire en cours sur plusieurs sources.';
       return;
     }
     const main=article.pages.find(p=>p.language==='fr')||article.pages[0];
@@ -118,6 +144,7 @@
       holder.append(list);
     }
     const attribution=document.createElement('p');attribution.className='wiki-attribution';
+    renderPressCandidates();
     attribution.textContent='Sources des extraits : Wikipédia, licence CC BY-SA 4.0. Données : Wikidata. Les titres et présentations des articles complémentaires proviennent de leurs éditeurs respectifs.';
     holder.append(attribution);
   }catch{
