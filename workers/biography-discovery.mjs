@@ -40,14 +40,14 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  if(!original)return {status:'not_discovered'};
  const prior=original.wikipedia;
  const age=prior?.fetchedAt?Date.now()-Date.parse(prior.fetchedAt):Number.POSITIVE_INFINITY;
- if(!force&&prior?.pipelineVersion===2&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
+ if(!force&&prior?.pipelineVersion===3&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
  let result;
  try{
    result=await resolveWikipedia(person,original.suggestions||[],fetcher);
  }catch(e){
    result={status:'provider_error',error:String(e.message||e).slice(0,160),verified:false};
  }
- result.pipelineVersion=2;
+ result.pipelineVersion=3;
  result.fetchedAt=new Date().toISOString();
  // Preserve existing review state and provenance; never publish a candidate as a verified fact.
  await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result}));
@@ -66,6 +66,11 @@ export async function discoverBatch(env,at=new Date(),fetcher=fetch){
  const items=outcomes.map((x,i)=>x.status==='fulfilled'?x.value:{person:selected[i].slug,state:'failed',error:String(x.reason).slice(0,100)});
  const summary={runAt:new Date(at).toISOString(),count:items.length,items};
  await env.RESEARCH.put('batch:last',JSON.stringify(summary));
+ await env.RESEARCH.put('batch:slot:'+String(slotFor(at)),JSON.stringify(summary),{expirationTtl:60*60*24*30});
+ const history=await env.RESEARCH.get('batch:history',{type:'json'});
+ const recent=Array.isArray(history)?history.filter(x=>x.runAt!==summary.runAt):[];
+ recent.unshift(summary);
+ await env.RESEARCH.put('batch:history',JSON.stringify(recent.slice(0,24)));
  return summary;
 }
 export default {
@@ -76,8 +81,9 @@ export default {
   if(u.pathname==='/status'){
    const last=await env.RESEARCH.get('latest',{type:'json'});
    const batch=await env.RESEARCH.get('batch:last',{type:'json'});
+   const history=await env.RESEARCH.get('batch:history',{type:'json'});
    const keys=await env.RESEARCH.list({prefix:'profile:',limit:1000});
-   return Response.json({service:'actualites-biography-discovery',state:last?.state||'waiting_for_first_cron',totalProfiles:PEOPLE.length,intervalMinutes:INTERVAL_MINUTES,batchSize:BATCH_SIZE,expectedFullPassHours:Number((PEOPLE.length*INTERVAL_MINUTES/(BATCH_SIZE*60)).toFixed(2)),researchedProfiles:keys.keys.length,last:last||null,lastBatch:batch||null,publication:'source-attributed-wikipedia-excerpts-with-separate-review',modelsExecutedByService:0},{headers:cors});
+   return Response.json({service:'actualites-biography-discovery',state:last?.state||'waiting_for_first_cron',totalProfiles:PEOPLE.length,intervalMinutes:INTERVAL_MINUTES,batchSize:BATCH_SIZE,expectedFullPassHours:Number((PEOPLE.length*INTERVAL_MINUTES/(BATCH_SIZE*60)).toFixed(2)),researchedProfiles:keys.keys.length,last:last||null,lastBatch:batch||null,recentRuns:Array.isArray(history)?history.slice(0,24).map(h=>({runAt:h.runAt,count:h.count,found:h.items.filter(i=>i.wikipedia==='encyclopedic_sources_found').length,errors:h.items.filter(i=>i.state==='error'||i.state==='failed').length,unmatched:h.items.filter(i=>i.state==='no_candidate'||i.wikipedia==='identity_ambiguous').length})):[],publication:'source-attributed-wikipedia-excerpts-with-separate-review',modelsExecutedByService:0},{headers:cors});
   }
   if(u.pathname.startsWith('/profiles/')){
    const slug=u.pathname.slice('/profiles/'.length);
@@ -98,7 +104,7 @@ export default {
    }
    // If a prior Cron has resolved this biography, use the cached snapshot.
    const wiki=item.wikipedia;
-   if(!wiki||wiki.pipelineVersion!==2||Date.now()-Date.parse(wiki.fetchedAt)>(wiki.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
+   if(!wiki||wiki.pipelineVersion!==3||Date.now()-Date.parse(wiki.fetchedAt)>(wiki.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
      try{await enrichProfile(env,person);item=await env.RESEARCH.get('profile:'+slug,{type:'json'});}catch{}
    }
    return Response.json(item||{slug,state:'not_processed_yet',verifiedFacts:0},{headers:cors});

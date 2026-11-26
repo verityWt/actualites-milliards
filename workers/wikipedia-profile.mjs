@@ -83,6 +83,40 @@ export async function detailedWikipediaSections(title,lang='fr',fetcher=fetch){
   return selectTopicSections(json?.query?.pages?.[0]?.extract||'');
  }catch{return [];}
 }
+
+const FACT_PROPERTIES=Object.freeze([
+ ['P106','Activité professionnelle'],['P69','Études et établissements'],['P108','Employeurs déclarés'],
+ ['P166','Distinctions']
+]);
+// Wikidata statements are a sourced database view, not independently confirmed facts.
+export async function publicWikidataFacts(item,fetcher=fetch){
+ const pending=[],seen=new Set();
+ for(const [property,label] of FACT_PROPERTIES){
+  for(const statement of (item.claims?.[property]||[]).slice(0,8)){
+   if(statement.rank==='deprecated')continue;
+   const qid=statement.mainsnak?.datavalue?.value?.id;
+   if(!/^Q\d+$/.test(qid||'')||seen.has(property+':'+qid))continue;
+   seen.add(property+':'+qid);
+   pending.push({property,label,qid});
+  }
+ }
+ if(!pending.length)return [];
+ const ids=[...new Set(pending.map(x=>x.qid))].slice(0,45);
+ const url='https://www.wikidata.org/w/api.php?'+new URLSearchParams({
+   action:'wbgetentities',format:'json',ids:ids.join('|'),props:'labels',languages:'fr|en'
+ }).toString();
+ try{
+  const data=await fetchJson(url,fetcher);
+  const resolved=pending.filter(p=>ids.includes(p.qid)).map(p=>{
+   const node=data?.entities?.[p.qid];
+   const name=node?.labels?.fr?.value||node?.labels?.en?.value;
+   if(!name||name.length>130)return null;
+   return {category:p.label,value:name,source:'https://www.wikidata.org/wiki/'+item.id+'#'+p.property,
+      status:'wikidata_statement_unreviewed'};
+  }).filter(Boolean);
+  return resolved.slice(0,18);
+ }catch{return []}
+}
 export async function resolveWikipedia(person,suggestions,fetcher=fetch){
  const suggestion=selectCandidate(person,suggestions);
  if(!suggestion)return {status:'identity_ambiguous',reason:'No unique matching person from Wikidata',verified:false};
@@ -109,7 +143,7 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
   }catch{/* one language can fail independently */}
  }
  if(!pages.length)return {status:'wikipedia_unavailable',wikidataId:suggestion.wikidataId,verified:false};
- const [supplementary,topicSections]=await Promise.all([enTitle?supplementaryLinks(enTitle,'en',fetcher):Promise.resolve([]),detailedWikipediaSections(frTitle||enTitle,frTitle?'fr':'en',fetcher)]);
+ const [supplementary,topicSections,wikidataFacts]=await Promise.all([enTitle?supplementaryLinks(enTitle,'en',fetcher):Promise.resolve([]),detailedWikipediaSections(frTitle||enTitle,frTitle?'fr':'en',fetcher),publicWikidataFacts({...item,id:suggestion.wikidataId},fetcher)]);
  const official=(item.claims?.P856||[]).map(x=>x.mainsnak?.datavalue?.value).filter(v=>{
   if(typeof v!=='string')return false;
   try{return new URL(v).protocol==='https:'}catch{return false}
@@ -118,6 +152,6 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
    wikidataUrl:'https://www.wikidata.org/wiki/'+suggestion.wikidataId,
    label:item.labels?.fr?.value||item.labels?.en?.value||suggestion.label,
    description:item.descriptions?.fr?.value||item.descriptions?.en?.value||suggestion.description,
-   pages,officialWebsites:official,supplementarySources:supplementary,topicSections,verified:false,
+   pages,officialWebsites:official,supplementarySources:supplementary,topicSections,wikidataFacts,verified:false,
    disclaimer:'Articles encyclopédiques associés à une proposition d’identité ; les faits n’ont pas encore été recoupés par la rédaction.'};
 }
