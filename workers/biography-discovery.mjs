@@ -53,24 +53,69 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result}));
  return result;
 }
+// A single write per person keeps free-plan KV consumption bounded.
+// Discovery and source retrieval are persisted together, without per-person run/latest writes.
+export async function researchOne(env,person,at=new Date(),fetcher=fetch){
+ const key='profile:'+person.slug,atISO=new Date(at).toISOString();
+ const previous=await env.RESEARCH.get(key,{type:'json'});
+ const record={...(previous||{}),person,attemptedAt:atISO,
+   verifiedFacts:0,analysisStatus:'not_executed',editorialStatus:'pending_independent_review'};
+ try{
+   const endpoint=new URL('https://www.wikidata.org/w/api.php');
+   endpoint.search=new URLSearchParams({
+      action:'wbsearchentities',format:'json',language:'en',type:'item',limit:'5',search:person.name
+   }).toString();
+   const response=await fetcher(endpoint.toString(),{
+      headers:{Accept:'application/json','User-Agent':'ActualitesFR-Research/0.3 (contact@actualites.fr)'},
+      signal:AbortSignal.timeout(15000)});
+   if(!response.ok)throw Error('Wikidata HTTP '+response.status);
+   const raw=await response.json();
+   if(!Array.isArray(raw.search))throw Error('Unexpected Wikidata response');
+   const suggestions=raw.search.filter(x=>/^Q\d+$/.test(x.id||'')).slice(0,5).map(x=>({
+      wikidataId:x.id,label:String(x.label||'').slice(0,160),
+      description:String(x.description||'').slice(0,300),
+      url:'https://www.wikidata.org/wiki/'+x.id,status:'candidate_identity_unverified'
+   }));
+   record.suggestions=suggestions;
+   record.state=suggestions.length?'candidate_found':'no_candidate';
+   delete record.error;
+   if(suggestions.length){
+     const prior=previous?.wikipedia;
+     const age=prior?.fetchedAt?Date.now()-Date.parse(prior.fetchedAt):Infinity;
+     if(prior?.pipelineVersion===4&&Number.isFinite(age)&&age<
+       (prior.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
+       record.wikipedia=prior;
+     }else{
+       try{
+         record.wikipedia=await resolveWikipedia(person,suggestions,fetcher);
+       }catch(error){
+         record.wikipedia={status:'provider_error',error:String(error?.message||error).slice(0,160),verified:false};
+       }
+       record.wikipedia.pipelineVersion=4;
+       record.wikipedia.fetchedAt=new Date().toISOString();
+     }
+   }
+ }catch(error){
+   record.state='error';
+   record.error=String(error?.message||error).slice(0,160);
+ }
+ await env.RESEARCH.put(key,JSON.stringify(record));
+ return {person:person.slug,state:record.state,
+   ...(record.wikipedia?{wikipedia:record.wikipedia.status}:{})};
+}
 export async function discoverBatch(env,at=new Date(),fetcher=fetch){
  const selected=batchSelection(at);
- const outcomes=await Promise.allSettled(selected.map(async person=>{
-   const state=await discover(env,at,fetcher,person);
-   if(state.state==='candidate_found'){
-     const wiki=await enrichProfile(env,person,fetcher);
-     return {person:person.slug,state:state.state,wikipedia:wiki.status};
-   }
-   return {person:person.slug,state:state.state};
- }));
- const items=outcomes.map((x,i)=>x.status==='fulfilled'?x.value:{person:selected[i].slug,state:'failed',error:String(x.reason).slice(0,100)});
+ const settled=await Promise.allSettled(selected.map(p=>researchOne(env,p,at,fetcher)));
+ const items=settled.map((x,i)=>x.status==='fulfilled'?x.value:
+  {person:selected[i].slug,state:'failed',error:String(x.reason).slice(0,120)});
  const summary={runAt:new Date(at).toISOString(),count:items.length,items};
- await env.RESEARCH.put('batch:last',JSON.stringify(summary));
- await env.RESEARCH.put('batch:slot:'+String(slotFor(at)),JSON.stringify(summary),{expirationTtl:60*60*24*30});
  const history=await env.RESEARCH.get('batch:history',{type:'json'});
  const recent=Array.isArray(history)?history.filter(x=>x.runAt!==summary.runAt):[];
  recent.unshift(summary);
- await env.RESEARCH.put('batch:history',JSON.stringify(recent.slice(0,24)));
+ await Promise.all([
+   env.RESEARCH.put('batch:last',JSON.stringify(summary)),
+   env.RESEARCH.put('batch:history',JSON.stringify(recent.slice(0,24)))
+ ]);
  return summary;
 }
 export default {
@@ -83,24 +128,16 @@ export default {
    const batch=await env.RESEARCH.get('batch:last',{type:'json'});
    const history=await env.RESEARCH.get('batch:history',{type:'json'});
    const keys=await env.RESEARCH.list({prefix:'profile:',limit:1000});
-   return Response.json({service:'actualites-biography-discovery',state:last?.state||'waiting_for_first_cron',totalProfiles:PEOPLE.length,intervalMinutes:INTERVAL_MINUTES,batchSize:BATCH_SIZE,expectedFullPassHours:Number((PEOPLE.length*INTERVAL_MINUTES/(BATCH_SIZE*60)).toFixed(2)),researchedProfiles:keys.keys.length,last:last||null,lastBatch:batch||null,recentRuns:Array.isArray(history)?history.slice(0,24).map(h=>({runAt:h.runAt,count:h.count,found:h.items.filter(i=>i.wikipedia==='encyclopedic_sources_found').length,errors:h.items.filter(i=>i.state==='error'||i.state==='failed').length,unmatched:h.items.filter(i=>i.state==='no_candidate'||i.wikipedia==='identity_ambiguous').length})):[],publication:'source-attributed-wikipedia-excerpts-with-separate-review',modelsExecutedByService:0},{headers:cors});
+   return Response.json({service:'actualites-biography-discovery',state:batch?'batch_completed':(last?.state||'waiting_for_first_cron'),totalProfiles:PEOPLE.length,intervalMinutes:INTERVAL_MINUTES,batchSize:BATCH_SIZE,expectedFullPassHours:Number((PEOPLE.length*INTERVAL_MINUTES/(BATCH_SIZE*60)).toFixed(2)),researchedProfiles:keys.keys.length,last:last||null,lastBatch:batch||null,recentRuns:Array.isArray(history)?history.slice(0,24).map(h=>({runAt:h.runAt,count:h.count,found:h.items.filter(i=>i.wikipedia==='encyclopedic_sources_found').length,errors:h.items.filter(i=>i.state==='error'||i.state==='failed').length,unmatched:h.items.filter(i=>i.state==='no_candidate'||i.wikipedia==='identity_ambiguous').length})):[],publication:'source-attributed-wikipedia-excerpts-with-separate-review',modelsExecutedByService:0},{headers:cors});
   }
   if(u.pathname.startsWith('/profiles/')){
    const slug=u.pathname.slice('/profiles/'.length);
    if(!allowedSlug.test(slug)||!PEOPLE.some(p=>p.slug===slug))return new Response('Not found',{status:404});
    const person=PEOPLE.find(p=>p.slug===slug);
    let item=await env.RESEARCH.get('profile:'+slug,{type:'json'});
-   if(!item){ // Lazy research means every listed biography can display sourced material at first visit.
-     const search=new URL('https://www.wikidata.org/w/api.php');
-     search.search=new URLSearchParams({action:'wbsearchentities',format:'json',language:'en',type:'item',limit:'5',search:person.name}).toString();
-     try{
-       const rr=await fetch(search,{signal:AbortSignal.timeout(12000),headers:{Accept:'application/json','User-Agent':'ActualitesFR-Research/0.2 (contact@actualites.fr)'}});
-       if(!rr.ok)throw Error('Wikidata HTTP '+rr.status);
-       const data=await rr.json();
-       const suggestions=(data.search||[]).filter(x=>/^Q\d+$/.test(x.id||'')).slice(0,5).map(x=>({wikidataId:x.id,label:String(x.label||'').slice(0,160),description:String(x.description||'').slice(0,300),url:'https://www.wikidata.org/wiki/'+x.id,status:'candidate_identity_unverified'}));
-       item={person,attemptedAt:new Date().toISOString(),state:suggestions.length?'candidate_found':'no_candidate',suggestions,verifiedFacts:0,analysisStatus:'not_executed',editorialStatus:'pending_independent_review'};
-       await env.RESEARCH.put('profile:'+slug,JSON.stringify(item));
-     }catch(e){return Response.json({slug,state:'provider_error',error:String(e.message).slice(0,100),verifiedFacts:0},{headers:cors,status:503});}
+   if(!item){
+     try{await researchOne(env,person,new Date());item=await env.RESEARCH.get('profile:'+slug,{type:'json'});}
+     catch(e){return Response.json({slug,state:'provider_error',error:String(e.message).slice(0,100)},{headers:cors,status:503});}
    }
    // If a prior Cron has resolved this biography, use the cached snapshot.
    const wiki=item.wikipedia;
