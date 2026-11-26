@@ -242,3 +242,11 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 .wiki-panel .wiki-topic{padding:22px;border:1px solid var(--line,#ddd);border-radius:12px;background:rgba(125,80,70,.025)}
 .wiki-panel .wiki-topic h3{font-size:19px;line-height:1.25;margin:0 0 11px}
 .wiki-panel .wiki-topic p{font-size:15px;line-height:1.66;margin:0;white-space:pre-line}
+
+.wiki-panel .wiki-facts{border:1px solid var(--line,#ddd);border-radius:12px;padding:20px 24px;margin:25px 0;background:rgba(80,65,60,.035)}
+.wiki-panel .wiki-facts h3{font-size:19px;line-height:1.35;margin:0 0 16px}
+.wiki-panel .wiki-facts dl{display:grid;grid-template-columns:minmax(130px,190px) minmax(0,1fr);column-gap:20px;row-gap:12px;margin:0}
+.wiki-panel .wiki-facts dt{font-size:13px;font-weight:700;color:var(--muted,#555)}
+.wiki-panel .wiki-facts dd{font-size:14px;line-height:1.6;margin:0;overflow-wrap:anywhere}
+.wiki-panel .wiki-facts dd a{text-underline-offset:3px}
+@media(max-width:600px){.wiki-panel .wiki-facts dl{grid-template-columns:1fr;row-gap:4px}.wiki-panel .wiki-facts dt:not(:first-child){margin-top:12px}}
