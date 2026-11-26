@@ -30,6 +30,30 @@
     }
     const p=document.createElement('p');p.className='wiki-extract';
     p.textContent=main.summary;holder.append(p);
+    if(Array.isArray(article.wikidataFacts)&&article.wikidataFacts.length){
+      const wrap=document.createElement('section');wrap.className='wiki-facts';
+      const heading=document.createElement('h3');heading.textContent='Études, fonctions et affiliations recensées';
+      wrap.append(heading);
+      const grouped=new Map();
+      for(const fact of article.wikidataFacts){
+        if(typeof fact.value!=='string'||typeof fact.category!=='string'||!fact.value.trim())continue;
+        if(!grouped.has(fact.category))grouped.set(fact.category,[]);
+        grouped.get(fact.category).push(fact);
+      }
+      const dl=document.createElement('dl');
+      for(const [category,entries] of grouped){
+        const dt=document.createElement('dt');dt.textContent=category;dl.append(dt);
+        const dd=document.createElement('dd');
+        for(const [index,fact] of entries.entries()){
+          if(index)dd.append(document.createTextNode(' · '));
+          const a=document.createElement('a');
+          a.href=fact.source;a.textContent=fact.value;a.rel='noopener noreferrer';a.target='_blank';
+          dd.append(a);
+        }
+        dl.append(dd);
+      }
+      wrap.append(dl);holder.append(wrap);
+    }
     if(Array.isArray(article.topicSections)&&article.topicSections.length){
       const topics=document.createElement('div');topics.className='wiki-topics';
       for(const item of article.topicSections){
