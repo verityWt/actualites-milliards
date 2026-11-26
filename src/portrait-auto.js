@@ -9,7 +9,7 @@
  const slug=image.getAttribute('data-auto-portrait');
  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug||''))return;
  const controller=new AbortController();
- const stop=setTimeout(()=>controller.abort(),6000);
+ const stop=setTimeout(()=>controller.abort(),12000);
  fetch(API+'/photos/'+encodeURIComponent(slug),{mode:'cors',signal:controller.signal,credentials:'omit'})
   .then(r=>r.ok?r.json():null).then(data=>{
    const candidate=data?.selected;
