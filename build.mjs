@@ -133,6 +133,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 fs.copyFileSync('src/site.css', path.join(OUT, 'assets/site.css'));
 fs.copyFileSync('src/influence-live.js',path.join(OUT,'assets/influence-live.js'));
+if(fs.existsSync('assets/brands'))fs.cpSync('assets/brands',path.join(OUT,'assets/brands'),{recursive:true});
 
 fs.copyFileSync('src/wiki-live.js', path.join(OUT, 'assets/wiki-live.js'));
 
