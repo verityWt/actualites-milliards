@@ -50,4 +50,37 @@
   if(navigator.share){try{await navigator.share({title:'Influence économique – '+select.value,text:'Explorer les réseaux des grandes fortunes',url:link.href});return}catch{}}
   try{await navigator.clipboard.writeText(link.href);status.textContent='Lien copié';}catch{status.textContent=link.href;}
  });
+
+ // Free local watchlist: persisted in the browser, never represented as a paid account or email alert.
+ const watch=document.getElementById('infWatch'),key='actualites.influence.watch.v1';
+ let watchlist=[];
+ try{const parsed=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(parsed))watchlist=parsed.filter(x=>typeof x==='string').slice(0,40);}catch{}
+ function watchStatus(){if(watch){const tracked=watchlist.includes(select.value);watch.textContent=tracked?'Réseau enregistré ✓':'Enregistrer ce réseau';watch.setAttribute('aria-pressed',String(tracked));}}
+ watchStatus();
+ select.addEventListener('change',watchStatus);
+ if(watch)watch.addEventListener('click',()=>{
+  const name=select.value;
+  watchlist=watchlist.includes(name)?watchlist.filter(x=>x!==name):[name,...watchlist].slice(0,40);
+  try{localStorage.setItem(key,JSON.stringify(watchlist));status.textContent=watchlist.includes(name)?'Réseau enregistré sur cet appareil':'Réseau retiré du suivi local';}
+  catch{status.textContent='Enregistrement local indisponible';}
+  watchStatus();
+ });
+ const download=document.getElementById('infDownload');
+ if(download)download.addEventListener('click',()=>{
+  const svg=host.querySelector('svg');
+  if(!svg)return;
+  const clone=svg.cloneNode(true);
+  clone.setAttribute('xmlns',SVG);
+  const title=make('title',{},'Actualites.fr — réseau de '+select.value+' — corpus Forbes 2026');
+  clone.insertBefore(title,clone.firstChild);
+  const footer=make('text',{x:480,y:510,'text-anchor':'middle','font-size':14,fill:'#856b50'},'Actualites.fr · Forbes 2026 · relations documentaires, non juridiques');
+  clone.append(footer);
+  const data=new XMLSerializer().serializeToString(clone);
+  const blob=new Blob([data],{type:'image/svg+xml;charset=utf-8'});
+  const src=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=src;a.download='actualites-reseau-'+select.value.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.svg';
+  document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(src),1000);
+  status.textContent='Graphique exporté avec attribution';
+ });
 })();
