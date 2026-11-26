@@ -19,7 +19,7 @@ Sources à rechercher, dans cet ordre selon le sujet :
 - Wikipédia/Wikidata comme index vers d'autres documents, jamais comme condition préalable au droit d'avoir une biographie.
 - Médias internationaux, langues secondaires et archives avec plusieurs graphies du nom, patronymes composés et translittérations.
 
-La tâche Cloudflare `discoverBatch` continue à traiter quatre profils toutes les quinze minutes. Un module de secours `press-discovery.mjs` interroge **Google News RSS en allemand**, quand Wikipédia ne fournit pas de dossier. Il conserve les titres, médias, dates et liens comme **candidats documentaires**. Le support d'autres langues est prévu dans `queryPlan`, mais leur interrogation automatique n'est pas encore implémentée. Une personne sans candidat Wikidata est réessayée, et non bloquée durablement.
+La tâche Cloudflare `discoverBatch` continue à traiter quatre profils toutes les quinze minutes. Un module de secours `press-discovery.mjs` interroge **Google News RSS dans la langue du pays**, puis en anglais lorsque les premiers résultats sont insuffisants, quand Wikipédia ne fournit pas de dossier. Il conserve les titres, médias, dates et liens comme **candidats documentaires**. Le choix de langue est adapté au pays lorsque celui-ci figure dans la table des locales, avec repli anglais. La collecte est limitée à deux flux par personne. Une personne sans candidat Wikidata est réessayée, et non bloquée durablement.
 
 ## 3. Reconstitution d'une biographie
 
