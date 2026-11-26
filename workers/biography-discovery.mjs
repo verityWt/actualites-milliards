@@ -1,4 +1,4 @@
-import {isAllowedPhotoSlug} from './portrait-auto.mjs';
+import {isAllowedPhotoSlug,researchPortrait} from './portrait-auto.mjs';
 import {discoverPress} from './press-discovery.mjs';
 import {resolveWikipedia} from './wikipedia-profile.mjs';
 // Actualites.fr scheduled biographical *discovery* service.
@@ -144,6 +144,14 @@ export default {
    const history=await env.RESEARCH.get('batch:history',{type:'json'});
    const keys=await env.RESEARCH.list({prefix:'profile:',limit:1000});
    return Response.json({service:'actualites-biography-discovery',state:batch?'batch_completed':(last?.state||'waiting_for_first_cron'),totalProfiles:PEOPLE.length,intervalMinutes:INTERVAL_MINUTES,batchSize:BATCH_SIZE,expectedFullPassHours:Number((PEOPLE.length*INTERVAL_MINUTES/(BATCH_SIZE*60)).toFixed(2)),researchedProfiles:keys.keys.length,last:last||null,lastBatch:batch||null,recentRuns:Array.isArray(history)?history.slice(0,24).map(h=>({runAt:h.runAt,count:h.count,found:h.items.filter(i=>i.wikipedia==='encyclopedic_sources_found').length,errors:h.items.filter(i=>i.state==='error'||i.state==='failed').length,unmatched:h.items.filter(i=>i.state==='no_candidate'||i.wikipedia==='identity_ambiguous').length})):[],publication:'source-attributed-wikipedia-excerpts-with-separate-review',modelsExecutedByService:0},{headers:cors});
+  }
+  if(env.PHOTO_TEST_MODE==='true'&&u.pathname.startsWith('/photos/test/')){
+    const slug=u.pathname.slice('/photos/test/'.length);
+    if(!isAllowedPhotoSlug(slug))return new Response('Not found',{status:404});
+    const bio=await env.RESEARCH.get('profile:'+slug,{type:'json'});
+    const person=PEOPLE.find(p=>p.slug===slug);
+    const result=await researchPortrait(person,bio);
+    return Response.json(result,{headers:cors});
   }
   if(u.pathname==='/photos/status'){
     const keys=await env.RESEARCH.list({prefix:'photo:',limit:1000});
