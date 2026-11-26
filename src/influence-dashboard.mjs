@@ -15,7 +15,7 @@ export function renderInfluenceDashboard(ctx){
  }
  function logo(name){
   const slug=brandIcon(name),fallback=e(name.slice(0,2).toUpperCase());
-  const url=name.toLowerCase()==='walmart'?'https://commons.wikimedia.org/wiki/Special:FilePath/Walmart_spark_(2025).svg':slug?'https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/'+slug+'.svg':null;
+  const local=['google','meta','tether','nvidia'].includes(slug)?asset('influence','assets/brands/'+slug+'.svg'):null; const url=name.toLowerCase()==='walmart'?'https://commons.wikimedia.org/wiki/Special:FilePath/Walmart_spark_(2025).svg':local;
   return '<span class="inf-logo" aria-hidden="true">'+(url?'<img loading="lazy" decoding="async" src="'+e(url)+'" alt="" onload="this.nextElementSibling.style.opacity=0" onerror="this.remove()">':'')+'<span>'+fallback+'</span></span>';
  }
  const groups=dataset.groups.slice(0,14),first=groups[0]||null;
