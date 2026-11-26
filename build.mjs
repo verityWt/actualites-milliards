@@ -6,6 +6,7 @@ import path from 'node:path';
 import { rosette } from './src/guil.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
+import { auditProfiles } from './scripts/research-backlog.mjs';
 import { validateExperimentResults } from './scripts/validate-experiments.mjs';
 import { publicSpeechMetrics, experimentalSensitivity } from './src/behavioral-analysis.mjs';
 validate();
@@ -80,6 +81,7 @@ const byId = Object.fromEntries(P.map(p => [p.id, p]));
 const researchData = JSON.parse(fs.readFileSync('data/biographies-research.json','utf8'));
 const researchQuality = validateResearchProfiles(researchData,P.map(p=>p.id));
 const researchProfiles = researchData.profiles;
+const researchBacklog = auditProfiles(P,researchProfiles);
 const experimentV2 = JSON.parse(fs.readFileSync('data/behavioral-experiments-v2.json','utf8'));
 const experimentalBatch=JSON.parse(fs.readFileSync('data/behavioral-experiments-batch-20261125.json','utf8'));
 if(experimentalBatch.schemaVersion!==1||!Array.isArray(experimentalBatch.runs))throw Error('Invalid experimental batch');
@@ -342,7 +344,7 @@ hubWrite('intelligence','Intelligence Pro — données et recherche',
  hubSection('Explorer la base','Les fonctions réellement disponibles.',[
  ['Base de fortunes','Classement et biographies', 'milliardaires'],['Graphe d’entreprises','Groupes et personnes associés','entreprises'],['Réseaux et dynasties','Transmissions et groupes économiques','influence'],['Risques documentés','Enquêtes et chronologies','risques'],['Prochaine génération','Fortunes jeunes et hors Top 200','next-billionaires'],['Recherche','Filtre sur tous les dossiers','recherche']
  ].map(([title,body,dir])=>'<a class="card" href="'+link('intelligence',dir)+'"><h3>'+esc(title)+'</h3><p>'+esc(body)+'</p></a>').join(''))+
- '<section class="hub-part"><h2>Suivi de la collecte</h2><p>Le moteur Cloudflare parcourt les personnalités répertoriées et récupère des références encyclopédiques et documentaires.</p><p><a href="https://actualites-biography-discovery.actualites-fr-next.workers.dev/status" target="_blank" rel="noopener noreferrer">État des traitements automatiques</a></p><p>Les offres payantes ne sont pas ouvertes.</p></section>'));
+ '<section class="hub-part"><h2>Suivi de la collecte</h2><p>Le moteur Cloudflare parcourt les personnalités répertoriées et récupère des références encyclopédiques et documentaires.</p><p><a href="https://actualites-biography-discovery.actualites-fr-next.workers.dev/status" target="_blank" rel="noopener noreferrer">État des traitements automatiques</a> · <a href="'+asset('intelligence','data/research-backlog.json')+'" target="_blank" rel="noopener noreferrer">Dossiers à documenter (JSON)</a></p><p>Les offres payantes ne sont pas ouvertes.</p></section>'));
 
 // ---------- pages légales ----------
 const LEGAL = JSON.parse(fs.readFileSync('data/legal.json', 'utf8'));
@@ -366,10 +368,11 @@ fs.mkdirSync(path.join(OUT,'data'),{recursive:true});
 const G=graph(P);
 fs.writeFileSync(path.join(OUT,'data/knowledge-graph.json'),JSON.stringify(G));
 fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sources:sources.length,people:P.length,companies:G.nodes.filter(n=>n.type==='company').length,associations:G.edges.length,events:G.events.length,observations:observations.length,candidates:candidates.length,collection:'manual',rankingGrowthAvailable:false}));
+ fs.writeFileSync(path.join(OUT,'data/research-backlog.json'),JSON.stringify(researchBacklog));
  fs.writeFileSync(path.join(OUT,'data/biography-research-coverage.json'),JSON.stringify({totalProfiles:P.length,researchedProfiles:researchQuality.profiles,researchedSections:researchQuality.sections,researchedEvents:researchQuality.events,distinctSourceUrls:researchQuality.uniqueSourceUrls,updatedAt:researchData.updatedAt,method:'Editorial records with direct source links; not automatically corroborated'}));
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
-  const today = '2026-11-24';
+  const today = '2026-11-26';
   const urls = ['', 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);

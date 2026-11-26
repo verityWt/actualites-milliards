@@ -1,3 +1,4 @@
+import {discoverPress} from './press-discovery.mjs';
 import {resolveWikipedia} from './wikipedia-profile.mjs';
 // Actualites.fr scheduled biographical *discovery* service.
 // This module deliberately collects references, not verified facts or psychological profiles.
@@ -49,8 +50,10 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  }
  result.pipelineVersion=4;
  result.fetchedAt=new Date().toISOString();
+ const press=result.status==='encyclopedic_sources_found'?original.pressDiscovery:
+   await discoverPress(person,fetcher);
  // Preserve existing review state and provenance; never publish a candidate as a verified fact.
- await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result}));
+ await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result,pressDiscovery:press}));
  return result;
 }
 // A single write per person keeps free-plan KV consumption bounded.
@@ -60,7 +63,7 @@ export async function researchOne(env,person,at=new Date(),fetcher=fetch){
  const previous=await env.RESEARCH.get(key,{type:'json'});
  const lastAttempt=previous?.attemptedAt?Date.parse(previous.attemptedAt):0;
  if((previous?.state==='candidate_found'||previous?.state==='no_candidate')&&
-    previous?.wikipedia?.pipelineVersion===4&&Date.now()-lastAttempt<24*60*60*1000){
+    (previous?.wikipedia?.status==='encyclopedic_sources_found'||previous?.pressDiscovery?.status==='candidates_found')&&Date.now()-lastAttempt<24*60*60*1000){
     return {person:person.slug,state:'cached',wikipedia:previous.wikipedia.status};
  }
  const record={...(previous||{}),person,attemptedAt:atISO,
@@ -99,6 +102,11 @@ export async function researchOne(env,person,at=new Date(),fetcher=fetch){
        record.wikipedia.pipelineVersion=4;
        record.wikipedia.fetchedAt=new Date().toISOString();
      }
+   }
+   if(!record.wikipedia||record.wikipedia.status!=='encyclopedic_sources_found'){
+     const prev=previous?.pressDiscovery;
+     const age=prev?.attemptedAt?Date.now()-Date.parse(prev.attemptedAt):Infinity;
+     record.pressDiscovery=Number.isFinite(age)&&age<12*60*60*1000?prev:await discoverPress(person,fetcher);
    }
  }catch(error){
    record.state='error';
