@@ -29,3 +29,13 @@ test('Influence group cards display an explicit title, number and associated peo
  assert.match(source,/hub-group-people/);
  assert.match(source,/hub-group-people[^\n]*item\.people\.map/);
 });
+
+test('portrait thumbnails are constrained for every hub profile card',()=>{
+ const css=fs.readFileSync('src/site.css','utf8');
+ assert.match(css,/\.hub-profile>\.g\{[^}]*width:64px;[^}]*height:64px;/);
+ assert.match(css,/\.hub-profile>\.g img,\.hub-profile>\.g svg\{[^}]*max-width:100%;[^}]*max-height:100%;/);
+ assert.match(css,/\.hub-profile>div:not\(\.g\)\{[^}]*min-width:0;/);
+ for(const route of ['influence','next-billionaires']){
+  assert.ok(source.includes("hubCard('"+route+"'"),route+' not using shared constrained portrait card');
+ }
+});
