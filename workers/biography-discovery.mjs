@@ -40,14 +40,14 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
  if(!original)return {status:'not_discovered'};
  const prior=original.wikipedia;
  const age=prior?.fetchedAt?Date.now()-Date.parse(prior.fetchedAt):Number.POSITIVE_INFINITY;
- if(!force&&prior?.pipelineVersion===3&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
+ if(!force&&prior?.pipelineVersion===4&&Number.isFinite(age)&&age<(prior.status==='encyclopedic_sources_found'?7*24*60*60*1000:10*60*1000))return prior;
  let result;
  try{
    result=await resolveWikipedia(person,original.suggestions||[],fetcher);
  }catch(e){
    result={status:'provider_error',error:String(e.message||e).slice(0,160),verified:false};
  }
- result.pipelineVersion=3;
+ result.pipelineVersion=4;
  result.fetchedAt=new Date().toISOString();
  // Preserve existing review state and provenance; never publish a candidate as a verified fact.
  await env.RESEARCH.put(key,JSON.stringify({...original,wikipedia:result}));
@@ -104,7 +104,7 @@ export default {
    }
    // If a prior Cron has resolved this biography, use the cached snapshot.
    const wiki=item.wikipedia;
-   if(!wiki||wiki.pipelineVersion!==3||Date.now()-Date.parse(wiki.fetchedAt)>(wiki.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
+   if(!wiki||wiki.pipelineVersion!==4||Date.now()-Date.parse(wiki.fetchedAt)>(wiki.status==='encyclopedic_sources_found'?7*86400000:10*60000)){
      try{await enrichProfile(env,person);item=await env.RESEARCH.get('profile:'+slug,{type:'json'});}catch{}
    }
    return Response.json(item||{slug,state:'not_processed_yet',verifiedFacts:0},{headers:cors});
