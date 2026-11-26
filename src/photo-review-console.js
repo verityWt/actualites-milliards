@@ -46,30 +46,45 @@
   const photo=document.createElement('img');photo.alt='Photographie candidate de '+entry.name;photo.loading='lazy';photo.decoding='async';
   photoBox.append(photo);card.append(photoBox);
   const info=text('p','','photo-review-source');card.append(info);
+  const sourceLink=document.createElement('a');sourceLink.textContent='Consulter la source de cette photo';
+  sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';sourceLink.hidden=true;
+  card.append(sourceLink);
   const pindex=document.createElement('select');pindex.setAttribute('aria-label','Photographie candidate pour '+entry.name);
   entry.candidates.forEach((c,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent='Photo '+(i+1)+' · '+(c.publisher||'Source non précisée');pindex.append(o)});
+  if(!entry.candidates.length){const o=document.createElement('option');o.value='';o.textContent='Aucune photo candidate';pindex.append(o);pindex.disabled=true;}
   card.append(pindex);
   const known=saved[entry.slug]||{};
-  pindex.value=String(Math.min(entry.candidates.length-1,known.selectedIndex??0));
+  pindex.value=entry.candidates.length?String(Math.min(entry.candidates.length-1,Math.max(0,known.selectedIndex??0))):'';
+  let acceptButton=null;
+  const canAccept=()=>!photo.hidden&&photo.complete&&photo.naturalWidth>0;
+  const updateAccept=()=>{if(acceptButton)acceptButton.disabled=!canAccept()};
   const fill=()=>{
    const candidate=entry.candidates[Number(pindex.value)];
    photo.removeAttribute('src');photo.hidden=!candidate;
+   sourceLink.hidden=!candidate?.source||!/^https:\/\//.test(candidate.source);
+   if(!sourceLink.hidden)sourceLink.href=candidate.source;else sourceLink.removeAttribute('href');
    if(candidate){photo.src=candidate.url;info.textContent=candidate.publisher+' · '+(candidate.license||'Droits non documentés');}
+   else info.textContent='Aucun portrait candidat enregistré pour cette fiche.';
+   updateAccept();
   };
-  photo.addEventListener('error',()=>{photo.removeAttribute('src');photo.hidden=true;info.textContent+=' · image inaccessible';});
+  photo.addEventListener('error',()=>{photo.removeAttribute('src');photo.hidden=true;info.textContent+=' · image inaccessible';updateAccept();});
   photo.addEventListener('load',()=>{
    info.textContent=entry.candidates[Number(pindex.value)]?.publisher+' · '+photo.naturalWidth+'×'+photo.naturalHeight+' px · '+(entry.candidates[Number(pindex.value)]?.license||'Droits non documentés');
+   updateAccept();
   });
   pindex.addEventListener('change',()=>{saved[entry.slug]={...saved[entry.slug],selectedIndex:Number(pindex.value)};store();fill()});fill();
   const actions=document.createElement('div');actions.className='photo-review-actions';
   [['acceptable','Cadrage correct'],['replace','Photo à remplacer'],['wrong_identity','Identité douteuse']].forEach(([value,label])=>{
     const button=document.createElement('button');button.type='button';button.textContent=label;
     button.className=known.decision===value?'selected':'';
-    button.addEventListener('click',()=>{saved[entry.slug]={...saved[entry.slug],decision:value,selectedIndex:Number(pindex.value),reviewedAt:new Date().toISOString()};
+    if(value==='acceptable')acceptButton=button;
+    button.addEventListener('click',()=>{
+      if(value==='acceptable'&&!canAccept())return;
+      saved[entry.slug]={...saved[entry.slug],decision:value,selectedIndex:Number(pindex.value),reviewedAt:new Date().toISOString()};
       store();render()});
     actions.append(button);
   });
-  card.append(actions);
+  card.append(actions);updateAccept();
   const links=document.createElement('div');links.className='photo-review-links';
   [['Voir la fiche','/milliardaires/'+encodeURIComponent(entry.slug)+'/'],['Google Images',entry.google],['LinkedIn',entry.linkedin]].forEach(([label,url])=>{
    const a=document.createElement('a');a.textContent=label;a.href=url;
