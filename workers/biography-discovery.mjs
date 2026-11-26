@@ -58,6 +58,11 @@ export async function enrichProfile(env,person,fetcher=fetch,force=false){
 export async function researchOne(env,person,at=new Date(),fetcher=fetch){
  const key='profile:'+person.slug,atISO=new Date(at).toISOString();
  const previous=await env.RESEARCH.get(key,{type:'json'});
+ const lastAttempt=previous?.attemptedAt?Date.parse(previous.attemptedAt):0;
+ if((previous?.state==='candidate_found'||previous?.state==='no_candidate')&&
+    previous?.wikipedia?.pipelineVersion===4&&Date.now()-lastAttempt<24*60*60*1000){
+    return {person:person.slug,state:'cached',wikipedia:previous.wikipedia.status};
+ }
  const record={...(previous||{}),person,attemptedAt:atISO,
    verifiedFacts:0,analysisStatus:'not_executed',editorialStatus:'pending_independent_review'};
  try{
@@ -109,13 +114,14 @@ export async function discoverBatch(env,at=new Date(),fetcher=fetch){
  const items=settled.map((x,i)=>x.status==='fulfilled'?x.value:
   {person:selected[i].slug,state:'failed',error:String(x.reason).slice(0,120)});
  const summary={runAt:new Date(at).toISOString(),count:items.length,items};
- const history=await env.RESEARCH.get('batch:history',{type:'json'});
- const recent=Array.isArray(history)?history.filter(x=>x.runAt!==summary.runAt):[];
- recent.unshift(summary);
- await Promise.all([
-   env.RESEARCH.put('batch:last',JSON.stringify(summary)),
-   env.RESEARCH.put('batch:history',JSON.stringify(recent.slice(0,24)))
- ]);
+ await env.RESEARCH.put('batch:last',JSON.stringify(summary));
+ // Keep the dashboard history compact: one additional write each hour.
+ if(slotFor(at)%4===0){
+   const history=await env.RESEARCH.get('batch:history',{type:'json'});
+   const recent=Array.isArray(history)?history.filter(x=>x.runAt!==summary.runAt):[];
+   recent.unshift(summary);
+   await env.RESEARCH.put('batch:history',JSON.stringify(recent.slice(0,24)));
+ }
  return summary;
 }
 export default {
