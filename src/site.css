@@ -406,3 +406,18 @@ footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(
 @media(max-width:980px){.inf-hero-grid,.inf-network-panel,.inf-pro{grid-template-columns:1fr}.inf-network-panel aside{border-left:0;border-top:1px solid var(--rule)}.inf-group-grid,.inf-case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.inf-hero-grid{padding-top:40px;padding-bottom:40px}.inf-hero h1{font-size:clamp(46px,12vw,70px)}.inf-hero-feature{padding:22px}.inf-metrics,.inf-charts,.inf-group-grid,.inf-case-grid{grid-template-columns:1fr 1fr}.inf-metrics>div:nth-child(2){border-right:0}.inf-metrics>div:nth-child(-n+2){border-bottom:1px solid var(--rule)}.inf-section-head{display:block}.inf-section-head>p{margin-top:12px}.inf-chart{padding:20px}.inf-case-grid,.inf-group-grid,.inf-charts{grid-template-columns:1fr}.inf-pro{padding:28px}.inf-pro h2{font-size:35px}.inf-network-toolbar select{min-width:175px}}
 @media(prefers-reduced-motion:reduce){.inf-group-button{scroll-behavior:auto}}
+
+/* Intelligence Pro — factual access matrix, never a fake checkout. */
+.inf-pro-actions{display:flex;gap:14px 23px;flex-wrap:wrap;align-items:center;margin-top:22px}
+.inf-pro-actions a{font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.inf-pro-actions .inf-primary{background:#c9a56d;color:#1c1213;border-radius:6px;padding:12px 19px;text-decoration:none}
+.inf-offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.inf-offers article{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:30px}
+.inf-offers h3{font:600 36px/1.1 "Bodoni Moda",Georgia,serif;margin:12px 0}
+.inf-offers article>p:not(.inf-overline){font-size:14px;color:var(--muted)}
+.inf-offers ul{list-style:none;padding:0;margin:20px 0 25px}
+.inf-offers li{font-size:14px;line-height:1.55;padding:13px 0;border-bottom:1px solid var(--rule)}
+.inf-offers li:before{content:'✓';margin-right:12px;color:#987748;font-weight:900}
+.inf-offers article>a{font-weight:750;font-size:14px;display:inline-flex;padding:12px 16px;border:1px solid var(--gold);border-radius:6px;text-decoration:none}
+.inf-offers article>a:hover{background:rgba(195,153,95,.1)}
+@media(max-width:700px){.inf-offers{grid-template-columns:1fr}}
