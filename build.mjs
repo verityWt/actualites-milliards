@@ -307,6 +307,20 @@ const influenceDashboard=renderInfluenceDashboard({people:P,companyGroups,resear
 hubWrite('influence','Influence économique, dynasties et réseaux',
  'Graphiques, réseaux économiques, entreprises et décisions publiques des grandes fortunes.',influenceDashboard.html);
 
+const influenceNetworkPages=companyGroups.filter(g=>g.people.length>=2).slice(0,14).map(group=>{
+ const route='influence/reseaux/'+slugify(group.name);
+ const peopleRows=group.people.map(p=>'<a class="card hub-profile" href="'+link(route,'milliardaires/'+p.id)+'">'+medal(p,64,route)+'<div><h3>'+esc(fullName(p))+'</h3><p>'+esc([p.country,SEC[p.sec],p.orig==='herit'?'Fortune héritée':p.orig==='mix'?'Origine mixte':p.orig==='self'?'Création personnelle':null].filter(Boolean).join(' · '))+'</p><strong>'+esc(nwTxt(p))+'</strong></div></a>').join('');
+ const title=group.name+' : réseau de '+group.people.length+' grandes fortunes';
+ const intro='Explorez les '+group.people.length+' personnes du classement Forbes 2026 associées au groupe '+group.name+', leurs fortunes estimées, pays et biographies.';
+ const body=hubHead('LE RÉSEAU / '+group.name,title,intro)+
+  hubWrap('<div class="hub-metrics"><div><b>'+group.people.length+'</b><span>profils associés à ce groupe</span></div><div><b>'+new Set(group.people.map(p=>p.country)).size+'</b><span>pays représentés dans ce sous-ensemble</span></div></div>'+
+  '<section class="hub-part"><h2>Les personnalités liées à '+esc(group.name)+'</h2><p>Relations issues de noms d’entreprises recensés dans le classement. Les fonctions, participations et appartenances familiales sont à préciser dans chaque biographie.</p><div class="grid hub-cards">'+peopleRows+'</div></section>'+
+  '<section class="hub-part"><h2>Explorer et comparer</h2><p>Comparez ce groupe aux autres réseaux identifiés, consultez les documents de ses membres et partagez cette sélection.</p><div class="inf-pro-actions"><a class="inf-primary" href="'+link(route,'influence')+'?g='+encodeURIComponent(group.name)+'#reseaux">Voir le graphe interactif</a><a href="'+link(route,'entreprises')+'">Toutes les entreprises</a></div></section>');
+ write(route,page({from:route,title:title+' · Actualites.fr',desc:intro,canonical:route+'/',body}));
+ return route;
+});
+
+
 const riskEntries=[];
 for(const p of P){const r=researchProfiles[p.id]?.personal?.documentedRisks||[];for(const e of r){if(e.heading&&e.body&&/^https:\/\//.test(e.source||''))riskEntries.push({person:p,item:e})}}
 const governanceEvents=[...timeline('elon-musk'),...timeline('thomas-frist-jr')].filter(x=>x.type==='governance');
@@ -373,7 +387,7 @@ fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sour
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   const today = '2026-11-26';
-  const urls = ['', 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
