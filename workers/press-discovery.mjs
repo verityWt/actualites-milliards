@@ -28,17 +28,46 @@ export function parsePressRSS(xml,person){
  }
  return output;
 }
+const NEWS_LOCALES={
+ 'Allemagne':['de','DE'],'Autriche':['de','AT'],'Suisse':['de','CH'],
+ 'France':['fr','FR'],'Belgique':['fr','BE'],'États-Unis':['en','US'],'Royaume-Uni':['en','GB'],
+ 'Inde':['en','IN'],'Japon':['ja','JP'],'Chine':['zh-CN','CN'],'Italie':['it','IT'],
+ 'Espagne':['es','ES'],'Mexique':['es','MX'],'Brésil':['pt-BR','BR'],'Canada':['en','CA'],
+ 'Russie':['ru','RU'],'Australie':['en','AU'],'Corée du Sud':['ko','KR'],'Pays-Bas':['nl','NL']
+};
+export const pressLocale=country=>NEWS_LOCALES[country]||['en','US'];
 export async function discoverPress(person,fetcher=fetch){
- const name=safeName(person.name);
- if(name.length<5)return {status:'invalid_name',items:[],attemptedAt:new Date().toISOString()};
+ const name=safeName(person.name),attemptedAt=new Date().toISOString();
+ if(name.length<5)return {status:'invalid_name',items:[],attemptedAt};
  const query='"'+name+'"';
- const request='https://news.google.com/rss/search?'+new URLSearchParams({q:query,hl:'de',gl:'DE',ceid:'DE:de'}).toString();
- try{
-  const response=await fetcher(request,{headers:{Accept:'application/rss+xml, application/xml, text/xml','User-Agent':'ActualitesFR-Research/0.4 (contact@actualites.fr)'},signal:AbortSignal.timeout(9000)});
-  if(!response.ok)throw Error('RSS HTTP '+response.status);
-  const xml=(await response.text()).slice(0,160000);
-  if(!xml.includes('<rss')&&!xml.includes('<item>'))throw Error('Unexpected feed response');
-  const items=parsePressRSS(xml,person);
-  return {status:items.length?'candidates_found':'no_matching_articles',items,source:'https://news.google.com/',query,attemptedAt:new Date().toISOString()};
- }catch(error){return {status:'feed_unavailable',items:[],error:String(error?.message||error).slice(0,120),attemptedAt:new Date().toISOString()}}
+ const preferred=pressLocale(person.country);
+ const attempts=[preferred];
+ if(preferred[0]!=='en')attempts.push(['en','US']);
+ const all=[],tried=[],errors=[];
+ for(const [language,country] of attempts){
+  const request='https://news.google.com/rss/search?'+new URLSearchParams({
+    q:query,hl:language,gl:country,ceid:country+':'+language
+  }).toString();
+  tried.push(language+'-'+country);
+  try{
+   const response=await fetcher(request,{
+    headers:{Accept:'application/rss+xml, application/xml, text/xml','User-Agent':'ActualitesFR-Research/0.4 (contact@actualites.fr)'},
+    signal:AbortSignal.timeout(9000)});
+   if(!response.ok)throw Error('RSS HTTP '+response.status);
+   const xml=(await response.text()).slice(0,160000);
+   if(!xml.includes('<rss')&&!xml.includes('<item>'))throw Error('Unexpected feed response');
+   const items=parsePressRSS(xml,person);
+   all.push(...items);
+   if(all.length>=3)break;
+  }catch(error){errors.push(String(error?.message||error).slice(0,100))}
+ }
+ const uniq=[],seen=new Set();
+ for(const x of all){
+  const k=x.title.toLowerCase();
+  if(!seen.has(k)){seen.add(k);uniq.push(x);}
+  if(uniq.length>=8)break;
+ }
+ return {status:uniq.length?'candidates_found':errors.length===tried.length?'feed_unavailable':'no_matching_articles',
+  items:uniq,source:'https://news.google.com/',query,languagesTried:tried,
+  ...(errors.length?{providerErrors:errors}:{}),attemptedAt};
 }
