@@ -165,7 +165,21 @@ export default {
     const slug=u.pathname.slice('/photos/'.length);
     if(!isAllowedPhotoSlug(slug))return new Response('Not found',{status:404});
     const result=await env.RESEARCH.get('photo:'+slug,{type:'json'});
-    return Response.json(result||{slug,status:'not_processed_yet',selected:null},{headers:cors});
+    if(result)return Response.json(result,{headers:{...cors,'Cache-Control':'public,max-age=600'}});
+    // A visitor can populate a temporary edge cache without using scarce KV writes.
+    const cache=typeof caches!=='undefined'?caches.default:null;
+    const cacheKey=new Request('https://actualites-biography-discovery.actualites-fr-next.workers.dev/photos-cache/'+slug);
+    const cached=cache?await cache.match(cacheKey):null;
+    if(cached)return cached;
+    const person=PEOPLE.find(p=>p.slug===slug);
+    const bio=await env.RESEARCH.get('profile:'+slug,{type:'json'});
+    if(!bio?.wikipedia||bio.wikipedia.status!=='encyclopedic_sources_found')
+      return Response.json({slug,status:'awaiting_encyclopedic_identity',selected:null},{headers:{...cors,'Cache-Control':'public,max-age=300'}});
+    const live=await researchPortrait(person,bio);
+    const ttl=live.selected?86400:3600;
+    const response=Response.json(live,{headers:{...cors,'Cache-Control':'public,max-age='+ttl}});
+    if(cache){try{await cache.put(cacheKey,response.clone())}catch{}}
+    return response;
   }
   if(u.pathname.startsWith('/profiles/')){
    const slug=u.pathname.slice('/profiles/'.length);
