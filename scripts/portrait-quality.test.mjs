@@ -75,3 +75,21 @@ test('photo review console renders source candidates and exports decisions witho
  assert.match(js,/Exporter|exportedAt/);
  assert.match(js,/republication|droits|droits/i);
 });
+
+test('Unrelated gallery media cannot become a person's portrait',()=>{
+ const galleryOnly={type:'event',src:'https://example.com/award-ceremony.jpg'};
+ assert.equal(pickPortrait([galleryOnly]),null);
+ assert.deepEqual(portraitCandidates([galleryOnly]),[]);
+ const row=photoReviewQueue({'sample-person':[galleryOnly]})[0];
+ assert.equal(row.selectedUrl,null);
+ assert.ok(row.issues.includes('missing_photo'));
+});
+test('Photo review requires a loaded image for framing approval and exposes its provenance',()=>{
+ const js=fs.readFileSync('src/photo-review-console.js','utf8');
+ assert.match(js,/const canAccept=.*photo\.naturalWidth>0/);
+ assert.match(js,/acceptButton\.disabled=!canAccept\(\)/);
+ assert.match(js,/if\(value==='acceptable'&&!canAccept\(\)\)return/);
+ assert.match(js,/Aucune photo candidate/);
+ assert.match(js,/candidate\?\.source/);
+ assert.match(js,/Consulter la source de cette photo/);
+});
