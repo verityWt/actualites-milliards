@@ -1,3 +1,4 @@
+import {sourcePreviews} from './publisher-previews.mjs';
 // Wikimedia reference retrieval. Content remains explicitly attributed to its publishers.
 // Never treat an API search suggestion as verified identity.
 const USER_AGENT='ActualitesFR-Research/0.2 (contact@actualites.fr; biographical reference research)';
@@ -144,6 +145,7 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
  }
  if(!pages.length)return {status:'wikipedia_unavailable',wikidataId:suggestion.wikidataId,verified:false};
  const [supplementary,topicSections,wikidataFacts]=await Promise.all([enTitle?supplementaryLinks(enTitle,'en',fetcher):Promise.resolve([]),detailedWikipediaSections(frTitle||enTitle,frTitle?'fr':'en',fetcher),publicWikidataFacts({...item,id:suggestion.wikidataId},fetcher)]);
+ const publisherCards=await sourcePreviews(supplementary,fetcher);
  const official=(item.claims?.P856||[]).map(x=>x.mainsnak?.datavalue?.value).filter(v=>{
   if(typeof v!=='string')return false;
   try{return new URL(v).protocol==='https:'}catch{return false}
@@ -152,6 +154,6 @@ export async function resolveWikipedia(person,suggestions,fetcher=fetch){
    wikidataUrl:'https://www.wikidata.org/wiki/'+suggestion.wikidataId,
    label:item.labels?.fr?.value||item.labels?.en?.value||suggestion.label,
    description:item.descriptions?.fr?.value||item.descriptions?.en?.value||suggestion.description,
-   pages,officialWebsites:official,supplementarySources:supplementary,topicSections,wikidataFacts,verified:false,
+   pages,officialWebsites:official,supplementarySources:supplementary,publisherCards,topicSections,wikidataFacts,verified:false,
    disclaimer:'Articles encyclopédiques associés à une proposition d’identité ; les faits n’ont pas encore été recoupés par la rédaction.'};
 }
