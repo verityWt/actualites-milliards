@@ -123,7 +123,7 @@ const fullName = p => p.name + (p.fam ? ' et sa famille' : '');
 const meta = p => [p.co || SEC[p.sec], p.country, p.age ? p.age + ' ans' : (p.born ? (p.g === 'f' ? 'née' : 'né') + ' en ' + p.born : '')].filter(Boolean).join(' · ');
 const card = (from, p) => `<a class="card pcard" href="${link(from, 'milliardaires/' + p.id)}">${p.rank ? `<span class="rk">N° ${p.rank}</span>` : ''}${medal(p, 64, from)}<div><div class="nm">${esc(fullName(p))}</div><div class="meta">${esc(meta(p))}</div><div class="nw" style="margin-top:6px">${nwTxt(p)}</div></div></a>`;
 
-const header = from => `<header class="top"><div class="in"><a class="logo" href="${home(from)}">Actualites<span>.fr</span></a><nav class="nav" aria-label="Rubriques"><a href="${link(from, 'milliardaires')}">Fortunes</a><a href="${link(from, 'entreprises')}">Entreprises</a><a href="${link(from, 'influence')}">Influence</a><a href="${link(from, 'risques')}">Risques</a><a href="${link(from, 'next-billionaires')}">Next Billionaires</a><a href="${link(from, 'recherche')}">Recherche</a><a class="hot" href="${link(from, 'intelligence')}">Intelligence Pro</a></nav></div><aside class="wealth-monitor" aria-label="Thèmes de veille des grandes fortunes"><div class="wm-line"><div class="wm-label">Classements</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'milliardaires')}">Grandes fortunes mondiales</a> · <a href="${link(from,'milliardaires/france')}">France</a> · <a href="${link(from,'milliardaires/femmes')}">Femmes milliardaires</a> · <a href="${link(from,'milliardaires/moins-de-40-ans')}">Jeunes fortunes</a> · <a href="${home(from,'methode')}">Méthodologie et sources</a></span><span aria-hidden="true" inert><a href="${link(from,'milliardaires')}">Grandes fortunes mondiales</a> · <a href="${link(from,'milliardaires/france')}">France</a> · <a href="${link(from,'milliardaires/femmes')}">Femmes milliardaires</a> · <a href="${link(from,'milliardaires/moins-de-40-ans')}">Jeunes fortunes</a> · <a href="${home(from,'methode')}">Méthodologie et sources</a></span></div></div></div><div class="wm-line"><div class="wm-label">Entreprises</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'recherche')}">Technologie · LVMH · Tesla · Amazon · Finance · Distribution · Énergie · Immobilier</a></span><span aria-hidden="true" inert><a href="${link(from,'recherche')}">Technologie · LVMH · Tesla · Amazon · Finance · Distribution · Énergie · Immobilier</a></span></div></div></div><div class="wm-line"><div class="wm-label">Dossiers et risques</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'milliardaires')}">Classement Forbes 2026</a> · Gouvernance · Successions · Conflits d’intérêts · Risques économiques</span><span aria-hidden="true" inert><a href="${link(from,'milliardaires')}">Classement Forbes 2026</a> · Gouvernance · Successions · Conflits d’intérêts · Risques économiques</span></div></div></div><div class="wm-controls"><button type="button" id="wm-pause" aria-pressed="false">Pause</button></div></aside></header><script>{const b=document.getElementById("wm-pause");b.addEventListener("click",()=>{const p=b.closest(".wealth-monitor").toggleAttribute("data-paused");b.setAttribute("aria-pressed",String(p));b.textContent=p?"Reprendre":"Pause"})}</script>`;
+const header = from => `<header class="top"><div class="in"><a class="logo" href="${home(from)}">Actualites<span>.fr</span></a><nav class="nav" aria-label="Rubriques"><a href="${link(from, 'milliardaires')}">Fortunes</a><a href="${link(from, 'fortunes-invisibles')}">Fortunes invisibles</a><a href="${link(from, 'entreprises')}">Entreprises</a><a href="${link(from, 'influence')}">Influence</a><a href="${link(from, 'risques')}">Risques</a><a href="${link(from, 'next-billionaires')}">Next Billionaires</a><a href="${link(from, 'recherche')}">Recherche</a><a class="hot" href="${link(from, 'intelligence')}">Intelligence Pro</a></nav></div><aside class="wealth-monitor" aria-label="Thèmes de veille des grandes fortunes"><div class="wm-line"><div class="wm-label">Classements</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'milliardaires')}">Grandes fortunes mondiales</a> · <a href="${link(from,'milliardaires/france')}">France</a> · <a href="${link(from,'milliardaires/femmes')}">Femmes milliardaires</a> · <a href="${link(from,'milliardaires/moins-de-40-ans')}">Jeunes fortunes</a> · <a href="${home(from,'methode')}">Méthodologie et sources</a></span><span aria-hidden="true" inert><a href="${link(from,'milliardaires')}">Grandes fortunes mondiales</a> · <a href="${link(from,'milliardaires/france')}">France</a> · <a href="${link(from,'milliardaires/femmes')}">Femmes milliardaires</a> · <a href="${link(from,'milliardaires/moins-de-40-ans')}">Jeunes fortunes</a> · <a href="${home(from,'methode')}">Méthodologie et sources</a></span></div></div></div><div class="wm-line"><div class="wm-label">Entreprises</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'recherche')}">Technologie · LVMH · Tesla · Amazon · Finance · Distribution · Énergie · Immobilier</a></span><span aria-hidden="true" inert><a href="${link(from,'recherche')}">Technologie · LVMH · Tesla · Amazon · Finance · Distribution · Énergie · Immobilier</a></span></div></div></div><div class="wm-line"><div class="wm-label">Dossiers et risques</div><div class="wm-window"><div class="wm-track"><span><a href="${link(from,'milliardaires')}">Classement Forbes 2026</a> · Gouvernance · Successions · Conflits d’intérêts · Risques économiques</span><span aria-hidden="true" inert><a href="${link(from,'milliardaires')}">Classement Forbes 2026</a> · Gouvernance · Successions · Conflits d’intérêts · Risques économiques</span></div></div></div><div class="wm-controls"><button type="button" id="wm-pause" aria-pressed="false">Pause</button></div></aside></header><script>{const b=document.getElementById("wm-pause");b.addEventListener("click",()=>{const p=b.closest(".wealth-monitor").toggleAttribute("data-paused");b.setAttribute("aria-pressed",String(p));b.textContent=p?"Reprendre":"Pause"})}</script>`;
 const footer = from => `<footer class="band"><div class="in cols"><div><div class="logo" style="color:#f5ede3">Actualites<span>.fr</span></div><p style="margin-top:8px">Global Billionaire Intelligence — fortunes, pouvoir, influence et risques.</p></div><div><b style="color:#f5ede3">Classements</b><p><a href="${link(from, 'milliardaires')}">Les 200 plus grandes fortunes</a><br><a href="${link(from, 'milliardaires/femmes')}">Les femmes milliardaires</a><br><a href="${link(from, 'milliardaires/france')}">Les milliardaires français</a><br><a href="${link(from, 'milliardaires/moins-de-40-ans')}">Les milliardaires de moins de 40 ans</a></p></div><div><b style="color:#f5ede3">Méthode</b><p>Fortunes : ${esc(SRC_FORBES)} ; Challenges 2026 pour la France. <a href="${home(from, 'methode')}">Méthodologie et corrections</a>.</p></div><div><b style="color:#f5ede3">Éditeur</b><p>Édité par DeepSci Labs<br><a href="${link(from, 'mentions-legales')}">Mentions légales</a><br><a href="${link(from, 'cgu')}">Conditions d'utilisation</a><br><a href="${link(from, 'confidentialite')}">Confidentialité</a><br><a href="${link(from,'contact')}?objet=correction">Signaler une erreur ou contacter la rédaction</a></p></div></div></footer>`;
 const page = ({ from, title, desc, canonical, body, jsonld = [] }) => `<!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -478,6 +478,7 @@ let homeHtml = fs.readFileSync('src/home.html', 'utf8')
   .replace('/*__DATA__*/', `window.__P=${JSON.stringify(DATA).replace(/</g, '\\u003c')};window.__SEC=${JSON.stringify(SEC)};window.__INK=${JSON.stringify(INK)};window.rosette=${rosette.toString()};window.__COL=${JSON.stringify(COL)};window.__PROFILE=${JSON.stringify(PREVIEW ? 'milliardaires/{id}/index.html' : '/milliardaires/{id}/')};window.__LINK=${JSON.stringify({ all: link('', 'milliardaires'), femmes: link('', 'milliardaires/femmes'), france: link('', 'milliardaires/france'), jeunes: link('', 'milliardaires/moins-de-40-ans') })};`)
   .replaceAll('__CSS__', asset('', 'assets/site.css'));
 for (const [k, v] of Object.entries({ __L_ALL__: link('', 'milliardaires'), __L_FEMMES__: link('', 'milliardaires/femmes'), __L_FRANCE__: link('', 'milliardaires/france'), __L_JEUNES__: link('', 'milliardaires/moins-de-40-ans'), __L_ENTREPRISES__: link('', 'entreprises'), __L_INFLUENCE__: link('', 'influence'), __L_RISQUES__: link('', 'risques'), __L_NEXT__: link('', 'next-billionaires'), __L_RECHERCHE__: link('', 'recherche'), __L_INTELLIGENCE__: link('', 'intelligence'), __L_CONTACT__: link('', 'contact'), __L_ML__: link('', 'mentions-legales'), __L_CGU__: link('', 'cgu'), __L_CONF__: link('', 'confidentialite') })) homeHtml = homeHtml.replaceAll(k, v);
+homeHtml = homeHtml.replace('<a href="'+link('', 'entreprises')+'">Entreprises</a>', '<a href="'+link('', 'fortunes-invisibles')+'">Fortunes invisibles</a><a href="'+link('', 'entreprises')+'">Entreprises</a>');
 fs.writeFileSync(path.join(OUT, 'index.html'), homeHtml);
 write('pendant-que-vous-lisez', page({from:'pendant-que-vous-lisez',title:'Actualites.fr — Recherche',desc:'Retrouvez les dossiers sur les grandes fortunes.',canonical:'pendant-que-vous-lisez/',body:`<div class="band"><div class="in"><h1>Cette rubrique a été retirée</h1><p>Retrouvez les dossiers et comparaisons économiques.</p><a class="btn" href="${home('pendant-que-vous-lisez','finder')}">Explorer les fortunes</a></div></div>`}));
 if (fs.existsSync('src/_headers') && !PREVIEW) fs.copyFileSync('src/_headers', path.join(OUT, '_headers'));
@@ -490,10 +491,402 @@ fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sour
  fs.writeFileSync(path.join(OUT,'data/research-backlog.json'),JSON.stringify(researchBacklog));
 fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photoAudit(PHOTOS),generatedAt:new Date().toISOString()}));
  fs.writeFileSync(path.join(OUT,'data/biography-research-coverage.json'),JSON.stringify({totalProfiles:P.length,researchedProfiles:researchQuality.profiles,researchedSections:researchQuality.sections,researchedEvents:researchQuality.events,distinctSourceUrls:researchQuality.uniqueSourceUrls,updatedAt:researchData.updatedAt,method:'Editorial records with direct source links; not automatically corroborated'}));
+
+ // ---------- Fortunes invisibles : catalogue documentaire distinct du classement Forbes ----------
+ const hiddenCategories = [
+  [
+    "monarchies",
+    "Monarchies et dynasties royales",
+    [
+      [
+        "rama-x",
+        "Maha Vajiralongkorn (Rama X)",
+        "Thaïlande",
+        "Patrimoine personnel et biens historiquement associés à la Couronne",
+        "Distinguer propriété juridique, droits de contrôle, participations cotées et immobilier ; établir les changements de statut du Crown Property Bureau.",
+        "https://www.set.or.th/en/home"
+      ],
+      [
+        "al-nahyan",
+        "Dynastie Al Nahyan",
+        "Émirats arabes unis",
+        "Patrimoine familial et actifs institutionnels distincts",
+        "Identifier les holdings privées et séparer les fonds souverains d’Abou Dhabi.",
+        "https://www.adia.ae/"
+      ],
+      [
+        "al-saoud",
+        "Dynastie Al Saoud",
+        "Arabie saoudite",
+        "Patrimoine familial",
+        "Distinguer les actifs privés des recettes publiques et du PIF.",
+        "https://www.pif.gov.sa/en/"
+      ],
+      [
+        "al-thani",
+        "Dynastie Al Thani",
+        "Qatar",
+        "Patrimoine familial",
+        "Distinguer les sociétés privées et les investissements de la Qatar Investment Authority.",
+        "https://www.qia.qa/"
+      ],
+      [
+        "al-maktoum",
+        "Dynastie Al Maktoum",
+        "Émirats arabes unis",
+        "Patrimoine familial",
+        "Séparer les avoirs privés des actifs du gouvernement de Dubaï.",
+        "https://icd.gov.ae/"
+      ],
+      [
+        "bolkiah",
+        "Dynastie Bolkiah",
+        "Brunei",
+        "Patrimoine royal",
+        "Documenter les biens privés et distinguer les réserves publiques.",
+        "https://www.mofe.gov.bn/"
+      ],
+      [
+        "liechtenstein",
+        "Maison de Liechtenstein",
+        "Liechtenstein",
+        "Patrimoine dynastique",
+        "Étudier la propriété de LGT et distinguer ses actifs propres des capitaux de ses clients.",
+        "https://www.lgt.com/"
+      ],
+      [
+        "windsor",
+        "Maison Windsor",
+        "Royaume-Uni",
+        "Biens privés, duchés et biens de la Couronne",
+        "Ne pas assimiler le Crown Estate à une fortune personnelle du souverain.",
+        "https://www.thecrownestate.co.uk/"
+      ],
+      [
+        "alaouite",
+        "Dynastie alaouite",
+        "Maroc",
+        "Patrimoine familial et participations",
+        "Identifier les participations documentées et leurs bénéficiaires juridiques.",
+        "https://www.almada.ma/"
+      ],
+      [
+        "al-sabah",
+        "Dynastie Al Sabah",
+        "Koweït",
+        "Patrimoine familial",
+        "Distinguer les biens privés des actifs gérés par la Kuwait Investment Authority.",
+        "https://www.kia.gov.kw/"
+      ],
+      [
+        "al-khalifa",
+        "Dynastie Al Khalifa",
+        "Bahreïn",
+        "Patrimoine familial",
+        "Distinguer patrimoine privé et actifs publics ou souverains.",
+        "https://www.mumtalakat.bh/"
+      ],
+      [
+        "grimaldi",
+        "Maison Grimaldi",
+        "Monaco",
+        "Patrimoine dynastique",
+        "Identifier les titres de propriété et distinguer patrimoine princier et patrimoine de l’État.",
+        "https://www.palais.mc/"
+      ]
+    ]
+  ],
+  [
+    "familles",
+    "Familles milliardaires",
+    [
+      [
+        "rothschild",
+        "Familles Rothschild",
+        "International",
+        "Patrimoines familiaux distincts",
+        "Étudier les branches et sociétés séparément, sans leur attribuer une fortune mondiale agrégée non documentée.",
+        "https://www.rothschildandco.com/"
+      ],
+      [
+        "rockefeller",
+        "Famille Rockefeller",
+        "États-Unis",
+        "Patrimoine familial",
+        "Distinguer les véhicules privés des fondations indépendantes.",
+        "https://www.rockefellerfoundation.org/"
+      ],
+      [
+        "walton",
+        "Famille Walton",
+        "États-Unis",
+        "Participations familiales",
+        "Éviter le double comptage avec les membres du classement individuel.",
+        "https://stock.walmart.com/"
+      ]
+    ]
+  ],
+  [
+    "trusts",
+    "Trusts et structures patrimoniales",
+    [
+      [
+        "wellcome-trust",
+        "Wellcome Trust",
+        "Royaume-Uni",
+        "Dotation et actifs de bienfaisance",
+        "Examiner les comptes consolidés et les restrictions d’affectation.",
+        "https://wellcome.org/"
+      ],
+      [
+        "trusts-familiaux",
+        "Trusts familiaux et dynastiques",
+        "International",
+        "Actifs détenus en fiducie",
+        "Distinguer constituant, trustee, bénéficiaires et droits économiques ; aucun montant agrégé sans périmètre défini.",
+        "https://www.fatf-gafi.org/"
+      ]
+    ]
+  ],
+  [
+    "fonds-souverains",
+    "Fonds souverains",
+    [
+      [
+        "nbim",
+        "Government Pension Fund Global",
+        "Norvège",
+        "Actifs publics sous gestion",
+        "Retenir la valeur officielle du fonds à une date déterminée.",
+        "https://www.nbim.no/"
+      ],
+      [
+        "pif",
+        "Public Investment Fund",
+        "Arabie saoudite",
+        "Actifs souverains sous gestion",
+        "Examiner les rapports annuels et le périmètre consolidé.",
+        "https://www.pif.gov.sa/en/"
+      ],
+      [
+        "adia",
+        "Abu Dhabi Investment Authority",
+        "Émirats arabes unis",
+        "Actifs souverains sous gestion",
+        "Distinguer chiffres publiés et estimations externes.",
+        "https://www.adia.ae/"
+      ],
+      [
+        "qia",
+        "Qatar Investment Authority",
+        "Qatar",
+        "Actifs souverains sous gestion",
+        "Identifier les participations et les chiffres officiellement publiés.",
+        "https://www.qia.qa/"
+      ],
+      [
+        "mubadala",
+        "Mubadala",
+        "Émirats arabes unis",
+        "Actifs et investissements souverains",
+        "Examiner les comptes et les actifs sous gestion.",
+        "https://www.mubadala.com/"
+      ],
+      [
+        "kia",
+        "Kuwait Investment Authority",
+        "Koweït",
+        "Actifs souverains sous gestion",
+        "Identifier les fonds et leurs mandats distincts.",
+        "https://www.kia.gov.kw/"
+      ]
+    ]
+  ],
+  [
+    "etats",
+    "États et patrimoines publics",
+    [
+      [
+        "chine",
+        "Chine",
+        "Chine",
+        "Actifs publics, réserves et passifs",
+        "Séparer réserves de change, entreprises publiques, dette et patrimoine net.",
+        "https://www.safe.gov.cn/en/"
+      ],
+      [
+        "arabie-saoudite",
+        "Arabie saoudite",
+        "Arabie saoudite",
+        "Patrimoine public et ressources naturelles",
+        "Distinguer réserves, recettes budgétaires, dette et actifs souverains.",
+        "https://www.mof.gov.sa/en/"
+      ],
+      [
+        "qatar",
+        "Qatar",
+        "Qatar",
+        "Patrimoine public et ressources naturelles",
+        "Séparer actifs publics, recettes énergétiques et investissements souverains.",
+        "https://www.mof.gov.qa/"
+      ]
+    ]
+  ],
+  [
+    "fondations",
+    "Fondations et institutions religieuses",
+    [
+      [
+        "gates-foundation",
+        "Gates Foundation",
+        "États-Unis",
+        "Actifs de bienfaisance",
+        "Examiner les comptes publiés et distinguer les dons annuels des actifs.",
+        "https://www.gatesfoundation.org/"
+      ],
+      [
+        "saint-siege",
+        "Saint-Siège",
+        "Vatican",
+        "Actifs et comptes institutionnels",
+        "Ne pas confondre Saint-Siège, État de la Cité du Vatican, diocèses et ordres religieux.",
+        "https://www.vatican.va/"
+      ],
+      [
+        "eglise-saints-derniers-jours",
+        "Église de Jésus-Christ des saints des derniers jours",
+        "États-Unis",
+        "Actifs institutionnels et fonds d’investissement",
+        "Distinguer patrimoine institutionnel, dons et actifs des entités déclarantes.",
+        "https://www.sec.gov/edgar/search/"
+      ]
+    ]
+  ],
+  [
+    "empires-prives",
+    "Empires financiers privés",
+    [
+      [
+        "blackrock",
+        "BlackRock",
+        "États-Unis",
+        "Capitaux sous gestion",
+        "Les actifs des clients ne constituent pas le patrimoine propre de BlackRock.",
+        "https://ir.blackrock.com/"
+      ],
+      [
+        "vanguard",
+        "Vanguard",
+        "États-Unis",
+        "Capitaux sous gestion",
+        "Documenter les actifs des fonds et leur structure de propriété.",
+        "https://corporate.vanguard.com/"
+      ],
+      [
+        "state-street",
+        "State Street",
+        "États-Unis",
+        "Capitaux sous gestion et conservation",
+        "Ne pas additionner actifs sous gestion et actifs conservés.",
+        "https://investors.statestreet.com/"
+      ],
+      [
+        "cargill",
+        "Cargill",
+        "États-Unis",
+        "Entreprise non cotée",
+        "Distinguer chiffre d’affaires, valorisation estimée et patrimoine des actionnaires.",
+        "https://www.cargill.com/"
+      ],
+      [
+        "pontegadea",
+        "Pontegadea",
+        "Espagne",
+        "Holding patrimoniale",
+        "Étudier les comptes et participations sans les additionner à la fortune individuelle correspondante.",
+        "https://www.pontegadea.com/"
+      ]
+    ]
+  ],
+  [
+    "institutions-strategiques",
+    "Organisations stratégiques et renseignement",
+    [
+      [
+        "cia",
+        "Central Intelligence Agency (CIA)",
+        "États-Unis",
+        "Budget public ; ventilation partiellement classifiée",
+        "Ne publier que les crédits ou agrégats officiellement divulgués ; ne pas assimiler le budget national du renseignement au budget de la CIA.",
+        "https://www.dni.gov/"
+      ],
+      [
+        "fbi",
+        "Federal Bureau of Investigation (FBI)",
+        "États-Unis",
+        "Crédits budgétaires publics",
+        "Étudier les demandes et crédits votés, distincts du patrimoine.",
+        "https://www.justice.gov/jmd/budget-and-performance"
+      ],
+      [
+        "mi6",
+        "Secret Intelligence Service (MI6)",
+        "Royaume-Uni",
+        "Ressources publiques ; détail limité",
+        "Distinguer le budget agrégé des services de renseignement et les crédits propres au SIS.",
+        "https://www.gov.uk/"
+      ],
+      [
+        "dgse",
+        "Direction générale de la sécurité extérieure (DGSE)",
+        "France",
+        "Crédits publics ; détail limité",
+        "Étudier les documents budgétaires sans inférer de ressources classifiées.",
+        "https://www.budget.gouv.fr/"
+      ],
+      [
+        "fmi",
+        "Fonds monétaire international",
+        "International",
+        "Ressources et capacité de prêt",
+        "Distinguer quotes-parts, emprunts et capacité de financement.",
+        "https://www.imf.org/"
+      ],
+      [
+        "banque-mondiale",
+        "Banque mondiale",
+        "International",
+        "Capital, actifs et engagements financiers",
+        "Distinguer les institutions du groupe et leurs comptes respectifs.",
+        "https://www.worldbank.org/"
+      ]
+    ]
+  ]
+];
+ const hiddenRoot = 'fortunes-invisibles';
+ const hiddenPaths = [hiddenRoot];
+ const hiddenIntro = 'Patrimoines dynastiques, actifs publics, fonds souverains, trusts, institutions et capitaux sous gestion : des grandeurs distinctes qui ne peuvent pas être additionnées ni classées comme des fortunes personnelles.';
+ const hiddenHero = (label,title,desc) => `<section class="inkband"><div class="in band"><p class="tagline">${esc(label)}</p><h1>${esc(title)}</h1><p class="lede">${esc(desc)}</p></div></section>`;
+ const hiddenBack = (from,to,label) => `<a href="${link(from,to)}">${esc(label)}</a>`;
+ const hiddenCard = (from,to,title,desc) => `<a class="card" href="${link(from,to)}"><h3>${esc(title)}</h3><p>${esc(desc)}</p></a>`;
+ const hiddenMethod = '<section class="band"><div class="in"><h2>Comment lire ces données</h2><p>Le patrimoine net, les actifs sous gestion, les actifs publics, les budgets annuels et la capacité de prêt constituent des indicateurs différents. Les chiffres ne sont publiés qu’avec date, devise, périmètre et source documentaire. Une valeur non établie n’est pas une valeur nulle. Les ressources classifiées ne sont pas estimées par extrapolation.</p></div></section>';
+ const hiddenCount = hiddenCategories.reduce((n,c)=>n+c[2].length,0);
+ write(hiddenRoot,page({from:hiddenRoot,title:'Fortunes invisibles : monarchies, trusts, fonds souverains et institutions | Actualites.fr',desc:hiddenIntro,canonical:hiddenRoot+'/',body:hiddenHero('Observatoire des patrimoines et capitaux','Fortunes invisibles',hiddenIntro)+`<section class="band"><div class="in"><h2>${hiddenCount} dossiers documentaires à constituer</h2><p>Catalogue initial de recherche. Les liens institutionnels sont des points de départ, pas des preuves d’une valorisation.</p><div class="grid">${hiddenCategories.map(([id,name,items])=>hiddenCard(hiddenRoot,hiddenRoot+'/'+id,name,items.length+' dossiers')).join('')}</div></div></section>`+hiddenMethod}));
+ for (const [category,label,items] of hiddenCategories) {
+   const dir=hiddenRoot+'/'+category; hiddenPaths.push(dir);
+   write(dir,page({from:dir,title:label+' | Fortunes invisibles · Actualites.fr',desc:'Dossiers documentaires : '+label+'. Périmètres financiers, sources et limites.',canonical:dir+'/',body:hiddenHero('Fortunes invisibles',label,'Dossiers de recherche, sans classement financier artificiel.')+`<section class="band"><div class="in"><p>${hiddenBack(dir,hiddenRoot,'Toutes les catégories')}</p><div class="grid">${items.map(([id,name,country,metric])=>hiddenCard(dir,dir+'/'+id,name,country+' · '+metric)).join('')}</div></div></section>`+hiddenMethod}));
+   for (const [id,name,country,metric,research,source] of items) {
+     const profile=dir+'/'+id; hiddenPaths.push(profile);
+     const related=items.filter(x=>x[0]!==id).slice(0,6);
+     write(profile,page({from:profile,title:name+' : patrimoine, contrôle et sources | Actualites.fr',desc:name+' : '+metric+'. Dossier de recherche et limites documentaires.',canonical:profile+'/',body:hiddenHero(label,name,country+' · '+metric)+`<section class="band"><div class="in"><p>${hiddenBack(profile,hiddenRoot,'Fortunes invisibles')} / ${hiddenBack(profile,dir,label)}</p><h2>Périmètre financier étudié</h2><p>${esc(metric)}</p><h2>État de la documentation</h2><p><strong>Montant non établi dans ce dossier.</strong> Aucun chiffre n’a été validé pour publication.</p><h2>Questions de recherche</h2><p>${esc(research)}</p><h2>Sources à examiner</h2><p><a href="${esc(source)}" rel="noopener noreferrer">${esc(source)}</a> — point de départ institutionnel, contenu et chiffres à vérifier.</p><h2>Photographies</h2><p>Aucune photographie documentaire validée pour ce dossier à ce stade.</p><p><a href="${link(profile,'contact')}?objet=correction">Proposer une source ou signaler une erreur</a></p><h2>Dossiers associés</h2><div class="grid">${related.map(([rid,rname,rcountry,rmetric])=>hiddenCard(profile,dir+'/'+rid,rname,rcountry+' · '+rmetric)).join('')}</div></div></section>`+hiddenMethod}));
+   }
+ }
+ fs.writeFileSync(path.join(OUT,'data/fortunes-invisibles.json'),JSON.stringify({status:'research_catalogue',categories:hiddenCategories.map(([id,label,items])=>({id,label,entities:items.map(([id,name,country,metric,research,source])=>({id,name,country,metric,research,source,amount:null,verification:'pending'}))}))}));
+
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   
-  const urls = ['', ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'ma-veille/', 'contact/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', ...hiddenPaths.map(p=>p+'/'), ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'ma-veille/', 'contact/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
