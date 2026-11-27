@@ -2,6 +2,25 @@
   "_mode_emploi": "Ajouter pour chaque fiche (clé = slug de l'URL) une liste de photos sous licence libre ou achetées, avec crédit et licence obligatoires. Exemple : \"bernard-arnault\": [{\"src\": \"https://upload.wikimedia.org/...jpg\", \"credit\": \"Nom du photographe\", \"licence\": \"CC BY-SA 4.0\", \"source\": \"https://commons.wikimedia.org/wiki/File:...\", \"legende\": \"Paris, 2023\"}]",
   "bill-gates": [
     {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_(cropped).jpg",
+      "auteur": "Bogdan Hoyaux / Union européenne",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "legende": "Bill Gates à la Commission européenne, 25 juin 2025. Photographie recadrée par la source.",
+      "image_width": 642,
+      "image_height": 962,
+      "type": "portrait",
+      "credit": "Bogdan Hoyaux / Union européenne",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-27",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 100
+    },
+    {
       "type": "portrait",
       "src": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/17/08/bill-gates.jpg",
       "credit": "Source : www.independent.co.uk ; photographe non confirmé",
@@ -10,18 +29,28 @@
       "legende": "Photographie candidate associée à Bill Gates dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
-    },
-    {
-      "type": "portrait",
-      "src": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_%28cropped%29.jpg",
-      "credit": "Bogdan Hoyaux / Union européenne",
-      "auteur": "Bogdan Hoyaux / Union européenne",
-      "licence": "CC BY 4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_2025_-_P067383-987995_(cropped).jpg",
-      "legende": "Bill Gates à la Commission européenne, 25 juin 2025."
     }
   ],
   "elon-musk": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/1/12/Elon_Musk_in_2023_%28cropped%29.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Elon_Musk_in_2023_(cropped).jpg",
+      "auteur": "Marcel Grabowski / UK Government",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "legende": "Elon Musk au sommet britannique sur l’intelligence artificielle à Bletchley Park, 2023. Photographie recadrée par la source.",
+      "image_width": 2126,
+      "image_height": 2834,
+      "type": "portrait",
+      "credit": "Marcel Grabowski / UK Government",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-27",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 100
+    },
     {
       "type": "portrait",
       "src": "https://media.vanityfair.fr/photos/67e7fe6e4cb55695a3362246/16:9/w_2560,c_limit/GettyImages-2194358323.jpg",
@@ -141,6 +170,25 @@
   ],
   "mark-zuckerberg": [
     {
+      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg/1280px-Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(46985048834).jpg",
+      "auteur": "Anthony Quintano",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "legende": "Mark Zuckerberg à la conférence F8, 30 avril 2019 (archive).",
+      "image_width": 1280,
+      "image_height": 854,
+      "type": "portrait",
+      "credit": "Anthony Quintano",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-27",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 100
+    },
+    {
       "type": "portrait",
       "src": "https://media.cnn.com/api/v1/images/stellar/prod/230711141746-01-mark-zuckerberg-life-in-pictures-lead-restricted.jpg?q=w_3000,c_fill",
       "credit": "Source : www.cnn.com ; photographe non confirmé",
@@ -149,16 +197,6 @@
       "legende": "Photographie candidate associée à Mark Zuckerberg dans la collecte de presse. Date de prise de vue non établie.",
       "publication_autorisee": null,
       "identity_verified": false
-    },
-    {
-      "type": "portrait",
-      "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg/1280px-Mark_Zuckerberg_F8_2019_Keynote_%2846985048834%29.jpg",
-      "credit": "Anthony Quintano",
-      "auteur": "Anthony Quintano",
-      "licence": "CC BY 2.0",
-      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
-      "source": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(46985048834).jpg",
-      "legende": "Mark Zuckerberg à la conférence F8, le 30 avril 2019 (archive)."
     },
     {
       "type": "portrait",
