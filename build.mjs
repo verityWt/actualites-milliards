@@ -864,6 +864,158 @@ fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photo
   ]
 ];
  const hiddenRoot = 'fortunes-invisibles';
+ const hiddenDossiers = {
+  "rama-x": {
+    "headline": "2018 : changement du régime de détention des actifs royaux",
+    "paragraphs": [
+      "En juillet 2017, une modification législative a placé le Crown Property Bureau sous le contrôle du roi. Reuters a documenté la présence d'actifs immobiliers et de participations dans Siam Commercial Bank et Siam Cement dans le périmètre alors administré par le bureau.",
+      "En juin 2018, le bureau a annoncé que les actifs précédemment enregistrés à son nom seraient désormais détenus au nom du souverain. Ce changement est déterminant pour étudier la propriété juridique des biens royaux thaïlandais, mais ne fournit pas un bilan patrimonial consolidé.",
+      "Une déclaration réglementaire de 2017 a documenté le transfert de titres de Siam Commercial Bank représentant alors plus de 500 millions USD. Cette transaction historique ne permet pas de déduire la valeur actuelle du patrimoine royal. Les participations doivent être réévaluées à partir des registres récents et les passifs doivent être identifiés."
+    ],
+    "figures": [
+      [
+        "Transfert de titres SCB",
+        "Plus de 500 millions USD",
+        "Octobre 2017 ; valeur historique de la transaction, non fortune nette"
+      ]
+    ],
+    "sources": [
+      [
+        "Reuters, 16 juin 2018",
+        "https://www.euronews.com/2018/06/16/assets-registered-to-thai-crown-property-bureau-to-be-held-under-kings-name"
+      ],
+      [
+        "Reuters, transfert de titres SCB, 6 octobre 2017",
+        "https://www.business-standard.com/article/reuters/over-500-million-in-thai-bank-shares-transferred-on-behalf-of-king-sec-117100600759_1.html"
+      ],
+      [
+        "Reuters, réforme du Crown Property Bureau",
+        "https://www.investing.com/news/world-news/thai-king%27s-aide-named-to-head-multi-billion-property-bureau-506625"
+      ]
+    ]
+  },
+  "windsor": {
+    "headline": "Biens de la Couronne : une propriété institutionnelle distincte",
+    "paragraphs": [
+      "Le Crown Estate administre un portefeuille foncier et immobilier ainsi que des droits sur les fonds marins en Angleterre, au pays de Galles et en Irlande du Nord. Ses bénéfices sont versés au Trésor britannique. Il ne fait pas partie du patrimoine privé du monarque.",
+      "Le financement des fonctions officielles de la monarchie, les revenus des duchés de Lancaster et de Cornouailles et les biens privés constituent des périmètres séparés. Le Sovereign Grant est un mécanisme budgétaire lié au résultat du Crown Estate et non un versement de la totalité de ses bénéfices au souverain.",
+      "Le Crown Estate écossais relève d'un régime distinct ; ses bénéfices alimentent les finances publiques écossaises. Une estimation de la richesse privée des Windsor doit exclure les biens détenus au titre de la fonction monarchique."
+    ],
+    "figures": [
+      [
+        "Bénéfice net de revenu du Crown Estate",
+        "500 millions GBP",
+        "Exercice 2025/26 ; résultat institutionnel"
+      ]
+    ],
+    "sources": [
+      [
+        "Crown Estate, rapport annuel 2025/26",
+        "https://www.thecrownestate.co.uk/about-us/annual-report"
+      ],
+      [
+        "Crown Estate, gouvernance",
+        "https://www.thecrownestate.co.uk/about-us/governance"
+      ],
+      [
+        "Crown Estate Scotland, informations essentielles",
+        "https://crownestatescotland.com/media/key-information"
+      ]
+    ]
+  },
+  "liechtenstein": {
+    "headline": "LGT : une banque détenue par la maison princière",
+    "paragraphs": [
+      "La maison princière possède le groupe LGT, spécialisé dans la banque privée et la gestion d'actifs. Cette participation constitue un actif économique distinct du volume des portefeuilles confiés au groupe par ses clients.",
+      "Les résultats 2025 font état de 386,1 milliards CHF d'actifs sous gestion et d'un dividende exceptionnel de 703 millions CHF versé à la maison princière au titre de cet exercice. Le dividende est un flux de revenu ; il ne constitue pas une valorisation de la banque.",
+      "Au premier semestre 2026, LGT a annoncé une progression de ses actifs sous gestion à 412,6 milliards CHF. Pour établir une valeur patrimoniale de la famille, il faudrait valoriser ses droits sur le capital du groupe, puis documenter ses autres actifs et passifs."
+    ],
+    "figures": [
+      [
+        "Actifs sous gestion LGT",
+        "412,6 milliards CHF",
+        "30 juin 2026 ; capitaux de clients"
+      ],
+      [
+        "Dividende exceptionnel à la maison princière",
+        "703 millions CHF",
+        "Exercice 2025 ; flux de revenu"
+      ]
+    ],
+    "sources": [
+      [
+        "LGT, résultats semestriels 2026",
+        "https://www.lgt.com/li-en/about-lgt/lgt-news/lgt-reports-strong-net-new-asset-growth-368674"
+      ],
+      [
+        "LGT, résultats annuels 2025",
+        "https://www.lgt.com/global-en/about-lgt/lgt-news/lgt-significantly-increases-profit-and-continues-growth-trajectory-336770"
+      ]
+    ]
+  },
+  "nbim": {
+    "headline": "21 268 milliards NOK à la clôture 2025",
+    "paragraphs": [
+      "Le Government Pension Fund Global investit les ressources publiques norvégiennes sur les marchés internationaux. Sa gestion opérationnelle relève de Norges Bank Investment Management ; le fonds ne représente pas une fortune privée.",
+      "À la clôture de 2025, les actions constituaient 71,3 % de ses placements et les titres obligataires 26,5 %. Le solde était investi dans l'immobilier non coté et les infrastructures renouvelables non cotées, sous réserve des arrondis.",
+      "Le rapport annuel distingue rendement des placements, apports et effets de change. Les variations de la valeur en couronnes ne doivent donc pas être interprétées comme des gains exclusivement imputables aux investissements."
+    ],
+    "figures": [
+      [
+        "Valeur du fonds",
+        "21 268 milliards NOK",
+        "31 décembre 2025"
+      ],
+      [
+        "Rendement comptable annuel",
+        "15,1 %",
+        "2025"
+      ]
+    ],
+    "sources": [
+      [
+        "NBIM, rapport annuel 2025",
+        "https://www.nbim.no/en/news-and-insights/reports/2025/annual-report-2025/"
+      ],
+      [
+        "NBIM, rapport détaillé",
+        "https://www.nbim.no/en/news-and-insights/reports/2025/annual-report-2025/web-report-annual-report-2025/"
+      ]
+    ]
+  },
+  "pif": {
+    "headline": "Plus de 900 milliards USD d'actifs sous gestion en 2025",
+    "paragraphs": [
+      "Le Public Investment Fund est un véhicule d'investissement souverain saoudien. Son rapport annuel 2025 présente les résultats du fonds et ses investissements dans les secteurs prioritaires de l'économie saoudienne.",
+      "Le fonds indique avoir déployé cumulativement plus de 199 milliards USD d'investissements domestiques entre 2021 et 2025. Ce cumul d'investissements ne s'ajoute pas à l'encours d'actifs sous gestion : une partie des actifs financés peut déjà figurer dans cet encours.",
+      "Les accords annoncés avec Goldman Sachs Asset Management et Macquarie Asset Management illustrent la mobilisation de capitaux et les partenariats financiers internationaux. La valeur des actifs du PIF ne doit pas être attribuée à titre personnel aux membres de la famille Al Saoud."
+    ],
+    "figures": [
+      [
+        "Actifs sous gestion",
+        "Plus de 900 milliards USD",
+        "2025 ; périmètre déclaré par le PIF"
+      ],
+      [
+        "Investissements domestiques cumulés",
+        "Plus de 199 milliards USD",
+        "2021–2025 ; flux cumulés"
+      ]
+    ],
+    "sources": [
+      [
+        "PIF, rapport annuel 2025",
+        "https://annualreport.pif.gov.sa/en/annual-report-2025/"
+      ],
+      [
+        "PIF, communiqué sur les résultats 2025",
+        "https://www.pif.gov.sa/en/news-and-insights/press-releases/2026/pif-delivers-strong-revenue-and-profit-growth-in-2025/"
+      ]
+    ]
+  }
+};
+ const hiddenDocument = id => {const d=hiddenDossiers[id]; if(!d)return '<h2>État de la documentation</h2><p>Enquête documentaire à compléter. Aucun montant validé.</p>';return '<h2>'+esc(d.headline)+'</h2>'+d.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'<h2>Indicateurs documentés</h2><div class="grid">'+d.figures.map(([label,value,scope])=>'<div class="card"><h3>'+esc(label)+'</h3><p><strong>'+esc(value)+'</strong></p><p>'+esc(scope)+'</p></div>').join('')+'</div><h2>Documents de référence</h2><ul>'+d.sources.map(([label,url])=>'<li><a href="'+esc(url)+'" rel="noopener noreferrer">'+esc(label)+'</a></li>').join('')+'</ul>';};
+
  const hiddenPaths = [hiddenRoot];
  const hiddenIntro = 'Patrimoines dynastiques, actifs publics, fonds souverains, trusts, institutions et capitaux sous gestion : des grandeurs distinctes qui ne peuvent pas être additionnées ni classées comme des fortunes personnelles.';
  const hiddenHero = (label,title,desc) => `<section class="inkband"><div class="in band"><p class="tagline">${esc(label)}</p><h1>${esc(title)}</h1><p class="lede">${esc(desc)}</p></div></section>`;
@@ -878,15 +1030,15 @@ fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photo
    for (const [id,name,country,metric,research,source] of items) {
      const profile=dir+'/'+id; hiddenPaths.push(profile);
      const related=items.filter(x=>x[0]!==id).slice(0,6);
-     write(profile,page({from:profile,title:name+' : patrimoine, contrôle et sources | Actualites.fr',desc:name+' : '+metric+'. Dossier de recherche et limites documentaires.',canonical:profile+'/',body:hiddenHero(label,name,country+' · '+metric)+`<section class="band"><div class="in"><p>${hiddenBack(profile,hiddenRoot,'Fortunes invisibles')} / ${hiddenBack(profile,dir,label)}</p><h2>Périmètre financier étudié</h2><p>${esc(metric)}</p><h2>État de la documentation</h2><p><strong>Montant non établi dans ce dossier.</strong> Aucun chiffre n’a été validé pour publication.</p><h2>Questions de recherche</h2><p>${esc(research)}</p><h2>Sources à examiner</h2><p><a href="${esc(source)}" rel="noopener noreferrer">${esc(source)}</a> — point de départ institutionnel, contenu et chiffres à vérifier.</p><h2>Photographies</h2><p>Aucune photographie documentaire validée pour ce dossier à ce stade.</p><p><a href="${link(profile,'contact')}?objet=correction">Proposer une source ou signaler une erreur</a></p><h2>Dossiers associés</h2><div class="grid">${related.map(([rid,rname,rcountry,rmetric])=>hiddenCard(profile,dir+'/'+rid,rname,rcountry+' · '+rmetric)).join('')}</div></div></section>`+hiddenMethod}));
+     write(profile,page({from:profile,title:name+' : patrimoine, contrôle et sources | Actualites.fr',desc:name+' : '+metric+'. Dossier de recherche et limites documentaires.',canonical:profile+'/',body:hiddenHero(label,name,country+' · '+metric)+`<section class="band"><div class="in"><p>${hiddenBack(profile,hiddenRoot,'Fortunes invisibles')} / ${hiddenBack(profile,dir,label)}</p><h2>Périmètre financier étudié</h2><p>${esc(metric)}</p>${hiddenDocument(id)}<h2>Questions de recherche</h2><p>${esc(research)}</p><h2>Sources à examiner</h2><p><a href="${esc(source)}" rel="noopener noreferrer">${esc(source)}</a> — point de départ institutionnel, contenu et chiffres à vérifier.</p><h2>Photographies</h2><p>Aucune photographie documentaire validée pour ce dossier à ce stade.</p><p><a href="${link(profile,'contact')}?objet=correction">Proposer une source ou signaler une erreur</a></p><h2>Dossiers associés</h2><div class="grid">${related.map(([rid,rname,rcountry,rmetric])=>hiddenCard(profile,dir+'/'+rid,rname,rcountry+' · '+rmetric)).join('')}</div></div></section>`+hiddenMethod}));
    }
  }
- fs.writeFileSync(path.join(OUT,'data/fortunes-invisibles.json'),JSON.stringify({status:'research_catalogue',categories:hiddenCategories.map(([id,label,items])=>({id,label,entities:items.map(([id,name,country,metric,research,source])=>({id,name,country,metric,research,source,amount:null,verification:'pending'}))}))}));
+ fs.writeFileSync(path.join(OUT,'data/fortunes-invisibles.json'),JSON.stringify({status:'research_catalogue',categories:hiddenCategories.map(([id,label,items])=>({id,label,entities:items.map(([id,name,country,metric,research,source])=>({id,name,country,metric,research,source,amount:null,verification:hiddenDossiers[id]?'documented_indicators':'pending',documentary:hiddenDossiers[id]||null}))}))}));
 
 // ---------- sitemap, robots ----------
 if (!PREVIEW) {
   
-  const urls = ['', ...hiddenPaths.map(p=>p+'/'), ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'ma-veille/', 'contact/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
+  const urls = ['', ...hiddenPaths.filter(p=>p.split('/').length<3||hiddenDossiers[p.split('/').at(-1)]).map(p=>p+'/'), ...influenceNetworkPages.map(p=>p+'/'), 'entreprises/', 'influence/', 'risques/', 'next-billionaires/', 'recherche/', 'ma-veille/', 'contact/', 'intelligence/', 'mentions-legales/', 'cgu/', 'confidentialite/', ...lists.map(l => l.dir + '/'), ...P.map(p => 'milliardaires/' + p.id + '/')];
   fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${SITE}/${u}</loc></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 }
