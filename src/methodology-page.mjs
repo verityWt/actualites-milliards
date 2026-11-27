@@ -19,6 +19,28 @@ return `
 @media(prefers-reduced-motion:reduce){.method .diagram .edge{animation:none}.method *{scroll-behavior:auto!important}}
 .method .meth-index{background:#f7f3eb;border-bottom:1px solid var(--line);padding:10px 0}.method .meth-index details{border:0}.method .meth-index ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 25px;padding-left:22px}.method .meth-index a{color:#59402a;text-decoration:underline;text-underline-offset:3px}.method .meth-motion{background:white;border:1px solid #ad9b7c;padding:8px 12px;color:#33283a;cursor:pointer;margin-top:12px}.method .diagram[data-paused] .edge{animation-play-state:paused}.method .tabs button:focus-visible,.method a:focus-visible,.method summary:focus-visible,.method .meth-motion:focus-visible{outline:3px solid #a77a31;outline-offset:3px}.method .diagram .edge{animation-duration:8s}.method .demo [hidden]{display:none!important}.method .meth-noscript{padding:10px;background:#eee7d9}.method .step:after{pointer-events:none}@media(prefers-reduced-motion:reduce){.method .meth-motion{display:none}}
 .method .meth-sub{margin-top:42px;padding-top:24px;border-top:1px solid var(--line)}.method .meth-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;padding:0;gap:14px;margin:26px 0}.method .meth-timeline li{position:relative;background:white;border:1px solid var(--line);border-top:3px solid #a77a31;padding:16px;display:flex;flex-direction:column;gap:9px}.method .meth-timeline time{font:700 22px Georgia,serif;color:#95692e}.method .meth-timeline span{font-size:13px;line-height:1.55}.method .meth-table{overflow-x:auto;background:white;border:1px solid var(--line);border-radius:6px;margin:20px 0}.method .meth-table table{border-collapse:collapse;width:100%;min-width:650px;font-size:13px}.method .meth-table caption{text-align:left;padding:13px;color:#625962}.method .meth-table th,.method .meth-table td{border-bottom:1px solid var(--line);padding:13px;text-align:left;vertical-align:top}.method .meth-table thead th{background:#302333;color:white}.method .meth-table tbody th{background:#f5efe4}.method .meth-table tr:last-child>*{border-bottom:0}@media(max-width:850px){.method .meth-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.method .meth-timeline{grid-template-columns:1fr}}
+
+/* Local palette: independent of the site's system light/dark theme. */
+.method{color-scheme:light;--ink:#221a25;--bg:#fffdf8;--paper:#fff;--mute:#625962;--rule:#d8cebb;--acc:#67472a;--gold:#80571f;background:#fffdf8;color:#221a25}
+.method .section{background:#fffdf8;color:#221a25}
+.method .section:nth-of-type(even){background:#f7f3eb;color:#221a25}
+.method .section h2,.method .section h3,.method .section summary,.method .section dt,.method .section strong{color:inherit}
+.method .section .eyebrow{color:#80571f}
+.method .section a,.method .meth-index a{color:#67472a;text-decoration:underline;text-underline-offset:3px}
+.method .hero,.method .bottom{color:#f7f1e7}
+.method .hero h1,.method .bottom h2{color:#f7f1e7}
+.method .hero .eyebrow,.method .bottom .eyebrow{color:#e0bb78}
+.method .bottom p{color:#e5dbe2}
+.method .bottom a{color:#f0c98e}
+.method .pipeline .step{color:#fff}
+.method .pipeline .step strong{color:#e0bb78}
+.method .tag,.method .tag.target{color:#584252;background:#f0eaf0}
+.method .panel,.method .demo,.method .evidence article,.method .glossary div,.method .meth-timeline li,.method .meth-table{color:#221a25;background:#fff}
+.method .meth-table thead th{color:#fff;background:#302333}
+.method .meth-table tbody th{color:#221a25;background:#f5efe4}
+.method .tabs button[aria-selected="true"]{color:#fff;background:#2c202f}
+.method .meth-index{color:#221a25;background:#f7f3eb}
+
 </style>
 <div class="method">
 <section class="hero"><div class="wrap"><div class="eyebrow">Actualites.fr / Documentation publique / Édition 2026</div><h1>Comment nous construisons une information vérifiable.</h1><p>Origine des données, recoupement documentaire, estimations de fortune, réseaux économiques, recherche des divergences et traitement des corrections. Voici les règles de travail, leurs limites et les mécanismes que nous souhaitons rendre auditables.</p><div class="hero-links"><a class="btn" href="#chaine">Explorer la chaîne documentaire</a><a class="btn" href="#demonstration">Voir un cas de recoupement</a><a class="btn" href="#limites">Limites et garanties</a></div><p style="font-size:12px;margin-top:22px;color:#bfafb9">Cette page distingue la méthode éditoriale décrite, les fonctionnalités existantes et l’architecture technique prévue. Les schémas sont explicatifs, pas des mesures en temps réel du système.</p></div></section>
