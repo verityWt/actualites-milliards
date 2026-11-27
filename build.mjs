@@ -1,4 +1,5 @@
 import {auditSite} from './scripts/seo-audit.mjs';
+import { methodologyPage } from './src/methodology-page.mjs';
 // Génère le site statique Actualites.fr (fiches, listes, sitemap) à partir de data/.
 // Usage : node build.mjs            -> dist/ (production, URLs propres)
 //         node build.mjs --preview  -> dist-preview/ (liens en index.html relatifs, pour l'aperçu)
@@ -345,7 +346,7 @@ const hubWrap=(content)=>'<div class="band"><div class="in hub-page">'+content+'
 const hubSection=(title,subtitle,cards)=>'<section class="hub-part"><div class="hub-heading"><h2>'+esc(title)+'</h2>'+(subtitle?'<p>'+esc(subtitle)+'</p>':'')+'</div><div class="grid hub-cards">'+cards+'</div></section>';
 const hubCard=(from,p,detail)=>'<a class="card hub-profile" href="'+link(from,'milliardaires/'+p.id)+'">'+medal(p,64,from)+'<div><h3>'+esc(fullName(p))+'</h3><p>'+esc(detail||[p.co,SEC[p.sec],p.country].filter(Boolean).join(' · '))+'</p><strong>'+esc(nwTxt(p))+'</strong></div></a>';
 const hubWrite=(dir,title,description,body)=>write(dir,page({from:dir,title:title+' · Actualites.fr',desc:description,canonical:dir+'/',body}));
-hubWrite('methodologie','Méthodologie, sources et corrections','Comment Actualites.fr documente les fortunes, les entreprises et les relations économiques, et traite les corrections.',`<section class="band"><div class="in"><h1>Méthodologie, sources et corrections</h1><h2>Estimations patrimoniales</h2><p>Les montants sont des estimations attribuées à leur source et à leur date de référence lorsqu’elle est connue. Ils peuvent différer selon les méthodes de valorisation et ne correspondent pas à des liquidités disponibles.</p><h2>Documentation et relations économiques</h2><p>Les comparaisons sectorielles ne démontrent pas de relation entre personnes. Les liens économiques documentés doivent être accompagnés de références. Les dossiers sans éléments suffisants restent des pistes de recherche.</p><h2>Revue de presse</h2><p>Les articles repérés automatiquement restent des références candidates. Leur présence ne signifie pas que la rédaction en a vérifié toutes les affirmations.</p><h2>Corrections et droit de réponse</h2><p><a href="${link('methodologie','contact')}?objet=correction">Transmettre une correction ou une source</a>.</p><p><a href="${link('methodologie','observatoire')}">Consulter l’observatoire</a></p></div></section>`);
+hubWrite('methodologie','Méthodologie détaillée : sources, recoupement et preuves','Méthodologie documentaire Actualites.fr : estimations patrimoniales, sources indépendantes, liens économiques, preuves, contrôles IA, corrections et limites.',methodologyPage(link('methodologie','contact'),link('methodologie','observatoire')));
 
 const companyIndex=new Map();
 for(const p of P){
