@@ -1014,6 +1014,263 @@ fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photo
     ]
   }
 };
+ Object.assign(hiddenDossiers, {
+  "blackrock": {
+    "headline": "14 000 milliards de dollars confiés à un gestionnaire coté",
+    "paragraphs": [
+      "BlackRock est une société de gestion cotée à New York sous le symbole BLK. Elle administre des portefeuilles pour des investisseurs institutionnels et particuliers. Ses produits comprennent notamment les ETF iShares et des stratégies actives.",
+      "Les résultats publiés le 15 janvier 2026 indiquent un encours de 14 000 milliards USD et des souscriptions nettes de 698 milliards USD en 2025. Les flux nets annuels mesurent les entrées moins les sorties de capitaux ; ils ne sont pas assimilables au bénéfice du gestionnaire.",
+      "L'influence économique liée à la gestion des titres doit être distinguée de leur propriété économique. La valorisation boursière de BlackRock et le patrimoine de ses actionnaires constituent encore deux périmètres différents."
+    ],
+    "figures": [
+      [
+        "Actifs sous gestion",
+        "14 000 Md USD",
+        "31 décembre 2025"
+      ],
+      [
+        "Flux nets entrants",
+        "698 Md USD",
+        "Exercice 2025"
+      ]
+    ],
+    "sources": [
+      [
+        "BlackRock, résultats annuels 2025",
+        "https://www.blackrock.com/corporate/newsroom/media/press-releases/blackrock-reports-fourth-quarter-2025"
+      ],
+      [
+        "SEC, communiqué financier déposé",
+        "https://www.sec.gov/Archives/edgar/data/2012383/000119312526013503/blk-ex99_1.htm"
+      ]
+    ]
+  },
+  "state-street": {
+    "headline": "Conservation et gestion : deux métiers financiers distincts",
+    "paragraphs": [
+      "State Street fournit des services de conservation, d'administration et de gestion de placements aux investisseurs professionnels. La conservation comprend des fonctions opérationnelles liées aux titres de clients ; elle ne confère pas à la banque la propriété économique de ces titres.",
+      "Les chiffres déclarés à la SEC à fin 2025 atteignent 53 800 milliards USD pour la conservation et l'administration et 5 670 milliards USD pour la gestion. Les deux ensembles peuvent se recouper et ne doivent pas être additionnés.",
+      "La taille du bilan propre, les revenus de commissions et la capitalisation de la société doivent être étudiés séparément de ces encours."
+    ],
+    "figures": [
+      [
+        "Actifs conservés ou administrés",
+        "53 800 Md USD",
+        "31 décembre 2025"
+      ],
+      [
+        "Actifs sous gestion",
+        "5 670 Md USD",
+        "31 décembre 2025"
+      ]
+    ],
+    "sources": [
+      [
+        "SEC, déclaration de procuration 2026",
+        "https://www.sec.gov/Archives/edgar/data/93751/000114036126013817/ny20058931x1_def14a.htm"
+      ],
+      [
+        "State Street, rapport annuel 2025",
+        "https://www.statestreet.com/us/en/about/our-story/2025-annual-report/investment-services"
+      ]
+    ]
+  },
+  "mubadala": {
+    "headline": "385 milliards USD d'actifs souverains sous gestion",
+    "paragraphs": [
+      "Mubadala Investment Company investit pour le gouvernement d'Abou Dhabi, son actionnaire. Son portefeuille comprend des investissements aux Émirats arabes unis et à l'étranger, répartis entre plusieurs classes d'actifs.",
+      "Le communiqué du 9 avril 2026 indique une croissance des actifs sous gestion de 17 % au cours de l'exercice 2025, jusqu'à environ 1 400 milliards AED. Les rendements annualisés sur cinq et dix ans dépassent 10 % selon le groupe.",
+      "Le portefeuille doit être attribué à l'investisseur souverain et non au patrimoine personnel des membres de la dynastie Al Nahyan."
+    ],
+    "figures": [
+      [
+        "Actifs sous gestion",
+        "385 Md USD",
+        "2025 ; équivalent déclaré par Mubadala"
+      ],
+      [
+        "Croissance annuelle des encours",
+        "17 %",
+        "2025"
+      ]
+    ],
+    "sources": [
+      [
+        "Mubadala, résultats 2025",
+        "https://www.mubadala.com/en/news/strong-performance-by-uae-portfolio-drives-mubadalas-growth-in-2025"
+      ],
+      [
+        "Rapport annuel",
+        "https://annual2025.mubadala.com/en"
+      ],
+      [
+        "Actionnariat et mission",
+        "https://www.mubadala.com/en/who-we-are/about-mubadala"
+      ]
+    ]
+  },
+  "gates-foundation": {
+    "headline": "Une dotation philanthropique de 89 milliards USD",
+    "paragraphs": [
+      "La Gates Foundation finance des programmes philanthropiques tandis que le Gates Foundation Trust détient la dotation qui soutient ces activités. La fondation publie des comptes audités et ses déclarations fiscales.",
+      "À fin 2025, la dotation du trust s'élevait à 89 milliards USD. La fondation rapporte un soutien caritatif de 8,47 milliards USD sur l'exercice, incluant subventions, contrats et dépenses opérationnelles selon sa définition.",
+      "En mai 2025, Bill Gates a annoncé une fermeture prévue de la fondation au 31 décembre 2045 et son intention de consacrer presque tout son patrimoine restant à son financement. Il s'agit d'une annonce de dons futurs, distincte des actifs déjà transférés."
+    ],
+    "figures": [
+      [
+        "Dotation du trust",
+        "89 Md USD",
+        "31 décembre 2025"
+      ],
+      [
+        "Soutien caritatif",
+        "8,47 Md USD",
+        "Exercice 2025"
+      ]
+    ],
+    "sources": [
+      [
+        "Chiffres institutionnels",
+        "https://www.gatesfoundation.org/about/foundation-fact-sheet"
+      ],
+      [
+        "Rapport annuel 2025",
+        "https://www.gatesfoundation.org/about/financials/annual-reports/annual-report-2025"
+      ],
+      [
+        "Structure du trust",
+        "https://www.gatesfoundation.org/about/financials/foundation-trust"
+      ]
+    ]
+  },
+  "wellcome-trust": {
+    "headline": "39,9 milliards GBP investis pour financer la recherche",
+    "paragraphs": [
+      "Wellcome finance des recherches scientifiques et médicales grâce aux revenus et à la valeur de son portefeuille. Son histoire patrimoniale est liée à l'industrie pharmaceutique ; la diversification du portefeuille a commencé avec la cession progressive des actions de l'entreprise d'origine.",
+      "Pour l'exercice clos le 30 septembre 2025, Wellcome rapporte une valeur de portefeuille de 39,9 milliards GBP et des fonds nets de 35,7 milliards GBP après prise en compte des passifs. Le rendement annuel annoncé est de 10,2 % en livres sterling.",
+      "L'institution publie également une liste de ses participations directes dans des sociétés cotées. Cette liste constitue un relevé daté et non un inventaire de l'intégralité de ses actifs."
+    ],
+    "figures": [
+      [
+        "Portefeuille",
+        "39,9 Md GBP",
+        "30 septembre 2025"
+      ],
+      [
+        "Fonds nets",
+        "35,7 Md GBP",
+        "30 septembre 2025"
+      ],
+      [
+        "Rendement annuel",
+        "10,2 %",
+        "Exercice 2024/25"
+      ]
+    ],
+    "sources": [
+      [
+        "Résultats financiers 2024/25",
+        "https://wellcome.org/insights/articles/wellcome-annual-report-and-financial-statements-202425"
+      ],
+      [
+        "Politique de financement",
+        "https://wellcome.org/about-us/investments"
+      ],
+      [
+        "Participations cotées directes",
+        "https://wellcome.org/about-us/investments/direct-public-equity-holdings"
+      ]
+    ]
+  },
+  "adia": {
+    "headline": "Un fonds souverain qui publie ses rendements de long terme",
+    "paragraphs": [
+      "ADIA investit un portefeuille diversifié pour Abou Dhabi, sur plusieurs marchés et classes d'actifs. Sa revue annuelle décrit notamment la stratégie de placement et les fourchettes de répartition géographique.",
+      "Pour la période arrêtée au 31 décembre 2025, ADIA annonce des rendements annualisés de 6,6 % sur vingt ans et 7,2 % sur trente ans. Ces résultats historiques ne garantissent pas les rendements futurs.",
+      "Le montant total des actifs n'est pas établi par les documents consultés ici. Une estimation externe devrait être identifiée comme telle et datée, plutôt que présentée comme une déclaration officielle."
+    ],
+    "figures": [
+      [
+        "Rendement annualisé sur 20 ans",
+        "6,6 %",
+        "31 décembre 2025"
+      ],
+      [
+        "Rendement annualisé sur 30 ans",
+        "7,2 %",
+        "31 décembre 2025"
+      ]
+    ],
+    "sources": [
+      [
+        "ADIA, revue annuelle 2025",
+        "https://www.adia.ae/en/pr/2025a/index.html"
+      ],
+      [
+        "Lettre du directeur général",
+        "https://www.adia.ae/en/pr/2025a/letter-from-the-md.html"
+      ],
+      [
+        "Stratégie de placement",
+        "https://www.adia.ae/en/investments"
+      ]
+    ]
+  },
+  "qia": {
+    "headline": "Un fonds public créé en 2005 pour diversifier l'économie qatarienne",
+    "paragraphs": [
+      "La Qatar Investment Authority a été constituée par la décision émirienne numéro 22 de 2005. Son mandat comprend la préservation et le développement des ressources financières du Qatar.",
+      "La QIA indique être responsable devant le Conseil suprême des affaires économiques et des investissements, présidé par l'émir. Son cadre de gouvernance distingue cette supervision des décisions opérationnelles d'investissement.",
+      "Les participations du fonds couvrent des marchés et secteurs internationaux. Aucun encours global vérifié n'est retenu dans cette fiche ; les actifs de QIA ne peuvent pas être attribués au patrimoine privé de la dynastie Al Thani."
+    ],
+    "figures": [
+      [
+        "Création juridique",
+        "2005",
+        "Décision émirienne n° 22"
+      ]
+    ],
+    "sources": [
+      [
+        "QIA, présentation",
+        "https://www.qia.qa/en/About/pages/default.aspx"
+      ],
+      [
+        "Historique",
+        "https://www.qia.qa/en/about/pages/History.aspx"
+      ],
+      [
+        "Gouvernance",
+        "https://www.qia.qa/en/About/Pages/Governance.aspx"
+      ]
+    ]
+  },
+  "cia": {
+    "headline": "Un budget propre non isolé dans les chiffres publics du renseignement",
+    "paragraphs": [
+      "Le financement du renseignement américain est organisé notamment autour du National Intelligence Program et du Military Intelligence Program. Ces programmes couvrent des activités de plusieurs organismes et ne représentent pas le patrimoine d'une agence.",
+      "L'Office of the Director of National Intelligence a annoncé une demande de crédits de 81,9 milliards USD pour le National Intelligence Program au titre de l'exercice 2026. Il s'agit d'une demande agrégée, non du budget voté de la CIA.",
+      "La ventilation par agence n'est pas établie dans les documents consultés. Aucun montant de fortune ni aucune estimation d'actifs classifiés n'est attribué à la CIA."
+    ],
+    "figures": [
+      [
+        "Demande de crédits du NIP",
+        "81,9 Md USD",
+        "Exercice 2026 ; ensemble du programme, pas CIA"
+      ]
+    ],
+    "sources": [
+      [
+        "ODNI, demande budgétaire FY2026",
+        "https://www.odni.gov/1524/pr-12-25/"
+      ],
+      [
+        "Congressional Research Service, cadre budgétaire",
+        "https://www.everycrsreport.com/reports/IF10524.html"
+      ]
+    ]
+  }
+});
  const hiddenDocument = id => {const d=hiddenDossiers[id]; if(!d)return '<h2>État de la documentation</h2><p>Enquête documentaire à compléter. Aucun montant validé.</p>';return '<h2>'+esc(d.headline)+'</h2>'+d.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'<h2>Indicateurs documentés</h2><div class="grid">'+d.figures.map(([label,value,scope])=>'<div class="card"><h3>'+esc(label)+'</h3><p><strong>'+esc(value)+'</strong></p><p>'+esc(scope)+'</p></div>').join('')+'</div><h2>Documents de référence</h2><ul>'+d.sources.map(([label,url])=>'<li><a href="'+esc(url)+'" rel="noopener noreferrer">'+esc(label)+'</a></li>').join('')+'</ul>';};
 
  const hiddenPaths = [hiddenRoot];
