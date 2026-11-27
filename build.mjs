@@ -5,7 +5,7 @@ import {auditSite} from './scripts/seo-audit.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { rosette } from './src/guil.mjs';
-import {pickPortrait,portraitCandidates,photoInitials,photoAudit} from './src/portrait-selection.mjs';
+import {pickPortrait,portraitCandidates,photoInitials,photoAudit,publicPhotos,publicPortrait,publicPortraitCandidates} from './src/portrait-selection.mjs';
 import { graph, timeline, sources, validate, candidates, observations } from './src/intelligence.mjs';
 import { validateResearchProfiles } from './scripts/validate-biographies.mjs';
 import { renderInfluenceDashboard } from './src/influence-dashboard.mjs';
@@ -60,7 +60,7 @@ const fr = (n, d) => Number(n).toLocaleString('fr-FR', { minimumFractionDigits: 
 
 const PHOTOS = JSON.parse(fs.readFileSync('data/photos.json', 'utf8'));
 const phSrc = (from, ph) => /^https?:/.test(ph.fichier || ph.src || '') ? (ph.fichier || ph.src) : asset(from, ph.fichier || ph.src);
-const portrait = p => pickPortrait(PHOTOS[p.id]||[]);
+const portrait = p => publicPortrait(PHOTOS[p.id]||[]);
 const curated = JSON.parse(fs.readFileSync('data/curated.json', 'utf8'));
 const DET = Object.fromEntries(fs.readFileSync('data/details-fr.psv', 'utf8').trim().split('\n').map(l => l.split('|')).map(([n, co, role, fact, o]) => [n, { co, role, fact, orig: { s: 'self', h: 'herit', m: 'mix' }[o] }]));
 const rows = fs.readFileSync('data/forbes2026-top200.psv', 'utf8').trim().split('\n').map(l => l.split('|'));
@@ -111,10 +111,10 @@ const home = (from, hash = '') => (PREVIEW ? '../'.repeat(from ? from.split('/')
 const COL = { tech: '#3b5bdb', mode: '#b8860b', fin: '#0f766e', telecom: '#0e7490', div: '#6b21a8', food: '#c2410c', mines: '#57534e', energie: '#b45309', logist: '#1e40af', sante: '#15803d', auto: '#be123c', indus: '#475569', casino: '#9d174d', immo: '#7c2d12', media: '#be185d', btp: '#78716c', sport: '#7c3aed', service: '#0f766e' };
 const INK = { tech: '#1f4e8c', mode: '#7a1d3a', fin: '#0e5a5c', telecom: '#155e75', div: '#5b2a86', food: '#9a3412', mines: '#44403c', energie: '#92400e', logist: '#1e3a8a', sante: '#166534', auto: '#9f1239', indus: '#334155', casino: '#831843', immo: '#7c2d12', media: '#9d174d', btp: '#57534e', sport: '#6d28d9', service: '#0f766e' };
 const portraitImage = (p,from='',alt='',loading='lazy',auto=false) => {
- const candidates=portraitCandidates(PHOTOS[p.id]||[]);
+ const candidates=publicPortraitCandidates(PHOTOS[p.id]||[]);
  if(!candidates.length)return '';
  const srcs=candidates.map(ph=>phSrc(from,ph));
- return `<img src="${esc(srcs[0])}" data-portrait-fallbacks="${esc(JSON.stringify(srcs.slice(1)))}" ${auto&&Number(portrait(p)?.editorial_priority||0)<100?'data-auto-portrait="'+esc(p.id)+'"':''} alt="${esc(alt||p.name)}" loading="${loading}" decoding="async" onerror="window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()">`;
+ return `<img src="${esc(srcs[0])}" data-portrait-fallbacks="${esc(JSON.stringify(srcs.slice(1)))}" ${loading==='eager'?'fetchpriority="high"':''} ${candidates[0].image_width&&candidates[0].image_height?'width="'+Number(candidates[0].image_width)+'" height="'+Number(candidates[0].image_height)+'"':''} alt="${esc(alt||p.name)}" loading="${loading}" decoding="async" onerror="window.actualitesPhotoError?window.actualitesPhotoError(this):this.remove()">`;
 };
 const medal = (p, size = 64, from = '') => portrait(p) ? `<div class="g ph"><span class="portrait-initials" aria-hidden="true">${esc(photoInitials(p.name))}</span>${portraitImage(p,from,p.name)}</div>` : `<div class="g" data-r="${p.id}" data-i="${INK[p.sec] || '#5a1230'}" data-d="${size > 100 ? 200 : 80}"></div>`;
 const serial = p => p.rank ? 'N° ' + String(p.rank).padStart(3, '0') : 'HORS CLASSEMENT';
@@ -273,7 +273,7 @@ ${dossierHtml(p,from)}
 <section class="bio-section" id="contribuer"><div class="bio-section-head"><p class="bio-eyebrow">CONTRIBUTIONS DES LECTEURS</p><h2>Enrichir cette fiche</h2><p>Une source manque ? Une donnée mérite d’être précisée ? Proposez un document ou une correction à la rédaction. Les contributions ne sont pas publiées automatiquement.</p></div><div class="row"><a class="btn pri" href="${link(from,'contact')}?objet=correction&amp;fiche=${encodeURIComponent(p.id)}">Proposer une source ou une correction</a><a class="btn" href="${link(from,'ma-veille')}">Ma sélection personnelle</a></div></section>
 
 <section class="bio-section wiki-panel" id="wikipedia" data-wiki-profile="${esc(p.id)}" aria-live="polite"><div class="bio-section-head"><p class="bio-eyebrow">Wikimedia / Recherche documentaire</p></div><p data-wiki-status>Recherche des références encyclopédiques…</p></section>
-<script src="${asset(from, 'assets/wiki-live.js')}" defer></script>\n${kpis.length ? `<h2 style="margin-top:30px">En perspective</h2><div class="kpis">${kpis.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div>` : ''}${(PHOTOS[p.id] || []).length ? `<h2 style="margin-top:30px">En images</h2><div class="gal">${PHOTOS[p.id].map(ph => `<figure><img src="${esc(phSrc(from, ph))}" alt="${esc(p.name + (ph.legende ? ', ' + ph.legende : ''))}" loading="lazy"><figcaption>${esc(ph.legende || '')} <span>© ${esc(ph.auteur || ph.credit)}, ${esc(ph.licence)}${ph.source ? ` · <a href="${esc(ph.source)}" rel="noopener">source</a>` : ''}</span></figcaption></figure>`).join('')}</div>` : ''}</div>
+<script src="${asset(from, 'assets/wiki-live.js')}" defer></script>\n${kpis.length ? `<h2 style="margin-top:30px">En perspective</h2><div class="kpis">${kpis.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div>` : ''}${publicPhotos(PHOTOS[p.id]).length ? `<h2 style="margin-top:30px">En images</h2><div class="gal">${publicPhotos(PHOTOS[p.id]).map(ph => `<figure><img src="${esc(phSrc(from, ph))}" alt="${esc(p.name + (ph.legende ? ', ' + ph.legende : ''))}" loading="lazy" decoding="async" ${ph.image_width&&ph.image_height?'width="'+Number(ph.image_width)+'" height="'+Number(ph.image_height)+'"':''}><figcaption>${esc(ph.legende || '')} <span>© ${esc(ph.auteur || ph.credit)}, ${esc(ph.licence)}${ph.source ? ` · <a href="${esc(ph.source)}" rel="noopener">source</a>` : ''}</span></figcaption></figure>`).join('')}</div>` : ''}</div>
 <aside><section class="rule-box" style="margin-bottom:20px"><p class="tagline">MON OBSERVATOIRE</p><h2 style="margin:8px 0">Suivre cette fortune</h2><p class="small">Retrouvez ce dossier dans votre sélection, sans créer de compte.</p><button class="btn pri" type="button" data-watch-id="${esc(p.id)}" aria-pressed="false">Ajouter à ma veille</button><p class="small" data-watch-status role="status"></p><a href="${link(from,'ma-veille')}">Ouvrir ma veille personnelle →</a><p class="small" style="margin-top:12px">Sélection conservée sur cet appareil. Les notifications automatiques et la synchronisation sont en préparation.</p></section><script>(function(){const b=document.querySelector("[data-watch-id]"),s=document.querySelector("[data-watch-status]"),k="actualites.watch.v1";function read(){try{const v=JSON.parse(localStorage.getItem(k)||"[]");return Array.isArray(v)?v:[]}catch{return []}}function render(){const on=read().includes(b.dataset.watchId);b.setAttribute("aria-pressed",String(on));b.textContent=on?"Retirer de ma veille":"Ajouter à ma veille";}b.addEventListener("click",()=>{try{const a=read(),id=b.dataset.watchId,on=a.includes(id);localStorage.setItem(k,JSON.stringify(on?a.filter(x=>x!==id):[...a,id]));render();s.textContent=on?"Dossier retiré.":"Dossier ajouté à votre veille.";}catch{s.textContent="Le stockage local est indisponible."}});render()})();</script><h2>L'essentiel</h2><div class="rule-box" style="margin-bottom:16px"><p class="small" style="margin:0"><b>Documents disponibles.</b> ${esc(dossierStatus)}.</p><p class="small" style="margin:8px 0 0">${referencedChapters} chapitres documentaires · ${referencedEvents} événements datés · ${speechCount} extraits de discours enregistrés.</p></div><dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${k === 'Situation personnelle annoncée' ? v : esc(v)}</dd>`).join('')}</dl>
 <div class="rule-box" style="margin-top:16px"><p class="small" style="margin:0"><b>Données financières.</b> ${p.rank ? 'Fortune, âge, rang, entreprises et faits : <a href="https://www.forbes.com.au/news/billionaires/the-forbes-billionaires-list-top-200/" rel="noopener">Forbes, World\'s Billionaires 2026</a> (données au 1er mars 2026), textes réécrits par la rédaction.' : sourceHtml(p.srcNote) + '.'} <a href="${link(from,'contact')}?objet=correction&amp;fiche=${encodeURIComponent(p.id)}">Signaler une erreur</a></p></div></aside>
 </div></div>
@@ -453,14 +453,14 @@ const photoReviewData=P.map(person=>{
    return {url,publisher,license:ph.licence||'Droits non documentés',source:ph.source||null,
      identityVerified:ph.identity_verified===true,authorized:ph.publication_autorisee===true};
   }),
-  issues:photoReviewQueue.find(row=>row.slug===person.id)?.issues||[],
+  issues:photoReviewQueue.find(row=>row.slug===person.id)?.issues||['missing_photo'],
   google:'https://www.google.com/search?tbm=isch&q='+encodeURIComponent('"'+person.name+'" portrait'),
   linkedin:'https://www.google.com/search?q='+encodeURIComponent('"'+person.name+'" site:linkedin.com/in'),
   preferred:chosen?.src||chosen?.fichier||null
  };
 });
 const photoReviewJSON=JSON.stringify(photoReviewData).replace(/</g,'\\u003c').replace(/&/g,'\\u0026');
-const photoReviewBody=hubHead('CONTRÔLE ÉDITORIAL / PHOTOGRAPHIES','Réviser les portraits du site','207 profils, photographies candidates et recherches de sources. Les décisions restent locales tant que leur export n’est pas appliqué après vérification.')+
+const photoReviewBody=hubHead('CONTRÔLE ÉDITORIAL / PHOTOGRAPHIES','Réviser les portraits du site',P.length+' profils, photographies candidates et recherches de sources. Les décisions restent locales tant que leur export n’est pas appliqué après vérification.')+
  '<div class="band"><div class="in photo-review-page"><p class="photo-review-warning">Cet écran sert à l’évaluation éditoriale. Charger une image ou sélectionner un meilleur cadrage ne vérifie ni l’identité de la personne ni les droits de republication. L’export des choix n’actualise pas automatiquement la production.</p>'+
  '<div class="photo-review-controls"><label>Rechercher une personne<input id="photoQuery" type="search" placeholder="Nom, entreprise ou source"></label><label>État du contrôle<select id="photoStatusFilter"><option value="all">Toutes les fiches</option><option value="pending">À contrôler</option><option value="acceptable">Cadrage correct</option><option value="replace">Photo à remplacer</option><option value="wrong_identity">Identité douteuse</option></select></label><button id="photoReviewExport" type="button">Exporter les décisions JSON</button></div>'+
  '<p id="photoAutoStatus" role="status">Collecte automatique des photographies : vérification du service…</p><p id="photoReviewCount" role="status"></p><div id="photoReviewGrid" class="photo-review-grid"></div><button id="photoReviewMore" type="button">Afficher 24 fiches supplémentaires</button>'+
@@ -495,7 +495,7 @@ const G=graph(P);
 fs.writeFileSync(path.join(OUT,'data/knowledge-graph.json'),JSON.stringify(G));
 fs.writeFileSync(path.join(OUT,'data/research-status.json'),JSON.stringify({sources:sources.length,people:P.length,companies:G.nodes.filter(n=>n.type==='company').length,associations:G.edges.length,events:G.events.length,observations:observations.length,candidates:candidates.length,collection:'manual',rankingGrowthAvailable:false}));
  fs.writeFileSync(path.join(OUT,'data/research-backlog.json'),JSON.stringify(researchBacklog));
-fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({...photoAudit(PHOTOS),generatedAt:new Date().toISOString()}));
+fs.writeFileSync(path.join(OUT,'data/photo-audit.json'),JSON.stringify({totalProfiles:P.length,candidateProfiles:P.filter(p=>Array.isArray(PHOTOS[p.id])&&PHOTOS[p.id].length).length,publicationApprovedProfiles:P.filter(p=>publicPortrait(PHOTOS[p.id])).length,publicationApprovedPhotos:P.reduce((n,p)=>n+publicPhotos(PHOTOS[p.id]).length,0),profilesWithoutApprovedPortrait:P.filter(p=>!publicPortrait(PHOTOS[p.id])).length,technicalLoadStatus:'not_tested',generatedAt:new Date().toISOString()}));
  fs.writeFileSync(path.join(OUT,'data/biography-research-coverage.json'),JSON.stringify({totalProfiles:P.length,researchedProfiles:researchQuality.profiles,researchedSections:researchQuality.sections,researchedEvents:researchQuality.events,distinctSourceUrls:researchQuality.uniqueSourceUrls,updatedAt:researchData.updatedAt,method:'Editorial records with direct source links; not automatically corroborated'}));
 
  // ---------- Fortunes invisibles : catalogue documentaire distinct du classement Forbes ----------
