@@ -49,3 +49,12 @@ export function photoAudit(data){
   protectedSources: selected.filter(x=>x.photo&&/droits réservés|non renseignée/i.test(x.photo.licence||'')).length,
   noPortrait:selected.filter(x=>!x.photo).map(x=>x.id),reviewQueue:photoReviewQueue(data)};
 }
+
+ // Separate display from candidate review. Explicit approvals always require a source.
+ export function publicationEligible(p){
+  if(!hasPhoto(p)||!p.source||!p.credit&&!p.auteur||p.identity_verified===false||p.publication_autorisee===false)return false;
+  return p.identity_verified===true&&p.publication_autorisee===true;
+ }
+ export function publicPhotos(entries){return Array.isArray(entries)?entries.filter(publicationEligible):[]}
+ export function publicPortrait(entries){return pickPortrait(publicPhotos(entries))}
+ export function publicPortraitCandidates(entries){return portraitCandidates(publicPhotos(entries))}
