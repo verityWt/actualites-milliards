@@ -69,7 +69,17 @@
       "licence": "CC BY 4.0",
       "licence_url": "https://creativecommons.org/licenses/by/4.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Elon_Musk_-_March_28,_2024.jpg",
-      "legende": "Elon Musk lors d’une conférence à Big Sky, le 28 mars 2024."
+      "legende": "Elon Musk lors d’une conférence à Big Sky, le 28 mars 2024.",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-28",
+      "image_width": 1920,
+      "image_height": 2560,
+      "dimension_source": "Commons declared thumbnail dimensions; not measured",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 90
     },
     {
       "type": "portrait",
@@ -101,7 +111,17 @@
       "licence": "CC BY 2.0",
       "licence_url": "https://creativecommons.org/licenses/by/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Jeff_Bezos%27_iconic_laugh.jpg",
-      "legende": "Jeff Bezos aux ENCORE Awards, le 27 octobre 2010 (archive)."
+      "legende": "Jeff Bezos aux ENCORE Awards, le 27 octobre 2010 (archive).",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-28",
+      "image_width": 1920,
+      "image_height": 2214,
+      "dimension_source": "Commons declared thumbnail dimensions; not measured",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 90
     },
     {
       "type": "portrait",
@@ -138,12 +158,22 @@
     {
       "type": "portrait",
       "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Jim_Walton.jpg/1920px-Jim_Walton.jpg",
-      "credit": "Walmart Corporate",
-      "auteur": "Walmart Corporate",
+      "credit": "Wesley Hitt / Walmart Corporate",
+      "auteur": "Wesley Hitt / Walmart Corporate",
       "licence": "CC BY 2.0",
       "licence_url": "https://creativecommons.org/licenses/by/2.0/",
       "source": "https://commons.wikimedia.org/wiki/File:Jim_Walton.jpg",
-      "legende": "Jim Walton, le 2 juin 2011 (archive)."
+      "legende": "Jim Walton, le 2 juin 2011 (archive).",
+      "identity_verified": true,
+      "identity_verification_method": "documentary_source_caption_only",
+      "source_verified": true,
+      "publication_autorisee": true,
+      "verification_date": "2026-11-28",
+      "image_width": 1920,
+      "image_height": 2880,
+      "dimension_source": "Commons declared thumbnail dimensions; not measured",
+      "technical_load_status": "not_tested",
+      "editorial_priority": 90
     }
   ],
   "jensen-huang": [
